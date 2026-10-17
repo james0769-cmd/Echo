@@ -1,0 +1,43 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv
+
+# Secrets (LLM API keys, etc.)
+.env
+.env.*
+!.env.example
+
+# Model cache (FunASR / ModelScope, ~2.8 GB, re-downloaded on first run)
+.cache/
+
+# Audio: never commit recordings (consent covers local use only)
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+*.aac
+*.opus
+*.webm
+*.mp4
+
+# Private recordings and everything derived from them
+# (transcripts, manual corrections, annotations) stay local
+data/private/
+
+# ASR cache: full transcripts, regenerated from audio by src/echotrace/asr.py
+data/cache/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+.claude/settings.local.json

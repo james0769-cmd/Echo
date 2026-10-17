@@ -1,0 +1,23 @@
+[project]
+name = "echotrace"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "james0769-cmd", email = "jame.lee0769@icloud.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "funasr>=1.4.16",
+    "jiwer>=4.0.0",
+    "modelscope>=1.40.2",
+    "torch>=2.14.1",
+    "torchaudio>=2.11.0",
+]
+
+[project.scripts]
+echotrace = "echotrace:main"
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.0"]
+build-backend = "uv_build"
