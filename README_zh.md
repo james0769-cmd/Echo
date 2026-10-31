@@ -2,7 +2,7 @@
 
 带时间戳证据的录音纪要助手
 
-[English](README.en.md) · 中文
+[English](README.md) · 中文
 
 ## 环境
 
@@ -34,12 +34,22 @@ uv run python scripts/eval_cer.py
 
 结果写入 `results/alimeeting_cer.csv`。转写缓存在 `data/cache/asr/`。
 
+**3. 导出校对稿**
+
+```bash
+uv run python scripts/export_transcript.py data/private/audio
+```
+
+把 ASR 初稿导出为每行一句、带时间段的文本（默认写到 `data/private/corrected/`），人工边听边改文字，改完即为人工修正版。原始转写仍保留在缓存里不动；已存在的校对稿默认跳过，不会被覆盖。
+
 ## 目录
 
 ```
 src/echotrace/asr.py              本地转写 + 缓存
+src/echotrace/transcript.py       校对稿格式读写
 scripts/make_alimeeting_clips.py  从 AliMeeting 切片段
 scripts/eval_cer.py               CER 评测
+scripts/export_transcript.py      导出校对稿
 data/public/                      公开数据集（音频不入库）
 data/private/                     私有录音及其转写、标注（整个目录不入库）
 data/cache/                       ASR 缓存（不入库）

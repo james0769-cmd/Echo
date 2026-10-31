@@ -2,7 +2,7 @@
 
 Meeting notes from recordings, with timestamped evidence.
 
-English · [中文](README.md)
+English · [中文](README_zh.md)
 
 ## Requirements
 
@@ -34,12 +34,22 @@ uv run python scripts/eval_cer.py
 
 Results are written to `results/alimeeting_cer.csv`. Transcripts are cached in `data/cache/asr/`.
 
+**3. Export drafts for manual correction**
+
+```bash
+uv run python scripts/export_transcript.py data/private/audio
+```
+
+Exports the ASR draft as one sentence per line with its time span (default: `data/private/corrected/`). Correct the text while listening; the edited file becomes the human-corrected transcript. The raw transcript stays untouched in the cache, and existing drafts are skipped rather than overwritten.
+
 ## Layout
 
 ```
 src/echotrace/asr.py              local transcription + caching
+src/echotrace/transcript.py       read/write the correction format
 scripts/make_alimeeting_clips.py  cut clips from AliMeeting
 scripts/eval_cer.py               CER evaluation
+scripts/export_transcript.py      export drafts for correction
 data/public/                      public datasets (audio not committed)
 data/private/                     private recordings, transcripts, annotations (whole directory not committed)
 data/cache/                       ASR cache (not committed)
