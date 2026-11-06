@@ -26,6 +26,8 @@ uv run python scripts/make_alimeeting_clips.py --src ~/Eval_Ali/Eval_Ali_near
 
 Output goes to `data/public/alimeeting/`: `clips/` audio, `ref/` human transcripts, and `manifest.csv` with the source of each clip.
 
+`facts/` holds the group's hand-built fact table (decisions, action items and open questions, each with its quote and time span), built from `ref/` and used as the gold standard for evaluating minutes. The labelling rules are in the `rules` field of `fact_table.json`; `review_queue.md` lists entries that still need listening.
+
 **2. Transcribe and compute CER**
 
 ```bash
@@ -51,6 +53,7 @@ scripts/make_alimeeting_clips.py  cut clips from AliMeeting
 scripts/eval_cer.py               CER evaluation
 scripts/export_transcript.py      export drafts for correction
 data/public/                      public datasets (audio not committed)
+data/public/alimeeting/facts/     hand-built fact table (evaluation gold standard)
 data/private/                     private recordings, transcripts, annotations (whole directory not committed)
 data/cache/                       ASR cache (not committed)
 results/                          evaluation results

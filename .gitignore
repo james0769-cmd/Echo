@@ -29,6 +29,9 @@ wheels/
 *.webm
 *.mp4
 
+# Archives: may bundle audio (e.g. data/public/alimeeting.zip)
+*.zip
+
 # Private recordings and everything derived from them
 # (transcripts, manual corrections, annotations) stay local
 data/private/

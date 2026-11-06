@@ -26,6 +26,8 @@ uv run python scripts/make_alimeeting_clips.py --src ~/Eval_Ali/Eval_Ali_near
 
 输出到 `data/public/alimeeting/`：`clips/` 音频、`ref/` 人工转写、`manifest.csv` 片段来源。
 
+`facts/` 是小组按 `ref/` 人工整理的事实表（决定、待办、待确认，附原话和时间段），作为纪要评测的标准答案；判定规则写在 `fact_table.json` 的 `rules` 里，`review_queue.md` 列出仍需回听的条目。
+
 **2. 转写并计算 CER**
 
 ```bash
@@ -51,6 +53,7 @@ scripts/make_alimeeting_clips.py  从 AliMeeting 切片段
 scripts/eval_cer.py               CER 评测
 scripts/export_transcript.py      导出校对稿
 data/public/                      公开数据集（音频不入库）
+data/public/alimeeting/facts/     人工事实表（评测标准答案）
 data/private/                     私有录音及其转写、标注（整个目录不入库）
 data/cache/                       ASR 缓存（不入库）
 results/                          评测结果
