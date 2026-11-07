@@ -7,6 +7,7 @@
 import hashlib
 import json
 import os
+import re
 import time
 import wave
 from pathlib import Path
@@ -61,13 +62,59 @@ def _duration(audio_path: Path) -> float:
         return w.getnframes() / w.getframerate()
 
 
+# 一个时间戳对应一个 token：汉字逐字，连续的英文字母/数字算一个
+_TOKEN_RE = re.compile(r"[A-Za-z0-9']+|[^\W\d_A-Za-z]")
+_SENT_END = set("，。？！；,.?!;")
+
+
+def sentences_from_raw(raw: dict) -> list[dict]:
+    """用 FunASR 的全文 text 和逐 token 时间戳自己切句，时间单位秒。
+
+    不用 FunASR 的 sentence_info：实测它在长音频里会把文字和时间戳错位
+    （clip03 中"老师呢这一天"逐字时间戳是 172.5s，sentence_info 却标成 164.9s 且吞掉了"老"字，
+    越往后偏得越多，最多约 12 秒）。逐字时间戳本身与人工转写对得上。
+    """
+    text, ts = raw.get("text", ""), raw.get("timestamp") or []
+    tokens = list(_TOKEN_RE.finditer(text))
+    if len(tokens) != len(ts):
+        raise ValueError(f"token 数 {len(tokens)} 与时间戳数 {len(ts)} 不一致，无法对齐")
+    sentences, buf, first, last, k = [], "", None, None, 0
+    pos = 0
+    for m in tokens:
+        buf += text[pos : m.end()]
+        pos = m.end()
+        if first is None:
+            first = ts[k][0]
+        last = ts[k][1]
+        k += 1
+        # 把紧跟在 token 后的标点并进当前句，遇到断句标点就收句
+        j = pos
+        while j < len(text) and not _TOKEN_RE.match(text, j) and text[j] not in " \t\n":
+            j += 1
+        tail = text[pos:j]
+        if tail and any(c in _SENT_END for c in tail):
+            buf += tail
+            pos = j
+            sentences.append({"start": first / 1000, "end": last / 1000, "text": buf.strip()})
+            buf, first = "", None
+    buf += text[pos:]
+    if first is not None and buf.strip():
+        sentences.append({"start": first / 1000, "end": last / 1000, "text": buf.strip()})
+    return sentences
+
+
 def transcribe(audio_path, use_cache: bool = True) -> dict:
-    """返回 {audio, duration, elapsed, rtf, text, sentences, raw}，时间单位秒。"""
+    """返回 {audio, duration, elapsed, rtf, text, sentences, raw}，时间单位秒。
+
+    sentences 每次都由缓存里的原始输出（raw）重新切出，见 sentences_from_raw。
+    """
     audio_path = Path(audio_path)
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     cache_file = CACHE_DIR / f"{audio_path.stem}_{_cache_key(audio_path)}.json"
     if use_cache and cache_file.exists():
-        return json.loads(cache_file.read_text(encoding="utf-8"))
+        result = json.loads(cache_file.read_text(encoding="utf-8"))
+        result["sentences"] = sentences_from_raw(result["raw"])
+        return result
 
     model = _get_model()
     t0 = time.perf_counter()
@@ -75,10 +122,7 @@ def transcribe(audio_path, use_cache: bool = True) -> dict:
     elapsed = time.perf_counter() - t0
 
     duration = _duration(audio_path)
-    sentences = [
-        {"start": s["start"] / 1000, "end": s["end"] / 1000, "text": s["text"]}
-        for s in raw.get("sentence_info", [])
-    ]
+    sentences = sentences_from_raw(raw)
     result = {
         "audio": str(audio_path),
         "model_config": MODEL_CONFIG,

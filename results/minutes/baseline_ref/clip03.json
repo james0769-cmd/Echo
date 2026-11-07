@@ -1,0 +1,172 @@
+{
+ "method": "baseline",
+ "model": "deepseek-flash",
+ "params": {},
+ "items": [
+  {
+   "topic": "礼物选择",
+   "type": "待确认",
+   "content": "可考虑保温杯、提神补脑零食等作为教师节礼物",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S001",
+    "S002"
+   ],
+   "evidence_start": 0.0,
+   "evidence_end": 13.18,
+   "evidence_text": "比方说保温杯啊，或者是，提提神补脑的，比方说三只松鼠这种零食。",
+   "speaker": "SPK8002/SPK8004",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "小型按摩礼物",
+   "type": "待确认",
+   "content": "可考虑小型按摩类礼物，预算约一两百元",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S003",
+    "S004"
+   ],
+   "evidence_start": 13.55,
+   "evidence_end": 22.09,
+   "evidence_text": "像小型的按摩的这方面的，不用特别大就很小，就一百一百一一两百块钱。",
+   "speaker": "SPK8002/SPK8004",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "家长代送",
+   "type": "待确认",
+   "content": "礼物可由家长代送，避免孩子拿到学校太明显",
+   "responsible": "家长",
+   "deadline": "未知",
+   "raw_responsible": "家长",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S005",
+    "S006"
+   ],
+   "evidence_start": 22.09,
+   "evidence_end": 30.62,
+   "evidence_text": "我觉得可以由家长来去送，如果孩子有点太，太明显了，如果拿到学校就有点儿太明显了。",
+   "speaker": "SPK8002/SPK8004",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "低年级送礼方式",
+   "type": "待确认",
+   "content": "一二年级可由家长代送并做贺卡，不能因此不送",
+   "responsible": "家长",
+   "deadline": "未知",
+   "raw_responsible": "家长",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S007",
+    "S010",
+    "S011",
+    "S012"
+   ],
+   "evidence_start": 43.15,
+   "evidence_end": 53.96,
+   "evidence_text": "那就由由由家长来代去送，做一贺卡这种的就可以，但也不能说我上一二年级，我不送了这。",
+   "speaker": "SPK8001/SPK8002/SPK8004",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "高年级送礼参与度",
+   "type": "待确认",
+   "content": "四五年级多让孩子参与、家长少参与，形成平衡",
+   "responsible": "孩子、家长",
+   "deadline": "未知",
+   "raw_responsible": "孩子、家长",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S022"
+   ],
+   "evidence_start": 96.71,
+   "evidence_end": 109.72,
+   "evidence_text": "那么这个阶段让孩子去，多一些家长少一些，达到这种天平互补，平衡的这种效果。",
+   "speaker": "SPK8004",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "征求孩子意见",
+   "type": "决定",
+   "content": "教师节送礼前家长必须征求孩子意见",
+   "responsible": "家长",
+   "deadline": "未知",
+   "raw_responsible": "家长",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S029",
+    "S031",
+    "S032",
+    "S033"
+   ],
+   "evidence_start": 138.77,
+   "evidence_end": 143.44,
+   "evidence_text": "咱们也得征求孩子的意见老师家长必须要征求孩子意见。",
+   "speaker": "SPK8002/SPK8001/SPK8004",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "礼物建议方式",
+   "type": "待确认",
+   "content": "家长提供几选一建议，如颈部按摩仪、眼部按摩仪或护眼台灯",
+   "responsible": "家长",
+   "deadline": "未知",
+   "raw_responsible": "家长",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S044",
+    "S045",
+    "S046"
+   ],
+   "evidence_start": 183.91,
+   "evidence_end": 194.15,
+   "evidence_text": "就让家长还是有一些靠谱的提议，提示是吧，就是几几选一，比如说是刚才讲的有什么颈部按摩仪啊，眼部按摩仪或者是护眼台灯。",
+   "speaker": "SPK8001/SPK8003",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "其他礼物建议",
+   "type": "待确认",
+   "content": "可考虑防止静脉曲张的小型护具等礼物",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S047",
+    "S048"
+   ],
+   "evidence_start": 194.86,
+   "evidence_end": 199.27,
+   "evidence_text": "包括一些防止静脉曲张的这种这种小的护具啊之类的。",
+   "speaker": "SPK8004/SPK8003",
+   "flags": [],
+   "id": "m08"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 1,
+ "usage": {
+  "prompt_tokens": 1234,
+  "completion_tokens": 6486
+ },
+ "elapsed": 30.54,
+ "clip": "clip03",
+ "source": "ref"
+}

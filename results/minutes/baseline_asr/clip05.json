@@ -1,0 +1,174 @@
+{
+ "method": "baseline",
+ "model": "deepseek-flash",
+ "params": {},
+ "items": [
+  {
+   "topic": "办公选址范围",
+   "type": "决定",
+   "content": "敲定办公选址的大概范围在东三环和东四环之间，往北可以，大家认为该范围可以。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S032",
+    "S033",
+    "S034",
+    "S035"
+   ],
+   "evidence_start": 55.73,
+   "evidence_end": 68.6,
+   "evidence_text": "那我们现在就是先敲定一下，就是各个负环路方方是嗯在东三环和东四环之间间以呢，这往往北往北可以可以可以可以，就是大家觉得这个可以嗯",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "群内征求员工意见",
+   "type": "待办",
+   "content": "把选址事情在群里跟其他员工商量，并把这条记下来，待大家通过。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S049",
+    "S050",
+    "S051",
+    "S052"
+   ],
+   "evidence_start": 87.97,
+   "evidence_end": 98.66,
+   "evidence_text": "那大家可以把这个事情就是说在那个群里边跟就是其他的员工去商量一下，对你把这条儿记下来。完了大伙儿出的那啥的，大伙儿再一通过不就ok了吗？",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "各部门空间需求",
+   "type": "待确认",
+   "content": "各部门对空间大小有什么要求尚未明确，需要看大家意见。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S092",
+    "S093",
+    "S094"
+   ],
+   "evidence_start": 161.67,
+   "evidence_end": 167.83,
+   "evidence_text": "然后三看看大伙儿有什么有啥意见没有，就各部门的对空间大小，不知道有什么要求",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "工位数量",
+   "type": "决定",
+   "content": "暂定先约五十个工位，并报给领导。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S104",
+    "S105",
+    "S106",
+    "S107"
+   ],
+   "evidence_start": 180.34,
+   "evidence_end": 188.32,
+   "evidence_text": "就是那就先咱们暂定，然后到报报给领导的话，就是暂定先五十个工位吧。五十个左右的五十个工位的有",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "办公室数量",
+   "type": "待确认",
+   "content": "目前是四个小办公室，若加上招聘的几个部门，估计要四到五个，五个六个都行，尚未最终确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S137",
+    "S138",
+    "S139",
+    "S140"
+   ],
+   "evidence_start": 244.16,
+   "evidence_end": 251.715,
+   "evidence_text": "如果加上到时候招聘的几个部门的话，估计得四到五个，四到五个呃，就是说五个五个六个都行。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "考察写字楼",
+   "type": "待办",
+   "content": "去东边先考察，挑几个写字楼出来，再综合比较并报给领导。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [],
+   "evidence_start": null,
+   "evidence_end": null,
+   "evidence_text": "咱们就第一个人去去那什么呗，去那个去去那边先考察一下，就是先挑几个楼，挑几个写字楼出来。对，完了之后呢，我们再综合比较一下，再报给领导呗。",
+   "speaker": "",
+   "flags": [
+    "原话只在转写中找到 0/1 段"
+   ],
+   "id": "m06"
+  },
+  {
+   "topic": "会议室配置",
+   "type": "待确认",
+   "content": "倾向小会议室多些、大会议室一间，并希望有能容纳所有人开会的会议室，具体待考察后按实际情况再定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [],
+   "evidence_start": null,
+   "evidence_end": null,
+   "evidence_text": "我觉得会议室其实可以小会议室多点儿，大会议室有一间就够了。对，呃，到时候开会的话，会议室有两个会议室室，觉得大概有就是所有人都容纳那种会议室是吧？那就类似一间教室那么大啊，那有点间教室的一间教室，那个就看着定吧。因为咱们本人不去考察嘛。",
+   "speaker": "",
+   "flags": [
+    "原话只在转写中找到 0/1 段"
+   ],
+   "id": "m07"
+  },
+  {
+   "topic": "部门办公室归纳",
+   "type": "待办",
+   "content": "按部门把办公室归纳好、选择好，避免到时候空置。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [],
+   "evidence_start": null,
+   "evidence_end": null,
+   "evidence_text": "然后就是说办公室的问题，办公室办公室就一一共在就这么咱们几个部门，每个部门你都把这几个部门就是归纳好。现在现在是四个吧，嗯四个小办公室。对，四个小办公室主要备弄好，选择好，别那个到时候空。",
+   "speaker": "",
+   "flags": [
+    "原话只在转写中找到 0/1 段"
+   ],
+   "id": "m08"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 1,
+ "usage": {
+  "prompt_tokens": 1303,
+  "completion_tokens": 4542
+ },
+ "elapsed": 21.28,
+ "clip": "clip05",
+ "source": "asr"
+}

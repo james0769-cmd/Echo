@@ -1,0 +1,142 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "教师节礼物选择",
+   "type": "待确认",
+   "content": "提议可选保温杯、提神补脑的零食、小型按摩器等一百到两百元左右的礼物。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S006",
+    "S007",
+    "S009",
+    "S013"
+   ],
+   "evidence_start": 7.17,
+   "evidence_end": 21.93,
+   "evidence_text": "比方说保温杯呀或者是提提神补脑的。；比方说像这种松鼠这种零食，；然后还有像小型的、按摩的，；就一百一百一一两百块钱。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "送礼方式",
+   "type": "待确认",
+   "content": "提议礼物由家长来送，避免孩子拿到学校太明显。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S015",
+    "S016",
+    "S017"
+   ],
+   "evidence_start": 23.31,
+   "evidence_end": 30.63,
+   "evidence_text": "我觉得可以由家长来去送。；如果孩子有点太太明显，；如果拿到学校就有点太明显了。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "送礼方式",
+   "type": "待确认",
+   "content": "提议一二年级学生不必单独送礼，由家长带着送贺卡表示对老师的尊重。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S022",
+    "S023",
+    "S024"
+   ],
+   "evidence_start": 44.93,
+   "evidence_end": 52.99,
+   "evidence_text": "我觉得上一二小级的那种的那就由由由家长来带去送，；做一贺卡这种的就可以。；但是你不能说我上一二年级，",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "教师节礼物征求孩子意见",
+   "type": "待确认",
+   "content": "建议家长问问孩子想送老师什么礼物，从孩子视角出发，同时家长给建议、最终让孩子决定，做到家长与孩子意见平衡",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S043",
+    "S044",
+    "S046",
+    "S047"
+   ],
+   "evidence_start": 110.08,
+   "evidence_end": 122.675,
+   "evidence_text": "我觉得家长也可以就是问问问孩子，；你打算要要送老师什么，；就是从孩子从孩子的眼里出发，；我想送老师什么礼物。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "教师节礼物选择",
+   "type": "待确认",
+   "content": "建议考虑送护眼灯这类关心老师的实用礼物，在教师节恰如其分，也不会让老师不适",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S063",
+    "S064",
+    "S067",
+    "S068"
+   ],
+   "evidence_start": 156.33,
+   "evidence_end": 171.535,
+   "evidence_text": "护眼灯啊，；现在这这几年比较流行护眼灯啊，；然后在这个教师节也是非常恰如其分啊啊，；然后也不会让老师有一些不适。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "教师节礼物选择",
+   "type": "待确认",
+   "content": "提出按几选一的方式准备教师节礼物（颈部按摩仪、眼部按摩仪、护眼台灯、防静脉曲张护具等），并让孩子帮忙参考，目前无人最终决定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S077",
+    "S078",
+    "S081",
+    "S083"
+   ],
+   "evidence_start": 188.68,
+   "evidence_end": 207.58,
+   "evidence_text": "就是几选一，；比如说是刚才讲的有什么颈部按摩仪啊，；然后到时候让孩子给参考，；对，",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 2883,
+  "completion_tokens": 4049
+ },
+ "elapsed": 22.73,
+ "clip": "clip03",
+ "source": "asr"
+}

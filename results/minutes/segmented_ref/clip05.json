@@ -1,0 +1,199 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "新办公地点",
+   "type": "决定",
+   "content": "敲定新办公地点选在东三环与东四环之间、偏北一点的位置，大家表示可以。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S043",
+    "S044",
+    "S045",
+    "S046"
+   ],
+   "evidence_start": 55.75,
+   "evidence_end": 68.38,
+   "evidence_text": "那我们现在就是先敲定一下，就是各个负责人来说，这个在东三环和东四环之间，然后呢这往往北一点儿这块儿，就是大家觉得这个可以不可以。；东三环和四环之间，可以，可以可以。可以可以，对。；可以，嗯。；可以可以可以。",
+   "speaker": "SPK8056/SPK8054/SPK8055/SPK8050",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "新办公地点",
+   "type": "待办",
+   "content": "在群里与其他员工商量新办公地点事宜。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S063"
+   ],
+   "evidence_start": 87.93,
+   "evidence_end": 95.3,
+   "evidence_text": "那大家可以把这个事情就是说，在那个群里面跟就是其他的员工去商量一下，说这个新地点。",
+   "speaker": "SPK8056",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "新办公地点",
+   "type": "待办",
+   "content": "安排人员去考察并挑几个写字楼，综合比较后再报给领导。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S071",
+    "S083"
+   ],
+   "evidence_start": 98.44,
+   "evidence_end": 118.56,
+   "evidence_text": "咱们就定一个人去去那什么呗，去那个去去那边先考察一下，就是先挑几个楼，挑几个写字楼出来，完了之后呢，我们在综合比较一下再报给领导呗。；就是我们讨论的这个范围，大家后边儿会有人去安排去那边儿调查，然后呢。",
+   "speaker": "SPK8055/SPK8056",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "新办公地点",
+   "type": "决定",
+   "content": "办公新址大致范围敲定为东边、三环以里。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S088",
+    "S092",
+    "S093",
+    "S098"
+   ],
+   "evidence_start": 121.49,
+   "evidence_end": 142.59,
+   "evidence_text": "东边儿东边儿行，东边儿交通方便。；交通特别方便，对对对，地铁嘛特别快，要三环以里吧，那公交车特别堵，哦。；对三环以里。；嗯，敲定对，这个就可以，告一段落，嗯。",
+   "speaker": "SPK8050/SPK8054",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "空间大小需求",
+   "type": "待确认",
+   "content": "各部门对空间大小的要求还需收集确认。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S114",
+    "S115",
+    "S116"
+   ],
+   "evidence_start": 162.4,
+   "evidence_end": 168.48,
+   "evidence_text": "看看大伙儿有啥有啥意见没有嗯。；那得看看空间大小都得瞅，嗯。；就各部门儿的对空间的大小不知道有什么要求就是说。",
+   "speaker": "SPK8050/SPK8054/SPK8056",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "工位数量",
+   "type": "待确认",
+   "content": "工位数量暂定先按五十个左右，报领导确认。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S121",
+    "S124",
+    "S126"
+   ],
+   "evidence_start": 170.69,
+   "evidence_end": 186.99,
+   "evidence_text": "再招人至少得十几个，咱们得预备着，得五十个左右我估计，工位啊啊。；嗯，觉得就是工位的话大概要那么多是吧，就是那就先咱们暂定，然后到报报给领导的话，就是暂定先要五十个左右的工位是吧？；嗯，对对对。",
+   "speaker": "SPK8055/SPK8056/SPK8054",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "工位数量",
+   "type": "决定",
+   "content": "工位数量确定为五十个",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S130",
+    "S132",
+    "S133"
+   ],
+   "evidence_start": 184.61,
+   "evidence_end": 189.01,
+   "evidence_text": "五十个工位吧，啊对差不多。；对五十个工位嗯。；对对对，五十个的有，完了那个。",
+   "speaker": "SPK8055/SPK8050/SPK8054",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "会议室配置",
+   "type": "待确认",
+   "content": "倾向大会议室一间、小会议室两间，具体待考察后按实际情况再定",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S145",
+    "S147",
+    "S152",
+    "S155"
+   ],
+   "evidence_start": 197.2,
+   "evidence_end": 219.32,
+   "evidence_text": "大会议室有一个就够。；小小小会议室有俩就够。；就是那个，就看着定吧，因为咱们本人不去考察吗？考察，大伙儿就是，嗯，考察是，对对，跟着他们实际情况，咱们互相。；啊对先考察。",
+   "speaker": "SPK8050/SPK8054",
+   "flags": [],
+   "id": "m08"
+  },
+  {
+   "topic": "办公室/部门规划",
+   "type": "待办",
+   "content": "把各部门归纳、选择好，避免空间不够；现有四个小办公室，招聘后可能需四到五个",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S169",
+    "S171",
+    "S175",
+    "S177"
+   ],
+   "evidence_start": 232.54,
+   "evidence_end": 249.91,
+   "evidence_text": "几个部门，你都把这几个部门就是归纳好选择好，嗯。；现在咱们现在是四个吧，四个小办公室。；归纳好，选择好，别那个，到时候，空间不够了，这不就是有点。；如果加上到时候招聘的几个部门的话，估计得四到五个四到五个啊。",
+   "speaker": "SPK8054/SPK8055",
+   "flags": [],
+   "id": "m09"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 4088,
+  "completion_tokens": 13513
+ },
+ "elapsed": 73.15,
+ "clip": "clip05",
+ "source": "ref"
+}

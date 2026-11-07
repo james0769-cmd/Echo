@@ -44,18 +44,46 @@ uv run python scripts/export_transcript.py data/private/audio
 
 把 ASR 初稿导出为每行一句、带时间段的文本（默认写到 `data/private/corrected/`），人工边听边改文字，改完即为人工修正版。原始转写仍保留在缓存里不动；已存在的校对稿默认跳过，不会被覆盖。
 
+**4. 生成纪要**
+
+文本处理用 DeepSeek API，在项目根目录的 `.env` 里写 `DEEPSEEK_API_KEY=...`（`.env` 不入库）。
+
+```bash
+uv run python scripts/run_minutes.py --method segmented --source asr --split dev
+```
+
+- `--method segmented`：转写切成约 90 秒的块，句子编号后交给模型，模型只返回句子编号，时间段由程序按编号取；负责人、截止日期在原话里找不到的，程序改回"未知"并在纪要里提示。
+- `--method baseline`：对照组，整段转写直接交给模型摘要，模型自己摘抄原话，程序再回转写里查找。
+- `--source asr|ref`：用 ASR 转写或人工转写跑同一流程，用来区分识别错误和整理错误。
+- `--split dev|test|all`：开发集 clip01–05，测试集 clip06–10；调提示词只看开发集。
+
+输出 `results/minutes/{方案}_{来源}/clipNN.{json,md}`。API 返回按请求内容缓存在 `data/cache/llm/`，重跑不重复调用。
+
+**5. 评测纪要**
+
+```bash
+uv run python scripts/eval_minutes.py segmented_asr segmented_ref baseline_asr baseline_ref --split dev
+```
+
+对照 `facts/fact_table.json` 统计精确率、召回率、类型一致、遗漏、虚构负责人/截止日期、证据时间段是否覆盖原话。条目对齐由 DeepSeek 判断，对齐明细在 `results/eval/{run}_{split}.json`，需要人工抽查；汇总表 `results/eval/summary_{split}.md`。
+
 ## 目录
 
 ```
 src/echotrace/asr.py              本地转写 + 缓存
 src/echotrace/transcript.py       校对稿格式读写
+src/echotrace/llm.py              DeepSeek 调用 + 缓存
+src/echotrace/minutes.py          纪要生成（分段证据方案 / 直接摘要基线）
+src/echotrace/evidence.py         在转写里定位原话的时间段
 scripts/make_alimeeting_clips.py  从 AliMeeting 切片段
 scripts/eval_cer.py               CER 评测
 scripts/export_transcript.py      导出校对稿
+scripts/run_minutes.py            生成纪要
+scripts/eval_minutes.py           纪要评测
 data/public/                      公开数据集（音频不入库）
 data/public/alimeeting/facts/     人工事实表（评测标准答案）
 data/private/                     私有录音及其转写、标注（整个目录不入库）
-data/cache/                       ASR 缓存（不入库）
+data/cache/                       ASR 与 LLM 缓存（不入库）
 results/                          评测结果
 ```
 

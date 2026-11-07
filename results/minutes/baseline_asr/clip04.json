@@ -1,0 +1,80 @@
+{
+ "method": "baseline",
+ "model": "deepseek-flash",
+ "params": {},
+ "items": [
+  {
+   "topic": "购物卡送礼",
+   "type": "待确认",
+   "content": "有人提议办购物卡，教师节当天由孩子带给老师，未形成决定。",
+   "responsible": "未知",
+   "deadline": "教师节那天，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "教师节那天，具体日期未知",
+   "evidence_ids": [
+    "S037",
+    "S038"
+   ],
+   "evidence_start": 98.75,
+   "evidence_end": 105.67,
+   "evidence_text": "然后呢，教师节那天由孩子带过去间啊，我过去直接塞给老师啊。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "教师节送礼方式",
+   "type": "待确认",
+   "content": "讨论是否不在学校送、改为送到老师家里，未形成最终决定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S065",
+    "S066"
+   ],
+   "evidence_start": 160.86,
+   "evidence_end": 166.985,
+   "evidence_text": "所以呢我觉得学校送不太合适，咱们就大方向往家里送。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "向王老师要家庭地址",
+   "type": "待确认",
+   "content": "有人提议向王老师要地址以便送到家，但有人表示涉及隐私不会提供，是否要地址未定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S081",
+    "S082",
+    "S083",
+    "S084",
+    "S085",
+    "S086",
+    "S087",
+    "S088",
+    "S089"
+   ],
+   "evidence_start": 208.43,
+   "evidence_end": 226.85,
+   "evidence_text": "我觉得给王老师要地址，一般的性就是几率性还是比较大的对；但是这个如果说换做是我，反正我肯定不提供，因为这涉及隐私了。",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 1,
+ "usage": {
+  "prompt_tokens": 1063,
+  "completion_tokens": 2602
+ },
+ "elapsed": 13.29,
+ "clip": "clip04",
+ "source": "asr"
+}
