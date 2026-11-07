@@ -6,30 +6,37 @@
   {
    "topic": "机型定位",
    "type": "决定",
-   "content": "机型主推年轻化。",
+   "content": "手机机型主推年轻化，面向年轻人群。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S055",
+    "S056",
+    "S057",
+    "S058",
+    "S059",
+    "S060",
+    "S061",
     "S062",
     "S063"
    ],
-   "evidence_start": 136.97,
+   "evidence_start": 127.4,
    "evidence_end": 140.945,
-   "evidence_text": "咱们机型儿我觉得还是适应比较年轻，一年轻化一点的，我走。",
+   "evidence_text": "咱们主端主推是年轻年轻化这一块吧，年轻人一块是吧？……对对对，咱们机型儿我觉得还是适应比较年轻，一年轻化一点的",
    "speaker": "",
    "flags": [],
    "id": "m01"
   },
   {
-   "topic": "配色方案",
+   "topic": "目标年龄与颜色",
    "type": "待确认",
-   "content": "机型颜色方案后续再确定。",
+   "content": "目标年龄区间和色彩颜色后续再确定。",
    "responsible": "未知",
-   "deadline": "未知",
+   "deadline": "后续再定，具体日期未知",
    "raw_responsible": "未知",
-   "raw_deadline": "未知",
+   "raw_deadline": "后续再定，具体日期未知",
    "evidence_ids": [
     "S065",
     "S066",
@@ -43,90 +50,86 @@
    "id": "m02"
   },
   {
-   "topic": "双十一电商促销",
+   "topic": "双十一电商活动",
    "type": "待确认",
-   "content": "建议参与双十一各大电商平台活动，尚未明确收口。",
+   "content": "双十一期间多参与天猫、苏宁、淘宝、拼多多等电商活动，并考虑直播带货和京东折扣等方式。",
    "responsible": "未知",
    "deadline": "双十一，具体日期未知",
    "raw_responsible": "未知",
    "raw_deadline": "双十一，具体日期未知",
    "evidence_ids": [
+    "S072",
     "S073",
     "S074",
     "S075",
-    "S076"
+    "S076",
+    "S077",
+    "S078",
+    "S079",
+    "S080",
+    "S081",
+    "S082",
+    "S083",
+    "S084",
+    "S085",
+    "S086",
+    "S087",
+    "S088",
+    "S089"
    ],
-   "evidence_start": 162.71,
-   "evidence_end": 173.585,
-   "evidence_text": "不是马上就电商双十一嘛，嗯这种活动我们都可以多参与一下。就各大电商平台什么的，天猫、苏宁、淘宝、拼多多",
+   "evidence_start": 159.89,
+   "evidence_end": 204.92,
+   "evidence_text": "我感觉可以现在通过比较热门的直播带货，还有不是马上就电商双十一嘛，嗯这种活动我们都可以多参与一下。就各大电商平台什么的，天猫、苏宁、淘宝、拼多多……比方说京东啊什么的给给一个折扣",
    "speaker": "",
    "flags": [],
    "id": "m03"
   },
   {
-   "topic": "促销方式",
+   "topic": "手机亮点",
    "type": "待确认",
-   "content": "促销方式讨论中倾向电商，具体方式未确定。",
+   "content": "促销前先明确手机亮点及与其他手机的不同之处。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S098",
-    "S099"
+    "S086",
+    "S087",
+    "S088"
    ],
-   "evidence_start": 224.58,
-   "evidence_end": 229.44,
-   "evidence_text": "我觉得还是还是电商现在比较好一点，对电商好一点儿。",
+   "evidence_start": 188.36,
+   "evidence_end": 201.88,
+   "evidence_text": "我觉得还是先要要看一推推出一手手机亮亮点啊，是他有什么和其他的手机有什么不同的地方啊，然后再就是在一些电商呃给一些力度",
    "speaker": "",
    "flags": [],
    "id": "m04"
   },
   {
-   "topic": "明星代言",
+   "topic": "促销方式",
    "type": "待确认",
-   "content": "建议采用明星代言。",
+   "content": "促销方式倾向电商，地推被认为不适合手机，尚未最终确定。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S102",
-    "S103",
-    "S104",
-    "S105"
+    "S095",
+    "S096",
+    "S097",
+    "S098",
+    "S099"
    ],
-   "evidence_start": 236.4,
-   "evidence_end": 242.01,
-   "evidence_text": "找一些明星，找后明星代言，这是肯定少不了了吧吧明星代言，这是另外一方面。",
+   "evidence_start": 215.12,
+   "evidence_end": 229.44,
+   "evidence_text": "我感我感觉地推这个不太适合手机吧，好像手机好像一般就是有门店这种啊。……我觉得还是还是电商现在比较好一点，对电商好一点儿。",
    "speaker": "",
    "flags": [],
    "id": "m05"
   },
   {
-   "topic": "运营商捆绑",
-   "type": "待确认",
-   "content": "建议与移动等运营商产品捆绑。",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S106",
-    "S107",
-    "S108"
-   ],
-   "evidence_start": 242.03,
-   "evidence_end": 250.435,
-   "evidence_text": "比如说他捆绑着一些什么移动啊这些运营商，然后他的一些产品，然后其他的这样还能带动更多的东西。",
-   "speaker": "",
-   "flags": [],
-   "id": "m06"
-  },
-  {
    "topic": "人群差异化设计",
    "type": "待确认",
-   "content": "建议按不同人群做差别设计，如老年人配置低、字体声音大，年轻人颜色多、配置高。",
+   "content": "按不同人群做差异化配置（老年人配置低、字体声音大；年轻人颜色多、配置高）仍在讨论。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -139,12 +142,12 @@
    "flags": [
     "原话只在转写中找到 0/1 段"
    ],
-   "id": "m07"
+   "id": "m06"
   },
   {
-   "topic": "价格策略",
+   "topic": "前期价格策略",
    "type": "待确认",
-   "content": "建议前期让利抢占市场份额，后期再提高价格。",
+   "content": "前期让利、多占领市场份额，后期价格稍高。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -157,16 +160,34 @@
    "flags": [
     "原话只在转写中找到 0/1 段"
    ],
+   "id": "m07"
+  },
+  {
+   "topic": "明星代言与运营商捆绑",
+   "type": "待确认",
+   "content": "促销可考虑明星代言、捆绑移动等运营商产品，未定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [],
+   "evidence_start": null,
+   "evidence_end": null,
+   "evidence_text": "找一些明星，找后明星代言，这是肯定少不了了吧吧明星代言，这是另外一方面。然后我觉得啊就比如说他捆绑着一些什么移动啊这些运营商，然后他的一些产品，然后其他的这样还能带动更多的东西。",
+   "speaker": "",
+   "flags": [
+    "原话只在转写中找到 0/1 段"
+   ],
    "id": "m08"
   }
  ],
  "dropped": [],
  "llm_calls": 1,
  "usage": {
-  "prompt_tokens": 1198,
-  "completion_tokens": 3833
+  "prompt_tokens": 1236,
+  "completion_tokens": 5145
  },
- "elapsed": 23.07,
+ "elapsed": 0.07,
  "clip": "clip01",
  "source": "asr"
 }

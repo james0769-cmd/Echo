@@ -6,132 +6,135 @@
  },
  "items": [
   {
-   "topic": "人群差别设计",
+   "topic": "目标人群与差异化设计",
    "type": "待确认",
-   "content": "讨论中有人建议根据不同年龄人士做区分，并提到老年人需要大字体、操作不便；也有人认为不必把年龄界限分得太清，尚未形成决定。",
+   "content": "会上讨论按年龄区分手机目标用户，有人建议主攻45岁左右中青年人群并拉大年龄跨度，但未形成决定。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S008",
     "S009",
-    "S025",
-    "S030",
-    "S032"
+    "S011",
+    "S013"
    ],
-   "evidence_start": 19.35,
-   "evidence_end": 84.74,
-   "evidence_text": "我这种就是不同的人士做一下区分。；它需要很多的大字体或红，；但是我觉得那个这个手机里边的呃很多这个字的东西都是可以可以再去设的。；所以我觉得吧呃就是不用把这个界限弄得那么分明，",
+   "evidence_start": 17.03,
+   "evidence_end": 36.67,
+   "evidence_text": "我感觉可以根据年龄呃，；我这种就是不同的人士做一下区分。；我感觉我们可以主要针对就是我我现在四十五之岁的中青年人群吧。；就可能就是说呃年龄段要跨度大一点。",
    "speaker": "",
    "flags": [],
    "id": "m01"
   },
   {
-   "topic": "目标人群年龄定位",
+   "topic": "目标人群与差异化设计",
    "type": "待确认",
-   "content": "讨论中有人建议主要针对中青年人群，也有人提出年龄段跨度要大一点，尚未形成明确结论。",
+   "content": "会上提到当前版本不适合老年人，老年人需要大字体、操作简化，有意见认为手机内文字等可再设计，但未确定方案。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S011",
-    "S013"
+    "S021",
+    "S025",
+    "S028",
+    "S030"
    ],
-   "evidence_start": 23.65,
-   "evidence_end": 36.67,
-   "evidence_text": "我感觉我们可以主要针对就是我我现在四十五之岁的中青年人群吧。；就可能就是说呃年龄段要跨度大一点。",
+   "evidence_start": 50.03,
+   "evidence_end": 72.975,
+   "evidence_text": "但是现在的呃这个版本的话，；它需要很多的大字体或红，；他操作不了，；但是我觉得那个这个手机里边的呃很多这个字的东西都是可以可以再去设的。",
    "speaker": "",
    "flags": [],
    "id": "m02"
   },
   {
-   "topic": "人群差别设计",
+   "topic": "目标人群与差异化设计",
    "type": "决定",
-   "content": "确定按不同人群做差别设计，如老年人字体或声音更大，年轻人颜色选择更多、配置更高。",
+   "content": "根据不同人群对手机做差别化设计。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
     "S043",
-    "S046",
-    "S048",
-    "S050"
+    "S050",
+    "S051"
    ],
    "evidence_start": 106.18,
-   "evidence_end": 120.275,
-   "evidence_text": "我感觉我们可以根据就是不同人群稍微做一下差别设计。；就是字体或者声音稍微大一点。；就可能颜色选择性多点儿配置高点这种。；好的，",
+   "evidence_end": 121.525,
+   "evidence_text": "我感觉我们可以根据就是不同人群稍微做一下差别设计。；好的，；可以，",
    "speaker": "",
    "flags": [],
    "id": "m03"
   },
   {
-   "topic": "目标人群年龄定位",
-   "type": "决定",
-   "content": "确定机型主推年轻化，目标年龄范围讨论涉及18到35岁、45岁之间。",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S055",
-    "S057",
-    "S059",
-    "S061"
-   ],
-   "evidence_start": 127.4,
-   "evidence_end": 136.55,
-   "evidence_text": "咱们主端主推是年轻年轻化这一块吧，；什么十八到三到三十五岁之间，；四十五岁之间都可以，；对对对，",
-   "speaker": "",
-   "flags": [],
-   "id": "m04"
-  },
-  {
-   "topic": "年轻化机型颜色",
+   "topic": "目标人群与差异化设计",
    "type": "待确认",
-   "content": "年轻化机型的具体颜色后续再确定。",
+   "content": "主推年轻化机型，目标年龄区间和颜色后续再定。",
    "responsible": "未知",
    "deadline": "后续，具体日期未知",
    "raw_responsible": "未知",
    "raw_deadline": "后续，具体日期未知",
    "evidence_ids": [
+    "S055",
+    "S062",
     "S065",
-    "S066",
     "S067"
    ],
-   "evidence_start": 142.88,
+   "evidence_start": 127.4,
    "evidence_end": 150.955,
-   "evidence_text": "那咱们这个后续再定一下，；这个就是十八到五岁之间这个色彩颜色啊，；咱们到时候确定一下这个颜色好吧？",
+   "evidence_text": "咱们主端主推是年轻年轻化这一块吧，；咱们机型儿我觉得还是适应比较年轻，；那咱们这个后续再定一下，；咱们到时候确定一下这个颜色好吧？",
    "speaker": "",
    "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "促销与渠道策略",
+   "type": "待确认",
+   "content": "建议通过直播带货并参与天猫、苏宁、淘宝、拼多多等电商平台双十一活动进行促销。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "双十一期间，具体日期未知",
+   "evidence_ids": [
+    "S072",
+    "S073",
+    "S074",
+    "S075"
+   ],
+   "evidence_start": 159.89,
+   "evidence_end": 170.46,
+   "evidence_text": "我感觉可以现在通过比较热门的直播带货，；还有不是马上就电商双十一嘛，；嗯这种活动我们都可以多参与一下。；就各大电商平台什么的，",
+   "speaker": "",
+   "flags": [
+    "截止日期“双十一期间，具体日期未知”在原话中找不到，已改为未知"
+   ],
    "id": "m05"
   },
   {
-   "topic": "促销方案",
+   "topic": "促销与渠道策略",
    "type": "待确认",
-   "content": "促销方式尚未确定，有人提议通过直播带货、参与双十一等电商平台活动并让利。",
+   "content": "建议前期在价格上让利，以多占领市场份额。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S072",
-    "S073",
-    "S074",
-    "S079"
+    "S079",
+    "S080",
+    "S081"
    ],
-   "evidence_start": 159.89,
-   "evidence_end": 179.645,
-   "evidence_text": "我感觉可以现在通过比较热门的直播带货，；还有不是马上就电商双十一嘛，；嗯这种活动我们都可以多参与一下。；我们前期主要是就是呃价钱可以收，",
+   "evidence_start": 176.33,
+   "evidence_end": 183.88,
+   "evidence_text": "我们前期主要是就是呃价钱可以收，；就是让利一些，；多占领一些市场份额等市场份额。",
    "speaker": "",
    "flags": [],
    "id": "m06"
   },
   {
-   "topic": "促销方案",
+   "topic": "促销与渠道策略",
    "type": "待确认",
-   "content": "建议先梳理手机亮点和差异化，再在京东等电商给折扣做促销，具体促销方式还需研究。",
+   "content": "建议先梳理手机与竞品的差异亮点，再在京东等电商给折扣促销",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -150,9 +153,9 @@
    "id": "m07"
   },
   {
-   "topic": "促销方案",
-   "type": "决定",
-   "content": "讨论中同意电商比地推更适合手机促销，地推不适合且太老套。",
+   "topic": "促销与渠道策略",
+   "type": "待确认",
+   "content": "地推是否适合手机尚未定，讨论中倾向电商渠道",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -171,42 +174,42 @@
    "id": "m08"
   },
   {
-   "topic": "捆绑销售",
+   "topic": "捆绑合作与代言",
    "type": "待确认",
-   "content": "建议捆绑一些其他东西，并考虑与移动等运营商及其产品捆绑，以带动更多产品。",
+   "content": "建议产品捆绑其他内容，并考虑找明星代言",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S100",
     "S101",
-    "S106",
-    "S107",
-    "S108"
+    "S103",
+    "S104"
    ],
-   "evidence_start": 232.4,
-   "evidence_end": 250.435,
-   "evidence_text": "比如说然后他还带带着一些什么其他的东西啊，；然后我觉得啊就比如说他捆绑着一些什么移动啊这些运营商，；然后他的一些产品，；然后其他的这样还能带动更多的东西。",
+   "evidence_start": 229.44,
+   "evidence_end": 240.73,
+   "evidence_text": "然后我觉得可以就是那个然后捆绑一些。；比如说然后他还带带着一些什么其他的东西啊，；找后明星代言，；这是肯定少不了了吧吧明星代言，",
    "speaker": "",
    "flags": [],
    "id": "m09"
   },
   {
-   "topic": "明星代言",
+   "topic": "捆绑合作与代言",
    "type": "待确认",
-   "content": "建议找明星代言，认为明星代言少不了，但未形成明确决定。",
+   "content": "建议捆绑移动等运营商及其产品，以带动更多东西",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S102",
-    "S103",
-    "S104"
+    "S106",
+    "S107",
+    "S108"
    ],
-   "evidence_start": 236.4,
-   "evidence_end": 240.73,
-   "evidence_text": "什么找一些明星，；找后明星代言，；这是肯定少不了了吧吧明星代言，",
+   "evidence_start": 242.03,
+   "evidence_end": 250.435,
+   "evidence_text": "然后我觉得啊就比如说他捆绑着一些什么移动啊这些运营商，；然后他的一些产品，；然后其他的这样还能带动更多的东西。",
    "speaker": "",
    "flags": [],
    "id": "m10"
@@ -215,10 +218,10 @@
  "dropped": [],
  "llm_calls": 4,
  "usage": {
-  "prompt_tokens": 3121,
-  "completion_tokens": 12777
+  "prompt_tokens": 3214,
+  "completion_tokens": 9723
  },
- "elapsed": 70.39,
+ "elapsed": 0.0,
  "clip": "clip01",
  "source": "asr"
 }

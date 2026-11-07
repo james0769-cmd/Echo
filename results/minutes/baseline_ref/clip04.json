@@ -4,36 +4,12 @@
  "params": {},
  "items": [
   {
-   "topic": "送礼原则",
+   "topic": "购物卡方案",
    "type": "待确认",
-   "content": "有人提出送礼要考虑老师感受，尽量不见光、避免尴尬并兼顾实用性，让老师心里舒服。",
+   "content": "有人提议办沃尔玛或物美购物卡，教师节当天抽时间由孩子带给老师或直接塞给老师，尚未确定。",
    "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S008",
-    "S009",
-    "S010",
-    "S011",
-    "S012",
-    "S013",
-    "S014"
-   ],
-   "evidence_start": 43.66,
-   "evidence_end": 56.67,
-   "evidence_text": "所以我觉得是不是要考虑到教师的这种感受，啊能尽量的。不见光，哎尽量的。避免尴尬，啊避免尴尬，然后呢实用性还有一定的。",
-   "speaker": "SPK8002/SPK8004/SPK8003/SPK8001",
-   "flags": [],
-   "id": "m01"
-  },
-  {
-   "topic": "教师节礼物方案",
-   "type": "待确认",
-   "content": "有人提议在沃尔玛、物美办购物卡，教师节当天抽时间由孩子带过去；说话人还提出自己过去直接塞给老师。",
-   "responsible": "说话人自述",
    "deadline": "教师节那天，具体日期未知",
-   "raw_responsible": "说话人自述",
+   "raw_responsible": "未知",
    "raw_deadline": "教师节那天，具体日期未知",
    "evidence_ids": [
     "S026",
@@ -41,60 +17,44 @@
     "S029",
     "S030",
     "S031",
-    "S032",
-    "S033",
-    "S034"
+    "S032"
    ],
    "evidence_start": 91.76,
-   "evidence_end": 115.52,
-   "evidence_text": "我觉得就是，就是去什么沃尔玛物美啊办张购物卡，然后呢教师节那天，啊抽个时间啊。……由孩子带过去。我过去直接塞给老师。",
+   "evidence_end": 102.03,
+   "evidence_text": "我觉得就是，就是去什么沃尔玛物美啊办张购物卡，然后呢教师节那天，啊抽个时间啊。",
    "speaker": "SPK8002/SPK8001/SPK8003/SPK8004",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "教师节送礼方式",
+   "type": "待确认",
+   "content": "讨论倾向不在学校送、改为送到老师家里，但尚未最终确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S056"
+   ],
+   "evidence_start": 160.9,
+   "evidence_end": 166.9,
+   "evidence_text": "所以呢，我觉得，学校送不太合适，咱们就大方向往家里送。",
+   "speaker": "SPK8004",
    "flags": [],
    "id": "m02"
   },
   {
-   "topic": "教师节送礼地点",
-   "type": "决定",
-   "content": "教师节送礼大方向改为往家里送，不在学校送。",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S056",
-    "S057",
-    "S058",
-    "S059"
-   ],
-   "evidence_start": 160.9,
-   "evidence_end": 181.77,
-   "evidence_text": "所以呢，我觉得，学校送不太合适，咱们就大方向往家里送。对。家里送呢，这样的话又避免了...",
-   "speaker": "SPK8004/SPK8003/SPK8002",
-   "flags": [],
-   "id": "m03"
-  },
-  {
    "topic": "获取老师家庭地址",
    "type": "待确认",
-   "content": "有人提出最好要到老师地址并自己送到家里，但也有人指出地址涉及隐私、若被公布会有顾虑，尚未确定。",
+   "content": "是否向老师要家庭地址并自行送到家里尚未确定，有人提出涉及隐私、不愿提供地址的顾虑。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S062",
-    "S063",
-    "S064",
-    "S065",
-    "S066",
-    "S067",
-    "S068",
-    "S069",
-    "S070",
     "S071",
-    "S072",
     "S073",
-    "S074",
     "S075",
     "S076",
     "S077",
@@ -102,10 +62,29 @@
     "S079",
     "S080"
    ],
-   "evidence_start": 197.27,
+   "evidence_start": 222.82,
    "evidence_end": 232.39,
-   "evidence_text": "咱们最好能把地址要到，自己送到家里……但是这个如果说换做是我，反正我肯定不提供，你这涉及隐私了。",
-   "speaker": "SPK8004/SPK8003/SPK8002/SPK8001",
+   "evidence_text": "但是这个如果说换做是我，反正我肯定不提供，你这涉及隐私了",
+   "speaker": "SPK8001/SPK8002/SPK8003/SPK8004",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "当面交给老师",
+   "type": "待确认",
+   "content": "有人更倾向晚上接送孩子、与老师沟通时当面交付礼物，尚未形成统一方案。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S075",
+    "S080"
+   ],
+   "evidence_start": 231.58,
+   "evidence_end": 242.15,
+   "evidence_text": "其实我是更喜欢是由当面交给老师这种的，假如说晚上接送孩子，然后跟跟家，跟老师有有，比方说沟通交通学习啊。",
+   "speaker": "SPK8003/SPK8002",
    "flags": [],
    "id": "m04"
   }
@@ -113,10 +92,10 @@
  "dropped": [],
  "llm_calls": 1,
  "usage": {
-  "prompt_tokens": 1241,
-  "completion_tokens": 6104
+  "prompt_tokens": 1279,
+  "completion_tokens": 2946
  },
- "elapsed": 36.81,
+ "elapsed": 0.01,
  "clip": "clip04",
  "source": "ref"
 }

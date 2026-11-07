@@ -7,27 +7,8 @@
  "items": [
   {
    "topic": "办公选址",
-   "type": "待确认",
-   "content": "具体地点还要根据大家住的地方取一个折中地点。",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S019",
-    "S020"
-   ],
-   "evidence_start": 32.549,
-   "evidence_end": 36.03,
-   "evidence_text": "再根据大家住的地方，；大伙儿取一个折中的地儿，",
-   "speaker": "",
-   "flags": [],
-   "id": "m01"
-  },
-  {
-   "topic": "办公选址",
    "type": "决定",
-   "content": "办公选址大方向敲定为东三环和东四环之间、往北，大家表示认可。",
+   "content": "办公选址大致敲定在东三环和东四环之间、偏北区域。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -36,19 +17,19 @@
     "S032",
     "S033",
     "S034",
-    "S035"
+    "S038"
    ],
    "evidence_start": 55.73,
-   "evidence_end": 68.6,
-   "evidence_text": "那我们现在就是先敲定一下，；就是各个负环路方方是嗯在东三环和东四环之间间以呢，；这往往北往北可以可以可以可以，；就是大家觉得这个可以嗯，",
+   "evidence_end": 72.56,
+   "evidence_text": "那我们现在就是先敲定一下，；就是各个负环路方方是嗯在东三环和东四环之间间以呢，；这往往北往北可以可以可以可以，；对对对，",
    "speaker": "",
    "flags": [],
-   "id": "m02"
+   "id": "m01"
   },
   {
-   "topic": "办公选址",
+   "topic": "员工意见征集",
    "type": "待办",
-   "content": "在群里跟其他员工商量选址这件事。",
+   "content": "在群里和其他员工商量选址这件事。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -61,12 +42,12 @@
    "evidence_text": "那大家可以把这个事情就是说在那个群里边跟就是其他的员工去商量一下，",
    "speaker": "",
    "flags": [],
-   "id": "m03"
+   "id": "m02"
   },
   {
    "topic": "写字楼考察",
    "type": "待办",
-   "content": "安排人员去东边先考察，挑几个写字楼出来。",
+   "content": "先安排人去考察，挑选几个写字楼出来",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -82,12 +63,12 @@
    "evidence_text": "咱们就第一个人去去那什么呗，；去那个去去那边先考察一下，；就是先挑几个楼，；挑几个写字楼出来。",
    "speaker": "",
    "flags": [],
-   "id": "m04"
+   "id": "m03"
   },
   {
    "topic": "写字楼考察",
    "type": "待办",
-   "content": "对考察的写字楼综合比较后报给领导。",
+   "content": "考察后综合比较，再报给领导",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -102,12 +83,12 @@
    "evidence_text": "完了之后呢，；我们再综合比较一下，；再报给领导呗。",
    "speaker": "",
    "flags": [],
-   "id": "m05"
+   "id": "m04"
   },
   {
    "topic": "办公选址",
    "type": "决定",
-   "content": "办公地点的大概范围敲定在东边。",
+   "content": "办公地点的大致范围敲定在东边",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -122,12 +103,12 @@
    "evidence_text": "那就是定在东边了呗，；那就是大概的范围，；我们现在敲定了，",
    "speaker": "",
    "flags": [],
-   "id": "m06"
+   "id": "m05"
   },
   {
-   "topic": "各部门空间需求",
+   "topic": "部门空间需求",
    "type": "待确认",
-   "content": "各部门对空间大小的要求尚待征求意见。",
+   "content": "各部门对空间大小的要求还需征求意见",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -142,12 +123,12 @@
    "evidence_text": "然后三看看大伙儿有什么有啥意见没有，；就各部门的对空间大小，；不知道有什么要求，",
    "speaker": "",
    "flags": [],
-   "id": "m07"
+   "id": "m06"
   },
   {
    "topic": "工位数量",
    "type": "待确认",
-   "content": "工位数量暂按五十个左右考虑，后续报领导。",
+   "content": "工位数量暂按五十个左右预留，后续需报领导",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -163,12 +144,12 @@
    "evidence_text": "咱们就是得五十个左右，；我估计就是工位。；就是那就先咱们暂定，；然后到报报给领导的话，",
    "speaker": "",
    "flags": [],
-   "id": "m08"
+   "id": "m07"
   },
   {
    "topic": "工位数量",
    "type": "待确认",
-   "content": "暂定先按五十个左右工位安排，后续再定。",
+   "content": "工位数量暂定先按五十个左右考虑。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -182,79 +163,118 @@
    "evidence_text": "就是暂定先五十个工位吧。；五十个左右的五十个工位的有，",
    "speaker": "",
    "flags": [],
-   "id": "m09"
+   "id": "m08"
   },
   {
-   "topic": "会议室配置",
+   "topic": "会议室需求",
    "type": "待确认",
-   "content": "倾向小会议室多些、大会议室一间就够，先按能容纳所有人开会来定，待考察后再调整。",
+   "content": "小会议室可以多设一些，尚未最终确定。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
     "S110",
-    "S120",
-    "S125",
-    "S127"
+    "S113"
    ],
    "evidence_start": 192.52,
-   "evidence_end": 226.595,
-   "evidence_text": "我觉得会议室其实可以小会议室多点儿，；那个就看着定吧。；那这个就是可以到时候再改一瞅一下呗。；然后我们可以先定就是能容纳所有人开会呗。",
+   "evidence_end": 198.9,
+   "evidence_text": "我觉得会议室其实可以小会议室多点儿，；对，",
+   "speaker": "",
+   "flags": [],
+   "id": "m09"
+  },
+  {
+   "topic": "会议室需求",
+   "type": "决定",
+   "content": "大会议室保留一间即可。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S111",
+    "S112",
+    "S113"
+   ],
+   "evidence_start": 195.64,
+   "evidence_end": 198.9,
+   "evidence_text": "大会议室有一间就够了，；大会议室有一个就够了。；对，",
    "speaker": "",
    "flags": [],
    "id": "m10"
   },
   {
-   "topic": "办公室安排",
-   "type": "待办",
-   "content": "把各部门归纳好并选好小办公室，避免到时候空置。",
+   "topic": "会议室需求",
+   "type": "待确认",
+   "content": "需有一间能容纳所有人开会的会议室，具体大小待考察实际情况后再定。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S130",
-    "S134",
-    "S135",
-    "S136"
+    "S117",
+    "S120",
+    "S125",
+    "S127"
    ],
-   "evidence_start": 232.56,
-   "evidence_end": 244.16,
-   "evidence_text": "每个部门你都把这几个部门就是归纳好。；四个小办公室主要备弄好，；选择好，；别那个到时候空。",
+   "evidence_start": 202.54,
+   "evidence_end": 226.595,
+   "evidence_text": "觉得大概有就是所有人都容纳那种会议室是吧？；那个就看着定吧。；那这个就是可以到时候再改一瞅一下呗。；然后我们可以先定就是能容纳所有人开会呗。",
    "speaker": "",
    "flags": [],
    "id": "m11"
   },
   {
-   "topic": "办公室安排",
-   "type": "待确认",
-   "content": "现有四个小办公室，考虑招聘部门后估计需四到五个，五个或六个都行，尚未确定。",
+   "topic": "办公室数量",
+   "type": "待办",
+   "content": "四个小办公室要提前选好、备好，避免到时候空置。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S131",
     "S132",
-    "S138",
-    "S140"
+    "S134",
+    "S135",
+    "S136"
    ],
-   "evidence_start": 235.34,
-   "evidence_end": 251.715,
-   "evidence_text": "现在现在是四个吧，；嗯四个小办公室。；估计得四到五个，；就是说五个五个六个都行。",
+   "evidence_start": 236.54,
+   "evidence_end": 244.16,
+   "evidence_text": "嗯四个小办公室。；四个小办公室主要备弄好，；选择好，；别那个到时候空。",
    "speaker": "",
    "flags": [],
    "id": "m12"
+  },
+  {
+   "topic": "办公室数量",
+   "type": "待确认",
+   "content": "加上未来招聘部门，办公室数量估计四到五个，五个六个也行，尚未最终确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S137",
+    "S138",
+    "S139",
+    "S140"
+   ],
+   "evidence_start": 244.16,
+   "evidence_end": 251.715,
+   "evidence_text": "如果加上到时候招聘的几个部门的话，；估计得四到五个，；四到五个呃，；就是说五个五个六个都行。",
+   "speaker": "",
+   "flags": [],
+   "id": "m13"
   }
  ],
  "dropped": [],
  "llm_calls": 4,
  "usage": {
-  "prompt_tokens": 3328,
-  "completion_tokens": 12906
+  "prompt_tokens": 3435,
+  "completion_tokens": 17434
  },
- "elapsed": 71.42,
+ "elapsed": 105.07,
  "clip": "clip05",
  "source": "asr"
 }

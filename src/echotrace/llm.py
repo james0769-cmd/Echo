@@ -40,7 +40,7 @@ def _get_client():
     return _client
 
 
-def chat_json(system: str, user: str, model: str = DEFAULT_MODEL, temperature: float = 0.0, use_cache: bool = True) -> dict:
+def chat_json(system: str, user: str, model: str = DEFAULT_MODEL, temperature: float = 0.0, use_cache: bool = True, retries: int = 3) -> dict:
     """调用一次对话并要求返回 JSON 对象；返回 {"data": 解析后的对象, "usage": {...}, "cached": bool}。"""
     payload = {"model": model, "temperature": temperature, "system": system, "user": user}
     key = hashlib.sha256(json.dumps(payload, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20]
@@ -49,14 +49,21 @@ def chat_json(system: str, user: str, model: str = DEFAULT_MODEL, temperature: f
         rec = json.loads(path.read_text(encoding="utf-8"))
         return {"data": rec["data"], "usage": rec["usage"], "cached": True}
 
-    resp = _get_client().chat.completions.create(
-        model=model,
-        temperature=temperature,
-        response_format={"type": "json_object"},
-        messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
-    )
-    content = resp.choices[0].message.content
-    data = json.loads(content)
+    # 模型偶尔返回空内容或不完整的 JSON，重试几次
+    for attempt in range(retries):
+        resp = _get_client().chat.completions.create(
+            model=model,
+            temperature=temperature,
+            response_format={"type": "json_object"},
+            messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
+        )
+        content = resp.choices[0].message.content or ""
+        try:
+            data = json.loads(content)
+            break
+        except json.JSONDecodeError:
+            if attempt == retries - 1:
+                raise RuntimeError(f"模型连续 {retries} 次没有返回合法 JSON，最后一次内容: {content[:200]!r}")
     usage = {"prompt_tokens": resp.usage.prompt_tokens, "completion_tokens": resp.usage.completion_tokens}
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     path.write_text(
