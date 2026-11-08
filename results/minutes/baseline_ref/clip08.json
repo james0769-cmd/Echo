@@ -4,132 +4,188 @@
  "params": {},
  "items": [
   {
-   "topic": "社保购买时间",
+   "topic": "社保购买时点",
    "type": "决定",
-   "content": "员工转正后的下个月开始购买社保。",
+   "content": "员工转正后下个月开始购买社保。",
    "responsible": "未知",
-   "deadline": "下个月开始购买，具体日期未知",
+   "deadline": "下个月，具体日期未知",
    "raw_responsible": "未知",
-   "raw_deadline": "下个月开始购买，具体日期未知",
+   "raw_deadline": "下个月，具体日期未知",
    "evidence_ids": [
     "S001",
     "S002"
    ],
    "evidence_start": 0.0,
    "evidence_end": 5.65,
-   "evidence_text": "比如这个月入职的，下个月转正过后，就下个月就开始购买。",
+   "evidence_spans": [
+    {
+     "start": 0.0,
+     "end": 5.65
+    }
+   ],
+   "evidence_text": "比如这个月入职的，下个月转正过后，就就下个月就开始购买。",
    "speaker": "SPK8022/SPK8021",
    "flags": [],
    "id": "m01"
   },
   {
-   "topic": "社保资料收集",
+   "topic": "转正资料收集",
    "type": "待办",
-   "content": "在员工即将转正前约一周收集并提交社保资料。",
+   "content": "在员工即将转正前一周左右开始收集并提交资料。",
    "responsible": "未知",
-   "deadline": "转正前一周左右，具体日期未知",
+   "deadline": "即将转正前，一周左右，具体日期未知",
    "raw_responsible": "未知",
-   "raw_deadline": "转正前一周左右，具体日期未知",
+   "raw_deadline": "即将转正前，一周左右，具体日期未知",
    "evidence_ids": [
     "S004"
    ],
    "evidence_start": 8.9,
    "evidence_end": 15.31,
+   "evidence_spans": [
+    {
+     "start": 8.9,
+     "end": 15.31
+    }
+   ],
    "evidence_text": "即将转正前，一周左右，我们就要开始收集他们的资料，就要往那边，我们要去需要提交资料。",
    "speaker": "SPK8022",
    "flags": [],
    "id": "m02"
   },
   {
-   "topic": "公积金缴纳方案",
-   "type": "待确认",
-   "content": "公积金拟在员工转正稳定一段时间后购买，计划总缴纳比例12%、公司和个人各承担6%，平均每人约一百八十元，尚未最终确定。",
+   "topic": "招聘目标",
+   "type": "待办",
+   "content": "预计需要招聘40人。",
    "responsible": "未知",
-   "deadline": "转正后稳定一段时间，具体日期未知",
+   "deadline": "未知",
    "raw_responsible": "未知",
-   "raw_deadline": "转正后稳定一段时间，具体日期未知",
+   "raw_deadline": "未知",
    "evidence_ids": [
-    "S030",
-    "S031",
-    "S032",
-    "S033",
-    "S034",
-    "S035",
-    "S036",
-    "S037",
-    "S038",
-    "S039",
-    "S040",
-    "S041",
-    "S042",
-    "S043",
-    "S044",
-    "S045",
-    "S046",
-    "S047",
-    "S048",
-    "S049",
-    "S050",
-    "S051",
-    "S052",
-    "S053",
-    "S054",
-    "S055",
-    "S056",
-    "S057",
-    "S058",
-    "S059",
-    "S060",
-    "S061",
-    "S062",
-    "S063",
-    "S064",
-    "S065",
-    "S066",
-    "S067",
-    "S068",
-    "S069",
-    "S070",
-    "S071",
-    "S072"
+    "S007"
    ],
-   "evidence_start": 99.0,
-   "evidence_end": 189.31,
-   "evidence_text": "公积金的话可以买……转正之后，比如三个月转正之后再购买嘛……我们是计划交，总共是百分之十二，然后，我们承担百分之六，他们承担百分之六……平均下下来，就是我们跟他们付百一百八十块左右。",
-   "speaker": "SPK8021/SPK8022",
+   "evidence_start": 25.81,
+   "evidence_end": 28.2,
+   "evidence_spans": [
+    {
+     "start": 25.81,
+     "end": 28.2
+    }
+   ],
+   "evidence_text": "嗯预计是，我们需要招四十人。",
+   "speaker": "SPK8022",
    "flags": [],
    "id": "m03"
   },
   {
-   "topic": "医保报销流程",
+   "topic": "店铺管理层增补",
    "type": "待确认",
-   "content": "建议前期了解员工医保报销流程，特别是单位代缴及女员工生育报销相关事项，尚未明确安排。",
+   "content": "后期可能增加2至3名店铺管理层，因开四家新店。",
    "responsible": "未知",
-   "deadline": "前期，具体日期未知",
+   "deadline": "未知",
    "raw_responsible": "未知",
-   "raw_deadline": "前期，具体日期未知",
+   "raw_deadline": "未知",
    "evidence_ids": [
-    "S092",
-    "S093",
+    "S012",
+    "S013"
+   ],
+   "evidence_start": 33.61,
+   "evidence_end": 41.66,
+   "evidence_spans": [
+    {
+     "start": 33.61,
+     "end": 41.66
+    }
+   ],
+   "evidence_text": "这个的话，后期可能还需要再，增加两个，两到三个左右。因为我们现在开四家新店",
+   "speaker": "SPK8022/SPK8021",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "公积金购买",
+   "type": "待确认",
+   "content": "公积金是否购买、是否在转正三个月后再购买尚未确定。",
+   "responsible": "未知",
+   "deadline": "转正之后三个月，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "转正之后三个月，具体日期未知",
+   "evidence_ids": [
+    "S030",
+    "S031",
+    "S032"
+   ],
+   "evidence_start": 99.0,
+   "evidence_end": 106.52,
+   "evidence_spans": [
+    {
+     "start": 99.0,
+     "end": 106.52
+    }
+   ],
+   "evidence_text": "公积金的话可以买，一般我觉得的话公积金他们，比如说转正之后，比如三个月转正之后再购买嘛",
+   "speaker": "SPK8021/SPK8022",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "公积金缴存比例",
+   "type": "待确认",
+   "content": "计划公积金缴存合计12%，企业承担6%、员工承担6%。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S065",
+    "S066"
+   ],
+   "evidence_start": 173.85,
+   "evidence_end": 180.42,
+   "evidence_spans": [
+    {
+     "start": 173.85,
+     "end": 180.42
+    }
+   ],
+   "evidence_text": "我们是计划交，总共是百分之十二，然后，我们承担百分之六，他们承担百分之六。",
+   "speaker": "SPK8021/SPK8022",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "医保及生育报销流程",
+   "type": "待办",
+   "content": "前期了解员工医保报销及女员工生育报销流程，确认是否需公司提交资料。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
     "S094",
     "S095",
     "S096"
    ],
-   "evidence_start": 227.27,
+   "evidence_start": 233.55,
    "evidence_end": 239.2,
-   "evidence_text": "单位代买的好像……也需要找我们交给资料交给我们对吧？……以后的话可能会有一些女员工，她比如生小孩，这些……我觉得需要可以前期去了解一下。",
+   "evidence_spans": [
+    {
+     "start": 233.55,
+     "end": 239.2
+    }
+   ],
+   "evidence_text": "以后的话可能会有一些女员工，她比如生小孩，这些。嗯我觉得需要可以前期去了解一下。",
    "speaker": "SPK8021/SPK8022",
    "flags": [],
-   "id": "m04"
+   "id": "m07"
   }
  ],
  "dropped": [],
  "llm_calls": 1,
  "usage": {
-  "prompt_tokens": 1259,
-  "completion_tokens": 8380
+  "prompt_tokens": 1297,
+  "completion_tokens": 5683
  },
- "elapsed": 49.36,
+ "elapsed": 42.03,
  "clip": "clip08",
  "source": "ref"
 }

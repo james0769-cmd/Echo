@@ -6,85 +6,79 @@
   {
    "topic": "活动主题",
    "type": "决定",
-   "content": "活动主题确定为让留学生更好了解中国（“懂中国”方向）。",
+   "content": "活动主题定为让留学生更好地了解中国，贴近留学生。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S014",
     "S015",
     "S016"
    ],
-   "evidence_start": 29.92,
+   "evidence_start": 36.28,
    "evidence_end": 39.87,
-   "evidence_text": "让他们更好的了解我们的中国，这个更贴近一点，更贴切一些，我觉得。就是让他们。了解中国，我觉得这个主题要好一些。嗯，可以。",
+   "evidence_spans": [
+    {
+     "start": 36.28,
+     "end": 39.87
+    }
+   ],
+   "evidence_text": "就是让他们。了解中国，我觉得这个主题要好一些。嗯，可以。",
    "speaker": "SPK8024",
    "flags": [],
    "id": "m01"
   },
   {
-   "topic": "活动流程",
-   "type": "待确认",
-   "content": "活动具体流程和安排尚待进一步说明。",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S019",
-    "S020",
-    "S021",
-    "S022"
-   ],
-   "evidence_start": 43.69,
-   "evidence_end": 52.24,
-   "evidence_text": "这个具体。你是有什么规划？他具体只是怎么样的一个流程。怎么安排。你。说一说，看看。",
-   "speaker": "SPK8023",
-   "flags": [],
-   "id": "m02"
-  },
-  {
    "topic": "活动时间",
    "type": "决定",
-   "content": "活动不选周末，定在中秋节举行。",
+   "content": "活动安排在中秋节当天，不选周末。",
    "responsible": "未知",
    "deadline": "中秋节，具体日期未知",
    "raw_responsible": "未知",
    "raw_deadline": "中秋节，具体日期未知",
    "evidence_ids": [
     "S033",
-    "S034",
-    "S035",
-    "S036"
+    "S034"
    ],
    "evidence_start": 75.22,
-   "evidence_end": 84.42,
-   "evidence_text": "那就是那那我就不选周末，就选中秋节，反正中秋节大家都有时间对吧？这样话要好一些。中秋节大家都放假嘛，都有时间。",
+   "evidence_end": 79.92,
+   "evidence_spans": [
+    {
+     "start": 75.22,
+     "end": 79.92
+    }
+   ],
+   "evidence_text": "那我就不选周末，就选中秋节，反正中秋节大家都有时间对吧？",
+   "speaker": "SPK8023/SPK8024",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "晚会内容",
+   "type": "待办",
+   "content": "在晚会上介绍中秋节的来历以及吃月饼等习俗。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S074",
+    "S075",
+    "S076",
+    "S077"
+   ],
+   "evidence_start": 158.32,
+   "evidence_end": 165.41,
+   "evidence_spans": [
+    {
+     "start": 158.32,
+     "end": 165.41
+    }
+   ],
+   "evidence_text": "在晚会的时候。给他们。先在晚会的时候，给他们介绍一下这些。我们中秋节。的来历。",
    "speaker": "SPK8023/SPK8024",
    "flags": [],
    "id": "m03"
-  },
-  {
-   "topic": "活动形式",
-   "type": "决定",
-   "content": "安排在中秋节晚上举办留学生交流晚会，突出中国文化特色。",
-   "responsible": "未知",
-   "deadline": "中秋节晚上，具体日期未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "中秋节晚上，具体日期未知",
-   "evidence_ids": [
-    "S046",
-    "S047",
-    "S048",
-    "S049"
-   ],
-   "evidence_start": 100.74,
-   "evidence_end": 111.99,
-   "evidence_text": "中秋节不是，我们可以安排到晚上。晚上，就是说一个。留学生交流会。也可以是，留学生晚会是不是，交流晚留学生交流晚会。",
-   "speaker": "SPK8024",
-   "flags": [],
-   "id": "m04"
   },
   {
    "topic": "活动地点",
@@ -94,60 +88,75 @@
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
-   "evidence_ids": [],
-   "evidence_start": null,
-   "evidence_end": null,
-   "evidence_text": "学校我因为之前也想过这个问题。就是说学校毕竟就是说。要更好。因为学校毕竟每天都生活在学校，更贴近生活。要好得多。因为社会啊。我感觉就相对要复杂一些。对。",
-   "speaker": "",
-   "flags": [
-    "原话只在转写中找到 0/1 段"
+   "evidence_ids": [
+    "S095",
+    "S096"
    ],
-   "id": "m05"
+   "evidence_start": 197.44,
+   "evidence_end": 202.77,
+   "evidence_spans": [
+    {
+     "start": 197.44,
+     "end": 202.77
+    }
+   ],
+   "evidence_text": "就选学校我觉得比较好一点。呃，学校我因为之前也想过这个问题。",
+   "speaker": "SPK8024/SPK8023",
+   "flags": [],
+   "id": "m04"
   },
   {
-   "topic": "活动内容",
-   "type": "决定",
-   "content": "在晚会上介绍中秋节来历和吃月饼等传统习俗。",
+   "topic": "校外人员参加",
+   "type": "待确认",
+   "content": "校外外国人是否也可以参加留学生交流会，尚未明确收口。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
+   "evidence_ids": [
+    "S108",
+    "S109"
+   ],
+   "evidence_start": 222.07,
+   "evidence_end": 229.59,
+   "evidence_spans": [
+    {
+     "start": 222.07,
+     "end": 229.59
+    }
+   ],
+   "evidence_text": "我们这个留学生交流会，也可也有一些。校外的是外国，外国人也可以参，也要来参加。",
+   "speaker": "SPK8024",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "活动形式",
+   "type": "决定",
+   "content": "以晚上留学生交流晚会的形式举办。",
+   "responsible": "未知",
+   "deadline": "中秋节，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "中秋节，具体日期未知",
    "evidence_ids": [],
    "evidence_start": null,
    "evidence_end": null,
-   "evidence_text": "在晚会的时候。给他们。先在晚会的时候，给他们介绍一下这些。我们中秋节。的来历。中秋节，就是。中秋节是怎么。就是来历，说吃月饼这些习俗是怎么来的。可以告诉他们。你觉得怎么样？嗯，可以。",
+   "evidence_spans": [],
+   "evidence_text": "中秋节不是，我们可以安排到晚上。晚上，就是说一个。留学生交流会。也可以是，留学生晚会是不是，交流晚留学生交流晚会。觉怎么样？对留学生交流晚会",
    "speaker": "",
    "flags": [
     "原话只在转写中找到 0/1 段"
    ],
    "id": "m06"
-  },
-  {
-   "topic": "参与人员",
-   "type": "决定",
-   "content": "留学生交流会也允许校外的外国人参加。",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [],
-   "evidence_start": null,
-   "evidence_end": null,
-   "evidence_text": "我们这个留学生交流会，也可也有一些。校外的是外国，外国人也可以参，也要来参加。社会上的话。学生。但是这边就是说。这样都可以来。",
-   "speaker": "",
-   "flags": [
-    "原话只在转写中找到 0/1 段"
-   ],
-   "id": "m07"
   }
  ],
  "dropped": [],
  "llm_calls": 1,
  "usage": {
-  "prompt_tokens": 1047,
-  "completion_tokens": 8021
+  "prompt_tokens": 1085,
+  "completion_tokens": 1093
  },
- "elapsed": 50.8,
+ "elapsed": 8.83,
  "clip": "clip09",
  "source": "ref"
 }

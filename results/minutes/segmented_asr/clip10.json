@@ -6,9 +6,9 @@
  },
  "items": [
   {
-   "topic": "活动地点",
+   "topic": "活动场地",
    "type": "待确认",
-   "content": "倾向把活动地点选在双流区，因为那里贴近自然、草地多、游玩人多；国际大厦因预算较高而不考虑。",
+   "content": "活动场地未最终确定；国际大沙类场地因预算较高，有人倾向第二种方案，另有人提议选双流靠近自然的地方。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -19,76 +19,123 @@
     "S010",
     "S012"
    ],
-   "evidence_start": 15.18,
-   "evidence_end": 35.89,
-   "evidence_text": "首先你第一个哈就是你说的国际国际那种大厦的地方的话，；我觉得可能预算比较高。；所以我觉得更倾向于就是说第二种。；就是因为双流区那边哈它比较贴近大自然。",
+   "evidence_start": 15.19,
+   "evidence_end": 34.07,
+   "evidence_spans": [
+    {
+     "id": "S006",
+     "start": 15.19,
+     "end": 20.79
+    },
+    {
+     "id": "S007",
+     "start": 20.79,
+     "end": 22.81
+    },
+    {
+     "id": "S010",
+     "start": 24.57,
+     "end": 27.61
+    },
+    {
+     "id": "S012",
+     "start": 30.37,
+     "end": 34.07
+    }
+   ],
+   "evidence_text": "首先你第一个哈就是你说的国际国际那种大沙的地方的话，；我觉得可能预算比较高。；所以我觉得更倾向于就是说第二种。；就是因为双流去那边哈，",
    "speaker": "",
    "flags": [],
    "id": "m01"
   },
   {
-   "topic": "活动主持人",
+   "topic": "会员规则",
    "type": "待确认",
-   "content": "已联系到一位有经验、有搞笑气氛的主持人。",
-   "responsible": "说话人自述（身份未识别）",
-   "deadline": "未知",
-   "raw_responsible": "说话人自述",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S024",
-    "S025",
-    "S026"
-   ],
-   "evidence_start": 71.56,
-   "evidence_end": 80.97,
-   "evidence_text": "然后我也这边找了相关有经验的主持人，；他是比较有搞笑气氛，；然后能呃也有经验的那种。",
-   "speaker": "",
-   "flags": [],
-   "id": "m02"
-  },
-  {
-   "topic": "会员制与收费方案",
-   "type": "待确认",
-   "content": "制定了会员制：报名费为每人两百元，会员需要先充五百元。",
+   "content": "有人表示已制定会员制，报名费为200元/人，会上尚未明确确认。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
     "S027",
+    "S028",
     "S029",
-    "S030",
-    "S031"
+    "S030"
    ],
-   "evidence_start": 81.19,
-   "evidence_end": 94.21,
-   "evidence_text": "然后我这边还制定了一个会员制，；我们收取的费用是两百个人一个呃，；两百块钱一个人。；但会员的话是要首先充五百块钱。",
+   "evidence_start": 81.22,
+   "evidence_end": 89.825,
+   "evidence_spans": [
+    {
+     "id": "S027",
+     "start": 81.22,
+     "end": 83.295
+    },
+    {
+     "id": "S028",
+     "start": 83.55,
+     "end": 84.99
+    },
+    {
+     "id": "S029",
+     "start": 85.11,
+     "end": 88.59
+    },
+    {
+     "id": "S030",
+     "start": 88.59,
+     "end": 89.825
+    }
+   ],
+   "evidence_text": "然后我这边还制定了一个会员制，；就刚开始报名的话，；我们收取的费用是两百个人一个呃，；两百块钱一个人。",
    "speaker": "",
    "flags": [],
-   "id": "m03"
+   "id": "m02"
   },
   {
-   "topic": "牵手成功奖励",
+   "topic": "会员规则",
    "type": "决定",
-   "content": "牵手成功可赠送双人机票去三亚。",
+   "content": "会员需先充值500元，牵手成功可赠送双人三亚机票。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S031",
     "S032",
     "S033",
-    "S034"
+    "S035"
    ],
-   "evidence_start": 94.57,
-   "evidence_end": 102.71,
-   "evidence_text": "然后最后如果牵手成功的话，；我们这边可以赠送双人机票去三亚的这种可以，；这个是这个是可以的。",
+   "evidence_start": 90.25,
+   "evidence_end": 103.73,
+   "evidence_spans": [
+    {
+     "id": "S031",
+     "start": 90.25,
+     "end": 94.195
+    },
+    {
+     "id": "S032",
+     "start": 94.6,
+     "end": 96.78
+    },
+    {
+     "id": "S033",
+     "start": 96.78,
+     "end": 101.11
+    },
+    {
+     "id": "S035",
+     "start": 103.27,
+     "end": 103.73
+    }
+   ],
+   "evidence_text": "但会员的话是要首先充五百块钱。；然后最后如果牵手成功的话，；我们这边可以赠送双人机票去三亚的这种可以，；好的，",
    "speaker": "",
    "flags": [],
-   "id": "m04"
+   "id": "m03"
   },
   {
-   "topic": "活动地点",
+   "topic": "活动场地",
    "type": "决定",
    "content": "开幕式定在双流江家御院的大公园草地。",
    "responsible": "未知",
@@ -98,53 +145,133 @@
    "evidence_ids": [
     "S036",
     "S038",
-    "S039",
     "S040"
    ],
-   "evidence_start": 103.85,
-   "evidence_end": 113.58,
-   "evidence_text": "那我们开幕式的话就定一个草地嘛，；双流江家御院那个有个大公园。；好，；可以，",
+   "evidence_start": 103.96,
+   "evidence_end": 113.49,
+   "evidence_spans": [
+    {
+     "id": "S036",
+     "start": 103.96,
+     "end": 106.86
+    },
+    {
+     "id": "S038",
+     "start": 109.14,
+     "end": 111.915
+    },
+    {
+     "id": "S040",
+     "start": 113.07,
+     "end": 113.49
+    }
+   ],
+   "evidence_text": "那我们开幕式的话就定一个草地嘛，；双流江家御院那个有个大公园。；可以，",
    "speaker": "",
    "flags": [],
-   "id": "m05"
+   "id": "m04"
   },
   {
    "topic": "海报设计",
    "type": "决定",
-   "content": "海报要体现两人之间的爱的火花，照片感染力强、让人相信爱情。",
+   "content": "海报需体现两人之间的爱的火花，照片感染力强、让人相信爱情。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S049",
-    "S050",
     "S051",
-    "S052"
+    "S053",
+    "S054",
+    "S056"
    ],
-   "evidence_start": 136.08,
-   "evidence_end": 151.68,
-   "evidence_text": "我我建议的哈就是说这个海报的话一定要是两个人之间有那种爱的火花，；可以，；然后呢拍出来的照片效果感染力要非常强，；就让人看下去就相信爱情的。",
+   "evidence_start": 136.09,
+   "evidence_end": 151.625,
+   "evidence_spans": [
+    {
+     "id": "S051",
+     "start": 136.09,
+     "end": 137.76
+    },
+    {
+     "id": "S053",
+     "start": 139.65,
+     "end": 143.335
+    },
+    {
+     "id": "S054",
+     "start": 144.28,
+     "end": 144.62
+    },
+    {
+     "id": "S056",
+     "start": 148.86,
+     "end": 151.625
+    }
+   ],
+   "evidence_text": "我我我建议的哈，；一定要是两个人之间有那种爱的火花，；可以，；就让人看下去就相信爱情的。",
    "speaker": "",
    "flags": [],
-   "id": "m06"
+   "id": "m05"
   },
   {
-   "topic": "海报设计",
+   "topic": "照片处理",
    "type": "待办",
-   "content": "说话人稍后将已拍好的几组照片发送到对方邮箱。",
+   "content": "将已拍好的照片发送到对方相关邮件。",
    "responsible": "说话人自述（身份未识别）",
    "deadline": "稍后，具体日期未知",
    "raw_responsible": "说话人自述",
    "raw_deadline": "稍后，具体日期未知",
    "evidence_ids": [
-    "S055",
-    "S056",
-    "S057"
+    "S059",
+    "S060"
    ],
-   "evidence_start": 152.64,
-   "evidence_end": 160.78,
-   "evidence_text": "那稍后我会把我就是已经拍好的照片发送到你的相关邮件里面，；你可以查收一下。；拍了几组照片，",
+   "evidence_start": 152.67,
+   "evidence_end": 159.365,
+   "evidence_spans": [
+    {
+     "id": "S059",
+     "start": 152.67,
+     "end": 158.23
+    },
+    {
+     "id": "S060",
+     "start": 158.23,
+     "end": 159.365
+    }
+   ],
+   "evidence_text": "那稍后我会把我就是已经拍好的照片发送到你的相关邮件里面，；你可以查收一下。",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "照片处理",
+   "type": "待办",
+   "content": "确认最终认可的照片。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S061",
+    "S062"
+   ],
+   "evidence_start": 159.65,
+   "evidence_end": 168.15,
+   "evidence_spans": [
+    {
+     "id": "S061",
+     "start": 159.65,
+     "end": 160.75
+    },
+    {
+     "id": "S062",
+     "start": 160.75,
+     "end": 168.15
+    }
+   ],
+   "evidence_text": "拍了几组照片，；你这边可以确定一下您最终认可的照片可以可以好的目的的。",
    "speaker": "",
    "flags": [],
    "id": "m07"
@@ -152,37 +279,67 @@
   {
    "topic": "活动小设计",
    "type": "待确认",
-   "content": "建议活动中加入一些小设计，并提到场地在晚上费用不算太高。",
+   "content": "提议在活动中加入一些小设计，并提到晚上场地费用不算太高。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S061",
-    "S062",
-    "S063"
+    "S065",
+    "S066",
+    "S067"
    ],
-   "evidence_start": 173.93,
-   "evidence_end": 184.17,
+   "evidence_start": 173.92,
+   "evidence_end": 184.285,
+   "evidence_spans": [
+    {
+     "id": "S065",
+     "start": 173.92,
+     "end": 176.84
+    },
+    {
+     "id": "S066",
+     "start": 176.84,
+     "end": 180.16
+    },
+    {
+     "id": "S067",
+     "start": 180.16,
+     "end": 184.285
+    }
+   ],
    "evidence_text": "然后我觉得里面可以有一些小设计，；比如说因为是在晚上嘛，；相关场地的话是在晚上这样的费用也不算太高。",
    "speaker": "",
    "flags": [],
    "id": "m08"
   },
   {
-   "topic": "活动地点",
-   "type": "决定",
-   "content": "活动地点在双流区江江医院那边",
+   "topic": "活动场地",
+   "type": "待确认",
+   "content": "活动地点在双流区江江医院那边。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S075"
+    "S077",
+    "S078"
    ],
-   "evidence_start": 204.06,
-   "evidence_end": 208.22,
-   "evidence_text": "地点是在这个双流区江江医院那边。",
+   "evidence_start": 202.16,
+   "evidence_end": 208.225,
+   "evidence_spans": [
+    {
+     "id": "S077",
+     "start": 202.16,
+     "end": 204.04
+    },
+    {
+     "id": "S078",
+     "start": 204.06,
+     "end": 208.225
+    }
+   ],
+   "evidence_text": "就是说刚刚我们已经聊到了地点嘛，；地点是在这个双流区江江医院那边。",
    "speaker": "",
    "flags": [],
    "id": "m09"
@@ -190,57 +347,116 @@
   {
    "topic": "海报设计",
    "type": "待确认",
-   "content": "海报要求有感染力",
+   "content": "海报拟沿用此前讨论的样式，且必须有感染力。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S076",
-    "S077"
+    "S079",
+    "S080"
    ],
-   "evidence_start": 208.48,
-   "evidence_end": 213.64,
+   "evidence_start": 208.54,
+   "evidence_end": 213.685,
+   "evidence_spans": [
+    {
+     "id": "S079",
+     "start": 208.54,
+     "end": 211.4
+    },
+    {
+     "id": "S080",
+     "start": 211.4,
+     "end": 213.685
+    }
+   ],
    "evidence_text": "然后的话海报的话就刚刚你说的那种是吧？；只不过说要求的话就是一定要有感染力。",
    "speaker": "",
    "flags": [],
    "id": "m10"
   },
   {
-   "topic": "活动主持人",
-   "type": "决定",
-   "content": "主持人需控场力强、亲和力强且幽默",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S086",
-    "S087",
-    "S088",
-    "S090"
-   ],
-   "evidence_start": 225.21,
-   "evidence_end": 235.39,
-   "evidence_text": "我就说就必须要是控场力比较强，；同时呢亲和力啊就是和大大众互动这一块亲和力要比较强，；同时比较幽默。；可可以的，",
-   "speaker": "",
-   "flags": [],
-   "id": "m11"
-  },
-  {
-   "topic": "活动主持人",
+   "topic": "主持人",
    "type": "待办",
-   "content": "带主持人朋友来与对方见面",
+   "content": "带具有相关经验、能带气氛的主持人朋友来见面。",
    "responsible": "说话人自述（身份未识别）",
    "deadline": "到时候，具体日期未知",
    "raw_responsible": "说话人自述",
    "raw_deadline": "到时候，具体日期未知",
    "evidence_ids": [
-    "S091"
+    "S085",
+    "S086",
+    "S087",
+    "S095"
    ],
-   "evidence_start": 235.39,
-   "evidence_end": 237.45,
-   "evidence_text": "到时候我带他来来见一下你，",
+   "evidence_start": 219.35,
+   "evidence_end": 237.49,
+   "evidence_spans": [
+    {
+     "id": "S085",
+     "start": 219.35,
+     "end": 220.15
+    },
+    {
+     "id": "S086",
+     "start": 220.15,
+     "end": 221.07
+    },
+    {
+     "id": "S087",
+     "start": 221.09,
+     "end": 223.865
+    },
+    {
+     "id": "S095",
+     "start": 235.53,
+     "end": 237.49
+    }
+   ],
+   "evidence_text": "我是有朋友，；他有相关经验，；也是比较搞笑能带气氛的一个主持人，；到时候我带他来见一下你，",
+   "speaker": "",
+   "flags": [],
+   "id": "m11"
+  },
+  {
+   "topic": "主持人",
+   "type": "决定",
+   "content": "主持人需控场力强、亲和力强且幽默。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S089",
+    "S090",
+    "S092",
+    "S094"
+   ],
+   "evidence_start": 225.2,
+   "evidence_end": 235.53,
+   "evidence_spans": [
+    {
+     "id": "S089",
+     "start": 225.2,
+     "end": 227.425
+    },
+    {
+     "id": "S090",
+     "start": 227.85,
+     "end": 231.06
+    },
+    {
+     "id": "S092",
+     "start": 232.66,
+     "end": 233.745
+    },
+    {
+     "id": "S094",
+     "start": 234.75,
+     "end": 235.53
+    }
+   ],
+   "evidence_text": "我就说就必须要是控场力比较强，；同时呢亲和力啊就是和大大众互动，；同时比较幽默。；可以可以的，",
    "speaker": "",
    "flags": [],
    "id": "m12"
@@ -249,10 +465,10 @@
  "dropped": [],
  "llm_calls": 4,
  "usage": {
-  "prompt_tokens": 2831,
-  "completion_tokens": 10838
+  "prompt_tokens": 2983,
+  "completion_tokens": 16524
  },
- "elapsed": 69.59,
+ "elapsed": 120.14,
  "clip": "clip10",
  "source": "asr"
 }

@@ -6,40 +6,74 @@
  },
  "items": [
   {
-   "topic": "连锁化与现代化经营",
+   "topic": "连锁化与现代化改进",
    "type": "待确认",
-   "content": "提出企业应向连锁化、现代化方向经营并做改变改进，多人附和但无人明确拍板。",
+   "content": "企业应向连锁经营、连锁化和现代化方向作出改变改进。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
     "S008",
-    "S010",
-    "S011"
+    "S009",
+    "S010"
    ],
-   "evidence_start": 15.47,
-   "evidence_end": 29.87,
-   "evidence_text": "我们觉得我们企业也应该向连锁经营这些连锁化和现代化这些方向嗯进行是吗？；需要做一点改变改进。；对，",
+   "evidence_start": 15.49,
+   "evidence_end": 29.83,
+   "evidence_spans": [
+    {
+     "id": "S008",
+     "start": 15.49,
+     "end": 23.83
+    },
+    {
+     "id": "S009",
+     "start": 23.93,
+     "end": 29.25
+    },
+    {
+     "id": "S010",
+     "start": 29.59,
+     "end": 29.83
+    }
+   ],
+   "evidence_text": "我们觉得我们企业也应该向连锁经营这些连锁化和现代化这些方向嗯进行是吗？；迈出多多两方面需要做一点改变改进。；对，",
    "speaker": "",
    "flags": [],
    "id": "m01"
   },
   {
-   "topic": "引入电子商务",
+   "topic": "餐饮电子商务",
    "type": "待确认",
-   "content": "提出餐饮业引入电子商务势在必行、并与连锁经营结合，仅有提议和附和，未定具体事项。",
+   "content": "餐饮业引入电子商务，并将两者联合以促进行业发展。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S012",
     "S013",
-    "S014",
-    "S017"
+    "S016"
    ],
-   "evidence_start": 31.19,
-   "evidence_end": 48.53,
+   "evidence_start": 31.13,
+   "evidence_end": 48.51,
+   "evidence_spans": [
+    {
+     "id": "S012",
+     "start": 31.13,
+     "end": 36.45
+    },
+    {
+     "id": "S013",
+     "start": 38.85,
+     "end": 41.77
+    },
+    {
+     "id": "S016",
+     "start": 47.29,
+     "end": 48.51
+    }
+   ],
    "evidence_text": "让餐饮业引入电子商务也是势在必行餐饮业的发展态势。；然后因为这样子把两者联合起来，；是的嗯，",
    "speaker": "",
    "flags": [],
@@ -48,45 +82,79 @@
   {
    "topic": "企业品牌形象",
    "type": "待确认",
-   "content": "提出需要为企业品牌树立良好形象，得到附和但未明确落实方式与负责人。",
+   "content": "企业需要树立良好的品牌形象。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S023",
     "S024",
-    "S025",
-    "S026"
+    "S025"
    ],
-   "evidence_start": 66.29,
-   "evidence_end": 72.33,
+   "evidence_start": 66.44,
+   "evidence_end": 72.52,
+   "evidence_spans": [
+    {
+     "id": "S023",
+     "start": 66.44,
+     "end": 69.44
+    },
+    {
+     "id": "S024",
+     "start": 69.66,
+     "end": 72.16
+    },
+    {
+     "id": "S025",
+     "start": 72.16,
+     "end": 72.52
+    }
+   ],
    "evidence_text": "那这样子看来我们需要为这个餐饮，；我们企业的品牌树立一个良好的形象。；没错，",
    "speaker": "",
    "flags": [],
    "id": "m03"
   },
   {
-   "topic": "科学化、营养化与标准化",
+   "topic": "科学化营养化标准化",
    "type": "待确认",
-   "content": "提出餐饮要科学化、营养化并注重标准化，未形成具体要求或安排。",
+   "content": "餐饮业应注重科学化、营养化和标准化。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S035",
-    "S036",
-    "S037"
+    "S030",
+    "S033",
+    "S035"
    ],
-   "evidence_start": 85.58,
-   "evidence_end": 91.42,
-   "evidence_text": "就我们餐饮就得科学化，；营养化嘛，；嗯就要注重一下这个标准化嘛，",
+   "evidence_start": 78.16,
+   "evidence_end": 91.285,
+   "evidence_spans": [
+    {
+     "id": "S030",
+     "start": 78.16,
+     "end": 83.345
+    },
+    {
+     "id": "S033",
+     "start": 85.55,
+     "end": 88.37
+    },
+    {
+     "id": "S035",
+     "start": 89.11,
+     "end": 91.285
+    }
+   ],
+   "evidence_text": "然后我们科学化、营养化也成为餐饮业的重要指向标。；就我们餐饮就得科学化、营养化嘛。；比较注重一下这个标准化嘛，",
    "speaker": "",
    "flags": [],
    "id": "m04"
   },
   {
-   "topic": "招聘岗位与学历要求",
+   "topic": "招聘岗位与要求",
    "type": "待确认",
    "content": "主要招聘运营副总、营销部经理、市场部经理和物流部经理，学历要求为大专及以上。",
    "responsible": "未知",
@@ -94,108 +162,134 @@
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S063",
+    "S064",
     "S065",
-    "S066",
-    "S067",
-    "S068"
+    "S066"
    ],
-   "evidence_start": 158.13,
-   "evidence_end": 181.68,
+   "evidence_start": 158.12,
+   "evidence_end": 181.71,
+   "evidence_spans": [
+    {
+     "id": "S063",
+     "start": 158.12,
+     "end": 162.735
+    },
+    {
+     "id": "S064",
+     "start": 162.87,
+     "end": 164.61
+    },
+    {
+     "id": "S065",
+     "start": 164.89,
+     "end": 177.955
+    },
+    {
+     "id": "S066",
+     "start": 178.46,
+     "end": 181.71
+    }
+   ],
    "evidence_text": "那我们主要是招聘一些运营，；我们主要招聘运营的副总，；然后营销部经理、市场部经理跟物流部经理这些主要招聘的他们的要求呢也学历要求是要有的，；学历大概在大专或及以上的学历。",
    "speaker": "",
    "flags": [],
    "id": "m05"
   },
   {
-   "topic": "运营副总职责",
+   "topic": "招聘岗位与要求",
    "type": "待确认",
-   "content": "运营副总负责管理并追踪各门店日常运营工作及结果，完成各门店各项经营管理指标。",
+   "content": "运营副总负责管理并追踪各门店日常运营及结果，完成各项经营管理指标，发现督导门店问题并推动改善，及时反馈进度。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S071",
+    "S072",
     "S073",
-    "S074"
+    "S075"
    ],
-   "evidence_start": 190.67,
-   "evidence_end": 200.67,
-   "evidence_text": "运营副总主要负责管理跟追踪各门店的日常运营的管理工作及结果，；完成各门店的各项经营管理指标，",
+   "evidence_start": 190.65,
+   "evidence_end": 211.9,
+   "evidence_spans": [
+    {
+     "id": "S071",
+     "start": 190.65,
+     "end": 197.185
+    },
+    {
+     "id": "S072",
+     "start": 197.67,
+     "end": 200.835
+    },
+    {
+     "id": "S073",
+     "start": 201.33,
+     "end": 205.525
+    },
+    {
+     "id": "S075",
+     "start": 208.3,
+     "end": 211.9
+    }
+   ],
+   "evidence_text": "运营副总主要负责管理跟追踪各门店的日常运营的管理工作及结果，；完成各门店的各项经营管理指标，；发现督导各门店问题跟管理工作改善，；然后进度追踪要及时的反馈，",
    "speaker": "",
    "flags": [],
    "id": "m06"
   },
   {
-   "topic": "运营副总职责",
+   "topic": "招聘岗位与要求",
    "type": "待确认",
-   "content": "运营副总需发现并督导门店问题改善，及时反馈进度，分析市场信息并做出相应调整措施。",
+   "content": "招聘条件提到有亲和力、良好的应变和交谈能力、善于学习新鲜事物且执行力强，并有团队意识和强烈的进攻心。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S075",
-    "S077",
-    "S078",
-    "S079"
+    "S081",
+    "S082",
+    "S084",
+    "S086"
    ],
-   "evidence_start": 201.25,
-   "evidence_end": 216.08,
-   "evidence_text": "发现督导各门店问题跟管理工作改善，；然后进度追踪要及时的反馈，；市场信息予以分析，；做出相应的调整措施。",
+   "evidence_start": 222.06,
+   "evidence_end": 237.765,
+   "evidence_spans": [
+    {
+     "id": "S081",
+     "start": 222.06,
+     "end": 223.52
+    },
+    {
+     "id": "S082",
+     "start": 223.58,
+     "end": 227.065
+    },
+    {
+     "id": "S084",
+     "start": 229.71,
+     "end": 232.86
+    },
+    {
+     "id": "S086",
+     "start": 234.38,
+     "end": 237.765
+    }
+   ],
+   "evidence_text": "有亲和力，；有良好的应变能力、交谈能力，；善于学习新鲜事物执行力。；积极有团队意识和强烈的进攻心，",
    "speaker": "",
    "flags": [],
    "id": "m07"
-  },
-  {
-   "topic": "运营副总任职要求",
-   "type": "待确认",
-   "content": "招聘条件包括有亲和力、良好的应变能力和交谈能力、做事认真细心。",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S082",
-    "S083",
-    "S084",
-    "S085"
-   ],
-   "evidence_start": 218.38,
-   "evidence_end": 228.665,
-   "evidence_text": "我觉得不错的招聘条件的话，；有亲和力，；有良好的应变能力、交谈能力，；做事认真细心，",
-   "speaker": "",
-   "flags": [],
-   "id": "m08"
-  },
-  {
-   "topic": "运营副总任职要求",
-   "type": "待确认",
-   "content": "运营副总应善于学习新鲜事物、执行力强、主动积极、有团队意识和强烈的进攻心。",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S087",
-    "S088",
-    "S089",
-    "S090"
-   ],
-   "evidence_start": 229.74,
-   "evidence_end": 237.66,
-   "evidence_text": "善于学习新鲜事物，；执行力强，；主动积极，；有团队意识和强烈的进攻心。",
-   "speaker": "",
-   "flags": [],
-   "id": "m09"
   }
  ],
  "dropped": [],
  "llm_calls": 4,
  "usage": {
-  "prompt_tokens": 2792,
-  "completion_tokens": 11093
+  "prompt_tokens": 2797,
+  "completion_tokens": 8952
  },
- "elapsed": 70.68,
+ "elapsed": 68.06,
  "clip": "clip07",
  "source": "asr"
 }

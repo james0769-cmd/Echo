@@ -8,10 +8,10 @@
  "dropped": [],
  "llm_calls": 3,
  "usage": {
-  "prompt_tokens": 2640,
-  "completion_tokens": 278
+  "prompt_tokens": 2718,
+  "completion_tokens": 295
  },
- "elapsed": 6.59,
+ "elapsed": 5.36,
  "clip": "clip06",
  "source": "asr"
 }

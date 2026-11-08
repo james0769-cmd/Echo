@@ -6,143 +6,292 @@
  },
  "items": [
   {
-   "topic": "新员工社保购买",
+   "topic": "新员工社保办理",
    "type": "待办",
-   "content": "本月入职员工下个月转正后开始购买社保。",
-   "responsible": "未知",
-   "deadline": "下个月，具体日期未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "下个月，具体日期未知",
-   "evidence_ids": [
-    "S002",
-    "S003",
-    "S004"
-   ],
-   "evidence_start": 0.29,
-   "evidence_end": 5.73,
-   "evidence_text": "就是比如这个月入职的，；下个月转正过后，；就就下个月就开始购买。",
-   "speaker": "",
-   "flags": [],
-   "id": "m01"
-  },
-  {
-   "topic": "转正资料收集",
-   "type": "待办",
-   "content": "在员工即将转正前一周左右收集资料并提交。",
+   "content": "在员工即将转正前一周左右收集并提交资料，下个月开始购买社保。",
    "responsible": "未知",
    "deadline": "即将转正前一周左右，具体日期未知",
    "raw_responsible": "未知",
    "raw_deadline": "即将转正前一周左右，具体日期未知",
    "evidence_ids": [
+    "S004",
     "S006",
     "S007",
     "S008"
    ],
-   "evidence_start": 6.99,
-   "evidence_end": 15.35,
-   "evidence_text": "也就是在即将转正前一周左右，；我们就要开始收集他们的资料，；就要往那边我们要去需要提交资料。",
+   "evidence_start": 4.17,
+   "evidence_end": 15.37,
+   "evidence_spans": [
+    {
+     "id": "S004",
+     "start": 4.17,
+     "end": 5.73
+    },
+    {
+     "id": "S006",
+     "start": 6.99,
+     "end": 10.95
+    },
+    {
+     "id": "S007",
+     "start": 10.95,
+     "end": 12.81
+    },
+    {
+     "id": "S008",
+     "start": 12.81,
+     "end": 15.37
+    }
+   ],
+   "evidence_text": "就就下个月就开始购买。；也就是在即将转正前一周左右，；我们就要开始收集他们的资料，；就要往那边我们要去需要提交资料。",
    "speaker": "",
    "flags": [],
-   "id": "m02"
+   "id": "m01"
   },
   {
    "topic": "店铺管理层招聘",
    "type": "待确认",
-   "content": "店铺管理层后期可能还需要增加两到三个。",
+   "content": "后期可能还需增加两到三名店铺管理层。",
    "responsible": "未知",
    "deadline": "后期，具体日期未知",
    "raw_responsible": "未知",
    "raw_deadline": "后期，具体日期未知",
    "evidence_ids": [
+    "S016",
     "S018",
     "S019"
    ],
-   "evidence_start": 34.46,
-   "evidence_end": 41.22,
-   "evidence_text": "这个的话后期可能还需要再增加两个两到三个左右。；因为我们现在开四家新店，",
+   "evidence_start": 29.83,
+   "evidence_end": 41.19,
+   "evidence_spans": [
+    {
+     "id": "S016",
+     "start": 29.83,
+     "end": 33.11
+    },
+    {
+     "id": "S018",
+     "start": 34.43,
+     "end": 38.99
+    },
+    {
+     "id": "S019",
+     "start": 39.25,
+     "end": 41.19
+    }
+   ],
+   "evidence_text": "那那个店铺的管理层呢还会招吗？；这个的话后期可能还需要再增加两个两到三个左右。；因为我们现在开四家新店，",
    "speaker": "",
    "flags": [],
-   "id": "m03"
+   "id": "m02"
   },
   {
-   "topic": "公积金购买政策",
+   "topic": "公积金缴存",
    "type": "待确认",
-   "content": "新员工公积金拟在转正后（如三个月）再购买，待确定。",
+   "content": "建议员工转正后满三个月再开始购买公积金，以稳定一段时间后再买。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "转正后三个月，具体日期未知",
    "evidence_ids": [
-    "S047",
-    "S048",
-    "S054"
+    "S049",
+    "S050",
+    "S054",
+    "S056"
    ],
-   "evidence_start": 100.52,
-   "evidence_end": 117.79,
-   "evidence_text": "一般我觉得的话公积金他们比如说呃转正之后，；比如三个月转正之后再购买吧。；然后可能话需要他们稳定一段时间再买吧。",
+   "evidence_start": 100.56,
+   "evidence_end": 117.755,
+   "evidence_spans": [
+    {
+     "id": "S049",
+     "start": 100.56,
+     "end": 104.26
+    },
+    {
+     "id": "S050",
+     "start": 104.26,
+     "end": 105.92
+    },
+    {
+     "id": "S054",
+     "start": 113.5,
+     "end": 113.88
+    },
+    {
+     "id": "S056",
+     "start": 115.2,
+     "end": 117.755
+    }
+   ],
+   "evidence_text": "一般我觉得的话公积金他们比如说嗯转正之后，；比如三个月转正之后再购买吧。；对对对，；然后可能话需要他们稳定一段时间再买吧。",
    "speaker": "",
    "flags": [
     "截止日期“转正后三个月，具体日期未知”在原话中找不到，已改为未知"
    ],
-   "id": "m04"
+   "id": "m03"
   },
   {
-   "topic": "公积金购买政策",
+   "topic": "公积金缴存",
    "type": "待确认",
-   "content": "公积金是否属于政策必须购买、还是可自行选择购买，尚未确认。",
+   "content": "需确认公积金是政策强制购买还是可自愿购买。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S055",
-    "S056",
-    "S057"
+    "S058",
+    "S059",
+    "S061",
+    "S062"
    ],
-   "evidence_start": 117.99,
-   "evidence_end": 129.05,
-   "evidence_text": "那公积金的话这块就是我们这边是必须购买，；就是政策的话是必须购买还是有可能这个是公积金是可以购买，；可不购买。",
+   "evidence_start": 118.19,
+   "evidence_end": 129.085,
+   "evidence_spans": [
+    {
+     "id": "S058",
+     "start": 118.19,
+     "end": 121.73
+    },
+    {
+     "id": "S059",
+     "start": 121.89,
+     "end": 123.71
+    },
+    {
+     "id": "S061",
+     "start": 127.39,
+     "end": 128.27
+    },
+    {
+     "id": "S062",
+     "start": 128.27,
+     "end": 129.085
+    }
+   ],
+   "evidence_text": "公积金的话这块就是我们这边是必须购买，；就是政策的话是必须购买，；是可以购买，；可不购买。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "公积金缴存",
+   "type": "待确认",
+   "content": "计划公积金缴存合计12%，公司承担6%，个人承担6%，当前平均薪资约三千。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S084",
+    "S085",
+    "S086",
+    "S087"
+   ],
+   "evidence_start": 170.05,
+   "evidence_end": 180.425,
+   "evidence_spans": [
+    {
+     "id": "S084",
+     "start": 170.05,
+     "end": 173.55
+    },
+    {
+     "id": "S085",
+     "start": 173.93,
+     "end": 176.79
+    },
+    {
+     "id": "S086",
+     "start": 176.89,
+     "end": 179.07
+    },
+    {
+     "id": "S087",
+     "start": 179.21,
+     "end": 180.425
+    }
+   ],
+   "evidence_text": "他现在平均的那个薪资是三千左右。；我们是计划交总共是百分之十二，；然后我们承担百分之六，；他们承担百分之六，",
    "speaker": "",
    "flags": [],
    "id": "m05"
   },
   {
-   "topic": "公积金购买政策",
+   "topic": "员工医保报销流程",
    "type": "待确认",
-   "content": "公积金拟按总比例12%缴纳，公司和员工各承担6%，待最终确认。",
+   "content": "员工医保报销是否需要通过公司办理尚不明确，需进一步确认。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S080",
-    "S081",
-    "S082",
-    "S083"
+    "S098",
+    "S100",
+    "S103",
+    "S104"
    ],
-   "evidence_start": 173.98,
-   "evidence_end": 180.42,
-   "evidence_text": "我们是计划交，；总共是百分之十二，；然后我们承担百分之六，；他们承担百分之六，",
+   "evidence_start": 194.25,
+   "evidence_end": 209.17,
+   "evidence_spans": [
+    {
+     "id": "S098",
+     "start": 194.25,
+     "end": 196.54
+    },
+    {
+     "id": "S100",
+     "start": 197.46,
+     "end": 198.9
+    },
+    {
+     "id": "S103",
+     "start": 203.03,
+     "end": 204.41
+    },
+    {
+     "id": "S104",
+     "start": 204.43,
+     "end": 209.17
+    }
+   ],
+   "evidence_text": "然后他们医保这一块，；需要找我们还是怎样？；是要通过我们报吗？；还是啊通过就是找国家报这块这一块的话，",
    "speaker": "",
    "flags": [],
    "id": "m06"
   },
   {
-   "topic": "员工医保报销及生育相关事宜",
-   "type": "待确认",
-   "content": "提出今后可能有女员工生育等情况，建议前期先去了解相关医保报销事宜，但未明确由谁跟进，也无人收口。",
-   "responsible": "未知",
+   "topic": "女员工生育事项",
+   "type": "待办",
+   "content": "提前了解以后女员工生小孩等相关情况。",
+   "responsible": "说话人自述（身份未识别）",
    "deadline": "未知",
-   "raw_responsible": "未知",
+   "raw_responsible": "说话人自述",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S111",
-    "S112",
-    "S113"
+    "S115",
+    "S116",
+    "S117"
    ],
-   "evidence_start": 232.88,
-   "evidence_end": 239.215,
-   "evidence_text": "因为以后的话可能会有一些女员工，；她比如生小孩这些，；我觉得需要可以前期去了解一下。",
+   "evidence_start": 232.87,
+   "evidence_end": 239.195,
+   "evidence_spans": [
+    {
+     "id": "S115",
+     "start": 232.87,
+     "end": 235.56
+    },
+    {
+     "id": "S116",
+     "start": 235.62,
+     "end": 236.825
+    },
+    {
+     "id": "S117",
+     "start": 237.16,
+     "end": 239.195
+    }
+   ],
+   "evidence_text": "因为以后的话可能会有一些女员工，；她比如生小孩这些，；我就需要可以前期去了解一下。",
    "speaker": "",
    "flags": [],
    "id": "m07"
@@ -151,10 +300,10 @@
  "dropped": [],
  "llm_calls": 4,
  "usage": {
-  "prompt_tokens": 2935,
-  "completion_tokens": 8423
+  "prompt_tokens": 3062,
+  "completion_tokens": 10267
  },
- "elapsed": 54.42,
+ "elapsed": 75.28,
  "clip": "clip08",
  "source": "asr"
 }

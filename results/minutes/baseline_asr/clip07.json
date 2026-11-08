@@ -4,47 +4,112 @@
  "params": {},
  "items": [
   {
-   "topic": "招聘岗位与学历要求",
+   "topic": "连锁化现代化",
    "type": "决定",
-   "content": "主要招聘运营副总、营销部经理、市场部经理、物流部经理，学历要求为大专及以上。",
+   "content": "企业应向连锁化、现代化方向改进。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S066",
-    "S067",
-    "S068"
+    "S008",
+    "S009"
    ],
-   "evidence_start": 162.77,
-   "evidence_end": 181.68,
-   "evidence_text": "我们主要招聘运营的副总，然后营销部经理、市场部经理跟物流部经理这些主要招聘的他们的要求呢也学历要求是要有的，学历大概在大专或及以上的学历。",
+   "evidence_start": 15.49,
+   "evidence_end": 29.25,
+   "evidence_spans": [
+    {
+     "start": 15.49,
+     "end": 29.25
+    }
+   ],
+   "evidence_text": "我们觉得我们企业也应该向连锁经营这些连锁化和现代化这些方向嗯进行是吗？迈出多多两方面需要做一点改变改进。对",
    "speaker": "",
    "flags": [],
    "id": "m01"
   },
   {
-   "topic": "运营副总工作职责",
-   "type": "待确认",
-   "content": "运营副总负责管理追踪各门店日常运营及结果，完成经营管理指标，督导问题改善，及时反馈进度并分析市场信息做出调整。",
+   "topic": "企业品牌形象",
+   "type": "决定",
+   "content": "企业需要为餐饮品牌树立良好形象。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
-   "evidence_ids": [],
-   "evidence_start": null,
-   "evidence_end": null,
-   "evidence_text": "运营副总主要负责管理跟追踪各门店的日常运营的管理工作及结果，完成各门店的各项经营管理指标，发现督导各门店问题跟管理工作改善，改予以改善。然后进度追踪要及时的反馈，市场信息予以分析，做出相应的调整措施。",
-   "speaker": "",
-   "flags": [
-    "原话只在转写中找到 0/1 段"
+   "evidence_ids": [
+    "S023",
+    "S024"
    ],
+   "evidence_start": 66.44,
+   "evidence_end": 72.16,
+   "evidence_spans": [
+    {
+     "start": 66.44,
+     "end": 72.16
+    }
+   ],
+   "evidence_text": "那这样子看来我们需要为这个餐饮，我们企业的品牌树立一个良好的形象。没错",
+   "speaker": "",
+   "flags": [],
    "id": "m02"
   },
   {
-   "topic": "运营副总任职要求",
+   "topic": "科学化营养化标准化",
    "type": "待确认",
-   "content": "运营副总任职要求包括有亲和力、良好应变和交谈能力、认真细心、善于学习新鲜事物、执行力强、主动积极、有团队意识和强烈进攻心。",
+   "content": "餐饮经营要注重科学化、营养化和标准化。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S033",
+    "S034",
+    "S035",
+    "S036"
+   ],
+   "evidence_start": 85.55,
+   "evidence_end": 92.965,
+   "evidence_spans": [
+    {
+     "start": 85.55,
+     "end": 92.965
+    }
+   ],
+   "evidence_text": "就我们餐饮就得科学化、营养化嘛。嗯，比较注重一下这个标准化嘛，餐饮的营养标准化",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "招聘岗位",
+   "type": "待办",
+   "content": "招聘运营副总、营销部经理、市场部经理、物流部经理，学历要求为大专及以上。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S064",
+    "S065",
+    "S066"
+   ],
+   "evidence_start": 162.87,
+   "evidence_end": 181.71,
+   "evidence_spans": [
+    {
+     "start": 162.87,
+     "end": 181.71
+    }
+   ],
+   "evidence_text": "我们主要招聘运营的副总，然后营销部经理、市场部经理跟物流部经理这些主要招聘的他们的要求呢也学历要求是要有的，学历大概在大专或及以上的学历。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "运营副总职责与任职要求",
+   "type": "待确认",
+   "content": "运营副总负责管理追踪各门店日常运营及结果、完成经营管理指标、督导问题改善、及时反馈进度、分析市场信息并调整；任职要求包括亲和力、应变和交谈能力、认真细心、善于学习、执行力、积极主动、团队意识和强烈进攻心。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -52,21 +117,22 @@
    "evidence_ids": [],
    "evidence_start": null,
    "evidence_end": null,
-   "evidence_text": "有亲和力，有良好的应变能力、交谈能力，做事认真细心，嗯，善于学习新鲜事物，执行力强，主动积极，有团队意识和强烈的进攻心。好吧。",
+   "evidence_spans": [],
+   "evidence_text": "运营副总主要负责管理跟追踪各门店的日常运营的管理工作及结果，完成各门店的各项经营管理指标，发现督导各门店问题跟管理工作改善，改予以改善。然后进度追踪要及时的反馈，市场信息予以分析，做出相应的调整措施。你们觉得呢？嗯，我觉得不错的招聘条件的话，有亲和力，有良好的应变能力、交谈能力，做事认真细心，善于学习新鲜事物执行力。这CHENG主动，积极有团队意识和强烈的进攻心，好吧。",
    "speaker": "",
    "flags": [
     "原话只在转写中找到 0/1 段"
    ],
-   "id": "m03"
+   "id": "m05"
   }
  ],
  "dropped": [],
  "llm_calls": 1,
  "usage": {
-  "prompt_tokens": 936,
-  "completion_tokens": 11350
+  "prompt_tokens": 974,
+  "completion_tokens": 6678
  },
- "elapsed": 73.5,
+ "elapsed": 47.77,
  "clip": "clip07",
  "source": "asr"
 }

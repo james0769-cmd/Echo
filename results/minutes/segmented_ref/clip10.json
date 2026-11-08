@@ -7,8 +7,8 @@
  "items": [
   {
    "topic": "活动场地",
-   "type": "待确认",
-   "content": "提出更倾向第二种方案，并讨论双流区江家艺苑作为活动场地，理由是草地大、开放性强且人流量多；尚未最终确定。",
+   "type": "决定",
+   "content": "同意选择双流区江家艺苑一带作为活动场地，因该处草地开阔、人流量大，可吸引人群参加活动。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -21,18 +21,83 @@
    ],
    "evidence_start": 25.35,
    "evidence_end": 64.93,
+   "evidence_spans": [
+    {
+     "id": "S012",
+     "start": 25.35,
+     "end": 27.64
+    },
+    {
+     "id": "S015",
+     "start": 32.75,
+     "end": 34.21
+    },
+    {
+     "id": "S020",
+     "start": 41.51,
+     "end": 45.48
+    },
+    {
+     "id": "S026",
+     "start": 57.97,
+     "end": 64.93
+    }
+   ],
    "evidence_text": "更倾向于，就是说第二种。；双流区那边哈。；然后的话，有那个江家艺苑那边哈，有那种草地。；可以，因为我觉得这个开放性也蛮大的，到时候也可以吸引一部分人群来参加我们这个活动。",
    "speaker": "SPK8025/SPK8026",
    "flags": [],
    "id": "m01"
   },
   {
-   "topic": "会员制",
-   "type": "待确认",
-   "content": "提出会员制方案，初期报名费为200元/人；尚无人确认。",
-   "responsible": "未知",
+   "topic": "主持人安排",
+   "type": "决定",
+   "content": "已找到有经验且有搞笑气氛的主持人。",
+   "responsible": "说话人自述（身份未识别）",
    "deadline": "未知",
-   "raw_responsible": "未知",
+   "raw_responsible": "说话人自述",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S031",
+    "S033",
+    "S035",
+    "S036"
+   ],
+   "evidence_start": 71.46,
+   "evidence_end": 81.03,
+   "evidence_spans": [
+    {
+     "id": "S031",
+     "start": 71.46,
+     "end": 73.92
+    },
+    {
+     "id": "S033",
+     "start": 73.92,
+     "end": 75.6
+    },
+    {
+     "id": "S035",
+     "start": 77.29,
+     "end": 78.81
+    },
+    {
+     "id": "S036",
+     "start": 79.31,
+     "end": 81.03
+    }
+   ],
+   "evidence_text": "然后我也这边找了相关。；有经验的主持人。；搞笑气氛，然后能。；呃，也有经验的那种。",
+   "speaker": "SPK8026",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "会员制方案",
+   "type": "决定",
+   "content": "已制定会员制，刚开始报名费为200元/人。",
+   "responsible": "说话人自述（身份未识别）",
+   "deadline": "未知",
+   "raw_responsible": "说话人自述",
    "raw_deadline": "未知",
    "evidence_ids": [
     "S037",
@@ -41,45 +106,67 @@
    ],
    "evidence_start": 81.03,
    "evidence_end": 89.81,
+   "evidence_spans": [
+    {
+     "id": "S037",
+     "start": 81.03,
+     "end": 83.39
+    },
+    {
+     "id": "S038",
+     "start": 83.39,
+     "end": 87.84
+    },
+    {
+     "id": "S039",
+     "start": 87.84,
+     "end": 89.81
+    }
+   ],
    "evidence_text": "然后我这边还制定了一个会员制。；就刚开始报名的话，我们收取的费用是两百个人。；一个，呃，两百块钱一个人。",
    "speaker": "SPK8026",
    "flags": [],
-   "id": "m02"
+   "id": "m03"
   },
   {
-   "topic": "会员制",
+   "topic": "会员制方案",
    "type": "决定",
-   "content": "会员需先充值500元。",
+   "content": "会员需先充值500元，牵手成功赠送双人三亚机票。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
     "S040",
-    "S041"
-   ],
-   "evidence_start": 90.16,
-   "evidence_end": 94.22,
-   "evidence_text": "但会员的话是要首先充五百块钱。；嗯。",
-   "speaker": "SPK8026/SPK8025",
-   "flags": [],
-   "id": "m03"
-  },
-  {
-   "topic": "牵手奖励",
-   "type": "决定",
-   "content": "牵手成功可赠送双人机票去三亚。",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [
+    "S041",
     "S042",
     "S043"
    ],
-   "evidence_start": 94.51,
+   "evidence_start": 90.16,
    "evidence_end": 102.76,
-   "evidence_text": "然后最后如果牵手成功的话，我们这边可以赠送双人机票，去三亚的这种。；可以，这个是，这个是可以的。",
+   "evidence_spans": [
+    {
+     "id": "S040",
+     "start": 90.16,
+     "end": 94.22
+    },
+    {
+     "id": "S041",
+     "start": 91.81,
+     "end": 92.15
+    },
+    {
+     "id": "S042",
+     "start": 94.51,
+     "end": 100.63
+    },
+    {
+     "id": "S043",
+     "start": 100.67,
+     "end": 102.76
+    }
+   ],
+   "evidence_text": "但会员的话是要首先充五百块钱。；嗯。；然后最后如果牵手成功的话，我们这边可以赠送双人机票，去三亚的这种。；可以，这个是，这个是可以的。",
    "speaker": "SPK8026/SPK8025",
    "flags": [],
    "id": "m04"
@@ -87,7 +174,7 @@
   {
    "topic": "活动场地",
    "type": "决定",
-   "content": "开幕式地点定在双流江家艺苑的大公园草地。",
+   "content": "开幕式定在双流江家艺苑的大公园草地。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -100,6 +187,28 @@
    ],
    "evidence_start": 103.75,
    "evidence_end": 113.68,
+   "evidence_spans": [
+    {
+     "id": "S045",
+     "start": 103.75,
+     "end": 109.18
+    },
+    {
+     "id": "S046",
+     "start": 104.32,
+     "end": 104.66
+    },
+    {
+     "id": "S047",
+     "start": 108.65,
+     "end": 112.09
+    },
+    {
+     "id": "S048",
+     "start": 112.4,
+     "end": 113.68
+    }
+   ],
    "evidence_text": "那我们开幕式的话就定一个草地吗？是双流的那边一个草地，是吗？；对。；对，双流江家艺苑那个，有个大公园。；好，可以。",
    "speaker": "SPK8026/SPK8025",
    "flags": [],
@@ -107,28 +216,51 @@
   },
   {
    "topic": "海报设计",
-   "type": "待确认",
-   "content": "海报设计建议突出两人之间有爱的火花，照片感染力强。",
+   "type": "决定",
+   "content": "海报要体现两个人之间有爱的火花。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S063",
+    "S064",
+    "S065",
     "S066",
-    "S069"
+    "S067"
    ],
-   "evidence_start": 136.96,
-   "evidence_end": 148.67,
-   "evidence_text": "我建议的哈，就是说，这个海报的话，一定要是。；有那种爱的火花。；拍出来的照片效果感染力量非常强。",
-   "speaker": "SPK8025",
+   "evidence_start": 140.62,
+   "evidence_end": 144.88,
+   "evidence_spans": [
+    {
+     "id": "S064",
+     "start": 140.62,
+     "end": 141.37
+    },
+    {
+     "id": "S065",
+     "start": 141.37,
+     "end": 142.05
+    },
+    {
+     "id": "S066",
+     "start": 142.05,
+     "end": 143.35
+    },
+    {
+     "id": "S067",
+     "start": 144.14,
+     "end": 144.88
+    }
+   ],
+   "evidence_text": "两个人。；之间。；有那种爱的火花。；可以。",
+   "speaker": "SPK8025/SPK8026",
    "flags": [],
    "id": "m06"
   },
   {
-   "topic": "照片",
+   "topic": "海报设计",
    "type": "待办",
-   "content": "稍后将已拍好的照片发送到对方相关邮件。",
+   "content": "将已经拍好的照片发送到对方相关邮件供查收。",
    "responsible": "说话人自述（身份未识别）",
    "deadline": "稍后，具体日期未知",
    "raw_responsible": "说话人自述",
@@ -138,27 +270,57 @@
    ],
    "evidence_start": 151.94,
    "evidence_end": 159.48,
+   "evidence_spans": [
+    {
+     "id": "S072",
+     "start": 151.94,
+     "end": 159.48
+    }
+   ],
    "evidence_text": "嗯，好的，那稍后我会把我，就是已经拍好的照片发送到你的相关邮件里面，你可以查收一下。",
    "speaker": "SPK8026",
    "flags": [],
    "id": "m07"
   },
   {
-   "topic": "照片",
+   "topic": "海报设计",
    "type": "待办",
-   "content": "确定最终认可的照片。",
+   "content": "确认最终认可的照片。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S075",
     "S076",
     "S077",
     "S078"
    ],
-   "evidence_start": 162.39,
+   "evidence_start": 161.17,
    "evidence_end": 166.99,
-   "evidence_text": "确定一下，您最终。；认可的照片。；可以可以。",
+   "evidence_spans": [
+    {
+     "id": "S075",
+     "start": 161.17,
+     "end": 162.39
+    },
+    {
+     "id": "S076",
+     "start": 162.39,
+     "end": 164.67
+    },
+    {
+     "id": "S077",
+     "start": 164.67,
+     "end": 165.88
+    },
+    {
+     "id": "S078",
+     "start": 166.22,
+     "end": 166.99
+    }
+   ],
+   "evidence_text": "这边可以。；确定一下，您最终。；认可的照片。；可以可以。",
    "speaker": "SPK8026/SPK8025",
    "flags": [],
    "id": "m08"
@@ -166,7 +328,7 @@
   {
    "topic": "面具环节",
    "type": "待确认",
-   "content": "有人提议活动中可以戴面具，但当场没有人明确同意，也没有给出结论",
+   "content": "有人提议活动中可以安排戴面具的环节，未获回应也未确定。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -176,6 +338,13 @@
    ],
    "evidence_start": 186.17,
    "evidence_end": 187.54,
+   "evidence_spans": [
+    {
+     "id": "S085",
+     "start": 186.17,
+     "end": 187.54
+    }
+   ],
    "evidence_text": "然后可以戴面具。",
    "speaker": "SPK8026",
    "flags": [],
@@ -183,8 +352,8 @@
   },
   {
    "topic": "活动场地",
-   "type": "决定",
-   "content": "活动地点确定为双流区江家艺苑",
+   "type": "待确认",
+   "content": "活动地点定在双流区江家艺苑，但本段只是复述此前聊过的内容，无人最终确认。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -195,6 +364,18 @@
    ],
    "evidence_start": 202.01,
    "evidence_end": 208.38,
+   "evidence_spans": [
+    {
+     "id": "S094",
+     "start": 202.01,
+     "end": 205.13
+    },
+    {
+     "id": "S096",
+     "start": 206.09,
+     "end": 208.38
+    }
+   ],
    "evidence_text": "就是说刚刚我们已经聊到了地点嘛，地点是在。；双流区，江家艺苑那边。",
    "speaker": "SPK8025",
    "flags": [],
@@ -202,8 +383,8 @@
   },
   {
    "topic": "海报设计",
-   "type": "决定",
-   "content": "海报的具体样式沿用之前讨论的方案，但要求一定要有感染力",
+   "type": "待确认",
+   "content": "海报沿用之前说过的样式，但要求一定要有感染力。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -213,15 +394,22 @@
    ],
    "evidence_start": 208.38,
    "evidence_end": 213.76,
+   "evidence_spans": [
+    {
+     "id": "S097",
+     "start": 208.38,
+     "end": 213.76
+    }
+   ],
    "evidence_text": "然后的话，海报的话，就刚刚你说的那种，是吧，只不过说要求的话，就是一定要有感染力。",
    "speaker": "SPK8025",
    "flags": [],
    "id": "m11"
   },
   {
-   "topic": "主持人",
+   "topic": "主持人安排",
    "type": "待办",
-   "content": "带拟邀请的主持人来与对方见面",
+   "content": "带这位有相关经验、能带气氛的主持人来见对方。",
    "responsible": "说话人自述（身份未识别）",
    "deadline": "未知",
    "raw_responsible": "说话人自述",
@@ -232,27 +420,62 @@
    ],
    "evidence_start": 218.63,
    "evidence_end": 238.31,
+   "evidence_spans": [
+    {
+     "id": "S100",
+     "start": 218.63,
+     "end": 224.02
+    },
+    {
+     "id": "S106",
+     "start": 234.35,
+     "end": 238.31
+    }
+   ],
    "evidence_text": "哦，主持人我是有朋友，他有相关经验，也是比较搞笑，能带气氛的一个主持人。；嗯，可以可以的，到时候我带他来见一下您，您可以。",
    "speaker": "SPK8026",
    "flags": [],
    "id": "m12"
   },
   {
-   "topic": "主持人",
-   "type": "决定",
-   "content": "主持人必须控场力强、与大众互动的亲和力强，同时比较幽默",
+   "topic": "主持人安排",
+   "type": "待确认",
+   "content": "主持人必须控场力强、与大众互动的亲和力强，同时比较幽默。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
     "S102",
+    "S103",
     "S104",
     "S105"
    ],
    "evidence_start": 223.88,
    "evidence_end": 233.82,
-   "evidence_text": "对，主持人那块儿的话，我就说就必须要是控场力比较强。；哦，就是和大大众互动这块儿亲和力要比较强。；同时比较幽默。",
+   "evidence_spans": [
+    {
+     "id": "S102",
+     "start": 223.88,
+     "end": 227.67
+    },
+    {
+     "id": "S103",
+     "start": 227.67,
+     "end": 229.09
+    },
+    {
+     "id": "S104",
+     "start": 229.09,
+     "end": 232.51
+    },
+    {
+     "id": "S105",
+     "start": 232.51,
+     "end": 233.82
+    }
+   ],
+   "evidence_text": "对，主持人那块儿的话，我就说就必须要是控场力比较强。；同时呢，亲和力。；哦，就是和大大众互动这块儿亲和力要比较强。；同时比较幽默。",
    "speaker": "SPK8025",
    "flags": [],
    "id": "m13"
@@ -261,10 +484,10 @@
  "dropped": [],
  "llm_calls": 4,
  "usage": {
-  "prompt_tokens": 3056,
-  "completion_tokens": 15693
+  "prompt_tokens": 3190,
+  "completion_tokens": 14920
  },
- "elapsed": 96.71,
+ "elapsed": 106.6,
  "clip": "clip10",
  "source": "ref"
 }
