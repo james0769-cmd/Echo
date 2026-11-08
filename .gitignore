@@ -39,6 +39,14 @@ data/private/
 # ASR cache: full transcripts, regenerated from audio by src/echotrace/asr.py
 data/cache/
 
+# Generated demo results and browser artifacts
+results/demo-live/
+results/demo/*.log
+results/demo_run.log
+results/alimeeting_cer_local.csv
+output/
+.playwright-cli/
+
 # Editor / OS
 .vscode/
 .idea/

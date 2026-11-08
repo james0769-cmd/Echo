@@ -1,0 +1,505 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "目标人群定位",
+   "type": "待确认",
+   "content": "有人提议按年龄和不同人士做区分，但也有人认为不必把界限弄得那么分明、有针对性更好，尚未确定",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S008",
+    "S030",
+    "S033"
+   ],
+   "evidence_start": 17.07,
+   "evidence_end": 92.05,
+   "evidence_spans": [
+    {
+     "id": "S008",
+     "start": 17.07,
+     "end": 22.57
+    },
+    {
+     "id": "S030",
+     "start": 80.83,
+     "end": 84.67
+    },
+    {
+     "id": "S033",
+     "start": 90.05,
+     "end": 92.05
+    }
+   ],
+   "evidence_text": "我感觉可以根据年龄呃和这种就是不同的人士做一下区分。；所以我觉得吧呃就是不用把这个界限弄得那么分明，；但是我觉得还是有针对性的好啊。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "目标人群定位",
+   "type": "待确认",
+   "content": "有人提议主要针对十八到四十五岁的中青年人群，也有人主张年龄段跨度要大一点、老年人也时尚，最终未收口",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S010",
+    "S012",
+    "S014"
+   ],
+   "evidence_start": 23.67,
+   "evidence_end": 40.59,
+   "evidence_spans": [
+    {
+     "id": "S010",
+     "start": 23.67,
+     "end": 30.65
+    },
+    {
+     "id": "S012",
+     "start": 33.97,
+     "end": 36.65
+    },
+    {
+     "id": "S014",
+     "start": 38.11,
+     "end": 40.59
+    }
+   ],
+   "evidence_text": "我感觉我们可以主要针对就是嗯十八到四十五之岁的中青年人群嘛。；就可能就是说呃年龄段要跨度大一点。；就是现在那个老年人也都很时尚。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "适老化设计",
+   "type": "待确认",
+   "content": "提到老年人需要大字体、手机上很多文字相关的东西可以再设置，但未明确是否要做、由谁做",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S023",
+    "S028"
+   ],
+   "evidence_start": 56.13,
+   "evidence_end": 72.65,
+   "evidence_spans": [
+    {
+     "id": "S023",
+     "start": 56.13,
+     "end": 58.41
+    },
+    {
+     "id": "S028",
+     "start": 66.85,
+     "end": 72.65
+    }
+   ],
+   "evidence_text": "他需要很多的大字体，；但是我觉得那个这个手机里边的呃很多这个字的东西都是可以可以再去设的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "适老化设计",
+   "type": "决定",
+   "content": "按不同人群做差别设计，老年人字体或声音稍大。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S041",
+    "S042",
+    "S044",
+    "S049"
+   ],
+   "evidence_start": 106.11,
+   "evidence_end": 121.36,
+   "evidence_spans": [
+    {
+     "id": "S041",
+     "start": 106.11,
+     "end": 109.83
+    },
+    {
+     "id": "S042",
+     "start": 109.83,
+     "end": 111.51
+    },
+    {
+     "id": "S044",
+     "start": 112.83,
+     "end": 114.91
+    },
+    {
+     "id": "S049",
+     "start": 120.9,
+     "end": 121.36
+    }
+   ],
+   "evidence_text": "我感觉我们可以根据就是不同的人群稍微做一下差别设计。；你像如果老年人用的话，；就是字体或者声音稍微大一点，；可以，",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "目标人群定位",
+   "type": "决定",
+   "content": "机型主推年轻化。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S052",
+    "S059",
+    "S060"
+   ],
+   "evidence_start": 127.38,
+   "evidence_end": 142.98,
+   "evidence_spans": [
+    {
+     "id": "S052",
+     "start": 127.38,
+     "end": 129.56
+    },
+    {
+     "id": "S059",
+     "start": 136.96,
+     "end": 142.8
+    },
+    {
+     "id": "S060",
+     "start": 142.86,
+     "end": 142.98
+    }
+   ],
+   "evidence_text": "咱们主单主推是年轻年轻化这一块吧。；咱们机型我觉得还是适应比较年轻一年轻化一点的啊。；行，",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "目标人群定位",
+   "type": "待确认",
+   "content": "具体年龄段和颜色后续再定，会上提到十八到五十岁之间的色彩原色。",
+   "responsible": "未知",
+   "deadline": "后续，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "后续，具体日期未知",
+   "evidence_ids": [
+    "S061",
+    "S062",
+    "S063"
+   ],
+   "evidence_start": 142.98,
+   "evidence_end": 150.96,
+   "evidence_spans": [
+    {
+     "id": "S061",
+     "start": 142.98,
+     "end": 145.34
+    },
+    {
+     "id": "S062",
+     "start": 145.34,
+     "end": 149.14
+    },
+    {
+     "id": "S063",
+     "start": 149.14,
+     "end": 150.96
+    }
+   ],
+   "evidence_text": "那咱们这个后续再定一下，；这个就是十八到五十岁之间这个色彩原色啊。；咱们到时候确定一下这个颜色好吧。",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "促销方式",
+   "type": "待确认",
+   "content": "促销方式仍在讨论，提到可通过直播带货、双十一电商活动及前期让利来占领市场份额。",
+   "responsible": "未知",
+   "deadline": "双十一，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "双十一，具体日期未知",
+   "evidence_ids": [
+    "S068",
+    "S070",
+    "S076",
+    "S077"
+   ],
+   "evidence_start": 159.86,
+   "evidence_end": 182.15,
+   "evidence_spans": [
+    {
+     "id": "S068",
+     "start": 159.86,
+     "end": 162.6
+    },
+    {
+     "id": "S070",
+     "start": 163.74,
+     "end": 166.0
+    },
+    {
+     "id": "S076",
+     "start": 176.43,
+     "end": 180.93
+    },
+    {
+     "id": "S077",
+     "start": 180.93,
+     "end": 182.15
+    }
+   ],
+   "evidence_text": "那目前可以现在通过比较热门的直播带货，；不是马上就电商双十一嘛，；我们前期主要是就是呃价钱可以说就让利一些，；多占领一些市场份额，",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "定价策略",
+   "type": "待确认",
+   "content": "市场份额做起来后，价格可以稍微调高。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S078",
+    "S081"
+   ],
+   "evidence_start": 182.53,
+   "evidence_end": 187.19,
+   "evidence_spans": [
+    {
+     "id": "S078",
+     "start": 182.53,
+     "end": 183.37
+    },
+    {
+     "id": "S081",
+     "start": 184.31,
+     "end": 187.19
+    }
+   ],
+   "evidence_text": "等市场份额。；做了之后就可以就是价钱稍微高点。",
+   "speaker": "",
+   "flags": [],
+   "id": "m08"
+  },
+  {
+   "topic": "手机卖点梳理",
+   "type": "待确认",
+   "content": "建议先看新手机的亮点及与其他手机的差异。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S083",
+    "S084"
+   ],
+   "evidence_start": 188.39,
+   "evidence_end": 196.27,
+   "evidence_spans": [
+    {
+     "id": "S083",
+     "start": 188.39,
+     "end": 192.45
+    },
+    {
+     "id": "S084",
+     "start": 192.45,
+     "end": 196.27
+    }
+   ],
+   "evidence_text": "我觉得还是先要看一下推出一下手机的亮点啊，；他他有什么和其他的手机有什么不同的地方。",
+   "speaker": "",
+   "flags": [],
+   "id": "m09"
+  },
+  {
+   "topic": "促销方式",
+   "type": "待确认",
+   "content": "建议在京东等电商渠道给折扣，并研究具体促销方式。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S086",
+    "S087",
+    "S088",
+    "S089"
+   ],
+   "evidence_start": 196.67,
+   "evidence_end": 209.73,
+   "evidence_spans": [
+    {
+     "id": "S086",
+     "start": 196.67,
+     "end": 202.07
+    },
+    {
+     "id": "S087",
+     "start": 202.07,
+     "end": 203.85
+    },
+    {
+     "id": "S088",
+     "start": 203.87,
+     "end": 205.17
+    },
+    {
+     "id": "S089",
+     "start": 205.39,
+     "end": 209.73
+    }
+   ],
+   "evidence_text": "呃然后再就是在一些电商呃给一些力度，；比方说京东啊什么的，；给给一个折扣，；看有什么样的方式去进行这个嗯促促促销是吧？",
+   "speaker": "",
+   "flags": [],
+   "id": "m10"
+  },
+  {
+   "topic": "促销方式",
+   "type": "待确认",
+   "content": "会上倾向认为地推不太适合手机、电商更合适，但未明确敲定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S095",
+    "S096",
+    "S097",
+    "S100"
+   ],
+   "evidence_start": 217.73,
+   "evidence_end": 229.57,
+   "evidence_spans": [
+    {
+     "id": "S095",
+     "start": 217.73,
+     "end": 219.57
+    },
+    {
+     "id": "S096",
+     "start": 219.57,
+     "end": 222.19
+    },
+    {
+     "id": "S097",
+     "start": 222.63,
+     "end": 224.71
+    },
+    {
+     "id": "S100",
+     "start": 228.81,
+     "end": 229.57
+    }
+   ],
+   "evidence_text": "我感觉地推这个不太适合手机吧，；好像手机好像一般就是有门店这种。；我因为地推太太老套了，；电商好一点儿。",
+   "speaker": "",
+   "flags": [],
+   "id": "m11"
+  },
+  {
+   "topic": "明星代言",
+   "type": "待确认",
+   "content": "建议找明星代言，作为另一方面的推广方式。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S103",
+    "S104",
+    "S106"
+   ],
+   "evidence_start": 236.61,
+   "evidence_end": 242.07,
+   "evidence_spans": [
+    {
+     "id": "S103",
+     "start": 236.61,
+     "end": 237.77
+    },
+    {
+     "id": "S104",
+     "start": 237.87,
+     "end": 239.65
+    },
+    {
+     "id": "S106",
+     "start": 239.89,
+     "end": 242.07
+    }
+   ],
+   "evidence_text": "找找一些明星，；然后明星代言这是肯定少不了了吧。；明星代言这是另外一方面。",
+   "speaker": "",
+   "flags": [],
+   "id": "m12"
+  },
+  {
+   "topic": "运营商捆绑",
+   "type": "待确认",
+   "content": "建议与移动等运营商及其产品捆绑，带动更多相关产品。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S107",
+    "S108",
+    "S109"
+   ],
+   "evidence_start": 242.07,
+   "evidence_end": 250.445,
+   "evidence_spans": [
+    {
+     "id": "S107",
+     "start": 242.07,
+     "end": 246.51
+    },
+    {
+     "id": "S108",
+     "start": 246.69,
+     "end": 247.95
+    },
+    {
+     "id": "S109",
+     "start": 248.09,
+     "end": 250.445
+    }
+   ],
+   "evidence_text": "然后我觉得呃就比如说他捆绑着一些什么移动啊这些运营商，；然后他的一些产品，；然后其他的这样还能带动更多的东西。",
+   "speaker": "",
+   "flags": [],
+   "id": "m13"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3163,
+  "completion_tokens": 13786
+ },
+ "elapsed": 0.0,
+ "audio": "clip01.wav",
+ "source": "asr"
+}

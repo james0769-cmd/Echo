@@ -1,0 +1,153 @@
+{
+ "method": "baseline",
+ "model": "deepseek-flash",
+ "params": {},
+ "items": [
+  {
+   "topic": "活动地点",
+   "type": "决定",
+   "content": "开幕式定在双流江家御院那边的大公园草地举办。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S036",
+    "S037",
+    "S038"
+   ],
+   "evidence_start": 103.85,
+   "evidence_end": 111.934,
+   "evidence_text": "那我们开幕式的话就定一个草地嘛，是双流的那边一个草地是吧？双流江家御院那个有个大公园。好，可以。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "海报照片",
+   "type": "待办",
+   "content": "把已拍好的照片发送到对方相关邮箱，供其查收并确定最终认可的照片。",
+   "responsible": "说话人自述",
+   "deadline": "稍后，具体日期未知",
+   "raw_responsible": "说话人自述",
+   "raw_deadline": "稍后，具体日期未知",
+   "evidence_ids": [
+    "S055",
+    "S056",
+    "S057",
+    "S058"
+   ],
+   "evidence_start": 152.64,
+   "evidence_end": 168.12,
+   "evidence_text": "那稍后我会把我就是已经拍好的照片发送到你的相关邮件里面，你可以查收一下。拍了几组照片，你这边可以确定一下您最终认可的照片可以可以好的目的的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "海报照片确认",
+   "type": "待办",
+   "content": "查收照片后确定最终认可的海报照片。",
+   "responsible": "你",
+   "deadline": "未知",
+   "raw_responsible": "你",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S058"
+   ],
+   "evidence_start": 160.8,
+   "evidence_end": 168.12,
+   "evidence_text": "你这边可以确定一下您最终认可的照片可以可以好的目的的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "草地晚会设计",
+   "type": "待确认",
+   "content": "提议在晚上草地活动中设置戴面具环节，尚未收口。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S062",
+    "S063",
+    "S064",
+    "S065"
+   ],
+   "evidence_start": 176.91,
+   "evidence_end": 187.39,
+   "evidence_text": "因为是在晚上嘛，相关场地的话是在晚上这样的费用也不算太高。草地的晚，然后可以戴面具。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "主持人要求",
+   "type": "决定",
+   "content": "主持人需控场力强、亲和力强、能与大众互动且比较幽默。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S085",
+    "S086",
+    "S087"
+   ],
+   "evidence_start": 224.25,
+   "evidence_end": 232.39,
+   "evidence_text": "对主持人那块的话，我就说就必须要是控场力比较强，同时呢亲和力啊就是和大大众互动这一块亲和力要比较强，同时比较幽默。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "主持人见面",
+   "type": "待办",
+   "content": "带已找好的主持人来见对方。",
+   "responsible": "说话人自述",
+   "deadline": "到时候，具体日期未知",
+   "raw_responsible": "说话人自述",
+   "raw_deadline": "到时候，具体日期未知",
+   "evidence_ids": [
+    "S091",
+    "S092"
+   ],
+   "evidence_start": 235.39,
+   "evidence_end": 239.105,
+   "evidence_text": "到时候我带他来来见一下你，你可以就是对他。",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "收费与会员制",
+   "type": "决定",
+   "content": "采用会员制，报名费200元/人，会员先充500元，牵手成功可赠送双人机票去三亚。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [],
+   "evidence_start": null,
+   "evidence_end": null,
+   "evidence_text": "我这边还制定了一个会员制，就刚开始报名的话，我们收取的费用是两百个人一个呃，两百块钱一个人。但会员的话是要首先充五百块钱。然后最后如果牵手成功的话，我们这边可以赠送双人机票去三亚的这种可以，这个是这个是可以的。",
+   "speaker": "",
+   "flags": [
+    "原话只在转写中找到 0/1 段"
+   ],
+   "id": "m07"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 1,
+ "usage": {
+  "prompt_tokens": 1006,
+  "completion_tokens": 1961
+ },
+ "elapsed": 14.55,
+ "clip": "clip10",
+ "source": "asr"
+}

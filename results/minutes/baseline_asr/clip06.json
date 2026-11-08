@@ -1,0 +1,15 @@
+{
+ "method": "baseline",
+ "model": "deepseek-flash",
+ "params": {},
+ "items": [],
+ "dropped": [],
+ "llm_calls": 1,
+ "usage": {
+  "prompt_tokens": 1124,
+  "completion_tokens": 154
+ },
+ "elapsed": 3.17,
+ "clip": "clip06",
+ "source": "asr"
+}

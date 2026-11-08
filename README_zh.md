@@ -59,7 +59,24 @@ uv run python scripts/run_minutes.py --method segmented --source asr --split dev
 
 输出 `results/minutes/{方案}_{来源}/clipNN.{json,md}`。API 返回按请求内容缓存在 `data/cache/llm/`，重跑不重复调用。
 
-**5. 评测纪要**
+**5. 现场演示**
+
+使用一段本地 WAV 录音跑完整链路：语音识别、带时间戳转写、证据分段、结构化纪要和原话回溯。
+
+```bash
+uv run python scripts/run_demo.py
+```
+
+默认使用 `data/public/alimeeting/clips/clip01.wav`，推荐的分段方案会把结果写入 `results/demo-live/`（已加入 `.gitignore`）：
+`transcript.json`、`minutes.json`、`minutes.md` 和适合现场打开的 `demo_report.md`。
+仓库中的 `results/demo/` 是提交好的示例结果，供网页默认加载；如需更新它，显式加 `--out results/demo`。
+也可以指定其他本地 WAV：
+
+```bash
+uv run python scripts/run_demo.py --audio path/to/meeting.wav
+```
+
+**6. 评测纪要**
 
 ```bash
 uv run python scripts/eval_minutes.py segmented_asr segmented_ref baseline_asr baseline_ref --split dev
