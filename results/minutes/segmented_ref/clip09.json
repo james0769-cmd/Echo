@@ -8,39 +8,85 @@
   {
    "topic": "活动主题",
    "type": "决定",
-   "content": "活动主题确定为“让外国学生更好地了解中国”。",
+   "content": "活动主题确定为“让你更好地懂中国”，面向外国学生，让他们更好地了解中国。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S010",
     "S014",
     "S016",
     "S017"
    ],
-   "evidence_start": 29.92,
+   "evidence_start": 21.95,
    "evidence_end": 41.73,
-   "evidence_text": "让他们更好的了解我们的中国，这个更贴近一点，更贴切一些，我觉得。；了解中国，我觉得这个主题要好一些。；嗯，可以。",
+   "evidence_spans": [
+    {
+     "id": "S010",
+     "start": 21.95,
+     "end": 24.75
+    },
+    {
+     "id": "S014",
+     "start": 29.92,
+     "end": 35.64
+    },
+    {
+     "id": "S016",
+     "start": 37.69,
+     "end": 39.87
+    },
+    {
+     "id": "S017",
+     "start": 40.57,
+     "end": 41.73
+    }
+   ],
+   "evidence_text": "懂我中国，就是让你更好的懂中国。；让他们更好的了解我们的中国，这个更贴近一点，更贴切一些，我觉得。；了解中国，我觉得这个主题要好一些。；嗯，可以。",
    "speaker": "SPK8024/SPK8023",
    "flags": [],
    "id": "m01"
   },
   {
    "topic": "活动流程安排",
-   "type": "待办",
-   "content": "需要说明活动的具体流程和安排。",
+   "type": "待确认",
+   "content": "活动的具体规划和流程安排尚未明确，需要进一步说明。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
+    "S019",
     "S020",
     "S021",
     "S023"
    ],
-   "evidence_start": 44.99,
+   "evidence_start": 43.69,
    "evidence_end": 53.62,
-   "evidence_text": "你是有什么规划？他具体只是怎么样的一个流程。；怎么安排。；说一说，看看。",
+   "evidence_spans": [
+    {
+     "id": "S019",
+     "start": 43.69,
+     "end": 44.99
+    },
+    {
+     "id": "S020",
+     "start": 44.99,
+     "end": 50.35
+    },
+    {
+     "id": "S021",
+     "start": 50.35,
+     "end": 51.36
+    },
+    {
+     "id": "S023",
+     "start": 52.66,
+     "end": 53.62
+    }
+   ],
+   "evidence_text": "这个具体。；你是有什么规划？他具体只是怎么样的一个流程。；怎么安排。；说一说，看看。",
    "speaker": "SPK8023",
    "flags": [],
    "id": "m02"
@@ -48,28 +94,44 @@
   {
    "topic": "活动时间与形式",
    "type": "决定",
-   "content": "活动时间定在下周中秋节，不选周末，认为假期大家有时间。",
+   "content": "活动定在中秋节举办，不选周末。",
    "responsible": "未知",
    "deadline": "中秋节，具体日期未知",
    "raw_responsible": "未知",
    "raw_deadline": "中秋节，具体日期未知",
    "evidence_ids": [
-    "S031",
-    "S033",
     "S034",
+    "S035",
     "S036"
    ],
-   "evidence_start": 69.14,
+   "evidence_start": 75.22,
    "evidence_end": 84.42,
-   "evidence_text": "下周是不是有节日啊，是不是有什么节假日啊？；呃，有一个中秋节对对对中秋节。；那就是那那我就不选周末，就选中秋节，反正中秋节大家都有时间对吧？；中秋节大家都放假嘛，都有时间。",
-   "speaker": "SPK8024/SPK8023",
+   "evidence_spans": [
+    {
+     "id": "S034",
+     "start": 75.22,
+     "end": 79.92
+    },
+    {
+     "id": "S035",
+     "start": 80.26,
+     "end": 81.51
+    },
+    {
+     "id": "S036",
+     "start": 82.24,
+     "end": 84.42
+    }
+   ],
+   "evidence_text": "那就是那那我就不选周末，就选中秋节，反正中秋节大家都有时间对吧？；这样话要好一些。；中秋节大家都放假嘛，都有时间。",
+   "speaker": "SPK8024",
    "flags": [],
    "id": "m03"
   },
   {
    "topic": "活动时间与形式",
    "type": "决定",
-   "content": "中秋节晚上举办留学生交流晚会",
+   "content": "中秋节晚上举办留学生交流晚会。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -77,43 +139,132 @@
    "evidence_ids": [
     "S046",
     "S049",
-    "S051",
-    "S059"
+    "S059",
+    "S060"
    ],
    "evidence_start": 100.74,
-   "evidence_end": 127.79,
-   "evidence_text": "中秋节不是，我们可以安排到晚上。；也可以是，留学生晚会是不是，交流晚留学生交流晚会。；对留学生交流晚会他最重要哈，就是说。；可以啊。",
-   "speaker": "SPK8024/SPK8023",
+   "evidence_end": 133.37,
+   "evidence_spans": [
+    {
+     "id": "S046",
+     "start": 100.74,
+     "end": 103.92
+    },
+    {
+     "id": "S049",
+     "start": 107.54,
+     "end": 111.99
+    },
+    {
+     "id": "S059",
+     "start": 126.99,
+     "end": 127.79
+    },
+    {
+     "id": "S060",
+     "start": 127.79,
+     "end": 133.37
+    }
+   ],
+   "evidence_text": "中秋节不是，我们可以安排到晚上。；也可以是，留学生晚会是不是，交流晚留学生交流晚会。；可以啊。；你你想嘛，就是中秋节选在中秋节，中秋节是中国传统节日嘛。",
+   "speaker": "SPK8024",
    "flags": [
     "截止日期“中秋节晚上，具体日期未知”在原话中找不到，已改为未知"
    ],
    "id": "m04"
   },
   {
-   "topic": "活动内容",
+   "topic": "晚会内容",
    "type": "决定",
-   "content": "晚会上介绍中秋节来历和吃月饼等习俗，突出中国文化",
+   "content": "晚会要体现中国文化，让留学生了解中国传统节日。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
     "S053",
-    "S076",
-    "S081",
-    "S084"
+    "S057",
+    "S064",
+    "S066"
    ],
    "evidence_start": 118.84,
-   "evidence_end": 179.43,
-   "evidence_text": "一个特色什么特色就是我们中国，让就是留学生。；先在晚会的时候，给他们介绍一下这些。；就是来历，说吃月饼这些习俗是怎么来的。；嗯，可以。",
+   "evidence_end": 146.66,
+   "evidence_spans": [
+    {
+     "id": "S053",
+     "start": 118.84,
+     "end": 122.48
+    },
+    {
+     "id": "S057",
+     "start": 126.39,
+     "end": 128.21
+    },
+    {
+     "id": "S064",
+     "start": 138.85,
+     "end": 144.55
+    },
+    {
+     "id": "S066",
+     "start": 145.27,
+     "end": 146.66
+    }
+   ],
+   "evidence_text": "一个特色什么特色就是我们中国，让就是留学生。；我们中国一些文化。；就是身临其境，就是更好的了解我们，这是中国传统节日，让他们知道。；对这个是可以的。",
    "speaker": "SPK8023/SPK8024",
    "flags": [],
    "id": "m05"
   },
   {
-   "topic": "留学生交流会地点",
+   "topic": "晚会内容",
+   "type": "决定",
+   "content": "晚会上向留学生介绍中秋节的来历和吃月饼等习俗。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "晚会时，具体日期未知",
+   "evidence_ids": [
+    "S076",
+    "S078",
+    "S081",
+    "S084"
+   ],
+   "evidence_start": 160.48,
+   "evidence_end": 179.43,
+   "evidence_spans": [
+    {
+     "id": "S076",
+     "start": 160.48,
+     "end": 163.8
+    },
+    {
+     "id": "S078",
+     "start": 165.41,
+     "end": 166.41
+    },
+    {
+     "id": "S081",
+     "start": 171.1,
+     "end": 174.36
+    },
+    {
+     "id": "S084",
+     "start": 178.36,
+     "end": 179.43
+    }
+   ],
+   "evidence_text": "先在晚会的时候，给他们介绍一下这些。；的来历。；就是来历，说吃月饼这些习俗是怎么来的。；嗯，可以。",
+   "speaker": "SPK8024/SPK8023",
+   "flags": [
+    "截止日期“晚会时，具体日期未知”在原话中找不到，已改为未知"
+   ],
+   "id": "m06"
+  },
+  {
+   "topic": "活动地点",
    "type": "待确认",
-   "content": "讨论活动地点，有人提议并倾向于选在学校（更贴近生活、社会相对复杂），另一人表示同意，但随后提出校外外国人也要参加的问题，尚未收口。",
+   "content": "关于活动地点，有人提议选学校并认为更贴近生活，另一人表示学校更好并附和，但无人明确拍板。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -121,24 +272,46 @@
    "evidence_ids": [
     "S092",
     "S095",
-    "S103",
-    "S107"
+    "S096",
+    "S103"
    ],
    "evidence_start": 191.89,
-   "evidence_end": 221.28,
-   "evidence_text": "就选学校。；就选学校我觉得比较好一点。；对。；但是的话，我们这些。",
-   "speaker": "SPK8024",
+   "evidence_end": 215.06,
+   "evidence_spans": [
+    {
+     "id": "S092",
+     "start": 191.89,
+     "end": 193.08
+    },
+    {
+     "id": "S095",
+     "start": 197.44,
+     "end": 199.13
+    },
+    {
+     "id": "S096",
+     "start": 199.27,
+     "end": 202.77
+    },
+    {
+     "id": "S103",
+     "start": 214.63,
+     "end": 215.06
+    }
+   ],
+   "evidence_text": "就选学校。；就选学校我觉得比较好一点。；呃，学校我因为之前也想过这个问题。；对。",
+   "speaker": "SPK8024/SPK8023",
    "flags": [],
-   "id": "m06"
+   "id": "m07"
   }
  ],
  "dropped": [],
  "llm_calls": 4,
  "usage": {
-  "prompt_tokens": 2825,
-  "completion_tokens": 11556
+  "prompt_tokens": 2953,
+  "completion_tokens": 10391
  },
- "elapsed": 73.84,
+ "elapsed": 76.32,
  "clip": "clip09",
  "source": "ref"
 }

@@ -4,6 +4,39 @@
  "params": {},
  "items": [
   {
+   "topic": "报名收费与会员制",
+   "type": "决定",
+   "content": "报名费为200元/人，会员需先充500元，牵手成功可赠送双人三亚机票。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S038",
+    "S039",
+    "S040",
+    "S041",
+    "S042",
+    "S043"
+   ],
+   "evidence_start": 83.39,
+   "evidence_end": 102.76,
+   "evidence_spans": [
+    {
+     "start": 83.39,
+     "end": 94.22
+    },
+    {
+     "start": 94.51,
+     "end": 102.76
+    }
+   ],
+   "evidence_text": "就刚开始报名的话，我们收取的费用是两百个人。一个，呃，两百块钱一个人。但会员的话是要首先充五百块钱。……然后最后如果牵手成功的话，我们这边可以赠送双人机票，去三亚的这种。可以，这个是，这个是可以的。",
+   "speaker": "SPK8026/SPK8025",
+   "flags": [],
+   "id": "m01"
+  },
+  {
    "topic": "开幕式地点",
    "type": "决定",
    "content": "开幕式地点定在双流区江家艺苑的大公园草地。",
@@ -18,15 +51,21 @@
    ],
    "evidence_start": 103.75,
    "evidence_end": 112.09,
+   "evidence_spans": [
+    {
+     "start": 103.75,
+     "end": 112.09
+    }
+   ],
    "evidence_text": "那我们开幕式的话就定一个草地吗？是双流的那边一个草地，是吗？对。对，双流江家艺苑那个，有个大公园。好，可以。",
    "speaker": "SPK8026/SPK8025",
    "flags": [],
-   "id": "m01"
+   "id": "m02"
   },
   {
-   "topic": "海报要求",
+   "topic": "海报设计要求",
    "type": "决定",
-   "content": "海报照片要体现两人之间的爱的火花，感染力强，让人相信爱情。",
+   "content": "海报需体现两人之间有爱的火花、感染力强，让人相信爱情。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -36,67 +75,90 @@
     "S064",
     "S065",
     "S066",
-    "S067",
-    "S068",
     "S069",
     "S070",
     "S071"
    ],
    "evidence_start": 136.96,
    "evidence_end": 151.72,
-   "evidence_text": "这个海报的话，一定要是两个人之间有那种爱的火花……拍出来的照片效果感染力量非常强……让人看上去就相信爱情的。",
-   "speaker": "SPK8025/SPK8026",
+   "evidence_spans": [
+    {
+     "start": 136.96,
+     "end": 143.35
+    },
+    {
+     "start": 145.82,
+     "end": 151.72
+    }
+   ],
+   "evidence_text": "这个海报的话，一定要是两个人之间。有那种爱的火花。……拍出来的照片效果感染力量非常强。就是让人看上去。就相信爱情的。可以。",
+   "speaker": "SPK8025",
    "flags": [],
-   "id": "m02"
+   "id": "m03"
   },
   {
-   "topic": "海报照片确认",
+   "topic": "海报照片发送与确认",
    "type": "待办",
-   "content": "发送已拍好的照片到对方相关邮件，供对方确定最终认可的照片。",
+   "content": "将已拍好的海报照片发送到对方相关邮件，供其确认最终认可的照片。",
    "responsible": "说话人自述",
    "deadline": "稍后，具体日期未知",
    "raw_responsible": "说话人自述",
    "raw_deadline": "稍后，具体日期未知",
    "evidence_ids": [
     "S072",
-    "S073",
-    "S074",
-    "S075",
     "S076",
     "S077"
    ],
    "evidence_start": 151.94,
    "evidence_end": 165.88,
-   "evidence_text": "稍后我会把我，就是已经拍好的照片发送到你的相关邮件里面，你可以查收一下……确定一下，您最终认可的照片。",
-   "speaker": "SPK8026/SPK8025",
+   "evidence_spans": [
+    {
+     "start": 151.94,
+     "end": 159.48
+    },
+    {
+     "start": 162.39,
+     "end": 165.88
+    }
+   ],
+   "evidence_text": "好的，那稍后我会把我，就是已经拍好的照片发送到你的相关邮件里面，你可以查收一下。……确定一下，您最终认可的照片。",
+   "speaker": "SPK8026",
    "flags": [],
-   "id": "m03"
+   "id": "m04"
   },
   {
-   "topic": "活动形式设计",
+   "topic": "活动小设计",
    "type": "待确认",
-   "content": "提议活动在晚上草地举行并可戴面具，尚未确定。",
+   "content": "提议活动安排在晚上并设置戴面具环节，尚未明确收口。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
     "S082",
-    "S083",
-    "S084",
     "S085"
    ],
    "evidence_start": 178.67,
    "evidence_end": 187.54,
-   "evidence_text": "因为是在晚上嘛，相关场地的话是在晚上，这样的费用也不算太高……然后可以戴面具。",
-   "speaker": "SPK8026/SPK8025",
+   "evidence_spans": [
+    {
+     "start": 178.67,
+     "end": 184.49
+    },
+    {
+     "start": 186.17,
+     "end": 187.54
+    }
+   ],
+   "evidence_text": "因为是在晚上嘛，相关场地的话是在晚上，这样的费用也不算太高。……然后可以戴面具。",
+   "speaker": "SPK8026",
    "flags": [],
-   "id": "m04"
+   "id": "m05"
   },
   {
-   "topic": "主持人要求",
+   "topic": "主持人标准",
    "type": "决定",
-   "content": "主持人须控场力强、亲和力强、能与大众互动且比较幽默。",
+   "content": "主持人需控场力强、亲和力强、幽默，能与大众互动。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -106,60 +168,61 @@
     "S102",
     "S103",
     "S104",
-    "S105"
+    "S105",
+    "S106",
+    "S107"
    ],
    "evidence_start": 223.88,
-   "evidence_end": 233.82,
-   "evidence_text": "主持人那块儿的话，我就说就必须要是控场力比较强。同时呢，亲和力……和大大众互动这块儿亲和力要比较强。同时比较幽默。",
+   "evidence_end": 238.31,
+   "evidence_spans": [
+    {
+     "start": 223.88,
+     "end": 229.09
+    },
+    {
+     "start": 229.09,
+     "end": 238.31
+    }
+   ],
+   "evidence_text": "主持人那块儿的话，我就说就必须要是控场力比较强。同时呢，亲和力。……就是和大大众互动这块儿，亲和力要比较强。同时比较幽默。嗯，可以可以的",
    "speaker": "SPK8026/SPK8025",
    "flags": [],
-   "id": "m05"
+   "id": "m06"
   },
   {
-   "topic": "主持人见面",
+   "topic": "主持人见面确认",
    "type": "待办",
-   "content": "带已找的有相关经验、能带气氛的主持人来见面。",
+   "content": "带主持人来与对方见面。",
    "responsible": "说话人自述",
    "deadline": "到时候，具体日期未知",
    "raw_responsible": "说话人自述",
    "raw_deadline": "到时候，具体日期未知",
    "evidence_ids": [
     "S106",
-    "S107"
+    "S107",
+    "S108"
    ],
    "evidence_start": 234.35,
-   "evidence_end": 238.31,
-   "evidence_text": "到时候我带他来见一下您",
+   "evidence_end": 239.34,
+   "evidence_spans": [
+    {
+     "start": 234.35,
+     "end": 239.34
+    }
+   ],
+   "evidence_text": "嗯，可以可以的，到时候我带他来见一下您，您可以。嗯。就是对他。",
    "speaker": "SPK8026/SPK8025",
    "flags": [],
-   "id": "m06"
-  },
-  {
-   "topic": "会员制与收费",
-   "type": "决定",
-   "content": "报名费为两百元每人，会员需先充五百元，牵手成功赠送双人三亚机票。",
-   "responsible": "未知",
-   "deadline": "未知",
-   "raw_responsible": "未知",
-   "raw_deadline": "未知",
-   "evidence_ids": [],
-   "evidence_start": null,
-   "evidence_end": null,
-   "evidence_text": "就刚开始报名的话，我们收取的费用是两百个人。一个，呃，两百块钱一个人。但会员的话是要首先充五百块钱。然后最后如果牵手成功的话，我们这边可以赠送双人机票，去三亚的这种。可以，这个是，这个是可以的。",
-   "speaker": "",
-   "flags": [
-    "原话只在转写中找到 0/1 段"
-   ],
    "id": "m07"
   }
  ],
  "dropped": [],
  "llm_calls": 1,
  "usage": {
-  "prompt_tokens": 1125,
-  "completion_tokens": 5211
+  "prompt_tokens": 1163,
+  "completion_tokens": 4698
  },
- "elapsed": 33.28,
+ "elapsed": 32.34,
  "clip": "clip10",
  "source": "ref"
 }
