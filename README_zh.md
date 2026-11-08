@@ -36,6 +36,14 @@ uv run python scripts/eval_cer.py
 
 结果写入 `results/alimeeting_cer.csv`。转写缓存在 `data/cache/asr/`。
 
+ASR 对照实验（Paraformer vs [faster-whisper-small](https://huggingface.co/Systran/faster-whisper-small)，比较 CER、CPU 耗时和证据覆盖）：
+
+```bash
+uv run python scripts/compare_asr.py
+```
+
+Whisper 权重（约 480 MB）首次运行时从 ModelScope 下载到 `.cache/modelscope/` 并校验哈希，转写缓存在 `data/cache/asr_whisper/`。结果和分析见 `results/asr_compare/README.md`。
+
 **3. 导出校对稿**
 
 ```bash
