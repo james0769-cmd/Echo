@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#202327" />
+    <title>EchoTrace · 带证据的会议纪要</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <div class="brand-mark">E</div>
+          <div>
+            <div class="brand-name">EchoTrace</div>
+            <div class="brand-caption">带证据的会议纪要</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <span class="status-dot"><span></span>本地演示环境</span>
+          <button class="ghost-button" id="resetButton" type="button">重置演示</button>
+        </div>
+      </header>
+
+      <div class="workspace-shell">
+        <aside class="sidebar" aria-label="主导航">
+          <div class="sidebar-section">
+            <div class="sidebar-label">工作区</div>
+            <button class="nav-item active" data-view="overview" type="button">
+              <span class="nav-icon">01</span>会议分析
+            </button>
+          </div>
+
+          <div class="sidebar-footer">
+            <div class="footer-kicker">当前流程</div>
+            <div class="pipeline-status">FunASR <span>→</span> 分段抽取</div>
+            <div class="pipeline-note">证据时间段由转写结果提供</div>
+          </div>
+        </aside>
+
+        <main class="main-content">
+          <section class="action-strip" aria-label="录音输入">
+            <div class="file-summary">
+              <div class="file-icon">WAV</div>
+              <div>
+                <div class="file-name" id="fileName">clip01.wav</div>
+                <div class="file-detail" id="fileDetail">演示数据 · 04:10 · 109 句</div>
+              </div>
+            </div>
+            <div class="action-controls">
+              <label class="secondary-button" for="audioInput">选择录音</label>
+              <input id="audioInput" type="file" accept="audio/wav,audio/x-wav" />
+              <button class="primary-button" id="analyzeButton" type="button">开始分析</button>
+            </div>
+          </section>
+
+          <section class="view-panel" data-panel="overview">
+            <div class="metric-grid" id="metricGrid"></div>
+
+            <div class="content-grid">
+              <section class="surface transcript-surface">
+                <div class="surface-header">
+              <div><h2>原始转写</h2></div>
+                  <div class="surface-tools">
+                    <span class="small-status" id="transcriptStatus">已加载</span>
+                    <button class="text-button" id="showAllTranscript" type="button">查看全部</button>
+                  </div>
+                </div>
+                <div class="transcript-list" id="transcriptList"></div>
+              </section>
+
+              <section class="surface minutes-surface">
+                <div class="surface-header">
+              <div><h2>结构化纪要</h2></div>
+                  <button class="text-button" id="exportButton" type="button">导出 Markdown</button>
+                </div>
+                <div class="filter-row" id="filterRow">
+                  <button class="filter-button active" data-filter="全部" type="button">全部</button>
+                  <button class="filter-button" data-filter="决定" type="button">决定</button>
+                  <button class="filter-button" data-filter="待办" type="button">待办</button>
+                  <button class="filter-button" data-filter="待确认" type="button">待确认</button>
+                </div>
+                <div class="minutes-list" id="minutesList"></div>
+              </section>
+            </div>
+
+            <section class="evidence-dock surface" id="evidenceDock">
+              <div class="evidence-heading">
+                <div><h2 id="evidenceTitle">选择一条纪要查看证据</h2></div>
+                <div class="evidence-time" id="evidenceTime">--:--</div>
+              </div>
+              <div class="evidence-body" id="evidenceBody">
+                <div class="empty-evidence">点击右侧纪要条目，查看对应原话、时间段和抽取提示。</div>
+              </div>
+            </section>
+
+          </section>
+
+          <section class="view-panel hidden-panel" data-panel="transcript">
+            <section class="surface full-surface">
+              <div class="surface-header">
+                <div><h2>完整原始转写</h2></div>
+                <div class="surface-tools">
+                  <div class="search-control"><span>⌕</span><input id="transcriptSearch" placeholder="搜索原话" /></div>
+                  <button class="text-button" data-back-to-overview type="button">返回会议分析</button>
+                </div>
+              </div>
+              <div class="full-transcript-list" id="fullTranscriptList"></div>
+            </section>
+          </section>
+
+          <section class="view-panel hidden-panel" data-panel="minutes">
+            <section class="surface full-surface">
+              <div class="surface-header">
+                <div><h2>纪要复核</h2></div>
+                <div class="surface-tools">
+                  <span class="small-status">支持逐条回溯</span>
+                  <button class="text-button" data-back-to-overview type="button">返回会议分析</button>
+                </div>
+              </div>
+              <div class="review-table" id="reviewTable"></div>
+            </section>
+          </section>
+
+          <footer class="app-footer">
+            <span>EchoTrace · 本地会议智能</span>
+            <span>ASR 结果可核对 · 证据可回溯 · 本地处理</span>
+          </footer>
+        </main>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

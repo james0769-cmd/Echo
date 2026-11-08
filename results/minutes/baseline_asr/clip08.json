@@ -1,0 +1,171 @@
+{
+ "method": "baseline",
+ "model": "deepseek-flash",
+ "params": {},
+ "items": [
+  {
+   "topic": "社保购买时间",
+   "type": "决定",
+   "content": "本月入职员工下个月转正后开始购买社保。",
+   "responsible": "未知",
+   "deadline": "下个月，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "下个月，具体日期未知",
+   "evidence_ids": [
+    "S002",
+    "S003",
+    "S004"
+   ],
+   "evidence_start": 0.29,
+   "evidence_end": 5.73,
+   "evidence_text": "就是比如这个月入职的，下个月转正过后，就就下个月就开始购买。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "转正资料收集",
+   "type": "待办",
+   "content": "在员工即将转正前一周左右收集资料并提交。",
+   "responsible": "未知",
+   "deadline": "转正前一周左右，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "转正前一周左右，具体日期未知",
+   "evidence_ids": [
+    "S006",
+    "S007",
+    "S008"
+   ],
+   "evidence_start": 6.99,
+   "evidence_end": 15.35,
+   "evidence_text": "也就是在即将转正前一周左右，我们就要开始收集他们的资料，就要往那边我们要去需要提交资料。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "招聘人数",
+   "type": "决定",
+   "content": "预计招聘总数为四十人。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S013"
+   ],
+   "evidence_start": 25.73,
+   "evidence_end": 28.95,
+   "evidence_text": "你预计是我们需要招四十人四十个人。嗯，对。",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "店铺管理层招聘",
+   "type": "待确认",
+   "content": "后期可能再增加两到三名店铺管理层。",
+   "responsible": "未知",
+   "deadline": "后期，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "后期，具体日期未知",
+   "evidence_ids": [
+    "S018"
+   ],
+   "evidence_start": 34.46,
+   "evidence_end": 39.02,
+   "evidence_text": "这个的话后期可能还需要再增加两个两到三个左右。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "男员工生育险",
+   "type": "决定",
+   "content": "男员工也必须购买生育险。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S030",
+    "S031"
+   ],
+   "evidence_start": 63.56,
+   "evidence_end": 67.5,
+   "evidence_text": "这个是必须买的，就是男员工也是要买的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "住房公积金购买时间",
+   "type": "待确认",
+   "content": "提议员工转正后三个月再购买住房公积金。",
+   "responsible": "未知",
+   "deadline": "转正后三个月，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "转正后三个月，具体日期未知",
+   "evidence_ids": [
+    "S047",
+    "S048"
+   ],
+   "evidence_start": 100.52,
+   "evidence_end": 105.94,
+   "evidence_text": "一般我觉得的话公积金他们比如说呃转正之后，比如三个月转正之后再购买吧。",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "公积金缴纳比例",
+   "type": "待确认",
+   "content": "计划公积金合计缴纳百分之十二，企业和员工各承担百分之六。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S080",
+    "S081",
+    "S082",
+    "S083"
+   ],
+   "evidence_start": 173.98,
+   "evidence_end": 180.42,
+   "evidence_text": "我们是计划交，总共是百分之十二，然后我们承担百分之六，他们承担百分之六。",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "医保报销流程了解",
+   "type": "待办",
+   "content": "前期了解女员工生育等医保报销流程。",
+   "responsible": "未知",
+   "deadline": "前期，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "前期，具体日期未知",
+   "evidence_ids": [
+    "S111",
+    "S112",
+    "S113"
+   ],
+   "evidence_start": 232.88,
+   "evidence_end": 239.215,
+   "evidence_text": "因为以后的话可能会有一些女员工，她比如生小孩这些，我觉得需要可以前期去了解一下。",
+   "speaker": "",
+   "flags": [],
+   "id": "m08"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 1,
+ "usage": {
+  "prompt_tokens": 1116,
+  "completion_tokens": 3839
+ },
+ "elapsed": 25.21,
+ "clip": "clip08",
+ "source": "asr"
+}

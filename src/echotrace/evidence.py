@@ -69,8 +69,14 @@ def locate(piece: str, sentences: list[dict], near: tuple[float, float] | None =
 
 def locate_quote(quote: str, sentences: list[dict]):
     """整段引文（可含多个片段）的定位结果：(start, end, 找到的片段数, 片段总数)。"""
-    ps = pieces(quote)
-    spans = [s for s in (locate(p, sentences) for p in ps) if s]
+    spans = locate_quote_spans(quote, sentences)
+    total = len(pieces(quote))
     if not spans:
-        return None, None, 0, len(ps)
-    return min(s[0] for s in spans), max(s[1] for s in spans), len(spans), len(ps)
+        return None, None, 0, total
+    return min(s[0] for s in spans), max(s[1] for s in spans), len(spans), total
+
+
+def locate_quote_spans(quote: str, sentences: list[dict]) -> list[tuple[float, float]]:
+    """返回引文中每个片段对应的独立时间段，保留不连续证据之间的空档。"""
+    ps = pieces(quote)
+    return [s for s in (locate(p, sentences) for p in ps) if s]

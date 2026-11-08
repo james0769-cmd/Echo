@@ -124,6 +124,14 @@ def _speakers(lines: list[dict]) -> str:
     return "/".join(spk)
 
 
+def _evidence_spans(lines: list[dict]) -> list[dict]:
+    """保留每条证据句的独立时间段，避免不连续证据被合并成一大段。"""
+    return [
+        {"id": s["id"], "start": s["start"], "end": s["end"]}
+        for s in sorted(lines, key=lambda s: (s["start"], s["end"]))
+    ]
+
+
 def _normalize_type(t: str) -> str:
     t = (t or "").strip()
     return t if t in TYPES else "待确认"
@@ -166,6 +174,7 @@ def extract_segmented(sentences: list[dict], model: str = llm.DEFAULT_MODEL, sec
                 "evidence_ids": ids,
                 "evidence_start": min(s["start"] for s in lines),
                 "evidence_end": max(s["end"] for s in lines),
+                "evidence_spans": _evidence_spans(lines),
                 "evidence_text": text,
                 "speaker": _speakers(lines),
             }
@@ -212,8 +221,11 @@ def extract_baseline(sentences: list[dict], model: str = llm.DEFAULT_MODEL) -> d
     items = []
     for raw in resp["data"].get("items", []):
         quote = (raw.get("quote") or "").strip()
-        start, end, found, total = evidence.locate_quote(quote, sents)
-        hit = [s for s in sents if start is not None and s["start"] < end and s["end"] > start]
+        spans = evidence.locate_quote_spans(quote, sents)
+        start = min((span[0] for span in spans), default=None)
+        end = max((span[1] for span in spans), default=None)
+        found, total = len(spans), len(evidence.pieces(quote))
+        hit = [s for s in sents if any(s["start"] < span_end and s["end"] > span_start for span_start, span_end in spans)]
         item = {
             "topic": (raw.get("topic") or "其他").strip(),
             "type": _normalize_type(raw.get("type")),
@@ -225,6 +237,7 @@ def extract_baseline(sentences: list[dict], model: str = llm.DEFAULT_MODEL) -> d
             "evidence_ids": [s["id"] for s in hit],
             "evidence_start": start,
             "evidence_end": end,
+            "evidence_spans": [{"start": span_start, "end": span_end} for span_start, span_end in spans],
             "evidence_text": quote,
             "speaker": _speakers(hit),
             "flags": [] if found == total and total else [f"原话只在转写中找到 {found}/{total} 段"],
@@ -258,8 +271,9 @@ def _finish(items, dropped, usage, calls, elapsed, method, model, **params) -> d
 def _ts(sec):
     if sec is None:
         return "无"
-    m, s = divmod(sec, 60)
-    return f"{int(m):02d}:{s:05.2f}"
+    total = max(0, int(sec))
+    m, s = divmod(total, 60)
+    return f"{m:02d}:{s:02d}"
 
 
 def to_markdown(result: dict, title: str = "") -> str:

@@ -1,0 +1,167 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "中秋节留学生晚会",
+   "type": "待确认",
+   "content": "讨论将活动主题调整为更贴近留学生、让他们了解中国的表述，尚未明确收口。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S002",
+    "S003",
+    "S012",
+    "S013"
+   ],
+   "evidence_start": 1.97,
+   "evidence_end": 41.65,
+   "evidence_text": "就是说我感觉哈这个主题世界一家亲，；我感觉更贴近我们留学生，；我觉得就是让他们了解中国，；我这个主题要好一些些可可以。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "中秋节留学生晚会",
+   "type": "待办",
+   "content": "需要说明活动的具体规划、流程和安排。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S014",
+    "S015",
+    "S016",
+    "S017"
+   ],
+   "evidence_start": 42.23,
+   "evidence_end": 53.61,
+   "evidence_text": "但是这个具体你是什么规规划，；它具体就是怎么样的一个流程，；怎么安排，；你说一说看看。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "中秋节留学生晚会",
+   "type": "决定",
+   "content": "活动不选周末，改在中秋节举办。",
+   "responsible": "未知",
+   "deadline": "中秋节，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "中秋节，具体日期未知",
+   "evidence_ids": [
+    "S030",
+    "S031",
+    "S034"
+   ],
+   "evidence_start": 75.34,
+   "evidence_end": 83.78,
+   "evidence_text": "那就是那那我就不选周末就选中秋节，；反正中秋节大家都有时间，；中秋节大家都放假嘛，",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "中秋节留学生晚会",
+   "type": "决定",
+   "content": "活动要体现中国特色，让留学生身临其境了解中国传统节日。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "中秋节，具体日期未知",
+   "evidence_ids": [
+    "S040",
+    "S046",
+    "S050",
+    "S054"
+   ],
+   "evidence_start": 94.74,
+   "evidence_end": 146.55,
+   "evidence_text": "也因为我就是建议就是搞一些有特色的哈。；特色就是我们中国让就是留学生嗯，；就是让那些外国外国学生外国人就是就是身临其境，；这个是可以的。",
+   "speaker": "",
+   "flags": [
+    "截止日期“中秋节，具体日期未知”在原话中找不到，已改为未知"
+   ],
+   "id": "m04"
+  },
+  {
+   "topic": "中秋节留学生晚会",
+   "type": "决定",
+   "content": "中秋节晚上举办留学生交流晚会。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "中秋节那天，具体日期未知",
+   "evidence_ids": [
+    "S042",
+    "S044",
+    "S054"
+   ],
+   "evidence_start": 100.82,
+   "evidence_end": 146.55,
+   "evidence_text": "中秋节不是我们可以安排到晚上晚上就是说一个留学生交流会也可以是留学生晚会，；对留学生交流晚会。；这个是可以的。",
+   "speaker": "",
+   "flags": [
+    "截止日期“中秋节那天，具体日期未知”在原话中找不到，已改为未知"
+   ],
+   "id": "m05"
+  },
+  {
+   "topic": "中秋节留学生晚会",
+   "type": "待办",
+   "content": "在晚会上介绍中秋节的来历和吃月饼等习俗。",
+   "responsible": "未知",
+   "deadline": "晚会的时候，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "晚会的时候，具体日期未知",
+   "evidence_ids": [
+    "S058",
+    "S059",
+    "S060",
+    "S063"
+   ],
+   "evidence_start": 154.85,
+   "evidence_end": 179.36,
+   "evidence_text": "就是说还需要我的意思是需活动在晚会的时候给他们把先在晚会的时候给他们介绍一下这些我们中秋节的来历。；中秋节就是中秋节是怎么就是来历，；说吃月饼这些习俗是怎么来的，；可以，",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "中秋节留学生晚会",
+   "type": "待确认",
+   "content": "讨论了留学生交流会的举办地点，有人倾向选学校，但尚未最终确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S065",
+    "S067",
+    "S068",
+    "S072"
+   ],
+   "evidence_start": 180.42,
+   "evidence_end": 205.99,
+   "evidence_text": "就是说这个地点在哪里比较更合适。；我觉得可以选在就选学校怎么样或者社会的话，；我觉得就选学校，；就是说学校毕竟就是说要更好。",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 2576,
+  "completion_tokens": 8080
+ },
+ "elapsed": 53.33,
+ "clip": "clip09",
+ "source": "asr"
+}
