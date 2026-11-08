@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "faster-whisper>=1.2.1",
     "funasr>=1.4.16",
     "jiwer>=4.0.0",
     "modelscope>=1.40.2",

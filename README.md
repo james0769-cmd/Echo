@@ -36,6 +36,14 @@ uv run python scripts/eval_cer.py
 
 Results are written to `results/alimeeting_cer.csv`. Transcripts are cached in `data/cache/asr/`.
 
+ASR comparison (Paraformer vs [faster-whisper-small](https://huggingface.co/Systran/faster-whisper-small): CER, CPU time, evidence coverage):
+
+```bash
+uv run python scripts/compare_asr.py
+```
+
+Whisper weights (~480 MB) are downloaded from ModelScope to `.cache/modelscope/` on first run and hash-checked; transcripts are cached in `data/cache/asr_whisper/`. Results and analysis: `results/asr_compare/README.md`.
+
 **3. Export drafts for manual correction**
 
 ```bash
