@@ -6,7 +6,7 @@
   {
    "topic": "供货商联系",
    "type": "待办",
-   "content": "整理供货商列表并挨个联系推进。",
+   "content": "整理供货商列表并逐个联系推进。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -24,45 +24,105 @@
    "id": "m01"
   },
   {
-   "topic": "品牌广告推广",
+   "topic": "品牌广告",
    "type": "待确认",
-   "content": "考虑用公交、电梯、地铁广告及盲盒等做品牌形象推广，大家再想并进一步探讨。",
+   "content": "提议做公交、电梯、地铁等品牌形象广告。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
-   "evidence_ids": [],
-   "evidence_start": null,
-   "evidence_end": null,
-   "evidence_text": "我觉得其实就可以做一个价广告，像什么公交广告、电梯广告之类的，然后还有地铁广告什么什么就是它的那个那个品牌形象。然后我觉得其实咱们这回既然也也要有盲盒，或者说有它里边的固定的东西，可以用这些来作为这个这个品牌的一个形象推出，可以可以再去多方面的去了解一下。然后大家伙再想一想，想一下，到时候咱们再做进一步的探一个探讨。",
-   "speaker": "",
-   "flags": [
-    "原话只在转写中找到 0/1 段"
+   "evidence_ids": [
+    "S006",
+    "S007",
+    "S008"
    ],
+   "evidence_start": 8.87,
+   "evidence_end": 17.17,
+   "evidence_text": "我觉得其实就可以做一个价广告，像什么公交广告、电梯广告之类的，然后还有地铁广告什么什么就是它的那个那个品牌形象。",
+   "speaker": "",
+   "flags": [],
    "id": "m02"
   },
   {
-   "topic": "盲盒合作商敲定",
-   "type": "待办",
-   "content": "敲定盲盒合作商，比较价格并形成报价方案，兼顾成本与质量。",
+   "topic": "设计方选择",
+   "type": "待确认",
+   "content": "提议找较好设计方，但需评估专门设计成本是否过高。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
-   "evidence_ids": [],
-   "evidence_start": null,
-   "evidence_end": null,
-   "evidence_text": "这个让你去敲定一下，敲定一下，就是看看咱便便宜，咱们把这报价是吧？然后越出来做出方案来给到咱们啊，当然是越便宜越好为公司考虑咱们这个精神的问题。然后但大家也要保证质量吧，我觉得也不能说越便宜越好。",
-   "speaker": "",
-   "flags": [
-    "原话只在转写中找到 0/1 段"
+   "evidence_ids": [
+    "S036"
    ],
+   "evidence_start": 74.94,
+   "evidence_end": 79.18,
+   "evidence_text": "我觉得还是要找一个比较好一点的设计的地方吧。设计。",
+   "speaker": "",
+   "flags": [],
    "id": "m03"
   },
   {
-   "topic": "盲盒供应商落实",
+   "topic": "盲盒公司选择",
+   "type": "待确认",
+   "content": "提议找受欢迎盲盒公司（如pop mart）合作。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S041",
+    "S042"
+   ],
+   "evidence_start": 85.98,
+   "evidence_end": 93.655,
+   "evidence_text": "还可以找一些就是大家比较欢受比较受大家欢欢迎的这种嗯嗯做盲盒的公司嘛。像这种pop mart这种",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "盲盒合作方向",
+   "type": "决定",
+   "content": "确定先拿一部分盲盒成品看效果，不限定单一供应商。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S045",
+    "S046",
+    "S047"
+   ],
+   "evidence_start": 96.58,
+   "evidence_end": 104.675,
+   "evidence_text": "就作为我们是先先来了一半儿来一部分，然后咱们看下成品是吧？可以说从天上来不不一定非找某一个供应商。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "供应商落实",
    "type": "待办",
-   "content": "派人落实盲盒供应商和设计公司，多方面确定，不必限定某一供应商，先做一部分看成品。",
+   "content": "派人落实盲盒供应商并多方面确认。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S049",
+    "S050"
+   ],
+   "evidence_start": 105.25,
+   "evidence_end": 109.735,
+   "evidence_text": "这个到时候派人去去落实一下，然后多方面去确定一下。",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "盲盒合作商",
+   "type": "待办",
+   "content": "敲定盲盒合作商，比较价格并形成报价方案。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -70,35 +130,35 @@
    "evidence_ids": [],
    "evidence_start": null,
    "evidence_end": null,
-   "evidence_text": "就作为我们是先先来了一半儿来一部分，然后咱们看下成品是吧？可以说从天上来不不一定非找某一个供应商。好吧，这个到时候派人去去落实一下，然后多方面去确定一下。",
+   "evidence_text": "这个让你去敲定一下，敲定一下，就是看看咱便便宜，咱们把这报价是吧？然后越出来做出方案来给到咱们啊",
    "speaker": "",
    "flags": [
     "原话只在转写中找到 0/1 段"
    ],
-   "id": "m04"
+   "id": "m07"
+  },
+  {
+   "topic": "盲盒品牌形象",
+   "type": "待确认",
+   "content": "提议用盲盒或其固定物品作为品牌形象推出，需多方面了解并进一步探讨。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [],
+   "evidence_start": null,
+   "evidence_end": null,
+   "evidence_text": "可以用这些来作为这个这个品牌的一个形象推出，可以可以再去多方面的去了解一下。然后大家伙再想一想，想一下，到时候咱们再做进一步的探一个探讨。",
+   "speaker": "",
+   "flags": [
+    "原话只在转写中找到 0/1 段"
+   ],
+   "id": "m08"
   },
   {
    "topic": "主打颜色确认",
    "type": "待办",
-   "content": "市场部、销售确认手机主打颜色和主推意向，以便据此主推并做品牌广告宣传。",
-   "responsible": "市场部、销售",
-   "deadline": "未知",
-   "raw_responsible": "市场部、销售",
-   "raw_deadline": "未知",
-   "evidence_ids": [],
-   "evidence_start": null,
-   "evidence_end": null,
-   "evidence_text": "市场跟这个呃销售这一块儿啊，市场部这一块，然后去看一下就是颜颜色的一个主主打颜色，然后包括看他们一个出主推意向是什么。然后咱们这边好根据他的一个方案进行去主推啊，就做一这个品牌广告。",
-   "speaker": "",
-   "flags": [
-    "原话只在转写中找到 0/1 段"
-   ],
-   "id": "m05"
-  },
-  {
-   "topic": "手机颜色方案",
-   "type": "待确认",
-   "content": "手机颜色数量与风格（纯色、炫彩、稳重、时尚等）尚未确定。",
+   "content": "市场部/销售确认主打颜色和主推意向，以便据此做品牌广告主推。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -106,21 +166,39 @@
    "evidence_ids": [],
    "evidence_start": null,
    "evidence_end": null,
-   "evidence_text": "现在颜色咱们是准备选纯色，还是根据咱们的那个一些logo啊，或者说将来的形象啊，年轻什么样的颜色颜色我感觉更加时尚。一款手机至少得有五种以上颜色，要不然选择选择面太窄了啊。",
+   "evidence_text": "然后色彩产产品产品策策略那边跟这个市场跟这个呃销售这一块儿啊，市场部这一块，然后去看一下就是颜颜色的一个主主打颜色，然后包括看他们一个出主推意向是什么。然后咱们这边好根据他的一个方案进行去主推啊，就做一这个品牌广告",
    "speaker": "",
    "flags": [
     "原话只在转写中找到 0/1 段"
    ],
-   "id": "m06"
+   "id": "m09"
+  },
+  {
+   "topic": "颜色方案",
+   "type": "待确认",
+   "content": "颜色方案未定：需确认选纯色还是结合logo/形象，有人建议至少五种以上颜色。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [],
+   "evidence_start": null,
+   "evidence_end": null,
+   "evidence_text": "然后现在颜色咱们是准备选纯色，还是根据咱们的那个一些logo啊，或者说将来的形象啊，年轻什么样的颜色颜色我感觉更加时尚。一款手机至少得有五种以上颜色，要不然选择选择面太窄了啊。",
+   "speaker": "",
+   "flags": [
+    "原话只在转写中找到 0/1 段"
+   ],
+   "id": "m10"
   }
  ],
  "dropped": [],
  "llm_calls": 1,
  "usage": {
-  "prompt_tokens": 1242,
-  "completion_tokens": 4655
+  "prompt_tokens": 1280,
+  "completion_tokens": 7642
  },
- "elapsed": 27.78,
+ "elapsed": 0.07,
  "clip": "clip02",
  "source": "asr"
 }

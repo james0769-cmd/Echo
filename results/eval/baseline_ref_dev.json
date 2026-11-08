@@ -9,25 +9,25 @@
    "clip05"
   ],
   "n_gold": 27,
-  "n_pred": 38,
-  "n_match": 24,
-  "precision": 0.632,
-  "recall": 0.889,
-  "key_precision": 0.615,
+  "n_pred": 32,
+  "n_match": 22,
+  "precision": 0.688,
+  "recall": 0.815,
+  "key_precision": 0.727,
   "key_recall": 0.923,
-  "type_agreement": 0.833,
-  "missed": 3,
-  "unmatched_pred": 14,
-  "responsible_fabricated": 6,
-  "deadline_fabricated": 1,
-  "responsible_fabricated_before_guard": 6,
-  "deadline_fabricated_before_guard": 1,
-  "pred_without_span": 0,
-  "gold_piece_coverage": 0.604,
-  "matched_items_with_evidence": 0.875,
-  "median_span_s": 11.6,
-  "llm_elapsed_s": 164.3,
-  "llm_tokens": 39251
+  "type_agreement": 0.818,
+  "missed": 5,
+  "unmatched_pred": 10,
+  "responsible_fabricated": 0,
+  "deadline_fabricated": 0,
+  "responsible_fabricated_before_guard": 0,
+  "deadline_fabricated_before_guard": 0,
+  "pred_without_span": 2,
+  "gold_piece_coverage": 0.591,
+  "matched_items_with_evidence": 0.864,
+  "median_span_s": 11.3,
+  "llm_elapsed_s": 0.3,
+  "llm_tokens": 34744
  },
  "detail": [
   {
@@ -39,7 +39,7 @@
      "gold_type": "决定",
      "pred_type": "决定",
      "gold_content": "机型整体偏年轻化。",
-     "pred_content": "手机机型定位年轻化，目标年龄跨度大致为18到45岁。",
+     "pred_content": "确定手机机型主推年轻化。",
      "pred_span": [
       119.62,
       140.97
@@ -54,7 +54,7 @@
      "gold_type": "待办",
      "pred_type": "待确认",
      "gold_content": "后续确认手机的主打颜色或色彩方案。",
-     "pred_content": "18到50岁之间的色彩颜色后续再确认。",
+     "pred_content": "十八到五十岁之间的色彩颜色后续再定并确认。",
      "pred_span": [
       142.72,
       150.87
@@ -69,27 +69,12 @@
      "gold_type": "待确认",
      "pred_type": "待确认",
      "gold_content": "考虑直播带货和电商平台活动作为促销方式，涉及天猫、苏宁、淘宝和拼多多。",
-     "pred_content": "建议通过直播带货和双十一等电商平台活动进行促销，尚未收口。",
+     "pred_content": "建议通过直播带货和双十一等电商平台活动促销，尚未收口。",
      "pred_span": [
       159.84,
       172.97
      ],
      "gold_pieces_covered": "1/1",
-     "pred_responsible": "未知",
-     "pred_deadline": "双十一，具体日期未知"
-    },
-    {
-     "gold": "clip01-f06",
-     "pred": "m06",
-     "gold_type": "待确认",
-     "pred_type": "待确认",
-     "gold_content": "讨论倾向于电商促销，认为地推不太适合该手机。",
-     "pred_content": "地推是否适合手机未定，有人明确反对地推、倾向电商。",
-     "pred_span": [
-      222.68,
-      228.45
-     ],
-     "gold_pieces_covered": "1/2",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     }
@@ -104,32 +89,31 @@
      "id": "clip01-f05",
      "type": "待确认",
      "content": "促销前需要先明确手机相对于其他产品的亮点和差异。"
+    },
+    {
+     "id": "clip01-f06",
+     "type": "待确认",
+     "content": "讨论倾向于电商促销，认为地推不太适合该手机。"
     }
    ],
    "unmatched_pred": [
     {
      "id": "m01",
-     "type": "决定",
-     "content": "按不同人群做差别设计：老年人配置稍低、字体或声音更大，年轻人颜色选择更多、配置更高。",
-     "evidence_text": "我感觉我们可以根据就是不同的人群稍微做一下差别设计，你像如果老年人用的话可就是配置稍微低点，就是字体或者声音稍微大一点，年轻人用的话就可能颜色选择性多点配置高点这种。对。"
+     "type": "待确认",
+     "content": "提出按不同人群做差别设计：老年人配置低、字体或声音大，年轻人颜色选择多、配置高，未收口。",
+     "evidence_text": "我感觉我们可以根据就是不同的人群稍微做一下差别设计，你像如果老年人用的话可就是配置稍微低点，就是字体或者声音稍微大一点，年轻人用的话就可能颜色选择性多点配置高点这种。"
     },
     {
      "id": "m05",
      "type": "待确认",
-     "content": "有人提出前期适当让利以扩大市场份额、后期再提高价格，尚未收口。",
+     "content": "提出前期适当让利扩大市场份额，份额做大后再提价的策略，未收口。",
      "evidence_text": "我们前期主要是就是呃价钱可以稍就让利一些多占领一些市场份额，等市场份额呃慢慢做大之后就可以就价钱稍微高点。"
     },
     {
-     "id": "m07",
+     "id": "m06",
      "type": "待确认",
-     "content": "有人建议捆绑手机附件或运营商产品促销，尚未收口。",
-     "evidence_text": "然后我觉得可以就是那个然后捆绑一些，比如说然后它还带带着一些什么其他的东西啊。"
-    },
-    {
-     "id": "m08",
-     "type": "待确认",
-     "content": "有人建议找明星代言，尚未收口。",
-     "evidence_text": "找一找一些明星，找一个明星代言这是肯定少不了的吧，对吧？"
+     "content": "提出明星代言及捆绑运营商等促销方向，未收口。",
+     "evidence_text": "对，找一找一些明星，找一个明星代言这是肯定少不了的吧，对吧？呃，明星代言这是另外一方面儿，然后我觉得啊，就比如说它捆绑着一些什么移动啊这些运营商，然后它的一些产品，然后其他的，这样还能带动更多的东西。"
     }
    ]
   },
@@ -140,9 +124,9 @@
      "gold": "clip02-f01",
      "pred": "m01",
      "gold_type": "待办",
-     "pred_type": "待办",
+     "pred_type": "待确认",
      "gold_content": "整理供应商列表并逐一联系，进一步安排对接人员。",
-     "pred_content": "整理工作商列表并逐个推进，安排专员。",
+     "pred_content": "把工作商列表挨个推进，并安排专员。",
      "pred_span": [
       0.0,
       9.64
@@ -152,23 +136,8 @@
      "pred_deadline": "未知"
     },
     {
-     "gold": "clip02-f02",
-     "pred": "m05",
-     "gold_type": "待确认",
-     "pred_type": "待确认",
-     "gold_content": "供应商选择不能只追求低价，还要保证产品质量和品牌形象。",
-     "pred_content": "选择盲盒合作商不能只追求低价，要保证质量和品牌影响。",
-     "pred_span": [
-      52.52,
-      64.09
-     ],
-     "gold_pieces_covered": "1/2",
-     "pred_responsible": "未知",
-     "pred_deadline": "未知"
-    },
-    {
      "gold": "clip02-f03",
-     "pred": "m06",
+     "pred": "m04",
      "gold_type": "待办",
      "pred_type": "待办",
      "gold_content": "寻找多个口碑较好的供应商并获取报价。",
@@ -183,87 +152,75 @@
     },
     {
      "gold": "clip02-f04",
-     "pred": "m09",
+     "pred": "m03",
      "gold_type": "待办",
      "pred_type": "待办",
      "gold_content": "对供应商方案进行落实和多方面比较，具体负责人未知。",
-     "pred_content": "派人去落实合作商事项并多方面确定，同时让产品色彩、市场部和销售一起看。",
+     "pred_content": "敲定盲盒合作商，比较哪家便宜并做出报价方案，兼顾种类和成本。",
      "pred_span": [
-      104.96,
-      117.0
+      36.57,
+      56.84
      ],
-     "gold_pieces_covered": "1/1",
+     "gold_pieces_covered": "0/1",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip02-f05",
-     "pred": "m10",
+     "pred": "m05",
      "gold_type": "待办",
-     "pred_type": "待确认",
+     "pred_type": "待办",
      "gold_content": "结合市场和销售部门的意见，了解主打颜色及主推方向，并据此推进品牌宣传。",
-     "pred_content": "了解流行主打颜色及主推意向，再据此作为品牌广告主推和宣传。",
+     "pred_content": "派人落实产品色彩，并与市场部、销售确认流行主打颜色和主推意向，作为品牌广告宣传依据。",
      "pred_span": [
-      117.45,
+      104.96,
       129.19
      ],
-     "gold_pieces_covered": "1/2",
+     "gold_pieces_covered": "2/2",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip02-f06",
-     "pred": "m11",
+     "pred": "m08",
      "gold_type": "待确认",
      "pred_type": "待确认",
      "gold_content": "颜色方案仍需在纯色、炫彩、稳重色和经典色之间继续确定。",
-     "pred_content": "手机颜色选纯色还是结合logo/形象尚未确定，需进一步确定。",
+     "pred_content": "颜色方向在稳重与年轻化、纯色与炫彩、多色与经典款之间尚未统一，有建议一款手机至少提供五种以上颜色。",
      "pred_span": [
-      192.53,
-      206.56
+      null,
+      null
      ],
-     "gold_pieces_covered": "1/2",
+     "gold_pieces_covered": "0/2",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     }
    ],
-   "missed_gold": [],
+   "missed_gold": [
+    {
+     "id": "clip02-f02",
+     "type": "待确认",
+     "content": "供应商选择不能只追求低价，还要保证产品质量和品牌形象。"
+    }
+   ],
    "unmatched_pred": [
     {
      "id": "m02",
      "type": "待确认",
-     "content": "考虑铺设公交、电梯、地铁广告。",
-     "evidence_text": "也可以铺也可以铺一下广告像什么公交广告电梯广告之类的还有，还有地铁广告什么什么的。"
+     "content": "考虑投放公交、电梯、地铁广告，并用盲盒或其中的固定物件作为品牌形象推出。",
+     "evidence_text": "也可以铺也可以铺一下广告像什么公交广告电梯广告之类的还有，还有地铁广告什么什么的。然后我觉得其实咱们这回竟然也也要有盲盒或者有它里边儿的固定的东西可以用这些来。作为这个这个品牌的一个形象推出。"
     },
     {
-     "id": "m03",
-     "type": "待确认",
-     "content": "考虑用盲盒或其中固定周边作为品牌形象推出。",
-     "evidence_text": "咱们这回竟然也也要有盲盒或者有它里边儿的固定的东西可以用这些来。作为这个这个品牌的一个形象推出。"
-    },
-    {
-     "id": "m04",
+     "id": "m06",
      "type": "待办",
-     "content": "去敲定盲盒合作商，比较哪家便宜并做出报价方案，为公司节约成本，并涉及种类。",
-     "evidence_text": "合作商这一块儿，就咱们做盲盒合作商这一块儿啊，然后由这个让你去敲掉一下啊，敲掉一下就是看看哪家便宜，咱们这个报价是吧？做出来弄出方案来给到咱们，啊当然是越便宜越好，为公司考虑咱们这个节约成本问题，然后种类的话，对然后种类。"
+     "content": "让合作方多做几套颜色方案，包含纯色、炫彩，供参考。",
+     "evidence_text": "对咱们这样可以让他多，多弄几把弄几把，然后给咱们一些参考嘛，就是光我这边觉得就是炫彩一些，像咱们大家伙儿说刚才说的有纯色，炫彩一些，是吧。"
     },
     {
      "id": "m07",
      "type": "待确认",
-     "content": "考虑找较好的设计方设计盲盒，或找受欢迎的盲盒公司（如泡泡玛特）合作，但需考虑专门设计成本可能较高。",
-     "evidence_text": "我觉得还是要找一个比较好一点儿的设计的。呃，地方吧，设计一些盲盒儿呃。；我我感觉可以找一些就是大家比较欢受受比较受大家欢欢迎的这种，嗯做盲盒的公司嘛，像这种泡泡玛特这种，这种挺受受欢迎的。对。"
-    },
-    {
-     "id": "m08",
-     "type": "待确认",
-     "content": "可谈价并把价钱打下来，先要一部分或看成品，不一定只找某一个供应商。",
-     "evidence_text": "对，咱们可以说把价钱打下来是吧，作为作为我们作为先，先来他一半儿来一部分，然后咱们看下成品是吧，可以说天天来不不一定非得找某一个供应商。"
-    },
-    {
-     "id": "m12",
-     "type": "待办",
-     "content": "让供应商多做几款颜色方案/样品供参考，涵盖纯色和炫彩。",
-     "evidence_text": "对咱们这样可以让他多，多弄几把弄几把，然后给咱们一些参考嘛，就是光我这边觉得就是炫彩一些，像咱们大家伙儿说刚才说的有纯色，炫彩一些，是吧。"
+     "content": "是否专门找设计方设计盲盒，以及是否找泡泡玛特等受欢迎盲盒公司先做一部分看成品，尚未确定。",
+     "evidence_text": "我觉得还是要找一个比较好一点儿的设计的。呃，地方吧，设计一些盲盒儿呃。但是我觉得要专门儿设计的话，然后会不会成本就会很高。我我感觉可以找一些就是大家比较欢受受比较受大家欢欢迎的这种，嗯做盲盒的公司嘛，像这种泡泡玛特这种，这种挺受受欢迎的。先来他一半儿来一部分，然后咱们看下成品是吧，可以说天天来不不一定非得找某一个供应商。"
     }
    ]
   },
@@ -276,7 +233,7 @@
      "gold_type": "待确认",
      "pred_type": "待确认",
      "gold_content": "可考虑保温杯、零食、小型按摩设备等礼物，但录音中未确定最终礼物。",
-     "pred_content": "可考虑保温杯、提神补脑零食等作为教师节礼物",
+     "pred_content": "讨论教师节礼物可选保温杯、提神补脑零食、小型按摩器等。",
      "pred_span": [
       0.0,
       13.18
@@ -287,77 +244,77 @@
     },
     {
      "gold": "clip03-f02",
-     "pred": "m04",
+     "pred": "m03",
      "gold_type": "待确认",
      "pred_type": "待确认",
      "gold_content": "低年级学生可以由家长代为准备，孩子也可以制作贺卡或绘画表达心意。",
-     "pred_content": "一二年级可由家长代送并做贺卡，不能因此不送",
+     "pred_content": "讨论一二年级由家长代送并做贺卡即可。",
      "pred_span": [
       43.15,
       53.96
      ],
      "gold_pieces_covered": "1/2",
-     "pred_responsible": "家长",
+     "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip03-f03",
-     "pred": "m05",
+     "pred": "m04",
      "gold_type": "决定",
      "pred_type": "待确认",
      "gold_content": "年级越高，送礼时应增加孩子的参与，低年级更多由家长代劳。",
-     "pred_content": "四五年级多让孩子参与、家长少参与，形成平衡",
+     "pred_content": "讨论四五年级让孩子更多参与送礼，家长少一些。",
      "pred_span": [
       96.71,
       109.72
      ],
      "gold_pieces_covered": "1/3",
-     "pred_responsible": "孩子、家长",
+     "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip03-f04",
-     "pred": "m06",
+     "pred": "m05",
      "gold_type": "决定",
      "pred_type": "决定",
      "gold_content": "家长准备礼物时应征求孩子意见，不能完全由家长单方面决定。",
-     "pred_content": "教师节送礼前家长必须征求孩子意见",
+     "pred_content": "确定送礼要征求孩子意见。",
      "pred_span": [
       138.77,
       143.44
      ],
      "gold_pieces_covered": "1/2",
-     "pred_responsible": "家长",
+     "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip03-f05",
-     "pred": "m07",
+     "pred": "m06",
      "gold_type": "待确认",
      "pred_type": "待确认",
      "gold_content": "候选礼物包括护眼灯、颈部按摩仪、眼部按摩仪和防止静脉曲张的小护具，但尚未选定一种。",
-     "pred_content": "家长提供几选一建议，如颈部按摩仪、眼部按摩仪或护眼台灯",
+     "pred_content": "讨论家长提供几选一靠谱建议，如颈部按摩仪、眼部按摩仪、护眼台灯，供孩子参考。",
      "pred_span": [
       183.91,
       194.15
      ],
      "gold_pieces_covered": "1/3",
-     "pred_responsible": "家长",
+     "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip03-f06",
-     "pred": "m03",
+     "pred": "m07",
      "gold_type": "待确认",
      "pred_type": "待确认",
      "gold_content": "礼物的形式需要兼顾老师是否愿意接受以及避免造成尴尬。",
-     "pred_content": "礼物可由家长代送，避免孩子拿到学校太明显",
+     "pred_content": "讨论家长直接送礼物可能让老师尴尬。",
      "pred_span": [
-      22.09,
-      30.62
+      220.06,
+      228.44
      ],
-     "gold_pieces_covered": "0/3",
-     "pred_responsible": "家长",
+     "gold_pieces_covered": "1/3",
+     "pred_responsible": "未知",
      "pred_deadline": "未知"
     }
    ],
@@ -366,14 +323,8 @@
     {
      "id": "m02",
      "type": "待确认",
-     "content": "可考虑小型按摩类礼物，预算约一两百元",
-     "evidence_text": "像小型的按摩的这方面的，不用特别大就很小，就一百一百一一两百块钱。"
-    },
-    {
-     "id": "m08",
-     "type": "待确认",
-     "content": "可考虑防止静脉曲张的小型护具等礼物",
-     "evidence_text": "包括一些防止静脉曲张的这种这种小的护具啊之类的。"
+     "content": "讨论礼物由家长代送，避免孩子拿到学校太明显。",
+     "evidence_text": "像这种礼物呢，我觉得可以由家长来去送，如果孩子有点太，太明显了，如果拿到学校就有点儿太明显了。"
     }
    ]
   },
@@ -382,57 +333,57 @@
    "matches": [
     {
      "gold": "clip04-f01",
-     "pred": "m01",
+     "pred": "m02",
      "gold_type": "待确认",
      "pred_type": "待确认",
      "gold_content": "讨论倾向于不在学校公开送礼，以降低老师和其他教师的尴尬。",
-     "pred_content": "有人提出送礼要考虑老师感受，尽量不见光、避免尴尬并兼顾实用性，让老师心里舒服。",
+     "pred_content": "讨论倾向不在学校送、改为送到老师家里，但尚未最终确定。",
      "pred_span": [
-      43.66,
-      56.67
+      160.9,
+      166.9
      ],
-     "gold_pieces_covered": "0/2",
+     "gold_pieces_covered": "1/2",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip04-f02",
-     "pred": "m04",
+     "pred": "m03",
      "gold_type": "待确认",
      "pred_type": "待确认",
      "gold_content": "可考虑把礼物送到老师家中，但是否能取得老师住址存在隐私和可行性问题。",
-     "pred_content": "有人提出最好要到老师地址并自己送到家里，但也有人指出地址涉及隐私、若被公布会有顾虑，尚未确定。",
+     "pred_content": "是否向老师要家庭地址并自行送到家里尚未确定，有人提出涉及隐私、不愿提供地址的顾虑。",
      "pred_span": [
-      197.27,
+      222.82,
       232.39
      ],
-     "gold_pieces_covered": "3/3",
+     "gold_pieces_covered": "2/3",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip04-f03",
-     "pred": "m02",
+     "pred": "m01",
      "gold_type": "待确认",
      "pred_type": "待确认",
      "gold_content": "购物卡并由孩子转交是一种候选方案，但录音中没有最终确认。",
-     "pred_content": "有人提议在沃尔玛、物美办购物卡，教师节当天抽时间由孩子带过去；说话人还提出自己过去直接塞给老师。",
+     "pred_content": "有人提议办沃尔玛或物美购物卡，教师节当天抽时间由孩子带给老师或直接塞给老师，尚未确定。",
      "pred_span": [
       91.76,
-      115.52
+      102.03
      ],
      "gold_pieces_covered": "2/2",
-     "pred_responsible": "说话人自述",
+     "pred_responsible": "未知",
      "pred_deadline": "教师节那天，具体日期未知"
     }
    ],
    "missed_gold": [],
    "unmatched_pred": [
     {
-     "id": "m03",
-     "type": "决定",
-     "content": "教师节送礼大方向改为往家里送，不在学校送。",
-     "evidence_text": "所以呢，我觉得，学校送不太合适，咱们就大方向往家里送。对。家里送呢，这样的话又避免了..."
+     "id": "m04",
+     "type": "待确认",
+     "content": "有人更倾向晚上接送孩子、与老师沟通时当面交付礼物，尚未形成统一方案。",
+     "evidence_text": "其实我是更喜欢是由当面交给老师这种的，假如说晚上接送孩子，然后跟跟家，跟老师有有，比方说沟通交通学习啊。"
     }
    ]
   },
@@ -445,12 +396,12 @@
      "gold_type": "决定",
      "pred_type": "决定",
      "gold_content": "办公地点范围暂定在东三环和东四环之间、偏北一带，并优先考虑交通便利。",
-     "pred_content": "新办公地点大致范围敲定为东边，东三环和东四环之间、往北一点。",
+     "pred_content": "新办公地点大范围敲定在东三环和东四环之间、往北一点儿一带。",
      "pred_span": [
       55.75,
-      141.32
+      68.38
      ],
-     "gold_pieces_covered": "4/4",
+     "gold_pieces_covered": "3/4",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
@@ -460,7 +411,7 @@
      "gold_type": "待办",
      "pred_type": "待办",
      "gold_content": "到候选区域实地考察，挑选若干写字楼，综合比较后报给领导。",
-     "pred_content": "安排人去新地点考察，先挑几个写字楼，综合比较后报给领导。",
+     "pred_content": "安排一个人去东边考察，先挑几个写字楼，再综合比较后报给领导。",
      "pred_span": [
       98.44,
       110.16
@@ -475,7 +426,7 @@
      "gold_type": "决定",
      "pred_type": "决定",
      "gold_content": "办公地点规划暂定约50个工位，以容纳现有人员和后续招聘。",
-     "pred_content": "暂定新办公区约五十个工位，后续报给领导。",
+     "pred_content": "暂定新办公区约50个工位。",
      "pred_span": [
       175.38,
       187.41
@@ -490,7 +441,7 @@
      "gold_type": "决定",
      "pred_type": "待确认",
      "gold_content": "会议室初步考虑一间大会议室和两间小会议室。",
-     "pred_content": "会议室需求初步为大会议室一间、小会议室两间，最终按考察实际情况再定。",
+     "pred_content": "会议室需求初步为大会议室一间（约一间教室大小）、小会议室两间，具体按考察实际情况再调整。",
      "pred_span": [
       197.2,
       220.8
@@ -501,11 +452,11 @@
     },
     {
      "gold": "clip05-f06",
-     "pred": "m06",
+     "pred": "m07",
      "gold_type": "待确认",
      "pred_type": "待确认",
      "gold_content": "办公室数量和空间大小仍需结合实地考察、部门需求和实际面积调整。",
-     "pred_content": "办公室数量按现有四个小办公室考虑，加上招聘部门预计四到五个，五六个都行，待确定。",
+     "pred_content": "办公室数量初步按现有四个小办公室考虑，若加上招聘部门估计需四到五个，具体未定。",
      "pred_span": [
       235.19,
       251.77
@@ -526,8 +477,14 @@
     {
      "id": "m02",
      "type": "待办",
-     "content": "在群里跟其他员工商量新办公地点。",
+     "content": "在群里跟其他员工商量新办公地点，征求意见。",
      "evidence_text": "那大家可以把这个事情就是说，在那个群里面跟就是其他的员工去商量一下，说这个新地点。"
+    },
+    {
+     "id": "m06",
+     "type": "待办",
+     "content": "把各部门办公室归纳好、选择好，避免空间不够。",
+     "evidence_text": "几个部门，你都把这几个部门就是归纳好选择好，嗯。……别那个，到时候，空间不够了，这不就是有点。"
     }
    ]
   }

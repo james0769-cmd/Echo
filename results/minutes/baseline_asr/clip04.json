@@ -4,28 +4,30 @@
  "params": {},
  "items": [
   {
-   "topic": "购物卡送礼",
+   "topic": "购物卡送礼方案",
    "type": "待确认",
-   "content": "有人提议办购物卡，教师节当天由孩子带给老师，未形成决定。",
+   "content": "有人提议去沃尔玛、物美办购物卡，教师节由孩子带给老师。",
    "responsible": "未知",
    "deadline": "教师节那天，具体日期未知",
    "raw_responsible": "未知",
    "raw_deadline": "教师节那天，具体日期未知",
    "evidence_ids": [
-    "S037",
-    "S038"
+    "S034",
+    "S035",
+    "S036",
+    "S037"
    ],
-   "evidence_start": 98.75,
-   "evidence_end": 105.67,
-   "evidence_text": "然后呢，教师节那天由孩子带过去间啊，我过去直接塞给老师啊。",
+   "evidence_start": 93.35,
+   "evidence_end": 101.945,
+   "evidence_text": "我觉得就是有时候去什么沃尔玛、物美啊，办张购物卡。然后呢，教师节那天由孩子带过去间啊",
    "speaker": "",
    "flags": [],
    "id": "m01"
   },
   {
-   "topic": "教师节送礼方式",
+   "topic": "教师节送礼地点",
    "type": "待确认",
-   "content": "讨论是否不在学校送、改为送到老师家里，未形成最终决定。",
+   "content": "有人提出学校送不合适，大方向往家里送。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -42,9 +44,27 @@
    "id": "m02"
   },
   {
-   "topic": "向王老师要家庭地址",
+   "topic": "各送各的",
    "type": "待确认",
-   "content": "有人提议向王老师要地址以便送到家，但有人表示涉及隐私不会提供，是否要地址未定。",
+   "content": "有人提出各送各的。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S076"
+   ],
+   "evidence_start": 190.69,
+   "evidence_end": 192.345,
+   "evidence_text": "所以说就各送各的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "向王老师要地址",
+   "type": "待确认",
+   "content": "有人提出向王老师要地址，认为提供地址的几率较大。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -52,29 +72,41 @@
    "evidence_ids": [
     "S081",
     "S082",
-    "S083",
-    "S084",
-    "S085",
-    "S086",
-    "S087",
-    "S088",
-    "S089"
+    "S083"
    ],
    "evidence_start": 208.43,
-   "evidence_end": 226.85,
-   "evidence_text": "我觉得给王老师要地址，一般的性就是几率性还是比较大的对；但是这个如果说换做是我，反正我肯定不提供，因为这涉及隐私了。",
+   "evidence_end": 218.27,
+   "evidence_text": "我觉得给王老师要地址，一般的性就是几率性还是比较大的对，就是能提供了是吧？",
    "speaker": "",
    "flags": [],
-   "id": "m03"
+   "id": "m04"
+  },
+  {
+   "topic": "当面交给老师",
+   "type": "待确认",
+   "content": "有人更倾向当面把礼物交给老师。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S093"
+   ],
+   "evidence_start": 231.59,
+   "evidence_end": 235.845,
+   "evidence_text": "其实我是更我其实更喜欢是由当面交给老师这种的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
   }
  ],
  "dropped": [],
  "llm_calls": 1,
  "usage": {
-  "prompt_tokens": 1063,
-  "completion_tokens": 2602
+  "prompt_tokens": 1101,
+  "completion_tokens": 6126
  },
- "elapsed": 13.29,
+ "elapsed": 0.02,
  "clip": "clip04",
  "source": "asr"
 }

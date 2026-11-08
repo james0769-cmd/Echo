@@ -8,7 +8,7 @@
   {
    "topic": "教师节送礼方式",
    "type": "待确认",
-   "content": "提议去沃尔玛或物美办购物卡，教师节当天由孩子带去",
+   "content": "有人提议去沃尔玛、物美办购物卡，教师节当天由孩子带给老师，尚未形成决定。",
    "responsible": "未知",
    "deadline": "教师节那天，具体日期未知",
    "raw_responsible": "未知",
@@ -28,26 +28,8 @@
   },
   {
    "topic": "教师节送礼方式",
-   "type": "待确认",
-   "content": "由说话人直接当面把礼物交给老师。",
-   "responsible": "说话人自述（身份未识别）",
-   "deadline": "未知",
-   "raw_responsible": "说话人自述",
-   "raw_deadline": "未知",
-   "evidence_ids": [
-    "S038"
-   ],
-   "evidence_start": 102.87,
-   "evidence_end": 105.67,
-   "evidence_text": "我过去直接塞给老师啊。",
-   "speaker": "",
-   "flags": [],
-   "id": "m02"
-  },
-  {
-   "topic": "教师节送礼地点",
    "type": "决定",
-   "content": "学校送不太合适，大方向改为往老师家里送。",
+   "content": "送老师礼物不在学校送，大方向往家里送，以避免同班学生有送有不送的情况。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -62,32 +44,33 @@
    "evidence_text": "所以呢我觉得学校送不太合适，；咱们就大方向往家里送。；对加里宿呢这样的话又避免了这个三十个二十个学生一个班的有送有不送的这种情况，",
    "speaker": "",
    "flags": [],
-   "id": "m03"
+   "id": "m02"
   },
   {
    "topic": "教师节送礼方式",
-   "type": "决定",
-   "content": "送礼采取各送各的方式。",
+   "type": "待确认",
+   "content": "建议各家各送各的，不一起凑份子，避免金额不同造成心理不平衡。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
    "raw_deadline": "未知",
    "evidence_ids": [
-    "S069",
     "S070",
+    "S073",
+    "S075",
     "S076"
    ],
-   "evidence_start": 175.2,
+   "evidence_start": 177.52,
    "evidence_end": 192.345,
-   "evidence_text": "也表明了自己送的心意。；因为就像结婚份子似的，；所以说就各送各的。",
+   "evidence_text": "因为就像结婚份子似的，；那这五个朋友一起送。；有出五百份子的那五百分的那个人他就不平衡，；所以说就各送各的。",
    "speaker": "",
    "flags": [],
-   "id": "m04"
+   "id": "m03"
   },
   {
    "topic": "教师节送礼方式",
    "type": "待确认",
-   "content": "有人提议向王老师要地址并送到家里，但会上提出隐私顾虑、也有人更倾向当面交给老师，未形成结论。",
+   "content": "讨论给老师送礼的方式：有人建议向王老师要家庭地址并送到家里，也有人担心隐私、倾向当面交给老师，未形成决定。",
    "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "未知",
@@ -95,24 +78,24 @@
    "evidence_ids": [
     "S079",
     "S081",
-    "S088",
+    "S089",
     "S093"
    ],
    "evidence_start": 199.87,
    "evidence_end": 235.845,
-   "evidence_text": "咱们最好能把地址要到自己送到家里，；我觉得给王老师要地址，；反正我肯定不提供，；其实我是更我其实更喜欢是由当面交给老师这种的。",
+   "evidence_text": "咱们最好能把地址要到自己送到家里，；我觉得给王老师要地址，；因为这涉及隐私了。；其实我是更我其实更喜欢是由当面交给老师这种的。",
    "speaker": "",
    "flags": [],
-   "id": "m05"
+   "id": "m04"
   }
  ],
  "dropped": [],
  "llm_calls": 4,
  "usage": {
-  "prompt_tokens": 2774,
-  "completion_tokens": 12157
+  "prompt_tokens": 2900,
+  "completion_tokens": 8811
  },
- "elapsed": 71.26,
+ "elapsed": 0.0,
  "clip": "clip04",
  "source": "asr"
 }
