@@ -15,11 +15,15 @@ const LIVE_AUDIO = path.join(LIVE_ROOT, "audio.wav");
 function resolvePython() {
   const candidates = [
     process.env.ECHO_PYTHON,
+    // Windows venv layout
     path.join(PROJECT_ROOT, ".venv", "Scripts", "python.exe"),
     path.join(PROJECT_ROOT, "..", ".venv", "Scripts", "python.exe"),
-    "python",
+    // macOS / Linux venv layout
+    path.join(PROJECT_ROOT, ".venv", "bin", "python"),
+    path.join(PROJECT_ROOT, "..", ".venv", "bin", "python"),
   ].filter(Boolean);
-  return candidates.find((candidate) => candidate === "python" || fs.existsSync(candidate)) || "python";
+  const fallback = process.platform === "win32" ? "python" : "python3";
+  return candidates.find((candidate) => candidate === process.env.ECHO_PYTHON || fs.existsSync(candidate)) || fallback;
 }
 
 const PYTHON = resolvePython();

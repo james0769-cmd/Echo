@@ -20,12 +20,7 @@ from echotrace import minutes  # noqa: E402
 from echotrace.asr import transcribe  # noqa: E402
 
 
-def ts(seconds: float | None) -> str:
-    if seconds is None:
-        return "无"
-    total = max(0, int(seconds))
-    minutes_part, seconds_part = divmod(total, 60)
-    return f"{minutes_part:02d}:{seconds_part:02d}"
+ts = minutes._ts  # 与纪要 Markdown 共用：开始向下取整，结束向上取整
 
 
 def make_report(audio: Path, asr: dict, result: dict) -> str:
@@ -59,7 +54,7 @@ def make_report(audio: Path, asr: dict, result: dict) -> str:
                 f"- 内容：{item['content']}",
                 f"- 负责人：{item['responsible']}",
                 f"- 截止：{item['deadline']}",
-                f"- 时间：{ts(item['evidence_start'])}-{ts(item['evidence_end'])}",
+                f"- 时间：{ts(item['evidence_start'])}-{ts(item['evidence_end'], round_up=True)}",
                 f"- 证据：{item['evidence_text']}",
             ]
         )
@@ -86,8 +81,8 @@ def main() -> None:
     parser.add_argument(
         "--out",
         type=Path,
-        default=Path("results/demo"),
-        help="output directory",
+        default=Path("results/demo-live"),
+        help="output directory (git-ignored); results/demo/ holds the committed sample",
     )
     args = parser.parse_args()
 

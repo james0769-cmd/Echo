@@ -67,8 +67,9 @@ uv run python scripts/run_minutes.py --method segmented --source asr --split dev
 uv run python scripts/run_demo.py
 ```
 
-默认使用 `data/public/alimeeting/clips/clip01.wav`，推荐的分段方案会把结果写入 `results/demo/`：
+默认使用 `data/public/alimeeting/clips/clip01.wav`，推荐的分段方案会把结果写入 `results/demo-live/`（已加入 `.gitignore`）：
 `transcript.json`、`minutes.json`、`minutes.md` 和适合现场打开的 `demo_report.md`。
+仓库中的 `results/demo/` 是提交好的示例结果，供网页默认加载；如需更新它，显式加 `--out results/demo`。
 也可以指定其他本地 WAV：
 
 ```bash

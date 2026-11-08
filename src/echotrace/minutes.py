@@ -8,6 +8,7 @@
 """
 
 import json
+import math
 import time
 
 from . import evidence, llm
@@ -268,10 +269,11 @@ def _finish(items, dropped, usage, calls, elapsed, method, model, **params) -> d
     }
 
 
-def _ts(sec):
+def _ts(sec, round_up: bool = False):
+    """格式化为 mm:ss。结束时间向上取整，保证显示的整秒区间仍包含原话。"""
     if sec is None:
         return "无"
-    total = max(0, int(sec))
+    total = max(0, math.ceil(sec) if round_up else math.floor(sec))
     m, s = divmod(total, 60)
     return f"{m:02d}:{s:02d}"
 
@@ -293,7 +295,7 @@ def to_markdown(result: dict, title: str = "") -> str:
             lines.append("")
             for it in group:
                 lines.append(f"- {it['content']}（负责人：{it['responsible']}；截止：{it['deadline']}）")
-                lines.append(f"  - 证据 [{_ts(it['evidence_start'])}-{_ts(it['evidence_end'])}] {it['evidence_text']}")
+                lines.append(f"  - 证据 [{_ts(it['evidence_start'])}-{_ts(it['evidence_end'], round_up=True)}] {it['evidence_text']}")
                 for f in it["flags"]:
                     lines.append(f"  - ⚠ {f}")
             lines.append("")
