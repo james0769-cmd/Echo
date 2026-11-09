@@ -1,0 +1,17 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [],
+ "dropped": [],
+ "llm_calls": 3,
+ "usage": {
+  "prompt_tokens": 2807,
+  "completion_tokens": 352
+ },
+ "elapsed": 5.48,
+ "clip": "clip06",
+ "source": "whisper"
+}

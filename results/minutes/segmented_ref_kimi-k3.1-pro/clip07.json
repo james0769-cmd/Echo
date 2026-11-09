@@ -1,0 +1,271 @@
+{
+ "method": "segmented",
+ "model": "kimi-k3.1-pro",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "连锁化与现代化转型",
+   "type": "待确认",
+   "content": "有人提出企业应向连锁经营、连锁化和现代化方向迈进，并对相关方面作出改进，但未形成明确结论。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S003",
+    "S009",
+    "S010"
+   ],
+   "evidence_start": 13.1,
+   "evidence_end": 29.46,
+   "evidence_spans": [
+    {
+     "id": "S003",
+     "start": 13.1,
+     "end": 23.43
+    },
+    {
+     "id": "S009",
+     "start": 26.36,
+     "end": 28.56
+    },
+    {
+     "id": "S010",
+     "start": 28.87,
+     "end": 29.46
+    }
+   ],
+   "evidence_text": "嗯，我觉得我们这个餐饮行业，我们觉得我们企业也应该像连锁经营这些连锁化和现代化，这是方向迈进。；对这方面需要做一点改变。；改进。",
+   "speaker": "SPK8048/SPK8049",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "餐饮业引入电子商务",
+   "type": "待确认",
+   "content": "有人提出餐饮业引入电子商务势在必行，并认为将两者结合起来可能促进餐饮业发展，其他人附和但未明确具体安排。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S011",
+    "S012",
+    "S013"
+   ],
+   "evidence_start": 29.64,
+   "evidence_end": 47.57,
+   "evidence_spans": [
+    {
+     "id": "S011",
+     "start": 29.64,
+     "end": 36.73
+    },
+    {
+     "id": "S012",
+     "start": 38.83,
+     "end": 46.64
+    },
+    {
+     "id": "S013",
+     "start": 46.91,
+     "end": 47.57
+    }
+   ],
+   "evidence_text": "对的，然后呢，让餐饮业引入电子商务也是势在必行餐饮业的发展态势。；然后因为这样子把两者联合起来，就可能会提高餐饮业的发展，他前景就会越来越好。；是的是的。",
+   "speaker": "SPK8047/SPK8048",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "企业品牌形象",
+   "type": "待确认",
+   "content": "有人提出需要为企业品牌树立良好形象，其他人附和，但未明确具体措施或最终结论。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S019",
+    "S020",
+    "S021"
+   ],
+   "evidence_start": 66.33,
+   "evidence_end": 76.54,
+   "evidence_spans": [
+    {
+     "id": "S019",
+     "start": 66.33,
+     "end": 72.31
+    },
+    {
+     "id": "S020",
+     "start": 71.96,
+     "end": 76.54
+    },
+    {
+     "id": "S021",
+     "start": 73.89,
+     "end": 74.73
+    }
+   ],
+   "evidence_text": "那这样子看我们需要为这个餐饮，我们企业的品牌树立一个良好的形象。；没错，竞争比较强烈，企业竞争比较大。；嗯，对对对。",
+   "speaker": "SPK8048/SPK8049",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "餐饮科学化与营养化",
+   "type": "待确认",
+   "content": "参会者提出餐饮要科学化、营养化并注重营养，但未明确后续执行安排。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S024",
+    "S025"
+   ],
+   "evidence_start": 85.34,
+   "evidence_end": 92.41,
+   "evidence_spans": [
+    {
+     "id": "S024",
+     "start": 85.34,
+     "end": 88.29
+    },
+    {
+     "id": "S025",
+     "start": 88.3,
+     "end": 92.41
+    }
+   ],
+   "evidence_text": "对，就我们餐饮就得科学化，营养化嘛。；嗯，都要注重一下这个餐饮的营养。",
+   "speaker": "SPK8047/SPK8048",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "招聘方案",
+   "type": "待确认",
+   "content": "提出主要招聘运营副总、营销部经理、市场部经理和物流部经理，学历要求大专及以上，仅一方陈述、他人附和，无人收口。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S045",
+    "S048"
+   ],
+   "evidence_start": 157.14,
+   "evidence_end": 181.64,
+   "evidence_spans": [
+    {
+     "id": "S045",
+     "start": 157.14,
+     "end": 170.6
+    },
+    {
+     "id": "S048",
+     "start": 172.81,
+     "end": 181.64
+    }
+   ],
+   "evidence_text": "可以可以，那我们主要是招聘一些运营，我们主要招聘运营的副总，然后营销部经理，市场部经理跟物流部经理这些。；主要招聘的，他们的要求呢也学历要求是要有的，学历大概在大专或及以上的学历。",
+   "speaker": "SPK8048",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "招聘方案",
+   "type": "决定",
+   "content": "运营副总负责管理及追踪各门店日常运营和结果，完成各项经营管理指标，督导问题改善并追踪进度，及时反馈、分析市场信息并采取调整措施。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S050",
+    "S052",
+    "S053",
+    "S054"
+   ],
+   "evidence_start": 188.22,
+   "evidence_end": 228.66,
+   "evidence_spans": [
+    {
+     "id": "S050",
+     "start": 188.22,
+     "end": 201.05
+    },
+    {
+     "id": "S052",
+     "start": 201.05,
+     "end": 205.76
+    },
+    {
+     "id": "S053",
+     "start": 206.84,
+     "end": 217.62
+    },
+    {
+     "id": "S054",
+     "start": 217.87,
+     "end": 228.66
+    }
+   ],
+   "evidence_text": "啊，他的工作职责的话，运营副总主要负责管理跟追踪各门店的日常运营的管理工作及结果，完成各门店的各项经营管理指标。；发现督导各门店问题跟管理工作改善。；改予以改善，然后进度追踪，要及时的反馈市场信息，予以分析，做出相应的调整措施，你们觉得呢？；嗯，我觉得不错的，招聘条件的话，有亲和力，有良好的应变能力，交谈能力，做事认真细心。",
+   "speaker": "SPK8048/SPK8049",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "招聘方案",
+   "type": "待确认",
+   "content": "提出的招聘条件包括有亲和力、良好的应变和交谈能力、做事认真细心、善于学习新鲜事物、执行力强、主动积极，并有团队意识和强烈的进取心。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S054",
+    "S055",
+    "S057"
+   ],
+   "evidence_start": 217.87,
+   "evidence_end": 238.43,
+   "evidence_spans": [
+    {
+     "id": "S054",
+     "start": 217.87,
+     "end": 228.66
+    },
+    {
+     "id": "S055",
+     "start": 218.06,
+     "end": 218.49
+    },
+    {
+     "id": "S057",
+     "start": 229.68,
+     "end": 238.43
+    }
+   ],
+   "evidence_text": "嗯，我觉得不错的，招聘条件的话，有亲和力，有良好的应变能力，交谈能力，做事认真细心。；对。；善于学习新鲜事物，执行力强，主动积极，有团队意识和强烈的进攻心，好吧。",
+   "speaker": "SPK8049/SPK8047",
+   "flags": [],
+   "id": "m07"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3074,
+  "completion_tokens": 7454
+ },
+ "elapsed": 254.16,
+ "clip": "clip07",
+ "source": "ref"
+}

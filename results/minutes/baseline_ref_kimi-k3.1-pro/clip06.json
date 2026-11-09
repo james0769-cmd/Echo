@@ -1,0 +1,15 @@
+{
+ "method": "baseline",
+ "model": "kimi-k3.1-pro",
+ "params": {},
+ "items": [],
+ "dropped": [],
+ "llm_calls": 1,
+ "usage": {
+  "prompt_tokens": 1374,
+  "completion_tokens": 195
+ },
+ "elapsed": 12.52,
+ "clip": "clip06",
+ "source": "ref"
+}

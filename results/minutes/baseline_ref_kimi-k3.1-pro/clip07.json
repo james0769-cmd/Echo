@@ -1,0 +1,135 @@
+{
+ "method": "baseline",
+ "model": "kimi-k3.1-pro",
+ "params": {},
+ "items": [
+  {
+   "topic": "企业品牌形象",
+   "type": "待确认",
+   "content": "提出需要为本企业的餐饮品牌树立良好形象。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S019",
+    "S020",
+    "S021"
+   ],
+   "evidence_start": 66.33,
+   "evidence_end": 76.54,
+   "evidence_spans": [
+    {
+     "start": 66.33,
+     "end": 76.54
+    }
+   ],
+   "evidence_text": "那这样子看我们需要为这个餐饮，我们企业的品牌树立一个良好的形象。没错，竞争比较强烈，企业竞争比较大。嗯，对对对。",
+   "speaker": "SPK8048/SPK8049",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "餐饮科学化营养化与标准化",
+   "type": "待确认",
+   "content": "提出餐饮经营要注重科学化、营养化和标准化。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S024",
+    "S025",
+    "S026",
+    "S027",
+    "S028"
+   ],
+   "evidence_start": 85.34,
+   "evidence_end": 92.41,
+   "evidence_spans": [
+    {
+     "start": 85.34,
+     "end": 92.41
+    }
+   ],
+   "evidence_text": "对，就我们餐饮就得科学化，营养化嘛。嗯，都要注重一下这个餐饮的营养。嗯标准化。标准化。对标准化。",
+   "speaker": "SPK8047/SPK8048/SPK8049",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "招聘岗位及学历要求",
+   "type": "待办",
+   "content": "招聘运营副总、营销部经理、市场部经理和物流部经理，学历大致要求为大专及以上。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S045",
+    "S046",
+    "S047",
+    "S048"
+   ],
+   "evidence_start": 157.14,
+   "evidence_end": 181.64,
+   "evidence_spans": [
+    {
+     "start": 157.14,
+     "end": 181.64
+    }
+   ],
+   "evidence_text": "可以可以，那我们主要是招聘一些运营，我们主要招聘运营的副总，然后营销部经理，市场部经理跟物流部经理这些。嗯。嗯招。主要招聘的，他们的要求呢也学历要求是要有的，学历大概在大专或及以上的学历。",
+   "speaker": "SPK8048/SPK8049",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "连锁化与现代化改进",
+   "type": "待确认",
+   "content": "提出本企业也应向连锁经营、连锁化和现代化方向迈进，并对相关方面作出改进。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [],
+   "evidence_start": null,
+   "evidence_end": null,
+   "evidence_spans": [],
+   "evidence_text": "我觉得我们这个餐饮行业，我们觉得我们企业也应该像连锁经营这些连锁化和现代化，这是方向迈进。对这方面需要做一点改变。改进。对的",
+   "speaker": "",
+   "flags": [
+    "原话只在转写中找到 0/1 段"
+   ],
+   "id": "m04"
+  },
+  {
+   "topic": "运营副总职责与招聘条件",
+   "type": "待确认",
+   "content": "讨论了运营副总的门店运营管理追踪、经营指标完成、问题督导改善、市场信息反馈分析等职责，以及亲和力、应变能力、执行力、团队意识等招聘条件。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [],
+   "evidence_start": null,
+   "evidence_end": null,
+   "evidence_spans": [],
+   "evidence_text": "啊，他的工作职责的话，运营副总主要负责管理跟追踪各门店的日常运营的管理工作及结果，完成各门店的各项经营管理指标。嗯。发现督导各门店问题跟管理工作改善。改予以改善，然后进度追踪，要及时的反馈市场信息，予以分析，做出相应的调整措施，你们觉得呢？嗯，我觉得不错的，招聘条件的话，有亲和力，有良好的应变能力，交谈能力，做事认真细心。对。嗯。善于学习新鲜事物，执行力强，主动积极，有团队意识和强烈的进攻心，好吧。",
+   "speaker": "",
+   "flags": [
+    "原话只在转写中找到 0/1 段"
+   ],
+   "id": "m05"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 1,
+ "usage": {
+  "prompt_tokens": 1056,
+  "completion_tokens": 4986
+ },
+ "elapsed": 159.03,
+ "clip": "clip07",
+ "source": "ref"
+}

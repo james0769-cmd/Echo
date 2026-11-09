@@ -1,0 +1,468 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "活动场地",
+   "type": "决定",
+   "content": "活动场地选择在双流区贴近自然、有大片草地的地方。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S010",
+    "S012",
+    "S014",
+    "S021"
+   ],
+   "evidence_start": 28.26,
+   "evidence_end": 58.42,
+   "evidence_spans": [
+    {
+     "id": "S010",
+     "start": 28.26,
+     "end": 30.58
+    },
+    {
+     "id": "S012",
+     "start": 34.4,
+     "end": 36.34
+    },
+    {
+     "id": "S014",
+     "start": 42.54,
+     "end": 45.08
+    },
+    {
+     "id": "S021",
+     "start": 57.98,
+     "end": 58.42
+    }
+   ],
+   "evidence_text": "但是我有一个想法就是,；它比较贴近大自然那边,；江家医院那边有那种草地,；可以,",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "会员制与报名收费",
+   "type": "待确认",
+   "content": "提出会员制方案：初次报名收费200元/人，会员需先充值500元。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S028",
+    "S029",
+    "S030",
+    "S031"
+   ],
+   "evidence_start": 81.2,
+   "evidence_end": 94.3,
+   "evidence_spans": [
+    {
+     "id": "S028",
+     "start": 81.2,
+     "end": 83.22
+    },
+    {
+     "id": "S029",
+     "start": 83.22,
+     "end": 84.9
+    },
+    {
+     "id": "S030",
+     "start": 85.16,
+     "end": 89.82
+    },
+    {
+     "id": "S031",
+     "start": 89.94,
+     "end": 94.3
+    }
+   ],
+   "evidence_text": "然后我这边还制定了一个会员制,；就刚开始报名的话,；我们收取的费用是两百块钱一个人,；但会员的话是要首先充五百块钱,",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "牵手成功奖励",
+   "type": "决定",
+   "content": "牵手成功可赠送双人机票去三亚",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S032",
+    "S033",
+    "S034",
+    "S035"
+   ],
+   "evidence_start": 94.6,
+   "evidence_end": 102.66,
+   "evidence_spans": [
+    {
+     "id": "S032",
+     "start": 94.6,
+     "end": 96.7
+    },
+    {
+     "id": "S033",
+     "start": 96.84,
+     "end": 100.5
+    },
+    {
+     "id": "S034",
+     "start": 100.74,
+     "end": 100.96
+    },
+    {
+     "id": "S035",
+     "start": 101.1,
+     "end": 102.66
+    }
+   ],
+   "evidence_text": "然后最后如果牵手成功的话,；我们这边可以赠送双人机票去三亚的这种。；可以,；这个是可以的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "活动场地",
+   "type": "决定",
+   "content": "开幕式定在双流江家医院附近大公园的草地",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S038",
+    "S039",
+    "S041",
+    "S043"
+   ],
+   "evidence_start": 105.44,
+   "evidence_end": 113.36,
+   "evidence_spans": [
+    {
+     "id": "S038",
+     "start": 105.44,
+     "end": 106.76
+    },
+    {
+     "id": "S039",
+     "start": 106.88,
+     "end": 108.96
+    },
+    {
+     "id": "S041",
+     "start": 109.12,
+     "end": 111.82
+    },
+    {
+     "id": "S043",
+     "start": 113.04,
+     "end": 113.36
+    }
+   ],
+   "evidence_text": "就定一个草地吗,；是双流那边一个草地是吗?；双流江家医院那个有个大公园,；可以。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "海报设计",
+   "type": "待确认",
+   "content": "建议海报采用男女模特浪漫照片，并体现爱的火花和强感染力",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S048",
+    "S051",
+    "S053",
+    "S056"
+   ],
+   "evidence_start": 126.62,
+   "evidence_end": 151.6,
+   "evidence_spans": [
+    {
+     "id": "S048",
+     "start": 126.62,
+     "end": 132.34
+    },
+    {
+     "id": "S051",
+     "start": 136.14,
+     "end": 138.28
+    },
+    {
+     "id": "S053",
+     "start": 141.9,
+     "end": 143.32
+    },
+    {
+     "id": "S056",
+     "start": 148.82,
+     "end": 151.6
+    }
+   ],
+   "evidence_text": "就是男女模特拍的一组比较浪漫的照片,；我建议的就是说,；有那种爱的火花,；就让人看下去就相信爱情的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "海报照片",
+   "type": "待办",
+   "content": "把已拍好的照片发送到对方的相关邮件里",
+   "responsible": "说话人自述（身份未识别）",
+   "deadline": "稍后，具体日期未知",
+   "raw_responsible": "说话人自述",
+   "raw_deadline": "稍后，具体日期未知",
+   "evidence_ids": [
+    "S058",
+    "S059",
+    "S060"
+   ],
+   "evidence_start": 152.7,
+   "evidence_end": 159.22,
+   "evidence_spans": [
+    {
+     "id": "S058",
+     "start": 152.7,
+     "end": 156.1
+    },
+    {
+     "id": "S059",
+     "start": 156.34,
+     "end": 158.22
+    },
+    {
+     "id": "S060",
+     "start": 158.28,
+     "end": 159.22
+    }
+   ],
+   "evidence_text": "那稍后我会把我就是已经拍好的照片,；发送到你的相关邮件里面,；你可以查说一下,",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "海报照片",
+   "type": "待办",
+   "content": "查看照片并确定最终认可的照片",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S060",
+    "S061",
+    "S062"
+   ],
+   "evidence_start": 158.28,
+   "evidence_end": 165.78,
+   "evidence_spans": [
+    {
+     "id": "S060",
+     "start": 158.28,
+     "end": 159.22
+    },
+    {
+     "id": "S061",
+     "start": 159.54,
+     "end": 160.76
+    },
+    {
+     "id": "S062",
+     "start": 161.04,
+     "end": 165.78
+    }
+   ],
+   "evidence_text": "你可以查说一下,；拍了几组照片,；你这边可以确定一下你最终认可的照片,",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "活动创意",
+   "type": "待确认",
+   "content": "提议活动可以带面具。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S074"
+   ],
+   "evidence_start": 185.62,
+   "evidence_end": 187.38,
+   "evidence_spans": [
+    {
+     "id": "S074",
+     "start": 185.62,
+     "end": 187.38
+    }
+   ],
+   "evidence_text": "然后可以带面具,",
+   "speaker": "",
+   "flags": [],
+   "id": "m08"
+  },
+  {
+   "topic": "活动场地",
+   "type": "决定",
+   "content": "活动地点为双流区江江医院那边。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S084",
+    "S085",
+    "S086"
+   ],
+   "evidence_start": 202.04,
+   "evidence_end": 208.16,
+   "evidence_spans": [
+    {
+     "id": "S084",
+     "start": 202.04,
+     "end": 203.98
+    },
+    {
+     "id": "S085",
+     "start": 204.1,
+     "end": 206.98
+    },
+    {
+     "id": "S086",
+     "start": 207.26,
+     "end": 208.16
+    }
+   ],
+   "evidence_text": "就是说刚刚我们已经聊到了地点嘛,；地点是在这个双流区,；江江医院那边,",
+   "speaker": "",
+   "flags": [],
+   "id": "m09"
+  },
+  {
+   "topic": "海报设计",
+   "type": "待确认",
+   "content": "海报设计需有感染力。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S087",
+    "S088"
+   ],
+   "evidence_start": 208.54,
+   "evidence_end": 213.58,
+   "evidence_spans": [
+    {
+     "id": "S087",
+     "start": 208.54,
+     "end": 210.94
+    },
+    {
+     "id": "S088",
+     "start": 211.12,
+     "end": 213.58
+    }
+   ],
+   "evidence_text": "然后的话海报的话就刚刚你说的那种,；只不过说要求的话就是一定要有感染力,",
+   "speaker": "",
+   "flags": [],
+   "id": "m10"
+  },
+  {
+   "topic": "主持人",
+   "type": "决定",
+   "content": "主持人需控场力强、亲和力强且幽默。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S098",
+    "S101",
+    "S102",
+    "S103"
+   ],
+   "evidence_start": 225.64,
+   "evidence_end": 235.44,
+   "evidence_spans": [
+    {
+     "id": "S098",
+     "start": 225.64,
+     "end": 227.38
+    },
+    {
+     "id": "S101",
+     "start": 231.5,
+     "end": 232.32
+    },
+    {
+     "id": "S102",
+     "start": 232.66,
+     "end": 233.78
+    },
+    {
+     "id": "S103",
+     "start": 234.72,
+     "end": 235.44
+    }
+   ],
+   "evidence_text": "就必须要是控场力比较强,；亲和力要比较强,；同时比较幽默,；可以的,",
+   "speaker": "",
+   "flags": [],
+   "id": "m11"
+  },
+  {
+   "topic": "主持人",
+   "type": "待办",
+   "content": "带主持人朋友来与对方见面。",
+   "responsible": "说话人自述（身份未识别）",
+   "deadline": "到时候，具体日期未知",
+   "raw_responsible": "说话人自述",
+   "raw_deadline": "到时候，具体日期未知",
+   "evidence_ids": [
+    "S104"
+   ],
+   "evidence_start": 235.56,
+   "evidence_end": 237.46,
+   "evidence_spans": [
+    {
+     "id": "S104",
+     "start": 235.56,
+     "end": 237.46
+    }
+   ],
+   "evidence_text": "到时候我带他来见一下你,",
+   "speaker": "",
+   "flags": [],
+   "id": "m12"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 2930,
+  "completion_tokens": 15421
+ },
+ "elapsed": 98.95,
+ "clip": "clip10",
+ "source": "whisper"
+}
