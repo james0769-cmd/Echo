@@ -77,6 +77,14 @@ uv run python scripts/eval_minutes.py segmented_asr segmented_ref baseline_asr b
 
 Compares against `facts/fact_table.json`: precision, recall, type agreement, omissions, fabricated owners/deadlines, and whether evidence spans cover the quoted words. Items are aligned by DeepSeek; the alignment is saved in `results/eval/{run}_{split}.json` for manual spot-checks, and the summary table in `results/eval/summary_{split}.md`.
 
+**6. Error attribution**
+
+```bash
+uv run python scripts/error_attribution.py --split all
+```
+
+Compares each gold item's result on the ASR and the human transcript for the same method, and attributes each miss to ASR or to the LLM (no API calls). Findings and a worked number-error example: `results/error_attribution/README.md`.
+
 ## Layout
 
 ```

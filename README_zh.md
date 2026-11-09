@@ -94,6 +94,14 @@ uv run python scripts/eval_minutes.py segmented_asr segmented_ref baseline_asr b
 
 对照 `facts/fact_table.json` 统计精确率、召回率、类型一致、遗漏、虚构负责人/截止日期、证据时间段是否覆盖原话。条目对齐由 DeepSeek 判断，对齐明细在 `results/eval/{run}_{split}.json`，需要人工抽查；汇总表 `results/eval/summary_{split}.md`。
 
+**7. 误差传播分析**
+
+```bash
+uv run python scripts/error_attribution.py --split all
+```
+
+逐条比较同一方案在 ASR 转写和人工转写上的评测结果，把每条错误归为"ASR 导致"或"大模型导致"，不调用 API。结论和数字错误案例见 `results/error_attribution/README.md`。
+
 ## 目录
 
 ```
