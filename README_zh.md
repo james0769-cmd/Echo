@@ -4,6 +4,8 @@
 
 [English](README.md) · 中文
 
+![流程图](docs/pipeline.svg)
+
 ## 环境
 
 需要 Python 3.11+、[uv](https://docs.astral.sh/uv/) 和 ffmpeg。
