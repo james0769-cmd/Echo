@@ -1,0 +1,352 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "新员工参保",
+   "type": "待办",
+   "content": "新员工转正前一周左右收集并提交资料，转正后下个月开始购买。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "转正前一周左右，具体日期未知",
+   "evidence_ids": [
+    "S001",
+    "S002",
+    "S004",
+    "S005"
+   ],
+   "evidence_start": 0.9,
+   "evidence_end": 15.32,
+   "evidence_spans": [
+    {
+     "id": "S001",
+     "start": 0.9,
+     "end": 4.16
+    },
+    {
+     "id": "S002",
+     "start": 4.3,
+     "end": 6.12
+    },
+    {
+     "id": "S004",
+     "start": 7.04,
+     "end": 12.72
+    },
+    {
+     "id": "S005",
+     "start": 12.8,
+     "end": 15.32
+    }
+   ],
+   "evidence_text": "比如这个月入职的下个月转证过后,；就下个月就开始购买。；也就是在即将转证前一周左右我们就要开始收集他们的资料,；就要往那边我们要去需要提交资料。",
+   "speaker": "",
+   "flags": [
+    "截止日期“转正前一周左右，具体日期未知”在原话中找不到，已改为未知"
+   ],
+   "id": "m01"
+  },
+  {
+   "topic": "招聘目标",
+   "type": "待确认",
+   "content": "目前约招27至28人，预计招聘总数为40人。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S009",
+    "S010",
+    "S011",
+    "S012"
+   ],
+   "evidence_start": 21.24,
+   "evidence_end": 29.34,
+   "evidence_spans": [
+    {
+     "id": "S009",
+     "start": 21.24,
+     "end": 25.46
+    },
+    {
+     "id": "S010",
+     "start": 25.84,
+     "end": 28.24
+    },
+    {
+     "id": "S011",
+     "start": 28.24,
+     "end": 28.9
+    },
+    {
+     "id": "S012",
+     "start": 28.96,
+     "end": 29.34
+    }
+   ],
+   "evidence_text": "目前的话是招了有27、8人左右了,；你预计是我们需要招40人。；40个人?；对。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "招聘目标",
+   "type": "待确认",
+   "content": "后期可能还需增加2到3名店铺管理层。",
+   "responsible": "未知",
+   "deadline": "后期，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "后期，具体日期未知",
+   "evidence_ids": [
+    "S013",
+    "S014",
+    "S015",
+    "S016"
+   ],
+   "evidence_start": 29.62,
+   "evidence_end": 38.86,
+   "evidence_spans": [
+    {
+     "id": "S013",
+     "start": 29.62,
+     "end": 32.08
+    },
+    {
+     "id": "S014",
+     "start": 32.28,
+     "end": 33.06
+    },
+    {
+     "id": "S015",
+     "start": 34.28,
+     "end": 37.56
+    },
+    {
+     "id": "S016",
+     "start": 37.88,
+     "end": 38.86
+    }
+   ],
+   "evidence_text": "那那个店铺的管理层呢?；还会招吗?；这个的话后期可能还需要再增加两个,；两到三个左右。",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "公积金",
+   "type": "待确认",
+   "content": "新进员工以年轻人为主，可能对住房公积金有需求。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S038",
+    "S039",
+    "S040",
+    "S041"
+   ],
+   "evidence_start": 82.34,
+   "evidence_end": 93.88,
+   "evidence_spans": [
+    {
+     "id": "S038",
+     "start": 82.34,
+     "end": 85.18
+    },
+    {
+     "id": "S039",
+     "start": 85.9,
+     "end": 87.86
+    },
+    {
+     "id": "S040",
+     "start": 88.14,
+     "end": 90.18
+    },
+    {
+     "id": "S041",
+     "start": 90.62,
+     "end": 93.88
+    }
+   ],
+   "evidence_text": "现在因为我们公司新进来的员工的话,；大多都是年轻人比较多一些,；可能在公积金这一块的话,；应该也是比较有所需要的出房公积金。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "公积金",
+   "type": "待确认",
+   "content": "有人提议员工转正（约三个月）后稳定一段时间再为其购买公积金，理由是新员工流动性较大，但未最终拍板",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S045",
+    "S048",
+    "S051"
+   ],
+   "evidence_start": 103.38,
+   "evidence_end": 117.9,
+   "evidence_spans": [
+    {
+     "id": "S045",
+     "start": 103.38,
+     "end": 105.9
+    },
+    {
+     "id": "S048",
+     "start": 111.98,
+     "end": 113.44
+    },
+    {
+     "id": "S051",
+     "start": 115.22,
+     "end": 117.9
+    }
+   ],
+   "evidence_text": "转衬之后比如三个转衬之后再给我买吧,；就有动性会比较大吗?；然后可能的话需要他们稳定一段时间再买吧。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "公积金",
+   "type": "待确认",
+   "content": "按员工平均薪资三千左右测算，计划总缴纳比例为百分之十二，企业承担百分之六、员工承担百分之六，双方仍在商量",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S078",
+    "S079",
+    "S080",
+    "S081"
+   ],
+   "evidence_start": 170.12,
+   "evidence_end": 180.36,
+   "evidence_spans": [
+    {
+     "id": "S078",
+     "start": 170.12,
+     "end": 173.5
+    },
+    {
+     "id": "S079",
+     "start": 174.02,
+     "end": 176.8
+    },
+    {
+     "id": "S080",
+     "start": 176.94,
+     "end": 179.12
+    },
+    {
+     "id": "S081",
+     "start": 179.28,
+     "end": 180.36
+    }
+   ],
+   "evidence_text": "他现在平均的那个薪资是三千左右,；我们是计划交总共是百分之十二,；然后我们承担百分之六,；他们承担百分之六。",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "员工医保",
+   "type": "待确认",
+   "content": "员工就医后的报销是否需通过公司提交资料尚未明确，一方说不用找公司、员工自己去医院办理，另一方又提出单位代买的可能仍需把资料交给公司。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S092",
+    "S097",
+    "S102",
+    "S104"
+   ],
+   "evidence_start": 197.52,
+   "evidence_end": 232.88,
+   "evidence_spans": [
+    {
+     "id": "S092",
+     "start": 197.52,
+     "end": 198.88
+    },
+    {
+     "id": "S097",
+     "start": 209.2,
+     "end": 210.74
+    },
+    {
+     "id": "S102",
+     "start": 224.96,
+     "end": 228.22
+    },
+    {
+     "id": "S104",
+     "start": 230.54,
+     "end": 232.88
+    }
+   ],
+   "evidence_text": "需要找我们还是怎样?；他不找我们,；然后如果是单位贷买的话,；也需要找我们交给资料交给我们对吧?",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "员工医保",
+   "type": "待确认",
+   "content": "提出以后可能有员工生小孩等情况，需前期先了解一下相关流程，但未明确由谁去了解、何时反馈。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S105",
+    "S106",
+    "S107"
+   ],
+   "evidence_start": 232.94,
+   "evidence_end": 239.1,
+   "evidence_spans": [
+    {
+     "id": "S105",
+     "start": 232.94,
+     "end": 234.1
+    },
+    {
+     "id": "S106",
+     "start": 234.2,
+     "end": 236.76
+    },
+    {
+     "id": "S107",
+     "start": 237.2,
+     "end": 239.1
+    }
+   ],
+   "evidence_text": "因为以后的话,；可能会有一些员工他比如生小孩这些,；需要可以前期去了解一下。",
+   "speaker": "",
+   "flags": [],
+   "id": "m08"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3054,
+  "completion_tokens": 12789
+ },
+ "elapsed": 81.0,
+ "clip": "clip08",
+ "source": "whisper"
+}

@@ -1,0 +1,17 @@
+{
+ "method": "segmented",
+ "model": "kimi-k3.1-pro",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [],
+ "dropped": [],
+ "llm_calls": 3,
+ "usage": {
+  "prompt_tokens": 3075,
+  "completion_tokens": 591
+ },
+ "elapsed": 31.09,
+ "clip": "clip06",
+ "source": "ref"
+}

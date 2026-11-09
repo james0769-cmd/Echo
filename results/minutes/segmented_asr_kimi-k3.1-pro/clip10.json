@@ -1,0 +1,424 @@
+{
+ "method": "segmented",
+ "model": "kimi-k3.1-pro",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "活动场地选择",
+   "type": "待确认",
+   "content": "发言者认为第一种场地预算较高，倾向第二种方案，现场未形成定论。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S006",
+    "S007",
+    "S009",
+    "S010"
+   ],
+   "evidence_start": 15.19,
+   "evidence_end": 27.61,
+   "evidence_spans": [
+    {
+     "id": "S006",
+     "start": 15.19,
+     "end": 20.79
+    },
+    {
+     "id": "S007",
+     "start": 20.79,
+     "end": 22.81
+    },
+    {
+     "id": "S009",
+     "start": 23.61,
+     "end": 24.49
+    },
+    {
+     "id": "S010",
+     "start": 24.57,
+     "end": 27.61
+    }
+   ],
+   "evidence_text": "首先你第一个哈就是你说的国际国际那种大沙的地方的话，；我觉得可能预算比较高。；是的对，；所以我觉得更倾向于就是说第二种。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "活动场地选择",
+   "type": "待确认",
+   "content": "发言者提出双流附近场地的想法，认为那里开放性好，可吸引部分人群参加活动。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S011",
+    "S012",
+    "S021",
+    "S022"
+   ],
+   "evidence_start": 28.43,
+   "evidence_end": 64.835,
+   "evidence_spans": [
+    {
+     "id": "S011",
+     "start": 28.43,
+     "end": 30.37
+    },
+    {
+     "id": "S012",
+     "start": 30.37,
+     "end": 34.07
+    },
+    {
+     "id": "S021",
+     "start": 58.05,
+     "end": 61.36
+    },
+    {
+     "id": "S022",
+     "start": 61.42,
+     "end": 64.835
+    }
+   ],
+   "evidence_text": "但是话我我有一个想法，；就是因为双流去那边哈，；因以因为我觉得这个开放性也蛮大的，；到时候也可以吸引一部分人群来参加我们这个活动。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "会员充值与牵手奖励",
+   "type": "决定",
+   "content": "会员需先充值500元，牵手成功时可赠送双人去三亚的机票。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S031",
+    "S032",
+    "S033",
+    "S035"
+   ],
+   "evidence_start": 90.25,
+   "evidence_end": 103.73,
+   "evidence_spans": [
+    {
+     "id": "S031",
+     "start": 90.25,
+     "end": 94.195
+    },
+    {
+     "id": "S032",
+     "start": 94.6,
+     "end": 96.78
+    },
+    {
+     "id": "S033",
+     "start": 96.78,
+     "end": 101.11
+    },
+    {
+     "id": "S035",
+     "start": 103.27,
+     "end": 103.73
+    }
+   ],
+   "evidence_text": "但会员的话是要首先充五百块钱。；然后最后如果牵手成功的话，；我们这边可以赠送双人机票去三亚的这种可以，；好的，",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "活动场地选择",
+   "type": "决定",
+   "content": "开幕式定在双流江家御院大公园的草地。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S036",
+    "S037",
+    "S038",
+    "S039"
+   ],
+   "evidence_start": 103.96,
+   "evidence_end": 112.81,
+   "evidence_spans": [
+    {
+     "id": "S036",
+     "start": 103.96,
+     "end": 106.86
+    },
+    {
+     "id": "S037",
+     "start": 106.86,
+     "end": 109.02
+    },
+    {
+     "id": "S038",
+     "start": 109.14,
+     "end": 111.915
+    },
+    {
+     "id": "S039",
+     "start": 112.57,
+     "end": 112.81
+    }
+   ],
+   "evidence_text": "那我们开幕式的话就定一个草地嘛，；是双流的那边一个草地是吧？；双流江家御院那个有个大公园。；好，",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "海报设计要求",
+   "type": "决定",
+   "content": "海报照片要呈现两人之间爱的火花，感染力要强，让人看后相信爱情。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S053",
+    "S055",
+    "S056",
+    "S058"
+   ],
+   "evidence_start": 139.65,
+   "evidence_end": 152.67,
+   "evidence_spans": [
+    {
+     "id": "S053",
+     "start": 139.65,
+     "end": 143.335
+    },
+    {
+     "id": "S055",
+     "start": 144.62,
+     "end": 148.505
+    },
+    {
+     "id": "S056",
+     "start": 148.86,
+     "end": 151.625
+    },
+    {
+     "id": "S058",
+     "start": 152.33,
+     "end": 152.67
+    }
+   ],
+   "evidence_text": "一定要是两个人之间有那种爱的火花，；然后呢拍出来的照片效果感染力要非常强，；就让人看下去就相信爱情的。；好的，",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "已拍照片发送",
+   "type": "待办",
+   "content": "将已拍好的几组照片发送到对方相关邮箱，供对方查收。",
+   "responsible": "说话人自述（身份未识别）",
+   "deadline": "稍后，具体日期未知",
+   "raw_responsible": "说话人自述",
+   "raw_deadline": "稍后，具体日期未知",
+   "evidence_ids": [
+    "S059",
+    "S060",
+    "S061"
+   ],
+   "evidence_start": 152.67,
+   "evidence_end": 160.75,
+   "evidence_spans": [
+    {
+     "id": "S059",
+     "start": 152.67,
+     "end": 158.23
+    },
+    {
+     "id": "S060",
+     "start": 158.23,
+     "end": 159.365
+    },
+    {
+     "id": "S061",
+     "start": 159.65,
+     "end": 160.75
+    }
+   ],
+   "evidence_text": "那稍后我会把我就是已经拍好的照片发送到你的相关邮件里面，；你可以查收一下。；拍了几组照片，",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "活动小设计",
+   "type": "待确认",
+   "content": "提议在活动中加入一些小设计，具体方案仍待确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S065",
+    "S066",
+    "S067"
+   ],
+   "evidence_start": 173.92,
+   "evidence_end": 184.285,
+   "evidence_spans": [
+    {
+     "id": "S065",
+     "start": 173.92,
+     "end": 176.84
+    },
+    {
+     "id": "S066",
+     "start": 176.84,
+     "end": 180.16
+    },
+    {
+     "id": "S067",
+     "start": 180.16,
+     "end": 184.285
+    }
+   ],
+   "evidence_text": "然后我觉得里面可以有一些小设计，；比如说因为是在晚上嘛，；相关场地的话是在晚上这样的费用也不算太高。",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "海报设计要求",
+   "type": "待确认",
+   "content": "海报被要求一定要具有感染力。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S079",
+    "S080"
+   ],
+   "evidence_start": 208.54,
+   "evidence_end": 213.685,
+   "evidence_spans": [
+    {
+     "id": "S079",
+     "start": 208.54,
+     "end": 211.4
+    },
+    {
+     "id": "S080",
+     "start": 211.4,
+     "end": 213.685
+    }
+   ],
+   "evidence_text": "然后的话海报的话就刚刚你说的那种是吧？；只不过说要求的话就是一定要有感染力。",
+   "speaker": "",
+   "flags": [],
+   "id": "m08"
+  },
+  {
+   "topic": "主持人选拔",
+   "type": "待办",
+   "content": "带这位有相关经验、搞笑且能带动气氛的主持人朋友来见面。",
+   "responsible": "说话人自述（身份未识别）",
+   "deadline": "到时候，具体日期未知",
+   "raw_responsible": "说话人自述",
+   "raw_deadline": "到时候，具体日期未知",
+   "evidence_ids": [
+    "S085",
+    "S086",
+    "S087",
+    "S095"
+   ],
+   "evidence_start": 219.35,
+   "evidence_end": 237.49,
+   "evidence_spans": [
+    {
+     "id": "S085",
+     "start": 219.35,
+     "end": 220.15
+    },
+    {
+     "id": "S086",
+     "start": 220.15,
+     "end": 221.07
+    },
+    {
+     "id": "S087",
+     "start": 221.09,
+     "end": 223.865
+    },
+    {
+     "id": "S095",
+     "start": 235.53,
+     "end": 237.49
+    }
+   ],
+   "evidence_text": "我是有朋友，；他有相关经验，；也是比较搞笑能带气氛的一个主持人，；到时候我带他来见一下你，",
+   "speaker": "",
+   "flags": [],
+   "id": "m09"
+  },
+  {
+   "topic": "主持人选拔",
+   "type": "决定",
+   "content": "主持人需控场力强、亲和力较强，并且比较幽默。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S089",
+    "S091",
+    "S092",
+    "S094"
+   ],
+   "evidence_start": 225.2,
+   "evidence_end": 235.53,
+   "evidence_spans": [
+    {
+     "id": "S089",
+     "start": 225.2,
+     "end": 227.425
+    },
+    {
+     "id": "S091",
+     "start": 231.06,
+     "end": 232.375
+    },
+    {
+     "id": "S092",
+     "start": 232.66,
+     "end": 233.745
+    },
+    {
+     "id": "S094",
+     "start": 234.75,
+     "end": 235.53
+    }
+   ],
+   "evidence_text": "我就说就必须要是控场力比较强，；这一儿亲和力要比较强，；同时比较幽默。；可以可以的，",
+   "speaker": "",
+   "flags": [],
+   "id": "m10"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3230,
+  "completion_tokens": 13618
+ },
+ "elapsed": 473.0,
+ "clip": "clip10",
+ "source": "asr"
+}

@@ -1,0 +1,235 @@
+{
+ "method": "segmented",
+ "model": "kimi-k3.1-pro",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "活动主题",
+   "type": "决定",
+   "content": "活动主题采用“让你更好的懂我（懂中国）”的方向，让外国学生更好了解中国，提议后另一方表示可以。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S002",
+    "S006",
+    "S014",
+    "S017"
+   ],
+   "evidence_start": 1.8,
+   "evidence_end": 41.73,
+   "evidence_spans": [
+    {
+     "id": "S002",
+     "start": 1.8,
+     "end": 7.13
+    },
+    {
+     "id": "S006",
+     "start": 14.82,
+     "end": 16.59
+    },
+    {
+     "id": "S014",
+     "start": 29.92,
+     "end": 35.64
+    },
+    {
+     "id": "S017",
+     "start": 40.57,
+     "end": 41.73
+    }
+   ],
+   "evidence_text": "就是说我感觉哈这个主题世界一家亲，我感觉跟。；我觉得让你更好的懂我，要好一些。；让他们更好的了解我们的中国，这个更贴近一点，更贴切一些，我觉得。；嗯，可以。",
+   "speaker": "SPK8023/SPK8024",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "活动举办时间",
+   "type": "待确认",
+   "content": "一人提议活动不选周末、改在下周中秋节举办，理由是放假大家有时间、来的人会多一些，尚无他人收口确认。",
+   "responsible": "未知",
+   "deadline": "下周（中秋节），具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "下周（中秋节），具体日期未知",
+   "evidence_ids": [
+    "S026",
+    "S033",
+    "S034",
+    "S038"
+   ],
+   "evidence_start": 59.32,
+   "evidence_end": 88.74,
+   "evidence_spans": [
+    {
+     "id": "S026",
+     "start": 59.32,
+     "end": 61.53
+    },
+    {
+     "id": "S033",
+     "start": 73.05,
+     "end": 75.51
+    },
+    {
+     "id": "S034",
+     "start": 75.22,
+     "end": 79.92
+    },
+    {
+     "id": "S038",
+     "start": 86.25,
+     "end": 88.74
+    }
+   ],
+   "evidence_text": "我觉得就是在下周要好一些。；呃，有一个中秋节对对对中秋节。；那就是那那我就不选周末，就选中秋节，反正中秋节大家都有时间对吧？；举办这个时间的话，来的人会多一些。",
+   "speaker": "SPK8024/SPK8023",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "活动举办时间",
+   "type": "决定",
+   "content": "在中秋节晚上安排留学生交流晚会。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "中秋节晚上，具体日期未知",
+   "evidence_ids": [
+    "S046",
+    "S048",
+    "S049",
+    "S059"
+   ],
+   "evidence_start": 100.74,
+   "evidence_end": 127.79,
+   "evidence_spans": [
+    {
+     "id": "S046",
+     "start": 100.74,
+     "end": 103.92
+    },
+    {
+     "id": "S048",
+     "start": 106.17,
+     "end": 107.54
+    },
+    {
+     "id": "S049",
+     "start": 107.54,
+     "end": 111.99
+    },
+    {
+     "id": "S059",
+     "start": 126.99,
+     "end": 127.79
+    }
+   ],
+   "evidence_text": "中秋节不是，我们可以安排到晚上。；留学生交流会。；也可以是，留学生晚会是不是，交流晚留学生交流晚会。；可以啊。",
+   "speaker": "SPK8024",
+   "flags": [
+    "截止日期“中秋节晚上，具体日期未知”在原话中找不到，已改为未知"
+   ],
+   "id": "m03"
+  },
+  {
+   "topic": "晚会文化介绍安排",
+   "type": "决定",
+   "content": "晚会要体现中国文化，并先向留学生介绍中秋节的来历以及吃月饼等习俗的由来。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S057",
+    "S076",
+    "S081",
+    "S084"
+   ],
+   "evidence_start": 126.39,
+   "evidence_end": 179.43,
+   "evidence_spans": [
+    {
+     "id": "S057",
+     "start": 126.39,
+     "end": 128.21
+    },
+    {
+     "id": "S076",
+     "start": 160.48,
+     "end": 163.8
+    },
+    {
+     "id": "S081",
+     "start": 171.1,
+     "end": 174.36
+    },
+    {
+     "id": "S084",
+     "start": 178.36,
+     "end": 179.43
+    }
+   ],
+   "evidence_text": "我们中国一些文化。；先在晚会的时候，给他们介绍一下这些。；就是来历，说吃月饼这些习俗是怎么来的。；嗯，可以。",
+   "speaker": "SPK8023/SPK8024",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "留学生交流会地点",
+   "type": "待确认",
+   "content": "有人提议地点选在学校并获附和，理由是学校更贴近生活、社会上相对复杂，但随后提出校外外国人也要来参加的问题，地点未收口确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S092",
+    "S095",
+    "S103",
+    "S109"
+   ],
+   "evidence_start": 191.89,
+   "evidence_end": 229.59,
+   "evidence_spans": [
+    {
+     "id": "S092",
+     "start": 191.89,
+     "end": 193.08
+    },
+    {
+     "id": "S095",
+     "start": 197.44,
+     "end": 199.13
+    },
+    {
+     "id": "S103",
+     "start": 214.63,
+     "end": 215.06
+    },
+    {
+     "id": "S109",
+     "start": 226.06,
+     "end": 229.59
+    }
+   ],
+   "evidence_text": "就选学校。；就选学校我觉得比较好一点。；对。；校外的是外国，外国人也可以参，也要来参加。",
+   "speaker": "SPK8024",
+   "flags": [],
+   "id": "m05"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3253,
+  "completion_tokens": 6628
+ },
+ "elapsed": 218.21,
+ "clip": "clip09",
+ "source": "ref"
+}

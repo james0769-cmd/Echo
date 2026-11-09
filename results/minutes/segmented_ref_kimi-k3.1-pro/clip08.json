@@ -1,0 +1,129 @@
+{
+ "method": "segmented",
+ "model": "kimi-k3.1-pro",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "转正员工资料收集与提交",
+   "type": "待办",
+   "content": "员工即将转正前一周左右开始收集其资料，并提交资料。",
+   "responsible": "未知",
+   "deadline": "即将转正前，一周左右，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "即将转正前，一周左右，具体日期未知",
+   "evidence_ids": [
+    "S004"
+   ],
+   "evidence_start": 8.9,
+   "evidence_end": 15.31,
+   "evidence_spans": [
+    {
+     "id": "S004",
+     "start": 8.9,
+     "end": 15.31
+    }
+   ],
+   "evidence_text": "即将转正前，一周左右，我们就要开始收集他们的资料，就要往那边，我们要去需要提交资料。",
+   "speaker": "SPK8022",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "公积金购买方案",
+   "type": "待确认",
+   "content": "是否购买公积金仍待公司研究；有人提议在员工转正后（如三个月转正）并稳定一段时间再购买，若购买则计划合计缴纳12%，公司和员工各承担6%。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S029",
+    "S032",
+    "S040",
+    "S066"
+   ],
+   "evidence_start": 94.38,
+   "evidence_end": 180.42,
+   "evidence_spans": [
+    {
+     "id": "S029",
+     "start": 94.38,
+     "end": 98.27
+    },
+    {
+     "id": "S032",
+     "start": 103.38,
+     "end": 106.52
+    },
+    {
+     "id": "S040",
+     "start": 114.98,
+     "end": 117.91
+    },
+    {
+     "id": "S066",
+     "start": 173.85,
+     "end": 180.42
+    }
+   ],
+   "evidence_text": "就，嗯，到时候我们公司看，有没有计划这一块。；呃转正之后，比如三个月转正之后再购买嘛，因为。；然后可能话需要他们稳定一段时间。再买吧。；我们是计划交，总共是百分之十二，然后，我们承担百分之六，他们承担百分之六。",
+   "speaker": "SPK8022/SPK8021",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "员工医保报销流程",
+   "type": "待确认",
+   "content": "一人提议前期了解员工医保报销流程，包括单位代买及女员工生育等情形是否需要把资料交给我们，无人收口定论。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S079",
+    "S093",
+    "S094",
+    "S096"
+   ],
+   "evidence_start": 195.64,
+   "evidence_end": 239.2,
+   "evidence_spans": [
+    {
+     "id": "S079",
+     "start": 195.64,
+     "end": 201.54
+    },
+    {
+     "id": "S093",
+     "start": 229.77,
+     "end": 233.55
+    },
+    {
+     "id": "S094",
+     "start": 233.55,
+     "end": 237.02
+    },
+    {
+     "id": "S096",
+     "start": 237.02,
+     "end": 239.2
+    }
+   ],
+   "evidence_text": "医保这块，他们报账的话需要找我们还是怎样。比如说他有些员工，他去医院看了病之后。；好像的话也需要找我们交给资料交给我们对吧？因为。；以后的话可能会有一些女员工，她比如生小孩，这些。；我觉得需要可以前期去了解一下。",
+   "speaker": "SPK8021",
+   "flags": [],
+   "id": "m03"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3357,
+  "completion_tokens": 6846
+ },
+ "elapsed": 227.72,
+ "clip": "clip08",
+ "source": "ref"
+}

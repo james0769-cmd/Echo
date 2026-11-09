@@ -4,6 +4,8 @@ Meeting notes from recordings, with timestamped evidence.
 
 English · [中文](README_zh.md)
 
+![Pipeline](docs/pipeline_en.svg)
+
 ## Requirements
 
 Python 3.11+, [uv](https://docs.astral.sh/uv/), and ffmpeg.

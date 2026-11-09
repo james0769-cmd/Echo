@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 1200" width="940" height="1200" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC','Source Han Sans SC',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5F5E5A"/>
+    </marker>
+    <style>
+      .t{font-size:17px;font-weight:600;text-anchor:middle}
+      .s{font-size:13px;text-anchor:middle}
+      .lbl{font-size:12.5px;fill:#5F5E5A}
+      .mono{font-family:Menlo,Consolas,'Courier New',monospace}
+      .ln{fill:none;stroke:#5F5E5A;stroke-width:1.6}
+      .data rect{fill:#E6F1FB;stroke:#378ADD} .data text{fill:#0C447C}
+      .man rect{fill:#FAEEDA;stroke:#BA7517} .man text{fill:#633806}
+      .llm rect{fill:#EEEDFE;stroke:#7F77DD} .llm text{fill:#3C3489}
+      .ev rect{fill:#E1F5EE;stroke:#1D9E75} .ev text{fill:#085041}
+      rect{stroke-width:1.5}
+    </style>
+  </defs>
+  <rect width="940" height="1200" fill="#FFFFFF"/>
+
+  <!-- AliMeeting -->
+  <g class="data"><rect x="320" y="30" width="300" height="70" rx="10"/>
+    <text class="t" x="470" y="60">AliMeeting</text>
+    <text class="s" x="470" y="82">Eval_Ali near-field</text></g>
+
+  <!-- split -->
+  <path class="ln" d="M470 100 V128 H240 V173" marker-end="url(#arr)"/>
+  <path class="ln" d="M470 128 H710 V328" marker-end="url(#arr)"/>
+  <text class="lbl mono" x="250" y="156">make_alimeeting_clips.py</text>
+
+  <!-- clips -->
+  <g class="data"><rect x="50" y="175" width="380" height="70" rx="10"/>
+    <text class="t mono" x="240" y="205">clips/</text>
+    <text class="s" x="240" y="227">clip01–10 ｜ dev 01–05 · test 06–10</text></g>
+
+  <!-- ASR step -->
+  <path class="ln" d="M240 245 V328" marker-end="url(#arr)"/>
+  <text class="lbl" x="252" y="280">FunASR or Whisper</text>
+  <text class="lbl" x="252" y="298">local · CPU time logged · raw transcript cached</text>
+
+  <!-- ASR JSON -->
+  <g class="data"><rect x="50" y="330" width="380" height="70" rx="10"/>
+    <text class="t" x="240" y="360">ASR transcript JSON</text>
+    <text class="s" x="240" y="382">sentences + timestamps</text></g>
+
+  <!-- ref -->
+  <g class="man"><rect x="530" y="330" width="360" height="70" rx="10"/>
+    <text class="t mono" x="710" y="360">ref/</text>
+    <text class="s" x="710" y="382">human transcript</text></g>
+
+  <!-- CER -->
+  <path d="M434 365 H526" fill="none" stroke="#5F5E5A" stroke-width="1.6" stroke-dasharray="5 4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text class="lbl" x="480" y="355" text-anchor="middle">CER</text>
+
+  <!-- to inputs -->
+  <path class="ln" d="M240 400 V478" marker-end="url(#arr)"/>
+  <path class="ln" d="M600 400 V440 H340 V478" marker-end="url(#arr)"/>
+
+  <!-- ref -> facts -->
+  <path class="ln" d="M780 400 V478" marker-end="url(#arr)"/>
+  <text class="lbl" x="792" y="445">hand-labelled</text>
+
+  <!-- inputs -->
+  <g class="data"><rect x="50" y="480" width="380" height="70" rx="10"/>
+    <text class="t" x="240" y="510">Two inputs</text>
+    <text class="s" x="240" y="532">ASR transcript ｜ ref transcript</text></g>
+
+  <!-- facts -->
+  <g class="man"><rect x="530" y="480" width="360" height="70" rx="10"/>
+    <text class="t mono" x="710" y="510" style="font-size:15px">facts/fact_table.json</text>
+    <text class="s" x="710" y="532">gold standard</text></g>
+
+  <!-- LLM -->
+  <path class="ln" d="M240 550 V618" marker-end="url(#arr)"/>
+  <g class="llm"><rect x="50" y="620" width="380" height="80" rx="10"/>
+    <text class="t" x="240" y="652">DeepSeek / Kimi</text>
+    <text class="s" x="240" y="676">segmented vs baseline (two methods)</text></g>
+
+  <!-- minutes -->
+  <path class="ln" d="M240 700 V768" marker-end="url(#arr)"/>
+  <g class="llm"><rect x="50" y="770" width="380" height="90" rx="10"/>
+    <text class="t" x="240" y="800">Meeting minutes</text>
+    <text class="s" x="240" y="824">each item bound to quote + time span</text>
+    <text class="s" x="240" y="845">unstated owner/deadline → “unknown”</text></g>
+
+  <!-- to eval -->
+  <path class="ln" d="M240 860 V938" marker-end="url(#arr)"/>
+  <path class="ln" d="M710 550 V938" marker-end="url(#arr)"/>
+  <text class="lbl" x="722" y="750">gold standard</text>
+
+  <!-- eval -->
+  <g class="ev"><rect x="50" y="940" width="840" height="60" rx="10"/>
+    <text class="t mono" x="470" y="966">eval_minutes.py</text>
+    <text class="s" x="470" y="988">compared against fact_table</text></g>
+
+  <!-- metrics -->
+  <path class="ln" d="M470 1000 V1038" marker-end="url(#arr)"/>
+  <g class="ev"><rect x="50" y="1040" width="840" height="100" rx="10" style="fill:#F4FBF8"/>
+    <text class="t" x="470" y="1066" style="font-size:15px">Metrics</text>
+    <rect x="70" y="1080" width="144" height="44" rx="8"/><text class="s" x="142" y="1107">Precision</text>
+    <rect x="234" y="1080" width="144" height="44" rx="8"/><text class="s" x="306" y="1107">Recall</text>
+    <rect x="398" y="1080" width="144" height="44" rx="8"/><text class="s" x="470" y="1107">Fabrication</text>
+    <rect x="562" y="1080" width="144" height="44" rx="8"/><text class="s" x="634" y="1107">Omission</text>
+    <rect x="726" y="1080" width="144" height="44" rx="8"/><text class="s" x="798" y="1107">Evidence coverage</text></g>
+
+  <!-- legend -->
+  <g font-size="12" fill="#5F5E5A">
+    <rect x="160" y="1166" width="14" height="14" rx="3" fill="#E6F1FB" stroke="#378ADD"/><text x="180" y="1178">Data / transcript</text>
+    <rect x="320" y="1166" width="14" height="14" rx="3" fill="#FAEEDA" stroke="#BA7517"/><text x="340" y="1178">Human-labelled</text>
+    <rect x="480" y="1166" width="14" height="14" rx="3" fill="#EEEDFE" stroke="#7F77DD"/><text x="500" y="1178">LLM output</text>
+    <rect x="610" y="1166" width="14" height="14" rx="3" fill="#E1F5EE" stroke="#1D9E75"/><text x="630" y="1178">Evaluation</text>
+  </g>
+</svg>

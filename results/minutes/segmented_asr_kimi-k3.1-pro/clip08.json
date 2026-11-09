@@ -1,0 +1,233 @@
+{
+ "method": "segmented",
+ "model": "kimi-k3.1-pro",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "新员工社保办理",
+   "type": "待办",
+   "content": "新员工下个月转正后开始购买社保，并需在即将转正前一周左右收集、提交相关资料。",
+   "responsible": "未知",
+   "deadline": "即将转正前一周左右，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "即将转正前一周左右，具体日期未知",
+   "evidence_ids": [
+    "S003",
+    "S004",
+    "S006",
+    "S007",
+    "S008"
+   ],
+   "evidence_start": 2.39,
+   "evidence_end": 15.37,
+   "evidence_spans": [
+    {
+     "id": "S003",
+     "start": 2.39,
+     "end": 4.17
+    },
+    {
+     "id": "S004",
+     "start": 4.17,
+     "end": 5.73
+    },
+    {
+     "id": "S006",
+     "start": 6.99,
+     "end": 10.95
+    },
+    {
+     "id": "S007",
+     "start": 10.95,
+     "end": 12.81
+    },
+    {
+     "id": "S008",
+     "start": 12.81,
+     "end": 15.37
+    }
+   ],
+   "evidence_text": "下个月转正过后，；就就下个月就开始购买。；也就是在即将转正前一周左右，；我们就要开始收集他们的资料，；就要往那边我们要去需要提交资料。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "新员工公积金购买方案",
+   "type": "待确认",
+   "content": "有人建议新员工在三个月转正后、待其稳定一段时间再购买公积金，尚未最终确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S049",
+    "S050",
+    "S056"
+   ],
+   "evidence_start": 100.56,
+   "evidence_end": 117.755,
+   "evidence_spans": [
+    {
+     "id": "S049",
+     "start": 100.56,
+     "end": 104.26
+    },
+    {
+     "id": "S050",
+     "start": 104.26,
+     "end": 105.92
+    },
+    {
+     "id": "S056",
+     "start": 115.2,
+     "end": 117.755
+    }
+   ],
+   "evidence_text": "一般我觉得的话公积金他们比如说嗯转正之后，；比如三个月转正之后再购买吧。；然后可能话需要他们稳定一段时间再买吧。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "新员工公积金购买方案",
+   "type": "待确认",
+   "content": "如购买公积金，提出的计划是总缴费比例为12%，公司与员工各承担6%，尚未最终拍板。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S082",
+    "S085",
+    "S086",
+    "S087"
+   ],
+   "evidence_start": 167.75,
+   "evidence_end": 180.425,
+   "evidence_spans": [
+    {
+     "id": "S082",
+     "start": 167.75,
+     "end": 169.055
+    },
+    {
+     "id": "S085",
+     "start": 173.93,
+     "end": 176.79
+    },
+    {
+     "id": "S086",
+     "start": 176.89,
+     "end": 179.07
+    },
+    {
+     "id": "S087",
+     "start": 179.21,
+     "end": 180.425
+    }
+   ],
+   "evidence_text": "如果要购买的话，；我们是计划交总共是百分之十二，；然后我们承担百分之六，；他们承担百分之六，",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "新员工公积金购买方案",
+   "type": "决定",
+   "content": "我们承担部分约为每人180元，与会者认为这一成本可以接受。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S090",
+    "S093",
+    "S096",
+    "S097"
+   ],
+   "evidence_start": 181.97,
+   "evidence_end": 193.635,
+   "evidence_spans": [
+    {
+     "id": "S090",
+     "start": 181.97,
+     "end": 182.725
+    },
+    {
+     "id": "S093",
+     "start": 185.98,
+     "end": 189.27
+    },
+    {
+     "id": "S096",
+     "start": 190.43,
+     "end": 190.67
+    },
+    {
+     "id": "S097",
+     "start": 190.93,
+     "end": 193.635
+    }
+   ],
+   "evidence_text": "其实可以，；就是我们给他们副本一百八十块左右，；嗯，；项目三千块钱好还是可以。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "医保报销流程了解",
+   "type": "待办",
+   "content": "前期了解医保报销流程，确认单位代买时是否需将资料交给我们，并了解后续女员工生育等相关办理方式。",
+   "responsible": "说话人自述（身份未识别）",
+   "deadline": "未知",
+   "raw_responsible": "说话人自述",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S111",
+    "S113",
+    "S116",
+    "S117"
+   ],
+   "evidence_start": 224.91,
+   "evidence_end": 239.195,
+   "evidence_spans": [
+    {
+     "id": "S111",
+     "start": 224.91,
+     "end": 228.36
+    },
+    {
+     "id": "S113",
+     "start": 231.51,
+     "end": 232.61
+    },
+    {
+     "id": "S116",
+     "start": 235.62,
+     "end": 236.825
+    },
+    {
+     "id": "S117",
+     "start": 237.16,
+     "end": 239.195
+    }
+   ],
+   "evidence_text": "然后如果是我有没有就是单位代买的话，；交给资料交给我们，；她比如生小孩这些，；我就需要可以前期去了解一下。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3325,
+  "completion_tokens": 10913
+ },
+ "elapsed": 360.48,
+ "clip": "clip08",
+ "source": "asr"
+}

@@ -1,0 +1,258 @@
+{
+ "method": "segmented",
+ "model": "kimi-k3.1-pro",
+ "params": {
+  "seconds": 90.0
+ },
+ "items": [
+  {
+   "topic": "连锁化和现代化改进",
+   "type": "决定",
+   "content": "企业应向连锁经营等连锁化、现代化方向迈进，并作一些改变改进。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S007",
+    "S008",
+    "S009",
+    "S010"
+   ],
+   "evidence_start": 13.33,
+   "evidence_end": 29.83,
+   "evidence_spans": [
+    {
+     "id": "S007",
+     "start": 13.33,
+     "end": 15.29
+    },
+    {
+     "id": "S008",
+     "start": 15.49,
+     "end": 23.83
+    },
+    {
+     "id": "S009",
+     "start": 23.93,
+     "end": 29.25
+    },
+    {
+     "id": "S010",
+     "start": 29.59,
+     "end": 29.83
+    }
+   ],
+   "evidence_text": "我觉得我们这个餐饮行业，；我们觉得我们企业也应该向连锁经营这些连锁化和现代化这些方向嗯进行是吗？；迈出多多两方面需要做一点改变改进。；对，",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "企业品牌形象",
+   "type": "决定",
+   "content": "需要为企业品牌树立良好形象。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S023",
+    "S024",
+    "S025"
+   ],
+   "evidence_start": 66.44,
+   "evidence_end": 72.52,
+   "evidence_spans": [
+    {
+     "id": "S023",
+     "start": 66.44,
+     "end": 69.44
+    },
+    {
+     "id": "S024",
+     "start": 69.66,
+     "end": 72.16
+    },
+    {
+     "id": "S025",
+     "start": 72.16,
+     "end": 72.52
+    }
+   ],
+   "evidence_text": "那这样子看来我们需要为这个餐饮，；我们企业的品牌树立一个良好的形象。；没错，",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "餐饮科学化、营养化与标准化",
+   "type": "待确认",
+   "content": "提出餐饮要科学化、营养化，并注重标准化，尚未明确收口。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S033",
+    "S034",
+    "S035"
+   ],
+   "evidence_start": 85.55,
+   "evidence_end": 91.285,
+   "evidence_spans": [
+    {
+     "id": "S033",
+     "start": 85.55,
+     "end": 88.37
+    },
+    {
+     "id": "S034",
+     "start": 88.37,
+     "end": 88.61
+    },
+    {
+     "id": "S035",
+     "start": 89.11,
+     "end": 91.285
+    }
+   ],
+   "evidence_text": "就我们餐饮就得科学化、营养化嘛。；嗯，；比较注重一下这个标准化嘛，",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "招聘岗位及学历要求",
+   "type": "待确认",
+   "content": "主要招聘运营副总、营销部经理、市场部经理和物流部经理，学历大概要求大专及以上。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S064",
+    "S065",
+    "S066"
+   ],
+   "evidence_start": 162.87,
+   "evidence_end": 181.71,
+   "evidence_spans": [
+    {
+     "id": "S064",
+     "start": 162.87,
+     "end": 164.61
+    },
+    {
+     "id": "S065",
+     "start": 164.89,
+     "end": 177.955
+    },
+    {
+     "id": "S066",
+     "start": 178.46,
+     "end": 181.71
+    }
+   ],
+   "evidence_text": "我们主要招聘运营的副总，；然后营销部经理、市场部经理跟物流部经理这些主要招聘的他们的要求呢也学历要求是要有的，；学历大概在大专或及以上的学历。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "运营副总工作职责",
+   "type": "决定",
+   "content": "运营副总负责管理追踪各门店日常运营及结果、完成经营管理指标、督导问题改善、及时反馈进度，并分析市场信息作出调整措施，参会者表示认可。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S071",
+    "S077",
+    "S078",
+    "S080"
+   ],
+   "evidence_start": 190.65,
+   "evidence_end": 221.86,
+   "evidence_spans": [
+    {
+     "id": "S071",
+     "start": 190.65,
+     "end": 197.185
+    },
+    {
+     "id": "S077",
+     "start": 214.15,
+     "end": 216.125
+    },
+    {
+     "id": "S078",
+     "start": 216.86,
+     "end": 217.615
+    },
+    {
+     "id": "S080",
+     "start": 218.36,
+     "end": 221.86
+    }
+   ],
+   "evidence_text": "运营副总主要负责管理跟追踪各门店的日常运营的管理工作及结果，；做出相应的调整措施。；你们觉得呢？；我觉得不错的招聘条件的话，",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "运营副总任职要求",
+   "type": "待确认",
+   "content": "提出运营副总需有亲和力、良好的应变和交谈能力、认真细心、善于学习新鲜事物、有执行力、主动积极，并具备团队意识和强烈的进取心。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S080",
+    "S081",
+    "S082",
+    "S086"
+   ],
+   "evidence_start": 218.36,
+   "evidence_end": 237.765,
+   "evidence_spans": [
+    {
+     "id": "S080",
+     "start": 218.36,
+     "end": 221.86
+    },
+    {
+     "id": "S081",
+     "start": 222.06,
+     "end": 223.52
+    },
+    {
+     "id": "S082",
+     "start": 223.58,
+     "end": 227.065
+    },
+    {
+     "id": "S086",
+     "start": 234.38,
+     "end": 237.765
+    }
+   ],
+   "evidence_text": "我觉得不错的招聘条件的话，；有亲和力，；有良好的应变能力、交谈能力，；积极有团队意识和强烈的进攻心，",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3071,
+  "completion_tokens": 10901
+ },
+ "elapsed": 386.85,
+ "clip": "clip07",
+ "source": "asr"
+}

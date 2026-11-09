@@ -1,0 +1,158 @@
+{
+ "method": "baseline",
+ "model": "kimi-k3.1-pro",
+ "params": {},
+ "items": [
+  {
+   "topic": "活动主题",
+   "type": "决定",
+   "content": "同意采用“懂我中国——让你更好的懂中国”的主题方向，突出帮助外国学生了解中国。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S008",
+    "S009",
+    "S010",
+    "S011",
+    "S015",
+    "S016"
+   ],
+   "evidence_start": 21.97,
+   "evidence_end": 41.61,
+   "evidence_spans": [
+    {
+     "start": 21.97,
+     "end": 33.95
+    },
+    {
+     "start": 40.65,
+     "end": 41.61
+    }
+   ],
+   "evidence_text": "懂我中国就是让你更好的懂中国，就是让那些我就是外国的一些学生，让他们更好的了解我们的中国，这个更贴近一点，定更贴切一些。……嗯，可以",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "活动时间",
+   "type": "决定",
+   "content": "活动不选周末，改选中秋节举办，以便大家放假时参加。",
+   "responsible": "未知",
+   "deadline": "中秋节，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "中秋节，具体日期未知",
+   "evidence_ids": [
+    "S032",
+    "S033",
+    "S034",
+    "S037",
+    "S038",
+    "S059"
+   ],
+   "evidence_start": 74.91,
+   "evidence_end": 146.55,
+   "evidence_spans": [
+    {
+     "start": 74.91,
+     "end": 79.51
+    },
+    {
+     "start": 82.36,
+     "end": 84.315
+    },
+    {
+     "start": 145.69,
+     "end": 146.55
+    }
+   ],
+   "evidence_text": "中秋节那就是那那我就不选，周末就选中秋节，反正中秋节大家都有时间，对吧？……中秋节大家都放假嘛，都有时间。……对，这个是可以的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "活动形式",
+   "type": "待确认",
+   "content": "有人提议中秋节晚上将交流会办为留学生交流晚会，但尚未明确收口。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S043",
+    "S044",
+    "S045"
+   ],
+   "evidence_start": 98.43,
+   "evidence_end": 109.36,
+   "evidence_spans": [
+    {
+     "start": 98.43,
+     "end": 109.36
+    }
+   ],
+   "evidence_text": "我觉得既然是中秋节的话，中秋节不是我们可以安排到晚上晚上。就是说一个留学生交流会也可以是留学生晚会",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "中秋节文化介绍",
+   "type": "待办",
+   "content": "晚会时向留学生介绍中秋节的来历以及吃月饼等习俗的由来。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S066",
+    "S067",
+    "S068",
+    "S069"
+   ],
+   "evidence_start": 161.93,
+   "evidence_end": 177.365,
+   "evidence_spans": [
+    {
+     "start": 161.93,
+     "end": 177.365
+    }
+   ],
+   "evidence_text": "现在晚会的时候，给他们介绍一下这些我们中秋节的莱历。中秋节的就是中秋节是怎么就是来历，说吃月饼这些习俗是怎么来的，可以告诉他们你觉得怎么样。呃，可以",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "活动地点",
+   "type": "待确认",
+   "content": "双方均倾向将地点选在学校，认为学校比社会场地更合适，但最终地点尚未收口。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [],
+   "evidence_start": null,
+   "evidence_end": null,
+   "evidence_spans": [],
+   "evidence_text": "我觉得可以选在就选在学校怎么样或者社会的话，我觉得就选学校，我觉得比较好一点。嗯，学校我因为之前也想过这个问题，就是说学校毕竟就是说要更好。",
+   "speaker": "",
+   "flags": [
+    "原话只在转写中找到 0/1 段"
+   ],
+   "id": "m05"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 1,
+ "usage": {
+  "prompt_tokens": 1038,
+  "completion_tokens": 7336
+ },
+ "elapsed": 234.99,
+ "clip": "clip09",
+ "source": "asr"
+}

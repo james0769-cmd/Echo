@@ -2,6 +2,7 @@
 
 转写来源：
   asr  FunASR 原始转写（data/cache/asr，需要 clips/*.wav 才能定位缓存）
+  whisper  faster-whisper-small 转写（data/cache/asr_whisper），ASR 对照实验用
   ref  AliMeeting 人工转写（data/public/alimeeting/ref），用来区分识别错误与整理错误
 
 用法：
@@ -29,6 +30,9 @@ SPLITS["all"] = SPLITS["dev"] + SPLITS["test"]
 def load_sentences(clip: str, source: str) -> list[dict]:
     if source == "ref":
         return json.loads((DATA / "ref" / f"{clip}.json").read_text(encoding="utf-8"))
+    if source == "whisper":
+        from echotrace import asr_whisper
+        return asr_whisper.transcribe(DATA / "clips" / f"{clip}.wav")["sentences"]
     return transcribe(DATA / "clips" / f"{clip}.wav")["sentences"]
 
 
@@ -36,20 +40,23 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("clips", nargs="*")
     ap.add_argument("--method", choices=["segmented", "baseline"], required=True)
-    ap.add_argument("--source", choices=["asr", "ref"], required=True)
+    ap.add_argument("--source", choices=["asr", "whisper", "ref"], required=True)
     ap.add_argument("--split", choices=list(SPLITS), default=None)
     ap.add_argument("--out", type=Path, default=Path("results/minutes"))
+    ap.add_argument("--model", default=None, help="整理用的模型，默认 DeepSeek；非默认模型输出目录加 _模型名 后缀")
     args = ap.parse_args()
     clips = args.clips or SPLITS[args.split or "dev"]
 
-    out = args.out / f"{args.method}_{args.source}"
+    model = args.model or minutes.llm.DEFAULT_MODEL
+    suffix = "" if model == minutes.llm.DEFAULT_MODEL else f"_{model}"
+    out = args.out / f"{args.method}_{args.source}{suffix}"
     out.mkdir(parents=True, exist_ok=True)
     for clip in clips:
         sents = load_sentences(clip, args.source)
         if args.method == "segmented":
-            res = minutes.extract_segmented(sents)
+            res = minutes.extract_segmented(sents, model=model)
         else:
-            res = minutes.extract_baseline(sents)
+            res = minutes.extract_baseline(sents, model=model)
         res["clip"], res["source"] = clip, args.source
         (out / f"{clip}.json").write_text(minutes.dumps(res), encoding="utf-8")
         (out / f"{clip}.md").write_text(minutes.to_markdown(res, clip), encoding="utf-8")
