@@ -1,0 +1,281 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0,
+  "merge": true,
+  "sentences_raw": 63,
+  "sentences_used": 63
+ },
+ "items": [
+  {
+   "topic": "教师节礼物建议",
+   "type": "待确认",
+   "content": "提议可选保温杯、提神补脑零食（如三只松鼠）或小型按摩仪，价格约一两百元。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S001",
+    "S003"
+   ],
+   "evidence_start": 0.0,
+   "evidence_end": 22.09,
+   "evidence_spans": [
+    {
+     "id": "S001",
+     "start": 0.0,
+     "end": 13.18
+    },
+    {
+     "id": "S003",
+     "start": 13.55,
+     "end": 22.09
+    }
+   ],
+   "evidence_text": "哦，可以，然后还可以像，如果要是家长送，比方说因为老师嘛，然后一天上课要讲很多话，比方说保温杯啊，或者是，提提神补脑的，比方说三只松鼠这种零食。；我觉得可能都可以选择，然后还有像小型的按摩的这方面的，不用特别大就很小，就一百一百一一两百块钱。",
+   "speaker": "SPK8002",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "送礼方式",
+   "type": "待确认",
+   "content": "提议由家长代送，避免孩子拿到学校太明显。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S005"
+   ],
+   "evidence_start": 22.09,
+   "evidence_end": 30.62,
+   "evidence_spans": [
+    {
+     "id": "S005",
+     "start": 22.09,
+     "end": 30.62
+    }
+   ],
+   "evidence_text": "然后像这种礼物呢，我觉得可以由家长来去送，如果孩子有点太，太明显了，如果拿到学校就有点儿太明显了。",
+   "speaker": "SPK8002",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "送礼方式",
+   "type": "待确认",
+   "content": "有人提议一二年级由家长代送、孩子做贺卡或画画表示尊重，也有人提到太小的孩子没必要送。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S007",
+    "S010",
+    "S012"
+   ],
+   "evidence_start": 31.09,
+   "evidence_end": 60.23,
+   "evidence_spans": [
+    {
+     "id": "S007",
+     "start": 31.09,
+     "end": 44.62
+    },
+    {
+     "id": "S010",
+     "start": 43.15,
+     "end": 53.96
+    },
+    {
+     "id": "S012",
+     "start": 53.86,
+     "end": 60.23
+    }
+   ],
+   "evidence_text": "这个孩子呀嗯小孩儿，分咱们这孩子大小那个太小的小孩儿就没必要送了，太小的你你上一二年级，他还不懂得那么多是吧，四五年级。；我觉得像像像，我觉得上一二小级的那种的，那就由由由家长来代去送，做一贺卡这种的就可以，但也不能说我上一二年级，我不送了这。；一二年级小孩儿他可以你叫给老给老师，那个画个那个画个画个画。",
+   "speaker": "SPK8001/SPK8002",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "孩子参与选送礼物",
+   "type": "决定",
+   "content": "送老师礼物必须征求孩子的意见",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S031",
+    "S032",
+    "S033"
+   ],
+   "evidence_start": 138.77,
+   "evidence_end": 155.08,
+   "evidence_spans": [
+    {
+     "id": "S031",
+     "start": 138.77,
+     "end": 143.44
+    },
+    {
+     "id": "S032",
+     "start": 140.22,
+     "end": 141.39
+    },
+    {
+     "id": "S033",
+     "start": 142.87,
+     "end": 155.08
+    }
+   ],
+   "evidence_text": "对，咱们也得征求孩子的意见老师家长必须要征求孩子意见。；嗯，对。；对，这个征求孩子意见，然后做一个平衡，啊，你比如说送个奖奖品啊，比如说这老师天天批改作业，送给一个这个这个这个那叫。",
+   "speaker": "SPK8001/SPK8004",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "教师节礼物建议",
+   "type": "待确认",
+   "content": "建议考虑送护眼灯作为教师节礼物",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S036",
+    "S037",
+    "S038"
+   ],
+   "evidence_start": 155.14,
+   "evidence_end": 171.58,
+   "evidence_spans": [
+    {
+     "id": "S036",
+     "start": 155.14,
+     "end": 155.77
+    },
+    {
+     "id": "S037",
+     "start": 155.94,
+     "end": 157.24
+    },
+    {
+     "id": "S038",
+     "start": 157.58,
+     "end": 171.58
+    }
+   ],
+   "evidence_text": "眼部仪。；呃，护眼灯。；啊，现在这这几年比较流行，护眼灯，啊然后呢，这个来说呢，也是非常的关心老师啊，然后在这个教师节也是非常恰如其分啊，啊然后也不会让老师有一些不适。",
+   "speaker": "SPK8002/SPK8004",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "孩子参与选送礼物",
+   "type": "待确认",
+   "content": "由孩子最终决定给老师买什么，家长只做建议",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S044"
+   ],
+   "evidence_start": 172.52,
+   "evidence_end": 185.45,
+   "evidence_spans": [
+    {
+     "id": "S044",
+     "start": 172.52,
+     "end": 185.45
+    }
+   ],
+   "evidence_text": "这老师呢他一天呢坐这儿那个站这儿，站一天也挺累的，嗯孩子们他给做咱们家长做建议，让孩子去还得让孩子去决定给老师买点儿这个。",
+   "speaker": "SPK8001",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "教师节礼物建议",
+   "type": "待确认",
+   "content": "提议给家长提供几选一的靠谱礼物建议，包括颈部按摩仪、眼部按摩仪、护眼台灯和防静脉曲张护具等。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S045",
+    "S048"
+   ],
+   "evidence_start": 183.91,
+   "evidence_end": 199.27,
+   "evidence_spans": [
+    {
+     "id": "S045",
+     "start": 183.91,
+     "end": 194.15
+    },
+    {
+     "id": "S048",
+     "start": 194.86,
+     "end": 199.27
+    }
+   ],
+   "evidence_text": "对就让家长还是有一些靠谱的提议，提示是吧，就是几几选一，比如说是刚才讲的有什么颈部按摩仪啊，眼部按摩仪或者是护眼台灯。；啊包括一些防止静脉曲张的这种这种小的护具啊之类的。",
+   "speaker": "SPK8003",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "孩子参与选送礼物",
+   "type": "待确认",
+   "content": "提议让孩子参与参考选择，并由孩子把礼物送给老师。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S049",
+    "S050",
+    "S051"
+   ],
+   "evidence_start": 200.22,
+   "evidence_end": 212.76,
+   "evidence_spans": [
+    {
+     "id": "S049",
+     "start": 200.22,
+     "end": 208.41
+    },
+    {
+     "id": "S050",
+     "start": 207.34,
+     "end": 212.76
+    },
+    {
+     "id": "S051",
+     "start": 207.62,
+     "end": 208.12
+    }
+   ],
+   "evidence_text": "然后到时候让孩子给参考，也让就是说孩子能有一些，就是自己有一些自己的主观呀，或者什么的意识是吧，嗯。；对，让他哎给老师嗯给老师送过去，老师也乐意收。；对。",
+   "speaker": "SPK8003/SPK8001/SPK8004",
+   "flags": [],
+   "id": "m08"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3055,
+  "completion_tokens": 9983
+ },
+ "elapsed": 0.0,
+ "clip": "clip03",
+ "source": "ref"
+}

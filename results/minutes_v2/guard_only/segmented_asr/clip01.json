@@ -1,0 +1,435 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0,
+  "merge": false,
+  "sentences_raw": 108,
+  "sentences_used": 108
+ },
+ "items": [
+  {
+   "topic": "目标人群与差异化设计",
+   "type": "待确认",
+   "content": "会上讨论按年龄区分手机目标用户，有人建议主攻45岁左右中青年人群并拉大年龄跨度，但未形成决定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S008",
+    "S009",
+    "S011",
+    "S013"
+   ],
+   "evidence_start": 17.03,
+   "evidence_end": 36.67,
+   "evidence_spans": [
+    {
+     "id": "S008",
+     "start": 17.03,
+     "end": 19.11
+    },
+    {
+     "id": "S009",
+     "start": 19.35,
+     "end": 22.51
+    },
+    {
+     "id": "S011",
+     "start": 23.65,
+     "end": 30.65
+    },
+    {
+     "id": "S013",
+     "start": 33.91,
+     "end": 36.67
+    }
+   ],
+   "evidence_text": "我感觉可以根据年龄呃，；我这种就是不同的人士做一下区分。；我感觉我们可以主要针对就是我我现在四十五之岁的中青年人群吧。；就可能就是说呃年龄段要跨度大一点。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "目标人群与差异化设计",
+   "type": "待确认",
+   "content": "会上提到当前版本不适合老年人，老年人需要大字体、操作简化，有意见认为手机内文字等可再设计，但未确定方案。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S021",
+    "S025",
+    "S028",
+    "S030"
+   ],
+   "evidence_start": 50.03,
+   "evidence_end": 72.975,
+   "evidence_spans": [
+    {
+     "id": "S021",
+     "start": 50.03,
+     "end": 52.71
+    },
+    {
+     "id": "S025",
+     "start": 56.37,
+     "end": 58.95
+    },
+    {
+     "id": "S028",
+     "start": 63.08,
+     "end": 63.9
+    },
+    {
+     "id": "S030",
+     "start": 67.26,
+     "end": 72.975
+    }
+   ],
+   "evidence_text": "但是现在的呃这个版本的话，；它需要很多的大字体或红，；他操作不了，；但是我觉得那个这个手机里边的呃很多这个字的东西都是可以可以再去设的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "目标人群与差异化设计",
+   "type": "决定",
+   "content": "根据不同人群对手机做差别化设计。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S043",
+    "S050",
+    "S051"
+   ],
+   "evidence_start": 106.18,
+   "evidence_end": 121.525,
+   "evidence_spans": [
+    {
+     "id": "S043",
+     "start": 106.18,
+     "end": 109.82
+    },
+    {
+     "id": "S050",
+     "start": 119.87,
+     "end": 120.275
+    },
+    {
+     "id": "S051",
+     "start": 121.03,
+     "end": 121.525
+    }
+   ],
+   "evidence_text": "我感觉我们可以根据就是不同人群稍微做一下差别设计。；好的，；可以，",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "目标人群与差异化设计",
+   "type": "待确认",
+   "content": "主推年轻化机型，目标年龄区间和颜色后续再定。",
+   "responsible": "未知",
+   "deadline": "后续，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "后续，具体日期未知",
+   "evidence_ids": [
+    "S055",
+    "S062",
+    "S065",
+    "S067"
+   ],
+   "evidence_start": 127.4,
+   "evidence_end": 150.955,
+   "evidence_spans": [
+    {
+     "id": "S055",
+     "start": 127.4,
+     "end": 129.56
+    },
+    {
+     "id": "S062",
+     "start": 136.97,
+     "end": 139.51
+    },
+    {
+     "id": "S065",
+     "start": 142.88,
+     "end": 145.31
+    },
+    {
+     "id": "S067",
+     "start": 149.05,
+     "end": 150.955
+    }
+   ],
+   "evidence_text": "咱们主端主推是年轻年轻化这一块吧，；咱们机型儿我觉得还是适应比较年轻，；那咱们这个后续再定一下，；咱们到时候确定一下这个颜色好吧？",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "促销与渠道策略",
+   "type": "待确认",
+   "content": "建议通过直播带货并参与天猫、苏宁、淘宝、拼多多等电商平台双十一活动进行促销。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "双十一期间，具体日期未知",
+   "evidence_ids": [
+    "S072",
+    "S073",
+    "S074",
+    "S075"
+   ],
+   "evidence_start": 159.89,
+   "evidence_end": 170.46,
+   "evidence_spans": [
+    {
+     "id": "S072",
+     "start": 159.89,
+     "end": 162.57
+    },
+    {
+     "id": "S073",
+     "start": 162.71,
+     "end": 165.97
+    },
+    {
+     "id": "S074",
+     "start": 166.07,
+     "end": 168.415
+    },
+    {
+     "id": "S075",
+     "start": 169.06,
+     "end": 170.46
+    }
+   ],
+   "evidence_text": "我感觉可以现在通过比较热门的直播带货，；还有不是马上就电商双十一嘛，；嗯这种活动我们都可以多参与一下。；就各大电商平台什么的，",
+   "speaker": "",
+   "flags": [
+    "截止日期“双十一期间，具体日期未知”在原话中找不到，已改为未知"
+   ],
+   "id": "m05"
+  },
+  {
+   "topic": "促销与渠道策略",
+   "type": "待确认",
+   "content": "建议前期在价格上让利，以多占领市场份额。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S079",
+    "S080",
+    "S081"
+   ],
+   "evidence_start": 176.33,
+   "evidence_end": 183.88,
+   "evidence_spans": [
+    {
+     "id": "S079",
+     "start": 176.33,
+     "end": 179.645
+    },
+    {
+     "id": "S080",
+     "start": 180.08,
+     "end": 181.02
+    },
+    {
+     "id": "S081",
+     "start": 181.02,
+     "end": 183.88
+    }
+   ],
+   "evidence_text": "我们前期主要是就是呃价钱可以收，；就是让利一些，；多占领一些市场份额等市场份额。",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "促销与渠道策略",
+   "type": "待确认",
+   "content": "建议先梳理手机与竞品的差异亮点，再在京东等电商给折扣促销",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S086",
+    "S087",
+    "S089",
+    "S090"
+   ],
+   "evidence_start": 188.36,
+   "evidence_end": 209.64,
+   "evidence_spans": [
+    {
+     "id": "S086",
+     "start": 188.36,
+     "end": 192.48
+    },
+    {
+     "id": "S087",
+     "start": 192.48,
+     "end": 196.8
+    },
+    {
+     "id": "S089",
+     "start": 201.88,
+     "end": 204.92
+    },
+    {
+     "id": "S090",
+     "start": 204.92,
+     "end": 209.64
+    }
+   ],
+   "evidence_text": "我觉得还是先要要看一推推出一手手机亮亮点啊，；是他有什么和其他的手机有什么不同的地方啊，；比方说京东啊什么的给给一个折扣，；看有什么样的方式去进行这个啊嗯促促促销是吧？",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "促销与渠道策略",
+   "type": "待确认",
+   "content": "地推是否适合手机尚未定，讨论中倾向电商渠道",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S095",
+    "S097",
+    "S098",
+    "S099"
+   ],
+   "evidence_start": 215.12,
+   "evidence_end": 229.44,
+   "evidence_spans": [
+    {
+     "id": "S095",
+     "start": 215.12,
+     "end": 219.42
+    },
+    {
+     "id": "S097",
+     "start": 222.0,
+     "end": 224.58
+    },
+    {
+     "id": "S098",
+     "start": 224.58,
+     "end": 228.24
+    },
+    {
+     "id": "S099",
+     "start": 228.24,
+     "end": 229.44
+    }
+   ],
+   "evidence_text": "就是你们可以谈一下自己不同的一个我感我感觉地推这个不太适合手机吧，；者推地推太太老套了，；我觉得还是还是电商现在比较好一点，；对电商好一点儿。",
+   "speaker": "",
+   "flags": [],
+   "id": "m08"
+  },
+  {
+   "topic": "捆绑合作与代言",
+   "type": "待确认",
+   "content": "建议产品捆绑其他内容，并考虑找明星代言",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S100",
+    "S101",
+    "S103",
+    "S104"
+   ],
+   "evidence_start": 229.44,
+   "evidence_end": 240.73,
+   "evidence_spans": [
+    {
+     "id": "S100",
+     "start": 229.44,
+     "end": 232.4
+    },
+    {
+     "id": "S101",
+     "start": 232.4,
+     "end": 236.4
+    },
+    {
+     "id": "S103",
+     "start": 237.46,
+     "end": 238.48
+    },
+    {
+     "id": "S104",
+     "start": 238.48,
+     "end": 240.73
+    }
+   ],
+   "evidence_text": "然后我觉得可以就是那个然后捆绑一些。；比如说然后他还带带着一些什么其他的东西啊，；找后明星代言，；这是肯定少不了了吧吧明星代言，",
+   "speaker": "",
+   "flags": [],
+   "id": "m09"
+  },
+  {
+   "topic": "捆绑合作与代言",
+   "type": "待确认",
+   "content": "建议捆绑移动等运营商及其产品，以带动更多东西",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S106",
+    "S107",
+    "S108"
+   ],
+   "evidence_start": 242.03,
+   "evidence_end": 250.435,
+   "evidence_spans": [
+    {
+     "id": "S106",
+     "start": 242.03,
+     "end": 246.52
+    },
+    {
+     "id": "S107",
+     "start": 246.72,
+     "end": 247.94
+    },
+    {
+     "id": "S108",
+     "start": 248.08,
+     "end": 250.435
+    }
+   ],
+   "evidence_text": "然后我觉得啊就比如说他捆绑着一些什么移动啊这些运营商，；然后他的一些产品，；然后其他的这样还能带动更多的东西。",
+   "speaker": "",
+   "flags": [],
+   "id": "m10"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3214,
+  "completion_tokens": 9723
+ },
+ "elapsed": 0.0,
+ "clip": "clip01",
+ "source": "asr"
+}

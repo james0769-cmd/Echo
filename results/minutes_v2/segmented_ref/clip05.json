@@ -1,0 +1,403 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0,
+  "merge": true,
+  "sentences_raw": 182,
+  "sentences_used": 182
+ },
+ "items": [
+  {
+   "topic": "办公地点",
+   "type": "决定",
+   "content": "新办公地点定在东三环与东四环之间、偏北区域。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S043",
+    "S044",
+    "S046",
+    "S048"
+   ],
+   "evidence_start": 55.75,
+   "evidence_end": 76.46,
+   "evidence_spans": [
+    {
+     "id": "S043",
+     "start": 55.75,
+     "end": 68.38
+    },
+    {
+     "id": "S044",
+     "start": 61.42,
+     "end": 67.0
+    },
+    {
+     "id": "S046",
+     "start": 64.46,
+     "end": 65.78
+    },
+    {
+     "id": "S048",
+     "start": 67.9,
+     "end": 76.46
+    }
+   ],
+   "evidence_text": "那我们现在就是先敲定一下，就是各个负责人来说，这个在东三环和东四环之间，然后呢这往往北一点儿这块儿，就是大家觉得这个可以不可以。；东三环和四环之间，可以，可以可以。可以可以，对。；可以可以可以。；嗯可以对对，对对行嗯呃是大大家的交通方便也也挺便利嗯。",
+   "speaker": "SPK8056/SPK8054/SPK8050",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "员工沟通",
+   "type": "待办",
+   "content": "在群里向其他员工说明新地点并商量。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S063"
+   ],
+   "evidence_start": 87.93,
+   "evidence_end": 95.3,
+   "evidence_spans": [
+    {
+     "id": "S063",
+     "start": 87.93,
+     "end": 95.3
+    }
+   ],
+   "evidence_text": "那大家可以把这个事情就是说，在那个群里面跟就是其他的员工去商量一下，说这个新地点。",
+   "speaker": "SPK8056",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "现场考察",
+   "type": "待办",
+   "content": "安排人员先去挑几个写字楼考察，综合比较后再报给领导。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S071",
+    "S072",
+    "S083"
+   ],
+   "evidence_start": 98.44,
+   "evidence_end": 118.56,
+   "evidence_spans": [
+    {
+     "id": "S071",
+     "start": 98.44,
+     "end": 110.16
+    },
+    {
+     "id": "S072",
+     "start": 100.34,
+     "end": 101.03
+    },
+    {
+     "id": "S083",
+     "start": 112.59,
+     "end": 118.56
+    }
+   ],
+   "evidence_text": "咱们就定一个人去去那什么呗，去那个去去那边先考察一下，就是先挑几个楼，挑几个写字楼出来，完了之后呢，我们在综合比较一下再报给领导呗。；对对对。；就是我们讨论的这个范围，大家后边儿会有人去安排去那边儿调查，然后呢。",
+   "speaker": "SPK8055/SPK8050/SPK8056",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "办公地点",
+   "type": "决定",
+   "content": "新办公地点的大致范围定在东边、三环以里。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S086",
+    "S092",
+    "S096",
+    "S098"
+   ],
+   "evidence_start": 118.99,
+   "evidence_end": 142.59,
+   "evidence_spans": [
+    {
+     "id": "S086",
+     "start": 118.99,
+     "end": 124.81
+    },
+    {
+     "id": "S092",
+     "start": 129.5,
+     "end": 136.71
+    },
+    {
+     "id": "S096",
+     "start": 135.81,
+     "end": 141.32
+    },
+    {
+     "id": "S098",
+     "start": 138.23,
+     "end": 142.59
+    }
+   ],
+   "evidence_text": "嗯，那就是定在东边儿了呗是吧，定在东边儿有没有有没有住西边儿的同事。；交通特别方便，对对对，地铁嘛特别快，要三环以里吧，那公交车特别堵，哦。；好，那就是大概的范围我们现在敲定了，然后然后就是嗯。；嗯，敲定对，这个就可以，告一段落，嗯。",
+   "speaker": "SPK8055/SPK8054/SPK8056",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "工位数量",
+   "type": "决定",
+   "content": "暂定新址按五十个左右工位规划，并报给领导。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S121",
+    "S124",
+    "S126"
+   ],
+   "evidence_start": 170.69,
+   "evidence_end": 186.99,
+   "evidence_spans": [
+    {
+     "id": "S121",
+     "start": 170.69,
+     "end": 178.26
+    },
+    {
+     "id": "S124",
+     "start": 175.38,
+     "end": 186.99
+    },
+    {
+     "id": "S126",
+     "start": 177.51,
+     "end": 178.77
+    }
+   ],
+   "evidence_text": "再招人至少得十几个，咱们得预备着，得五十个左右我估计，工位啊啊。；嗯，觉得就是工位的话大概要那么多是吧，就是那就先咱们暂定，然后到报报给领导的话，就是暂定先要五十个左右的工位是吧？；嗯，对对对。",
+   "speaker": "SPK8055/SPK8056/SPK8054",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "工位数量",
+   "type": "决定",
+   "content": "确定办公区约五十个工位。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S130",
+    "S132",
+    "S133"
+   ],
+   "evidence_start": 184.61,
+   "evidence_end": 189.01,
+   "evidence_spans": [
+    {
+     "id": "S130",
+     "start": 184.61,
+     "end": 187.41
+    },
+    {
+     "id": "S132",
+     "start": 186.34,
+     "end": 188.38
+    },
+    {
+     "id": "S133",
+     "start": 186.47,
+     "end": 189.01
+    }
+   ],
+   "evidence_text": "五十个工位吧，啊对差不多。；对五十个工位嗯。；对对对，五十个的有，完了那个。",
+   "speaker": "SPK8055/SPK8050/SPK8054",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "会议室配置",
+   "type": "待确认",
+   "content": "倾向大会议室一间、小会议室两间，但需先考察并根据实际情况再定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S139",
+    "S145",
+    "S147",
+    "S152"
+   ],
+   "evidence_start": 191.73,
+   "evidence_end": 219.32,
+   "evidence_spans": [
+    {
+     "id": "S139",
+     "start": 191.73,
+     "end": 198.93
+    },
+    {
+     "id": "S145",
+     "start": 197.2,
+     "end": 198.48
+    },
+    {
+     "id": "S147",
+     "start": 199.63,
+     "end": 202.07
+    },
+    {
+     "id": "S152",
+     "start": 208.51,
+     "end": 219.32
+    }
+   ],
+   "evidence_text": "会议室我觉得会议室其实可以小会议室多点儿，大会议室有一间就够了是吧，嗯。；大会议室有一个就够。；小小小会议室有俩就够。；就是那个，就看着定吧，因为咱们本人不去考察吗？考察，大伙儿就是，嗯，考察是，对对，跟着他们实际情况，咱们互相。",
+   "speaker": "SPK8055/SPK8050/SPK8054",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "现场考察",
+   "type": "决定",
+   "content": "先去现场考察，再根据实际情况确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S152",
+    "S155",
+    "S158"
+   ],
+   "evidence_start": 208.51,
+   "evidence_end": 219.32,
+   "evidence_spans": [
+    {
+     "id": "S152",
+     "start": 208.51,
+     "end": 219.32
+    },
+    {
+     "id": "S155",
+     "start": 212.55,
+     "end": 213.61
+    },
+    {
+     "id": "S158",
+     "start": 214.62,
+     "end": 217.26
+    }
+   ],
+   "evidence_text": "就是那个，就看着定吧，因为咱们本人不去考察吗？考察，大伙儿就是，嗯，考察是，对对，跟着他们实际情况，咱们互相。；啊对先考察。；对也得根据他那个实际情况啊。",
+   "speaker": "SPK8054/SPK8050/SPK8055",
+   "flags": [],
+   "id": "m08"
+  },
+  {
+   "topic": "办公室数量",
+   "type": "待办",
+   "content": "把几个部门归纳好、选择好，避免空间不够；考虑招聘部门后按四到五个办公室估计。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S169",
+    "S175",
+    "S177"
+   ],
+   "evidence_start": 232.54,
+   "evidence_end": 249.91,
+   "evidence_spans": [
+    {
+     "id": "S169",
+     "start": 232.54,
+     "end": 236.99
+    },
+    {
+     "id": "S175",
+     "start": 239.88,
+     "end": 245.8
+    },
+    {
+     "id": "S177",
+     "start": 244.09,
+     "end": 249.91
+    }
+   ],
+   "evidence_text": "几个部门，你都把这几个部门就是归纳好选择好，嗯。；归纳好，选择好，别那个，到时候，空间不够了，这不就是有点。；如果加上到时候招聘的几个部门的话，估计得四到五个四到五个啊。",
+   "speaker": "SPK8054/SPK8055",
+   "flags": [],
+   "id": "m09"
+  },
+  {
+   "topic": "办公室数量",
+   "type": "待确认",
+   "content": "现有四个小办公室，加上招聘部门后估计四到五个，也有人表示五个六个都行，尚未最终确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S171",
+    "S174",
+    "S177",
+    "S182"
+   ],
+   "evidence_start": 235.19,
+   "evidence_end": 251.77,
+   "evidence_spans": [
+    {
+     "id": "S171",
+     "start": 235.19,
+     "end": 238.51
+    },
+    {
+     "id": "S174",
+     "start": 238.17,
+     "end": 240.44
+    },
+    {
+     "id": "S177",
+     "start": 244.09,
+     "end": 249.91
+    },
+    {
+     "id": "S182",
+     "start": 249.84,
+     "end": 251.77
+    }
+   ],
+   "evidence_text": "现在咱们现在是四个吧，四个小办公室。；啊对，四个小办公室主要是。；如果加上到时候招聘的几个部门的话，估计得四到五个四到五个啊。；五个五个六个都行。",
+   "speaker": "SPK8055/SPK8050",
+   "flags": [],
+   "id": "m10"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 4228,
+  "completion_tokens": 13465
+ },
+ "elapsed": 0.0,
+ "clip": "clip05",
+ "source": "ref"
+}

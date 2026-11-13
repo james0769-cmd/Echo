@@ -1,0 +1,322 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0,
+  "merge": false,
+  "sentences_raw": 96,
+  "sentences_used": 96
+ },
+ "items": [
+  {
+   "topic": "教师节礼物选择",
+   "type": "待确认",
+   "content": "提议可选保温杯、提神补脑的零食、小型按摩仪等，体积不用大、价位一两百元，但未收口。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S003",
+    "S005",
+    "S006",
+    "S009",
+    "S013"
+   ],
+   "evidence_start": 0.77,
+   "evidence_end": 21.93,
+   "evidence_spans": [
+    {
+     "id": "S003",
+     "start": 0.77,
+     "end": 3.47
+    },
+    {
+     "id": "S005",
+     "start": 5.33,
+     "end": 7.17
+    },
+    {
+     "id": "S006",
+     "start": 7.17,
+     "end": 11.21
+    },
+    {
+     "id": "S009",
+     "start": 15.41,
+     "end": 17.43
+    },
+    {
+     "id": "S013",
+     "start": 19.91,
+     "end": 21.93
+    }
+   ],
+   "evidence_text": "然后还可以像如果要是家长送，；然后一天上课要讲很多话，；比方说保温杯呀或者是提提神补脑的。；然后还有像小型的、按摩的，；就一百一百一一两百块钱。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "送礼方式",
+   "type": "待确认",
+   "content": "提议礼物由家长去送，避免孩子拿到学校太明显，仅为一人提议，无人明确拍板。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S014",
+    "S015",
+    "S016",
+    "S017"
+   ],
+   "evidence_start": 22.21,
+   "evidence_end": 30.63,
+   "evidence_spans": [
+    {
+     "id": "S014",
+     "start": 22.21,
+     "end": 23.31
+    },
+    {
+     "id": "S015",
+     "start": 23.31,
+     "end": 25.55
+    },
+    {
+     "id": "S016",
+     "start": 25.75,
+     "end": 28.75
+    },
+    {
+     "id": "S017",
+     "start": 28.79,
+     "end": 30.63
+    }
+   ],
+   "evidence_text": "然后像这种礼物呢，；我觉得可以由家长来去送。；如果孩子有点太太明显，；如果拿到学校就有点太明显了。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "送礼方式",
+   "type": "待确认",
+   "content": "提出一二年级孩子表达不清，可由家长带着送、做张贺卡表示对老师的尊重，但也不能因此就不送；该说法尚待确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S018",
+    "S022",
+    "S023",
+    "S024"
+   ],
+   "evidence_start": 30.99,
+   "evidence_end": 52.99,
+   "evidence_spans": [
+    {
+     "id": "S018",
+     "start": 30.99,
+     "end": 37.73
+    },
+    {
+     "id": "S022",
+     "start": 44.93,
+     "end": 49.63
+    },
+    {
+     "id": "S023",
+     "start": 49.73,
+     "end": 51.31
+    },
+    {
+     "id": "S024",
+     "start": 51.31,
+     "end": 52.99
+    }
+   ],
+   "evidence_text": "这个孩子呀呃小孩儿分咱们的孩子大小那个太小的小孩就没必要送了。；我觉得上一二小级的那种的那就由由由家长来带去送，；做一贺卡这种的就可以。；但是你不能说我上一二年级，",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "教师节礼物选择",
+   "type": "待确认",
+   "content": "建议家长询问孩子想送老师什么，征求孩子意见，家长做建议、由孩子决定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S043",
+    "S044",
+    "S072",
+    "S073"
+   ],
+   "evidence_start": 110.08,
+   "evidence_end": 183.425,
+   "evidence_spans": [
+    {
+     "id": "S043",
+     "start": 110.08,
+     "end": 113.08
+    },
+    {
+     "id": "S044",
+     "start": 113.08,
+     "end": 115.42
+    },
+    {
+     "id": "S072",
+     "start": 178.04,
+     "end": 180.385
+    },
+    {
+     "id": "S073",
+     "start": 180.97,
+     "end": 183.425
+    }
+   ],
+   "evidence_text": "我觉得家长也可以就是问问问孩子，；你打算要要送老师什么，；孩子们他可以做咱们家长做建议，；让孩子去还得让孩子去决定。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "教师节礼物选择",
+   "type": "待确认",
+   "content": "提到教师节可考虑送护眼灯，认为恰如其分且不会让老师不适。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S063",
+    "S067",
+    "S068"
+   ],
+   "evidence_start": 156.33,
+   "evidence_end": 171.535,
+   "evidence_spans": [
+    {
+     "id": "S063",
+     "start": 156.33,
+     "end": 157.88
+    },
+    {
+     "id": "S067",
+     "start": 164.9,
+     "end": 168.88
+    },
+    {
+     "id": "S068",
+     "start": 168.88,
+     "end": 171.535
+    }
+   ],
+   "evidence_text": "护眼灯啊，；然后在这个教师节也是非常恰如其分啊啊，；然后也不会让老师有一些不适。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "教师节礼物选择",
+   "type": "待确认",
+   "content": "提议礼物做成几选一，如颈部按摩仪、眼部按摩仪、护眼台灯、防静脉曲张的小护具等，未最终确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S077",
+    "S078",
+    "S079",
+    "S080"
+   ],
+   "evidence_start": 188.68,
+   "evidence_end": 199.295,
+   "evidence_spans": [
+    {
+     "id": "S077",
+     "start": 188.68,
+     "end": 189.7
+    },
+    {
+     "id": "S078",
+     "start": 189.7,
+     "end": 192.24
+    },
+    {
+     "id": "S079",
+     "start": 192.24,
+     "end": 195.12
+    },
+    {
+     "id": "S080",
+     "start": 195.12,
+     "end": 199.295
+    }
+   ],
+   "evidence_text": "就是几选一，；比如说是刚才讲的有什么颈部按摩仪啊，；眼部按摩仪或者是护眼台灯啊，；包括一些防止静脉曲张的这种这种小的护具啊之类的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "送礼方式",
+   "type": "待确认",
+   "content": "提议让孩子参与参考、有自己的主见，并由孩子把礼物送给老师，以免家长直接送时老师尴尬，尚未确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S081",
+    "S082",
+    "S084",
+    "S088"
+   ],
+   "evidence_start": 200.25,
+   "evidence_end": 219.205,
+   "evidence_spans": [
+    {
+     "id": "S081",
+     "start": 200.25,
+     "end": 202.11
+    },
+    {
+     "id": "S082",
+     "start": 202.11,
+     "end": 207.34
+    },
+    {
+     "id": "S084",
+     "start": 207.7,
+     "end": 211.2
+    },
+    {
+     "id": "S088",
+     "start": 218.25,
+     "end": 219.205
+    }
+   ],
+   "evidence_text": "然后到时候让孩子给参考，；也让就是说孩子能有一些就是自己有一些自己的主观啊或者什么的意识是吧？；让那呃给老师呃给老师送过去，；那老师很尴尬，",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3045,
+  "completion_tokens": 9482
+ },
+ "elapsed": 0.0,
+ "clip": "clip03",
+ "source": "asr"
+}

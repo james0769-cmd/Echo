@@ -1,0 +1,206 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0,
+  "merge": true,
+  "sentences_raw": 97,
+  "sentences_used": 58
+ },
+ "items": [
+  {
+   "topic": "教师节送礼方式",
+   "type": "待确认",
+   "content": "有人提议到沃尔玛、物美办购物卡，教师节当天由孩子带给老师",
+   "responsible": "未知",
+   "deadline": "教师节那天，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "教师节那天，具体日期未知",
+   "evidence_ids": [
+    "S018",
+    "S019"
+   ],
+   "evidence_start": 91.79,
+   "evidence_end": 101.945,
+   "evidence_spans": [
+    {
+     "id": "S018",
+     "start": 91.79,
+     "end": 97.53
+    },
+    {
+     "id": "S019",
+     "start": 97.87,
+     "end": 101.945
+    }
+   ],
+   "evidence_text": "你要照这么说的话，我觉得就是有时候去什么沃尔玛、物美啊，办张购物卡。；然后呢，教师节那天由孩子带过去间啊，",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "教师节送礼方式",
+   "type": "决定",
+   "content": "决定不在学校送，改为把礼物送到老师家里，这样也能避免同班学生有的送、有的不送的问题",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S038",
+    "S039",
+    "S040"
+   ],
+   "evidence_start": 160.86,
+   "evidence_end": 174.535,
+   "evidence_spans": [
+    {
+     "id": "S038",
+     "start": 160.86,
+     "end": 164.015
+    },
+    {
+     "id": "S039",
+     "start": 164.35,
+     "end": 166.985
+    },
+    {
+     "id": "S040",
+     "start": 167.37,
+     "end": 174.535
+    }
+   ],
+   "evidence_text": "所以呢我觉得学校送不太合适，；咱们就大方向往家里送。；对加里宿呢这样的话又避免了这个三十个二十个学生一个班的有送有不送的这种情况，",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "各家分别送礼",
+   "type": "待确认",
+   "content": "有人以凑结婚份子钱作比较，提出各家分别单独送礼（“各送各的”），以避免金额不同造成的不平衡；但现场没有人最后定下来",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S042",
+    "S045",
+    "S046"
+   ],
+   "evidence_start": 177.52,
+   "evidence_end": 192.345,
+   "evidence_spans": [
+    {
+     "id": "S042",
+     "start": 177.52,
+     "end": 179.235
+    },
+    {
+     "id": "S045",
+     "start": 185.62,
+     "end": 190.295
+    },
+    {
+     "id": "S046",
+     "start": 190.69,
+     "end": 192.345
+    }
+   ],
+   "evidence_text": "因为就像结婚份子似的，；有出两百份子的，有出五百份子的那五百分的那个人他就不平衡，；所以说就各送各的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "教师节送礼方式",
+   "type": "待确认",
+   "content": "建议向王老师要家庭地址并直接送到家里，以避免去学校打扰老师，但尚未最终确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S049",
+    "S050",
+    "S051",
+    "S052"
+   ],
+   "evidence_start": 199.87,
+   "evidence_end": 218.27,
+   "evidence_spans": [
+    {
+     "id": "S049",
+     "start": 199.87,
+     "end": 203.305
+    },
+    {
+     "id": "S050",
+     "start": 203.76,
+     "end": 207.745
+    },
+    {
+     "id": "S051",
+     "start": 208.43,
+     "end": 216.325
+    },
+    {
+     "id": "S052",
+     "start": 216.97,
+     "end": 218.27
+    }
+   ],
+   "evidence_text": "咱们最好能把地址要到自己送到家里，；这样的话也避免了学校别的老师去说三道四。；我觉得给王老师要地址，一般的性就是几率性还是比较大的对，；就是能提供了是吧？",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "教师节送礼方式",
+   "type": "待确认",
+   "content": "有人担心索要家庭地址涉及隐私而不会提供，也有人更倾向当面交给老师，交付方式仍待定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S054",
+    "S056",
+    "S057"
+   ],
+   "evidence_start": 222.81,
+   "evidence_end": 235.845,
+   "evidence_spans": [
+    {
+     "id": "S054",
+     "start": 222.81,
+     "end": 226.85
+    },
+    {
+     "id": "S056",
+     "start": 227.87,
+     "end": 231.59
+    },
+    {
+     "id": "S057",
+     "start": 231.59,
+     "end": 235.845
+    }
+   ],
+   "evidence_text": "对，但是这个如果说换做是我，反正我肯定不提供，因为这涉及隐私了。；你你你这个孩子的家长，到时候你把我的这个地址你公布给别。；其实我是更我其实更喜欢是由当面交给老师这种的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 2836,
+  "completion_tokens": 7613
+ },
+ "elapsed": 46.87,
+ "clip": "clip04",
+ "source": "asr"
+}
