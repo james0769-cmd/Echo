@@ -1,6 +1,6 @@
 """识别误差传播分析：逐条比较同一方案在 ASR 转写和人工转写（ref）上的评测结果，判断错误来源。
 
-只读取 results/eval/{method}_{asr|ref}_{split}.json（eval_minutes.py 的输出）、事实表、ref 与 ASR 缓存，
+只读取 results/eval/{method}_{asr|ref}_{split}.json（eval_minutes.py 的输出）、事实表 facts_all.csv、ref 与 ASR 缓存，
 不调用任何 API。归因规则（针对每条标准条目）：
   asr 漏 / ref 中  -> ASR 导致（识别错误传给了大模型）
   asr 漏 / ref 漏  -> 大模型导致（输入正确也没整理出来；也可能是标注口径问题，需人工复核）
@@ -25,6 +25,7 @@ from pathlib import Path
 import jiwer
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import facts as factlib  # noqa: E402
 from run_minutes import DATA, SPLITS  # noqa: E402
 
 EVAL = Path("results/eval")
@@ -62,7 +63,7 @@ def load_eval(run: str, split: str) -> dict:
             if c["clip"] not in clips:
                 continue
             for m in c["matches"]:
-                out[m["gold"]] = dict(hit=True, type_ok=m["gold_type"] == m["pred_type"],
+                out[m["gold"]] = dict(hit=True, type_ok=m["pred_type"] in factlib.TYPE_OK[m["gold_type"]],
                                       pred_type=m["pred_type"], pred_content=m["pred_content"],
                                       pieces=m["gold_pieces_covered"])
             for g in c["missed_gold"]:
@@ -86,8 +87,7 @@ def main():
     args = ap.parse_args()
     clips = SPLITS[args.split]
 
-    facts = json.loads((DATA / "facts" / "fact_table.json").read_text(encoding="utf-8"))["facts"]
-    facts = [f for f in facts if f["id"].split("-")[0] in clips and f.get("status") != "rejected"]
+    facts = [f for f in factlib.load() if f["clip"] in clips and f["type"] in factlib.SCORED]
     ref = {c: json.loads((DATA / "ref" / f"{c}.json").read_text(encoding="utf-8")) for c in clips}
     asr = {c: load_asr(c) for c in clips}
     evals = {(m, s): load_eval(f"{m}_{s}", args.split) for m in METHODS for s in ("asr", "ref")}
@@ -119,7 +119,7 @@ def main():
         w.writerows(rows)
 
     lines = [f"# 错误归因（{args.split}: {', '.join(clips)}）", "",
-             f"标准条目 {len(rows)} 条（不含 rejected）。规则见 scripts/error_attribution.py 文件头。", "",
+             f"标准条目 {len(rows)} 条（facts_all.csv，不含信息类）。规则见 scripts/error_attribution.py 文件头。", "",
              "| 归因 | " + " | ".join(METHODS) + " | 平均局部 CER（segmented） |", "|---|---|---|---|"]
     cats = ["正确", "ASR导致", "大模型导致", "大模型不稳定"]
     for cat in cats:
@@ -139,7 +139,8 @@ def main():
     lines += ["## 两边都对上时的类型判断", ""]
     for m in METHODS:
         both = [r for r in rows if r[f"{m}_attr"] == "正确"]
-        c = Counter((r[f"{m}_asr_type"] == r["type"], r[f"{m}_ref_type"] == r["type"]) for r in both)
+        c = Counter((r[f"{m}_asr_type"] in factlib.TYPE_OK[r["type"]], r[f"{m}_ref_type"] in factlib.TYPE_OK[r["type"]])
+                    for r in both)
         lines.append(f"- {m}：共 {len(both)} 条；类型 asr对/ref对 {c[(True, True)]}，asr错/ref对 {c[(False, True)]}，"
                      f"asr对/ref错 {c[(True, False)]}，都错 {c[(False, False)]}")
     (OUT / f"summary_{args.split}.md").write_text("\n".join(lines) + "\n", encoding="utf-8")

@@ -3,7 +3,7 @@
 在 AliMeeting 10 个片段上比较：
   1. 中文字符错误率 CER（与 eval_cer.py 同一套归一化，数字写法不转换）
   2. CPU 耗时与 RTF（首次转写时记录，之后读缓存）
-  3. 证据回溯：事实表（facts/fact_table.json，approved）每条原话在 ASR 转写里
+  3. 证据回溯：事实表（facts/facts_all.csv，全部条目）每条原话在 ASR 转写里
      能否定位到、定位到的时间段是否与人工时间段重叠；以及人工时间段内 ASR 文字对原话的字覆盖率
   4. 含数字的原话逐条对照，用于展示数字转写错误
 
@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from echotrace import asr, asr_whisper, evidence  # noqa: E402
 from eval_cer import normalize  # noqa: E402
+import facts as factlib  # noqa: E402
 
 DATA = Path("data/public/alimeeting")
 ENGINES = {"paraformer": asr.transcribe, "whisper_small": asr_whisper.transcribe}
@@ -73,8 +74,7 @@ def main():
     ap.add_argument("--out", type=Path, default=Path("results/asr_compare"))
     args = ap.parse_args()
     clips = args.clips or sorted(p.stem for p in (DATA / "clips").glob("*.wav"))
-    facts = [f for f in json.loads((DATA / "facts" / "fact_table.json").read_text(encoding="utf-8"))["facts"]
-             if f["status"] == "approved"]
+    facts = factlib.load()
     args.out.mkdir(parents=True, exist_ok=True)
 
     cer_rows, ev_rows, num_md = [], [], []

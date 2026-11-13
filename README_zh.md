@@ -28,7 +28,7 @@ uv run python scripts/make_alimeeting_clips.py --src ~/Eval_Ali/Eval_Ali_near
 
 输出到 `data/public/alimeeting/`：`clips/` 音频、`ref/` 人工转写、`manifest.csv` 片段来源。
 
-`facts/` 是小组按 `ref/` 人工整理的事实表（决定、待办、待确认，附原话和时间段），作为纪要评测的标准答案；判定规则写在 `fact_table.json` 的 `rules` 里，`review_queue.md` 列出仍需回听的条目。
+`facts/` 是小组按 `ref/` 人工整理并复核的事实表 `facts_all.csv`（`facts_all.md` 为同内容的可读版），共 91 条，分决定、共识、待办、提议、未决、信息 6 类，附负责人、截止日期、原话和起止时间；仍需回听的地方写在「备注」列。它作为纪要评测的标准答案，和纪要类型（决定/待办/待确认）的对照口径见 `scripts/facts.py`。
 
 **2. 转写并计算 CER**
 
@@ -92,7 +92,7 @@ uv run python scripts/run_demo.py --audio path/to/meeting.wav
 uv run python scripts/eval_minutes.py segmented_asr segmented_ref baseline_asr baseline_ref --split dev
 ```
 
-对照 `facts/fact_table.json` 统计精确率、召回率、类型一致、遗漏、虚构负责人/截止日期、证据时间段是否覆盖原话。条目对齐由 DeepSeek 判断，对齐明细在 `results/eval/{run}_{split}.json`，需要人工抽查；汇总表 `results/eval/summary_{split}.md`。
+对照 `facts/facts_all.csv` 统计精确率、召回率、类型一致、遗漏、虚构负责人/截止日期、证据时间段是否覆盖原话。条目对齐由 DeepSeek 判断，对齐明细在 `results/eval/{run}_{split}.json`，需要人工抽查；汇总表 `results/eval/summary_{split}.md`。
 
 **7. 误差传播分析**
 

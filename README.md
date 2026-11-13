@@ -28,7 +28,7 @@ uv run python scripts/make_alimeeting_clips.py --src ~/Eval_Ali/Eval_Ali_near
 
 Output goes to `data/public/alimeeting/`: `clips/` audio, `ref/` human transcripts, and `manifest.csv` with the source of each clip.
 
-`facts/` holds the group's hand-built fact table (decisions, action items and open questions, each with its quote and time span), built from `ref/` and used as the gold standard for evaluating minutes. The labelling rules are in the `rules` field of `fact_table.json`; `review_queue.md` lists entries that still need listening.
+`facts/` holds the group's hand-built and reviewed fact table `facts_all.csv` (`facts_all.md` is the readable version): 91 entries in six types (decision, consensus, action item, proposal, unresolved, information), each with owner, deadline, quote and time span; points that still need listening are in the remarks column. It is the gold standard for evaluating minutes; the mapping to the minutes' categories (decision / action item / to confirm) is in `scripts/facts.py`.
 
 **2. Transcribe and compute CER**
 
@@ -75,7 +75,7 @@ Output goes to `results/minutes/{method}_{source}/clipNN.{json,md}`. API respons
 uv run python scripts/eval_minutes.py segmented_asr segmented_ref baseline_asr baseline_ref --split dev
 ```
 
-Compares against `facts/fact_table.json`: precision, recall, type agreement, omissions, fabricated owners/deadlines, and whether evidence spans cover the quoted words. Items are aligned by DeepSeek; the alignment is saved in `results/eval/{run}_{split}.json` for manual spot-checks, and the summary table in `results/eval/summary_{split}.md`.
+Compares against `facts/facts_all.csv` (type mapping to the minutes' categories in `scripts/facts.py`): precision, recall, type agreement, omissions, fabricated owners/deadlines, and whether evidence spans cover the quoted words. Items are aligned by DeepSeek; the alignment is saved in `results/eval/{run}_{split}.json` for manual spot-checks, and the summary table in `results/eval/summary_{split}.md`.
 
 **6. Error attribution**
 
