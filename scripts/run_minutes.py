@@ -43,6 +43,7 @@ def main():
     ap.add_argument("--source", choices=["asr", "whisper", "ref"], required=True)
     ap.add_argument("--split", choices=list(SPLITS), default=None)
     ap.add_argument("--out", type=Path, default=Path("results/minutes"))
+    ap.add_argument("--no-merge", action="store_true", help="segmented 不合并 ASR 碎句（消融对照）")
     ap.add_argument("--model", default=None, help="整理用的模型，默认 DeepSeek；非默认模型输出目录加 _模型名 后缀")
     args = ap.parse_args()
     clips = args.clips or SPLITS[args.split or "dev"]
@@ -54,7 +55,7 @@ def main():
     for clip in clips:
         sents = load_sentences(clip, args.source)
         if args.method == "segmented":
-            res = minutes.extract_segmented(sents, model=model)
+            res = minutes.extract_segmented(sents, model=model, merge=not args.no_merge)
         else:
             res = minutes.extract_baseline(sents, model=model)
         res["clip"], res["source"] = clip, args.source

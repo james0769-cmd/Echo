@@ -1,0 +1,525 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0,
+  "merge": false,
+  "sentences_raw": 112,
+  "sentences_used": 112
+ },
+ "items": [
+  {
+   "topic": "盲盒合作商推进",
+   "type": "待办",
+   "content": "找供货商、整理成列表，然后挨个去推一下",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S001",
+    "S002",
+    "S003",
+    "S004"
+   ],
+   "evidence_start": 0.05,
+   "evidence_end": 7.61,
+   "evidence_spans": [
+    {
+     "id": "S001",
+     "start": 0.05,
+     "end": 1.77
+    },
+    {
+     "id": "S002",
+     "start": 2.03,
+     "end": 4.91
+    },
+    {
+     "id": "S003",
+     "start": 4.91,
+     "end": 7.13
+    },
+    {
+     "id": "S004",
+     "start": 7.13,
+     "end": 7.61
+    }
+   ],
+   "evidence_text": "找咱们几咱们的一些个供货商，；那一个呃这个把这个列表，；然后挨个去推一下，；找找这个。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "品牌广告投放",
+   "type": "待确认",
+   "content": "提议做公交、电梯、地铁等广告，并结合盲盒及其中固定内容作为品牌形象推出，需再多方面了解",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S006",
+    "S007",
+    "S008",
+    "S012"
+   ],
+   "evidence_start": 8.87,
+   "evidence_end": 28.81,
+   "evidence_spans": [
+    {
+     "id": "S006",
+     "start": 8.87,
+     "end": 10.99
+    },
+    {
+     "id": "S007",
+     "start": 10.99,
+     "end": 13.07
+    },
+    {
+     "id": "S008",
+     "start": 13.49,
+     "end": 17.17
+    },
+    {
+     "id": "S012",
+     "start": 26.27,
+     "end": 28.81
+    }
+   ],
+   "evidence_text": "我觉得其实就可以做一个价广告，；像什么公交广告、电梯广告之类的，；然后还有地铁广告什么什么就是它的那个那个品牌形象。；可以可以再去多方面的去了解一下。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "盲盒合作商推进",
+   "type": "待办",
+   "content": "敲定盲盒合作商，比较价格并让对方出报价方案给到咱们",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S017",
+    "S018",
+    "S019",
+    "S023"
+   ],
+   "evidence_start": 34.31,
+   "evidence_end": 49.39,
+   "evidence_spans": [
+    {
+     "id": "S017",
+     "start": 34.31,
+     "end": 37.49
+    },
+    {
+     "id": "S018",
+     "start": 37.49,
+     "end": 39.09
+    },
+    {
+     "id": "S019",
+     "start": 39.09,
+     "end": 43.53
+    },
+    {
+     "id": "S023",
+     "start": 46.61,
+     "end": 49.39
+    }
+   ],
+   "evidence_text": "首先这个刚才说的这个合作商这一块，；就咱们做盲盒合作商这一块啊，；然后后这这个让你去敲定一下，；然后越出来做出方案来给到咱们啊，",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "盲盒合作商推进",
+   "type": "待确认",
+   "content": "报价越便宜越好，但也要保证质量，不能只看低价导致赠品客户看不上",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S024",
+    "S025",
+    "S026",
+    "S028"
+   ],
+   "evidence_start": 49.59,
+   "evidence_end": 59.725,
+   "evidence_spans": [
+    {
+     "id": "S024",
+     "start": 49.59,
+     "end": 52.53
+    },
+    {
+     "id": "S025",
+     "start": 52.81,
+     "end": 54.75
+    },
+    {
+     "id": "S026",
+     "start": 54.75,
+     "end": 56.31
+    },
+    {
+     "id": "S028",
+     "start": 57.81,
+     "end": 59.725
+    }
+   ],
+   "evidence_text": "当然是越便宜越好为公司考虑咱们这个精神的问题。；然后但大家也要保证质量吧，；我觉得也不能说越便宜越好，；你送的东西完了大家看不上。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "盲盒合作商推进",
+   "type": "待确认",
+   "content": "提议谈专属给咱们这个地方的限量款，并多找几家品牌口碑好、大家欢迎的盲盒公司",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S031",
+    "S033",
+    "S035",
+    "S041"
+   ],
+   "evidence_start": 62.02,
+   "evidence_end": 92.11,
+   "evidence_spans": [
+    {
+     "id": "S031",
+     "start": 62.02,
+     "end": 64.18
+    },
+    {
+     "id": "S033",
+     "start": 67.52,
+     "end": 68.88
+    },
+    {
+     "id": "S035",
+     "start": 71.26,
+     "end": 74.94
+    },
+    {
+     "id": "S041",
+     "start": 85.98,
+     "end": 92.11
+    }
+   ],
+   "evidence_text": "就感觉你这个其实我觉得可以谈一些，；这样他又显得很限量，；然后多加多找几个找几个品牌口碑好一点。；然后还可以找一些就是大家比较欢受比较受大家欢欢迎的这种嗯嗯做盲盒的公司嘛。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "手机颜色设计",
+   "type": "待确认",
+   "content": "提议找比较好一点的设计方，但担心专门设计成本会很高",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S036",
+    "S038",
+    "S039",
+    "S040"
+   ],
+   "evidence_start": 74.94,
+   "evidence_end": 85.98,
+   "evidence_spans": [
+    {
+     "id": "S036",
+     "start": 74.94,
+     "end": 79.18
+    },
+    {
+     "id": "S038",
+     "start": 79.54,
+     "end": 81.26
+    },
+    {
+     "id": "S039",
+     "start": 81.26,
+     "end": 83.075
+    },
+    {
+     "id": "S040",
+     "start": 83.46,
+     "end": 85.98
+    }
+   ],
+   "evidence_text": "我觉得还是要找一个比较好一点的设计的地方吧。；但是我觉得要专门设计的话，；然后会不会成本就会很高。；因为现在只要是一牵扯到设计这方面的人员，",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "盲盒合作商推进",
+   "type": "待办",
+   "content": "先定大方向并先做一部分看成品，不限于某一供应商，需派人落实并多方面确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S044",
+    "S047",
+    "S049",
+    "S050"
+   ],
+   "evidence_start": 94.56,
+   "evidence_end": 109.735,
+   "evidence_spans": [
+    {
+     "id": "S044",
+     "start": 94.56,
+     "end": 96.54
+    },
+    {
+     "id": "S047",
+     "start": 101.62,
+     "end": 104.675
+    },
+    {
+     "id": "S049",
+     "start": 105.25,
+     "end": 107.67
+    },
+    {
+     "id": "S050",
+     "start": 107.67,
+     "end": 109.735
+    }
+   ],
+   "evidence_text": "只能就是把大方定下来啊，；可以说从天上来不不一定非找某一个供应商。；这个到时候派人去去落实一下，；然后多方面去确定一下。",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "手机颜色设计",
+   "type": "待办",
+   "content": "市场部/销售查看主打颜色和主推意向，后续据此主推并做品牌广告宣传。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S051",
+    "S053",
+    "S054",
+    "S056"
+   ],
+   "evidence_start": 110.25,
+   "evidence_end": 127.93,
+   "evidence_spans": [
+    {
+     "id": "S051",
+     "start": 110.25,
+     "end": 115.38
+    },
+    {
+     "id": "S053",
+     "start": 116.02,
+     "end": 119.595
+    },
+    {
+     "id": "S054",
+     "start": 119.97,
+     "end": 122.99
+    },
+    {
+     "id": "S056",
+     "start": 126.39,
+     "end": 127.93
+    }
+   ],
+   "evidence_text": "然后色彩产产品产品策策略那边跟这个市场跟这个呃销售这一块儿啊，；然后去看一下就是颜颜色的一个主主打颜色，；然后包括看他们一个出主推意向是什么。；就做一这个品牌广告，",
+   "speaker": "",
+   "flags": [],
+   "id": "m08"
+  },
+  {
+   "topic": "手机颜色设计",
+   "type": "待确认",
+   "content": "颜色选择需覆盖更大年龄段，具体怎样选尚未确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S060",
+    "S061"
+   ],
+   "evidence_start": 130.49,
+   "evidence_end": 137.83,
+   "evidence_spans": [
+    {
+     "id": "S060",
+     "start": 130.49,
+     "end": 134.29
+    },
+    {
+     "id": "S061",
+     "start": 134.29,
+     "end": 137.83
+    }
+   ],
+   "evidence_text": "刚才我们讲到说叫啊年这个年龄段跨度要大一些。；然后咱们看一下就是怎样去选啊。",
+   "speaker": "",
+   "flags": [],
+   "id": "m09"
+  },
+  {
+   "topic": "手机颜色设计",
+   "type": "待确认",
+   "content": "外观颜色有提议参考其他手机厂商并偏稳重，同时考虑找学美学/美术的人设计，尚未确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S062",
+    "S063",
+    "S070",
+    "S071"
+   ],
+   "evidence_start": 137.83,
+   "evidence_end": 158.35,
+   "evidence_spans": [
+    {
+     "id": "S062",
+     "start": 137.83,
+     "end": 143.61
+    },
+    {
+     "id": "S063",
+     "start": 143.61,
+     "end": 145.19
+    },
+    {
+     "id": "S070",
+     "start": 154.07,
+     "end": 157.13
+    },
+    {
+     "id": "S071",
+     "start": 157.25,
+     "end": 158.35
+    }
+   ],
+   "evidence_text": "现在有没有说特重的颜色颜色我感觉可以外观就呀有相当于其他手机厂商的就参考，；觉的颜色可以稳重一点，；然后这样我感觉这个颜色可以找那种专门学美学的，；学美术的多多找。",
+   "speaker": "",
+   "flags": [],
+   "id": "m10"
+  },
+  {
+   "topic": "手机颜色设计",
+   "type": "待确认",
+   "content": "讨论颜色选纯色还是结合logo/形象走更时尚的炫彩方案，尚未确定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S097",
+    "S098",
+    "S100",
+    "S112"
+   ],
+   "evidence_start": 199.07,
+   "evidence_end": 236.045,
+   "evidence_spans": [
+    {
+     "id": "S097",
+     "start": 199.07,
+     "end": 201.09
+    },
+    {
+     "id": "S098",
+     "start": 201.09,
+     "end": 204.29
+    },
+    {
+     "id": "S100",
+     "start": 205.85,
+     "end": 208.23
+    },
+    {
+     "id": "S112",
+     "start": 232.96,
+     "end": 236.045
+    }
+   ],
+   "evidence_text": "然后现在颜色咱们是准备选纯色，；还是根据咱们的那个一些logo啊，；年轻什么样的颜色颜色我感觉更加时尚。；像咱们那刚才说的有纯色炫彩一些是吧？",
+   "speaker": "",
+   "flags": [],
+   "id": "m11"
+  },
+  {
+   "topic": "手机颜色设计",
+   "type": "待确认",
+   "content": "讨论一款手机至少需要五种以上颜色、其他厂商常有五六种可选，但颜色越多是否显得廉价还需再定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S101",
+    "S102",
+    "S105",
+    "S108"
+   ],
+   "evidence_start": 208.23,
+   "evidence_end": 226.01,
+   "evidence_spans": [
+    {
+     "id": "S101",
+     "start": 208.23,
+     "end": 210.13
+    },
+    {
+     "id": "S102",
+     "start": 210.13,
+     "end": 213.57
+    },
+    {
+     "id": "S105",
+     "start": 217.15,
+     "end": 218.585
+    },
+    {
+     "id": "S108",
+     "start": 220.9,
+     "end": 226.01
+    }
+   ],
+   "evidence_text": "一款手机至少得有五种以上颜色，；要不然选择选择面太窄了啊。；至少有五六种颜色可以选。；会不会它就是显得咱们这个嗯嗯比较比较廉价一些，",
+   "speaker": "",
+   "flags": [],
+   "id": "m12"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 3369,
+  "completion_tokens": 12488
+ },
+ "elapsed": 0.0,
+ "clip": "clip02",
+ "source": "asr"
+}

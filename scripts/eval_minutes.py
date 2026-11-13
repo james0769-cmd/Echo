@@ -1,10 +1,13 @@
-"""用人工事实表评测生成的纪要。
+"""用人工事实表（facts/facts_all.csv，类型口径见 scripts/facts.py）评测生成的纪要。
 
 条目对齐：同一片段内，由 DeepSeek 只看"内容"一句话判断预测条目和标准条目是否说的是同一件事
 （一对一）。对齐结果写进 results/eval/{run}.json，供人工抽查；对齐之后的统计全部由程序计算：
-  - 精确率 / 召回率（全部条目，以及只看 决定+待办）
+  - 精确率：对上任意标准条目（含"信息"类）的预测 / 全部预测
+  - 召回率：分母不含"信息"类；重要条目 = 决定+共识+待办，另报只看 决定+待办 的严格口径
   - 类型一致率；遗漏（未对上的标准条目）；未对上的预测条目（疑似虚构，需人工判定）
-  - 错误归属：标准为"未知"而预测给出了负责人/截止日期（segmented 另报 guard 之前的原始数）
+  - 错误归属：虚构 = 标准为未知、预测给了值且原话里找不到（segmented 另报 guard 之前的原始数）；
+    张冠李戴 = 标准有明确 SPK 而预测写了另一个 SPK；漏报 = 标准有明确值而预测写未知
+    （虚构判定是启发式的，命中条目在明细 json 的 flags 里，需人工抽查）
   - 证据：预测时间段能否覆盖标准原话（原话片段在 ref 句内按字位置插值定位，容差 1 秒）
 
 用法：
@@ -21,10 +24,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from echotrace import evidence, llm  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import facts as factlib  # noqa: E402
+from facts import KEY_GOLD, KEY_GOLD_STRICT, SCORED, TYPE_OK, known, spk, supported  # noqa: E402
 from run_minutes import DATA, SPLITS  # noqa: E402
 
-FACTS = DATA / "facts" / "fact_table.json"
-KEY_TYPES = ("决定", "待办")
+KEY_TYPES = ("决定", "待办")  # 预测侧的重要类型
 TOL = 1.0
 JUDGE_MODEL = llm.DEFAULT_MODEL
 
@@ -34,10 +38,6 @@ JUDGE_SYSTEM = """你在核对会议纪要。给你同一段会议的两组条�
 - 一个 P 只能配一个 G，一个 G 只能配一个 P；同一件事有多条时选最贴近的那条；
 - 说的是不同的事就不要配对。
 输出 JSON 对象：{"matches": [{"gold": "G1", "pred": "P3"}, ...]}"""
-
-
-def known(v) -> bool:
-    return bool(v) and str(v).strip() != "未知" and str(v).strip().lower() != "none"
 
 
 def judge(gold: list[dict], pred: list[dict]) -> list[tuple[int, int]]:
@@ -74,24 +74,26 @@ def ratio(a, b):
 
 
 def eval_run(run: str, clips: list[str], gold_all: list[dict], root: Path) -> dict:
-    c = dict(gold=0, pred=0, match=0, key_gold=0, key_gold_hit=0, key_pred=0, key_pred_hit=0,
-             type_ok=0, resp_fab=0, dl_fab=0, resp_fab_raw=0, dl_fab_raw=0, resp_known_pred=0,
+    c = dict(gold=0, pred=0, match=0, match_scored=0, match_info=0, key_gold=0, key_gold_hit=0,
+             strict_gold=0, strict_gold_hit=0, key_pred=0, key_pred_hit=0,
+             type_ok=0, resp_fab=0, dl_fab=0, resp_fab_raw=0, dl_fab_raw=0, resp_wrong=0, resp_miss=0, dl_miss=0, resp_known_pred=0,
              pieces=0, pieces_cov=0, items_any_cov=0, no_span=0)
     spans, detail = [], []
     elapsed, tokens = 0.0, 0
     for clip in clips:
         res = json.loads((root / run / f"{clip}.json").read_text(encoding="utf-8"))
         pred = res["items"]
-        gold = [g for g in gold_all if g["id"].startswith(clip + "-")]
+        gold = [g for g in gold_all if g["clip"] == clip]
         ref = sorted(json.loads((DATA / "ref" / f"{clip}.json").read_text(encoding="utf-8")), key=lambda r: r["start"])
         pairs = judge(gold, pred)
         elapsed += res["elapsed"]
         tokens += res["usage"]["prompt_tokens"] + res["usage"]["completion_tokens"]
 
-        c["gold"] += len(gold)
+        c["gold"] += sum(g["type"] in SCORED for g in gold)
         c["pred"] += len(pred)
         c["match"] += len(pairs)
-        c["key_gold"] += sum(g["type"] in KEY_TYPES for g in gold)
+        c["key_gold"] += sum(g["type"] in KEY_GOLD for g in gold)
+        c["strict_gold"] += sum(g["type"] in KEY_GOLD_STRICT for g in gold)
         c["key_pred"] += sum(p["type"] in KEY_TYPES for p in pred)
         c["no_span"] += sum(p["evidence_start"] is None for p in pred)
         c["resp_known_pred"] += sum(known(p["responsible"]) for p in pred)
@@ -102,35 +104,47 @@ def eval_run(run: str, clips: list[str], gold_all: list[dict], root: Path) -> di
             g, p = gold[gi], pred[pi]
             matched_g.add(gi)
             matched_p.add(pi)
-            c["key_gold_hit"] += g["type"] in KEY_TYPES
             c["key_pred_hit"] += p["type"] in KEY_TYPES
-            c["type_ok"] += g["type"] == p["type"]
-            # 错误归属：标准里没有说，预测却给了
-            if not known(g["responsible"]) and known(p["responsible"]):
-                c["resp_fab"] += 1
-            if g["deadline"] == "未知" and known(p["deadline"]):
-                c["dl_fab"] += 1
-            if not known(g["responsible"]) and known(p.get("raw_responsible")):
-                c["resp_fab_raw"] += 1
-            if g["deadline"] == "未知" and known(p.get("raw_deadline")):
-                c["dl_fab_raw"] += 1
+            if g["type"] == "信息":
+                c["match_info"] += 1
+            else:
+                c["match_scored"] += 1
+                c["key_gold_hit"] += g["type"] in KEY_GOLD
+                c["strict_gold_hit"] += g["type"] in KEY_GOLD_STRICT
+                c["type_ok"] += p["type"] in TYPE_OK[g["type"]]
+            # 错误归属。虚构：标准为未知，预测给了值且原话里找不到（照抄"到时候""下周"这类原话不算）；
+            # 张冠李戴：标准有明确 SPK，预测写了另一个 SPK；漏报：标准有明确值，预测写未知
+            def fab(field, v):  # 信息类不计分，也不计虚构
+                return g["type"] != "信息" and not known(g[field]) and known(v) and not supported(v, g)
+            flags = [f"虚构{n}" for n, fd, v in (("负责人", "responsible", p["responsible"]), ("截止", "deadline", p["deadline"]))
+                     if fab(fd, v)]
+            c["resp_fab"] += fab("responsible", p["responsible"])
+            c["dl_fab"] += fab("deadline", p["deadline"])
+            c["resp_fab_raw"] += fab("responsible", p.get("raw_responsible"))
+            c["dl_fab_raw"] += fab("deadline", p.get("raw_deadline"))
+            c["resp_wrong"] += bool(spk(g["responsible"]) and spk(p["responsible"]) - spk(g["responsible"]))
+            c["resp_miss"] += known(g["responsible"]) and not known(p["responsible"])
+            c["dl_miss"] += known(g["deadline"]) and not known(p["deadline"])
             gp = gold_pieces(g, ref)
             cov = [covered(s, p) for s in gp]
-            c["pieces"] += len(cov)
-            c["pieces_cov"] += sum(cov)
-            c["items_any_cov"] += any(cov)
+            if g["type"] != "信息":
+                c["pieces"] += len(cov)
+                c["pieces_cov"] += sum(cov)
+                c["items_any_cov"] += any(cov)
             rows.append({
                 "gold": g["id"], "pred": p["id"], "gold_type": g["type"], "pred_type": p["type"],
                 "gold_content": g["content"], "pred_content": p["content"],
                 "pred_span": [p["evidence_start"], p["evidence_end"]],
                 "gold_pieces_covered": f"{sum(cov)}/{len(cov)}",
+                "flags": flags,
+                "gold_responsible": g["responsible"], "gold_deadline": g["deadline"],
                 "pred_responsible": p["responsible"], "pred_deadline": p["deadline"],
             })
         detail.append({
             "clip": clip,
             "matches": rows,
             "missed_gold": [{"id": gold[i]["id"], "type": gold[i]["type"], "content": gold[i]["content"]}
-                            for i in range(len(gold)) if i not in matched_g],
+                            for i in range(len(gold)) if i not in matched_g and gold[i]["type"] in SCORED],
             "unmatched_pred": [{"id": pred[i]["id"], "type": pred[i]["type"], "content": pred[i]["content"],
                                 "evidence_text": pred[i]["evidence_text"]}
                                for i in range(len(pred)) if i not in matched_p],
@@ -139,21 +153,26 @@ def eval_run(run: str, clips: list[str], gold_all: list[dict], root: Path) -> di
     summary = {
         "run": run,
         "clips": clips,
-        "n_gold": c["gold"], "n_pred": c["pred"], "n_match": c["match"],
+        "n_gold": c["gold"], "n_pred": c["pred"], "n_match": c["match"], "n_key_gold": c["key_gold"],
         "precision": ratio(c["match"], c["pred"]),
-        "recall": ratio(c["match"], c["gold"]),
+        "recall": ratio(c["match_scored"], c["gold"]),
         "key_precision": ratio(c["key_pred_hit"], c["key_pred"]),
         "key_recall": ratio(c["key_gold_hit"], c["key_gold"]),
-        "type_agreement": ratio(c["type_ok"], c["match"]),
-        "missed": c["gold"] - c["match"],
+        "strict_key_recall": ratio(c["strict_gold_hit"], c["strict_gold"]),
+        "matched_info": c["match_info"],
+        "type_agreement": ratio(c["type_ok"], c["match_scored"]),
+        "missed": c["gold"] - c["match_scored"],
         "unmatched_pred": c["pred"] - c["match"],
         "responsible_fabricated": c["resp_fab"],
+        "responsible_wrong": c["resp_wrong"],
+        "responsible_missed": c["resp_miss"],
+        "deadline_missed": c["dl_miss"],
         "deadline_fabricated": c["dl_fab"],
         "responsible_fabricated_before_guard": c["resp_fab_raw"],
         "deadline_fabricated_before_guard": c["dl_fab_raw"],
         "pred_without_span": c["no_span"],
         "gold_piece_coverage": ratio(c["pieces_cov"], c["pieces"]),
-        "matched_items_with_evidence": ratio(c["items_any_cov"], c["match"]),
+        "matched_items_with_evidence": ratio(c["items_any_cov"], c["match_scored"]),
         "median_span_s": round(statistics.median(spans), 1) if spans else None,
         "llm_elapsed_s": round(elapsed, 1),
         "llm_tokens": tokens,
@@ -163,9 +182,12 @@ def eval_run(run: str, clips: list[str], gold_all: list[dict], root: Path) -> di
 
 COLS = [
     ("precision", "精确率"), ("recall", "召回率"), ("key_precision", "决定+待办 精确率"),
-    ("key_recall", "决定+待办 召回率"), ("type_agreement", "类型一致"), ("missed", "遗漏"),
+    ("key_recall", "决定+共识+待办 召回率"), ("strict_key_recall", "决定+待办 召回率(严格)"),
+    ("type_agreement", "类型一致"), ("missed", "遗漏"), ("matched_info", "对上信息类"),
     ("unmatched_pred", "未对上的预测"), ("responsible_fabricated", "虚构负责人"),
+    ("responsible_wrong", "负责人张冠李戴"), ("responsible_missed", "负责人漏报"),
     ("deadline_fabricated", "虚构截止"), ("deadline_fabricated_before_guard", "虚构截止(guard前)"),
+    ("deadline_missed", "截止漏报"),
     ("pred_without_span", "无时间段"), ("gold_piece_coverage", "原话片段覆盖率"),
     ("matched_items_with_evidence", "对上条目含原话"), ("median_span_s", "时间段中位长度(s)"),
     ("llm_tokens", "tokens"),
@@ -184,7 +206,7 @@ def main():
     global JUDGE_MODEL
     JUDGE_MODEL = args.judge_model
     clips = SPLITS[args.split]
-    gold = [f for f in json.loads(FACTS.read_text(encoding="utf-8"))["facts"] if f["status"] != "rejected"]
+    gold = factlib.load()
     args.out.mkdir(parents=True, exist_ok=True)
     summaries = []
     for run in args.runs:
@@ -193,7 +215,8 @@ def main():
         summaries.append(r["summary"])
 
     lines = [f"# 纪要评测（{args.split}: {', '.join(clips)}）", "",
-             f"标准条目 {summaries[0]['n_gold']} 条（不含 rejected）。对齐由 DeepSeek 判断，明细见同目录 json。", "",
+             f"标准事实表 facts_all.csv：计分条目 {summaries[0]['n_gold']} 条（不含信息类），其中决定+共识+待办 "
+             f"{summaries[0]['n_key_gold']} 条。类型口径见 scripts/facts.py；对齐模型 {JUDGE_MODEL}，明细见同目录 json。", "",
              "| 指标 | " + " | ".join(s["run"] for s in summaries) + " |",
              "|---|" + "---|" * len(summaries)]
     lines.append("| 预测条数 | " + " | ".join(str(s["n_pred"]) for s in summaries) + " |")

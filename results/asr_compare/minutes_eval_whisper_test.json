@@ -8,23 +8,29 @@
    "clip09",
    "clip10"
   ],
-  "n_gold": 30,
+  "n_gold": 21,
   "n_pred": 34,
-  "n_match": 25,
-  "precision": 0.735,
-  "recall": 0.833,
+  "n_match": 28,
+  "n_key_gold": 12,
+  "precision": 0.824,
+  "recall": 0.905,
   "key_precision": 0.769,
-  "key_recall": 0.895,
-  "type_agreement": 0.44,
-  "missed": 5,
-  "unmatched_pred": 9,
+  "key_recall": 0.917,
+  "strict_key_recall": 1.0,
+  "matched_info": 9,
+  "type_agreement": 0.789,
+  "missed": 2,
+  "unmatched_pred": 6,
   "responsible_fabricated": 0,
-  "deadline_fabricated": 1,
+  "responsible_wrong": 0,
+  "responsible_missed": 1,
+  "deadline_missed": 1,
+  "deadline_fabricated": 0,
   "responsible_fabricated_before_guard": 0,
-  "deadline_fabricated_before_guard": 1,
+  "deadline_fabricated_before_guard": 0,
   "pred_without_span": 0,
-  "gold_piece_coverage": 0.581,
-  "matched_items_with_evidence": 0.76,
+  "gold_piece_coverage": 0.608,
+  "matched_items_with_evidence": 1.0,
   "median_span_s": 10.6,
   "llm_elapsed_s": 354.1,
   "llm_tokens": 69322
@@ -33,134 +39,147 @@
   {
    "clip": "clip06",
    "matches": [],
-   "missed_gold": [
-    {
-     "id": "clip06-f01",
-     "type": "待确认",
-     "content": "主播带货可能帮助用户减少挑选商品和比较质量的时间，但前提是用户信任主播。"
-    },
-    {
-     "id": "clip06-f02",
-     "type": "待确认",
-     "content": "平台会依据用户兴趣进行较多相关推荐，这可能提高相关内容的触达，也可能造成内容重复和厌烦。"
-    },
-    {
-     "id": "clip06-f03",
-     "type": "待确认",
-     "content": "中老年用户较多接触生活类内容，讨论中提出其中存在伪科普，需要用户自行辨别。"
-    }
-   ],
+   "missed_gold": [],
    "unmatched_pred": []
   },
   {
    "clip": "clip07",
    "matches": [
     {
-     "gold": "clip07-f02",
+     "gold": "clip07-f01",
      "pred": "m01",
-     "gold_type": "决定",
+     "gold_type": "信息",
      "pred_type": "待确认",
-     "gold_content": "餐饮企业需要引入电子商务。",
+     "gold_content": "行业判断：连锁化、集团化是餐饮业发展的主流，引入电子商务势在必行",
      "pred_content": "餐饮业引入电子商务势在必行，可与餐饮业结合以提升发展",
      "pred_span": [
       30.22,
       47.98
      ],
-     "gold_pieces_covered": "1/1",
+     "gold_pieces_covered": "1/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip07-f03",
      "pred": "m02",
-     "gold_type": "决定",
+     "gold_type": "共识",
      "pred_type": "待确认",
-     "gold_content": "需要为餐饮企业树立良好的品牌形象。",
+     "gold_content": "要为企业品牌树立良好形象",
      "pred_content": "需要为餐饮企业品牌树立良好形象",
      "pred_span": [
       66.36,
       72.4
      ],
      "gold_pieces_covered": "1/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip07-f04",
      "pred": "m03",
-     "gold_type": "决定",
+     "gold_type": "共识",
      "pred_type": "待确认",
-     "gold_content": "餐饮经营需要重视科学化、营养化和标准化。",
+     "gold_content": "餐饮要科学化、营养化、标准化",
      "pred_content": "餐饮业要科学化营养化，并注重标准化",
      "pred_span": [
       78.16,
       91.06
      ],
-     "gold_pieces_covered": "2/2",
+     "gold_pieces_covered": "1/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip07-f05",
      "pred": "m04",
-     "gold_type": "决定",
+     "gold_type": "信息",
      "pred_type": "待确认",
-     "gold_content": "计划招聘运营副总、营销部经理、市场部经理和物流部经理。",
+     "gold_content": "本次招聘岗位：运营副总、营销部经理、市场部经理、物流部经理",
      "pred_content": "拟招聘运营副总、营销部经理、市场部经理、物流部经理",
      "pred_span": [
       161.52,
       170.6
      ],
      "gold_pieces_covered": "1/1",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip07-f06",
      "pred": "m05",
-     "gold_type": "决定",
+     "gold_type": "信息",
      "pred_type": "待确认",
-     "gold_content": "上述招聘岗位的学历要求为大专或以上。",
+     "gold_content": "学历要求：大专及以上",
      "pred_content": "招聘学历要求为大专以上",
      "pred_span": [
       172.44,
       181.62
      ],
      "gold_pieces_covered": "1/1",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip07-f07",
-     "pred": "m07",
-     "gold_type": "待确认",
+     "pred": "m06",
+     "gold_type": "信息",
      "pred_type": "待确认",
-     "gold_content": "运营副总的候选条件包括亲和力、应变能力、交谈能力、认真细心、学习能力、执行力、主动性和团队意识等。",
+     "gold_content": "运营副总的岗位职责：管理和追踪各门店的日常运营，完成经营指标，督导门店整改，及时反馈并分析市场信息",
+     "pred_content": "已提出运营副总负责管理追踪各门店日常运营及结果、完成经营管理指标等职责，有人表示不错但未最终确认。",
+     "pred_span": [
+      188.44,
+      220.44
+     ],
+     "gold_pieces_covered": "2/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
+     "pred_responsible": "未知",
+     "pred_deadline": "未知"
+    },
+    {
+     "gold": "clip07-f08",
+     "pred": "m07",
+     "gold_type": "提议",
+     "pred_type": "待确认",
+     "gold_content": "运营副总的任职条件：有亲和力，应变和沟通能力好，认真细心，善于学习，执行力强，有团队意识和进取心",
      "pred_content": "已提出招聘条件包括亲和力、应变与交谈能力、认真细心、学习力强、积极主动、团队意识和进取心，尚未确认。",
      "pred_span": [
       220.44,
       237.7
      ],
-     "gold_pieces_covered": "1/1",
+     "gold_pieces_covered": "2/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     }
    ],
    "missed_gold": [
     {
-     "id": "clip07-f01",
-     "type": "决定",
-     "content": "企业发展方向应包含连锁化、集团化和现代化。"
+     "id": "clip07-f02",
+     "type": "共识",
+     "content": "本企业也要向连锁化、现代化方向转变"
     }
    ],
-   "unmatched_pred": [
-    {
-     "id": "m06",
-     "type": "待确认",
-     "content": "已提出运营副总负责管理追踪各门店日常运营及结果、完成经营管理指标等职责，有人表示不错但未最终确认。",
-     "evidence_text": "他的工作职责的话 运营副总主要负责管理跟追踪各门店的日常运营的管理工作及结果；完成各门店的各项经营管理指标；你们觉得呢；我觉得不错的"
-    }
-   ]
+   "unmatched_pred": []
   },
   {
    "clip": "clip08",
@@ -168,108 +187,132 @@
     {
      "gold": "clip08-f01",
      "pred": "m01",
-     "gold_type": "待办",
+     "gold_type": "信息",
      "pred_type": "待办",
-     "gold_content": "员工即将转正前约一周开始收集资料并提交。",
+     "gold_content": "社保在员工转正后的下个月开始缴纳；转正前约一周开始收集并提交资料",
      "pred_content": "新员工转正前一周左右收集并提交资料，转正后下个月开始购买。",
      "pred_span": [
       0.9,
       15.32
      ],
-     "gold_pieces_covered": "1/1",
+     "gold_pieces_covered": "2/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip08-f02",
      "pred": "m02",
-     "gold_type": "决定",
+     "gold_type": "信息",
      "pred_type": "待确认",
-     "gold_content": "当前已交资料约27至28人，预计需要招聘40人。",
+     "gold_content": "目前已招约 27–28 人，计划共招 40 人",
      "pred_content": "目前约招27至28人，预计招聘总数为40人。",
      "pred_span": [
       21.24,
       29.34
      ],
      "gold_pieces_covered": "2/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip08-f03",
      "pred": "m03",
-     "gold_type": "待办",
+     "gold_type": "信息",
      "pred_type": "待确认",
-     "gold_content": "后期可能还需要增加约2至3名店铺管理人员。",
+     "gold_content": "店铺管理层后期还要再增加 2–3 人",
      "pred_content": "后期可能还需增加2到3名店铺管理层。",
      "pred_span": [
       29.62,
       38.86
      ],
      "gold_pieces_covered": "1/1",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "后期，具体日期未知"
     },
     {
      "gold": "clip08-f06",
-     "pred": "m05",
-     "gold_type": "待确认",
+     "pred": "m04",
+     "gold_type": "提议",
      "pred_type": "待确认",
-     "gold_content": "住房公积金是否购买、何时购买仍需结合公司计划和员工稳定性进一步确定。",
-     "pred_content": "有人提议员工转正（约三个月）后稳定一段时间再为其购买公积金，理由是新员工流动性较大，但未最终拍板",
+     "gold_content": "新员工以年轻人为主，应聘时提到了公积金，建议公司考虑缴纳",
+     "pred_content": "新进员工以年轻人为主，可能对住房公积金有需求。",
      "pred_span": [
-      103.38,
-      117.9
+      82.34,
+      93.88
      ],
-     "gold_pieces_covered": "0/2",
+     "gold_pieces_covered": "1/3",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip08-f07",
-     "pred": "m06",
-     "gold_type": "待确认",
+     "pred": "m05",
+     "gold_type": "提议",
      "pred_type": "待确认",
-     "gold_content": "讨论提出公司和员工可能各承担6%，合计12%，按约3000元平均工资估算每方约180元。",
+     "gold_content": "公积金在转正后（如三个月转正后）再缴纳，因为人员流动性大",
+     "pred_content": "有人提议员工转正（约三个月）后稳定一段时间再为其购买公积金，理由是新员工流动性较大，但未最终拍板",
+     "pred_span": [
+      103.38,
+      117.9
+     ],
+     "gold_pieces_covered": "2/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
+     "pred_responsible": "未知",
+     "pred_deadline": "未知"
+    },
+    {
+     "gold": "clip08-f09",
+     "pred": "m06",
+     "gold_type": "提议",
+     "pred_type": "待确认",
+     "gold_content": "公积金方案：平均薪资约 3000 元，缴存比例共 12%，公司和个人各 6%，平均每人约 180 元",
      "pred_content": "按员工平均薪资三千左右测算，计划总缴纳比例为百分之十二，企业承担百分之六、员工承担百分之六，双方仍在商量",
      "pred_span": [
       170.12,
       180.36
      ],
-     "gold_pieces_covered": "1/3",
+     "gold_pieces_covered": "2/4",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
-     "gold": "clip08-f08",
+     "gold": "clip08-f10",
      "pred": "m07",
      "gold_type": "待办",
      "pred_type": "待确认",
-     "gold_content": "需要进一步了解单位代缴情况下的医保报销和生育相关资料流程。",
+     "gold_content": "提前了解员工医保报销（含女员工生育）是否需要经过公司",
      "pred_content": "员工就医后的报销是否需通过公司提交资料尚未明确，一方说不用找公司、员工自己去医院办理，另一方又提出单位代买的可能仍需把资料交给公司。",
      "pred_span": [
       197.52,
       232.88
      ],
-     "gold_pieces_covered": "0/1",
+     "gold_pieces_covered": "2/3",
+     "flags": [],
+     "gold_responsible": "未指定",
+     "gold_deadline": "未定",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     }
    ],
-   "missed_gold": [
-    {
-     "id": "clip08-f05",
-     "type": "决定",
-     "content": "录音中明确表示男员工也需要购买包含生育险在内的五险。"
-    }
-   ],
+   "missed_gold": [],
    "unmatched_pred": [
-    {
-     "id": "m04",
-     "type": "待确认",
-     "content": "新进员工以年轻人为主，可能对住房公积金有需求。",
-     "evidence_text": "现在因为我们公司新进来的员工的话,；大多都是年轻人比较多一些,；可能在公积金这一块的话,；应该也是比较有所需要的出房公积金。"
-    },
     {
      "id": "m08",
      "type": "待确认",
@@ -282,82 +325,103 @@
    "clip": "clip09",
    "matches": [
     {
-     "gold": "clip09-f01",
+     "gold": "clip09-f02",
      "pred": "m01",
-     "gold_type": "决定",
+     "gold_type": "共识",
      "pred_type": "决定",
-     "gold_content": "活动主题采用“让外国学生更好地了解中国”的方向，SPK8023 表示同意。",
+     "gold_content": "活动主题改为“让你更好地懂我（懂中国）”，让外国学生更好地了解中国",
      "pred_content": "活动主题确定为“让你更好懂中国”。",
      "pred_span": [
       23.16,
       41.38
      ],
-     "gold_pieces_covered": "3/4",
-     "pred_responsible": "未知",
-     "pred_deadline": "未知"
-    },
-    {
-     "gold": "clip09-f02",
-     "pred": "m04",
-     "gold_type": "待确认",
-     "pred_type": "决定",
-     "gold_content": "活动拟安排在下周中秋节，倾向于中秋节晚上举办留学生交流晚会。",
-     "pred_content": "在中秋节晚上举办留学生交流晚会。",
-     "pred_span": [
-      102.32,
-      148.3
-     ],
-     "gold_pieces_covered": "0/3",
+     "gold_pieces_covered": "2/3",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip09-f03",
-     "pred": "m06",
-     "gold_type": "决定",
-     "pred_type": "待办",
-     "gold_content": "活动需要介绍中秋节来历及吃月饼等传统习俗，让留学生了解中国文化。",
-     "pred_content": "在晚会时向留学生介绍中秋节的来历以及吃月饼等习俗。",
+     "pred": "m03",
+     "gold_type": "信息",
+     "pred_type": "决定",
+     "gold_content": "活动在下周举行，下周有中秋节",
+     "pred_content": "活动时间定在中秋节举办，不选周末。",
      "pred_span": [
-      158.42,
-      179.2
+      75.9,
+      83.66
      ],
-     "gold_pieces_covered": "2/2",
+     "gold_pieces_covered": "0/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "下周",
      "pred_responsible": "未知",
-     "pred_deadline": "未知"
+     "pred_deadline": "中秋节，具体日期未知"
     },
     {
      "gold": "clip09-f04",
-     "pred": "m05",
-     "gold_type": "待办",
-     "pred_type": "待确认",
-     "gold_content": "进一步安排能够体现中国文化特色的活动内容。",
-     "pred_content": "晚会要突出中国特色，让留学生感受中国文化。",
+     "pred": "m04",
+     "gold_type": "共识",
+     "pred_type": "决定",
+     "gold_content": "活动安排在中秋节当天晚上，形式为留学生交流晚会",
+     "pred_content": "在中秋节晚上举办留学生交流晚会。",
      "pred_span": [
-      116.98,
-      127.94
+      102.32,
+      148.3
      ],
-     "gold_pieces_covered": "0/1",
+     "gold_pieces_covered": "2/4",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "中秋节（晚上）",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip09-f05",
+     "pred": "m06",
+     "gold_type": "共识",
+     "pred_type": "待办",
+     "gold_content": "晚会上介绍中秋节的来历和吃月饼等习俗",
+     "pred_content": "在晚会时向留学生介绍中秋节的来历以及吃月饼等习俗。",
+     "pred_span": [
+      158.42,
+      179.2
+     ],
+     "gold_pieces_covered": "3/3",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
+     "pred_responsible": "未知",
+     "pred_deadline": "未知"
+    },
+    {
+     "gold": "clip09-f06",
      "pred": "m07",
-     "gold_type": "待确认",
+     "gold_type": "未决",
      "pred_type": "待确认",
-     "gold_content": "地点在学校还是面向校外开放的场地尚未最终确定。",
+     "gold_content": "活动地点：两人都倾向放在学校，但 SPK8024 指出也会有校外的外国人参加",
      "pred_content": "会上讨论留学生交流会的地点，有人提议选在学校更合适，但无人最终拍板。",
      "pred_span": [
       181.28,
       199.0
      ],
-     "gold_pieces_covered": "1/2",
+     "gold_pieces_covered": "1/3",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     }
    ],
-   "missed_gold": [],
+   "missed_gold": [
+    {
+     "id": "clip09-f01",
+     "type": "提议",
+     "content": "活动主题“世界一家亲”"
+    }
+   ],
    "unmatched_pred": [
     {
      "id": "m02",
@@ -366,10 +430,10 @@
      "evidence_text": "但是这个具体,；你是有什么规划的具体,；就是怎么样的一个流程,；你所谓说看看。"
     },
     {
-     "id": "m03",
-     "type": "决定",
-     "content": "活动时间定在中秋节举办，不选周末。",
-     "evidence_text": "那我就不选周末,；就选中秋节,；这样的话要好一些。；中秋节大家都放假嘛,"
+     "id": "m05",
+     "type": "待确认",
+     "content": "晚会要突出中国特色，让留学生感受中国文化。",
+     "evidence_text": "要体现出一个特色什么特色,；就是我们中国,；让就是留学生在中国人体现中国一些文化。"
     }
    ]
   },
@@ -377,122 +441,164 @@
    "clip": "clip10",
    "matches": [
     {
-     "gold": "clip10-f01",
+     "gold": "clip10-f02",
      "pred": "m04",
      "gold_type": "决定",
      "pred_type": "决定",
-     "gold_content": "开幕式地点暂定为双流江家艺苑的大公园草地。",
+     "gold_content": "开幕式地点定在双流区江家艺苑大公园的草地",
      "pred_content": "开幕式定在双流江家医院附近大公园的草地",
      "pred_span": [
       105.44,
       113.36
      ],
-     "gold_pieces_covered": "1/2",
-     "pred_responsible": "未知",
-     "pred_deadline": "未知"
-    },
-    {
-     "gold": "clip10-f02",
-     "pred": "m01",
-     "gold_type": "待确认",
-     "pred_type": "决定",
-     "gold_content": "相比国际大厦方案，讨论更倾向于预算较低的第二种户外场地方案。",
-     "pred_content": "活动场地选择在双流区贴近自然、有大片草地的地方。",
-     "pred_span": [
-      28.26,
-      58.42
-     ],
-     "gold_pieces_covered": "0/2",
-     "pred_responsible": "未知",
-     "pred_deadline": "未知"
-    },
-    {
-     "gold": "clip10-f03",
-     "pred": "m02",
-     "gold_type": "待确认",
-     "pred_type": "待确认",
-     "gold_content": "提出普通报名每人200元、会员先充值500元的方案，但未见最终确认。",
-     "pred_content": "提出会员制方案：初次报名收费200元/人，会员需先充值500元。",
-     "pred_span": [
-      81.2,
-      94.3
-     ],
-     "gold_pieces_covered": "2/2",
+     "gold_pieces_covered": "2/4",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip10-f04",
-     "pred": "m03",
-     "gold_type": "待确认",
-     "pred_type": "决定",
-     "gold_content": "提出牵手成功后赠送双人三亚机票，但录音中未确认执行条件和预算。",
-     "pred_content": "牵手成功可赠送双人机票去三亚",
+     "pred": "m02",
+     "gold_type": "决定",
+     "pred_type": "待确认",
+     "gold_content": "收费和会员制：报名费每人 200 元；会员需先充值 500 元；牵手成功赠送三亚双人机票",
+     "pred_content": "提出会员制方案：初次报名收费200元/人，会员需先充值500元。",
      "pred_span": [
-      94.6,
-      102.66
+      81.2,
+      94.3
      ],
-     "gold_pieces_covered": "1/1",
+     "gold_pieces_covered": "3/5",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip10-f05",
      "pred": "m05",
-     "gold_type": "决定",
+     "gold_type": "信息",
      "pred_type": "待确认",
-     "gold_content": "海报应使用男女模特的浪漫照片，并突出两人之间有感染力的情感氛围。",
+     "gold_content": "海报已请男女模特拍了一组浪漫照片作为封面",
      "pred_content": "建议海报采用男女模特浪漫照片，并体现爱的火花和强感染力",
      "pred_span": [
       126.62,
       151.6
      ],
-     "gold_pieces_covered": "0/2",
+     "gold_pieces_covered": "1/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
      "gold": "clip10-f06",
+     "pred": "m10",
+     "gold_type": "提议",
+     "pred_type": "待确认",
+     "gold_content": "海报要表现出“爱的火花”，感染力要强",
+     "pred_content": "海报设计需有感染力。",
+     "pred_span": [
+      208.54,
+      213.58
+     ],
+     "gold_pieces_covered": "1/3",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
+     "pred_responsible": "未知",
+     "pred_deadline": "未知"
+    },
+    {
+     "gold": "clip10-f07",
      "pred": "m06",
      "gold_type": "待办",
      "pred_type": "待办",
-     "gold_content": "将已拍好的照片发送到对方邮箱，供对方查看并确定认可的照片。",
+     "gold_content": "把已拍好的几组照片发到 SPK8025 的邮箱",
      "pred_content": "把已拍好的照片发送到对方的相关邮件里",
      "pred_span": [
       152.7,
       159.22
      ],
-     "gold_pieces_covered": "1/2",
+     "gold_pieces_covered": "1/1",
+     "flags": [],
+     "gold_responsible": "SPK8026",
+     "gold_deadline": "稍后",
      "pred_responsible": "说话人自述（身份未识别）",
      "pred_deadline": "稍后，具体日期未知"
     },
     {
-     "gold": "clip10-f07",
+     "gold": "clip10-f08",
+     "pred": "m07",
+     "gold_type": "待办",
+     "pred_type": "待办",
+     "gold_content": "从照片中确定最终使用的海报照片",
+     "pred_content": "查看照片并确定最终认可的照片",
+     "pred_span": [
+      158.28,
+      165.78
+     ],
+     "gold_pieces_covered": "1/2",
+     "flags": [],
+     "gold_responsible": "SPK8025",
+     "gold_deadline": "未定",
+     "pred_responsible": "未知",
+     "pred_deadline": "未知"
+    },
+    {
+     "gold": "clip10-f09",
+     "pred": "m08",
+     "gold_type": "提议",
+     "pred_type": "待确认",
+     "gold_content": "活动在晚上草地举行（费用不算太高），参与者可以戴面具",
+     "pred_content": "提议活动可以带面具。",
+     "pred_span": [
+      185.62,
+      187.38
+     ],
+     "gold_pieces_covered": "1/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
+     "pred_responsible": "未知",
+     "pred_deadline": "未知"
+    },
+    {
+     "gold": "clip10-f10",
      "pred": "m11",
-     "gold_type": "决定",
+     "gold_type": "提议",
      "pred_type": "决定",
-     "gold_content": "主持人需要有较强控场力、亲和力和幽默感，并能与大众互动。",
+     "gold_content": "主持人要求：控场能力强，与观众互动有亲和力，幽默",
      "pred_content": "主持人需控场力强、亲和力强且幽默。",
      "pred_span": [
       225.64,
       235.44
      ],
-     "gold_pieces_covered": "1/1",
+     "gold_pieces_covered": "2/2",
+     "flags": [],
+     "gold_responsible": "—",
+     "gold_deadline": "—",
      "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
-     "gold": "clip10-f08",
+     "gold": "clip10-f11",
      "pred": "m12",
      "gold_type": "待办",
      "pred_type": "待办",
-     "gold_content": "SPK8026表示会带有相关经验的主持人来见面确认。",
+     "gold_content": "带主持人来和 SPK8025 见面",
      "pred_content": "带主持人朋友来与对方见面。",
      "pred_span": [
       235.56,
       237.46
      ],
      "gold_pieces_covered": "1/1",
+     "flags": [],
+     "gold_responsible": "SPK8026",
+     "gold_deadline": "未定（“到时候”）",
      "pred_responsible": "说话人自述（身份未识别）",
      "pred_deadline": "到时候，具体日期未知"
     }
@@ -500,28 +606,22 @@
    "missed_gold": [],
    "unmatched_pred": [
     {
-     "id": "m07",
-     "type": "待办",
-     "content": "查看照片并确定最终认可的照片",
-     "evidence_text": "你可以查说一下,；拍了几组照片,；你这边可以确定一下你最终认可的照片,"
+     "id": "m01",
+     "type": "决定",
+     "content": "活动场地选择在双流区贴近自然、有大片草地的地方。",
+     "evidence_text": "但是我有一个想法就是,；它比较贴近大自然那边,；江家医院那边有那种草地,；可以,"
     },
     {
-     "id": "m08",
-     "type": "待确认",
-     "content": "提议活动可以带面具。",
-     "evidence_text": "然后可以带面具,"
+     "id": "m03",
+     "type": "决定",
+     "content": "牵手成功可赠送双人机票去三亚",
+     "evidence_text": "然后最后如果牵手成功的话,；我们这边可以赠送双人机票去三亚的这种。；可以,；这个是可以的。"
     },
     {
      "id": "m09",
      "type": "决定",
      "content": "活动地点为双流区江江医院那边。",
      "evidence_text": "就是说刚刚我们已经聊到了地点嘛,；地点是在这个双流区,；江江医院那边,"
-    },
-    {
-     "id": "m10",
-     "type": "待确认",
-     "content": "海报设计需有感染力。",
-     "evidence_text": "然后的话海报的话就刚刚你说的那种,；只不过说要求的话就是一定要有感染力,"
     }
    ]
   }

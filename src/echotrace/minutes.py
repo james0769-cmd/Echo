@@ -1,8 +1,9 @@
 """从带时间戳的转写生成纪要：决定、待办、待确认事项，每条绑定原句和时间段。
 
 两种方案（对照实验）：
-- segmented（本项目方案）：转写按时长切成短块，句子编号后交给模型；模型只返回句子编号，
-  时间段由程序按编号从转写里取。负责人、截止日期在原话里找不到的，程序强制改回"未知"。
+- segmented（本项目方案）：先把 ASR 切碎的半句并回整句，再按时长切成短块、句子编号后交给模型；
+  模型只返回句子编号，时间段由程序按编号从转写里取。负责人、截止日期在原话里找不到的，程序强制改回"未知"；
+  "说话人自述"只在原话里有本人承诺去做时保留，人工转写带 SPK 时落到具体编号。
 - baseline（对照组）：整段转写不带编号直接交给模型摘要，模型自己写"原话"；
   程序再到转写里模糊查找这句原话，找不到就没有时间段。
 """
@@ -64,6 +65,30 @@ def number_sentences(sentences: list[dict]) -> list[dict]:
     return out
 
 
+def merge_fragments(sentences: list[dict], max_gap: float = 0.3, max_chars: int = 40, max_dur: float = 12.0) -> list[dict]:
+    """把 ASR 切碎的半句并回整句：上一句没有以句末标点结束、两句间隔不超过 max_gap 秒时合并，
+    合并后的句子不超过 max_chars 字、max_dur 秒。时间段取首句开始到末句结束，仍然全部来自转写。
+    带 speaker 的人工转写本身是整句，不做合并。"""
+    out: list[dict] = []
+    for s in sorted(sentences, key=lambda s: (s["start"], s["end"])):
+        if s.get("speaker") is not None:
+            return [dict(x) for x in sorted(sentences, key=lambda s: (s["start"], s["end"]))]
+        prev = out[-1] if out else None
+        if (
+            prev
+            and not re.search(r"[。？！?!]$", prev["text"].strip())
+            and s["start"] - prev["end"] <= max_gap
+            and len(prev["text"]) + len(s["text"]) <= max_chars
+            and s["end"] - prev["start"] <= max_dur
+        ):
+            prev["text"] += s["text"]
+            prev["end"] = max(prev["end"], s["end"])
+            prev["parts"] += 1
+        else:
+            out.append({**s, "parts": 1})
+    return out
+
+
 def chunk(sentences: list[dict], seconds: float = 90.0, context: int = 4) -> list[dict]:
     """按时长切块，每块附带前面 context 句作为上文。"""
     chunks, cur = [], []
@@ -108,9 +133,29 @@ def _is_generic(resp: str) -> bool:
     return bool(parts) and all(p in GENERIC_ROLES for p in parts)
 
 
-def guard_unknown(item: dict, evidence_text: str) -> list[str]:
-    """负责人/截止日期在证据原话里找不到、或负责人只是泛指角色时改回"未知"，返回触发的提示。"""
+# 本人承诺去做："我会把…""我来…""到时候我带他…"；排除"我觉得/我认为"这类观点和"找了"这类已完成的事
+SELF_COMMIT = re.compile(
+    r"我(?![们觉感认想看估是])[^，。；？！,]{0,4}?(来|去|会|负责|把|帮|带|跟|给|发|做|安排|联系|准备|找)(?!了)"
+)
+
+
+def _self_owner(lines: list[dict]) -> str | None:
+    """负责人是"说话人自述"时核对原话：没有本人承诺的句子返回 None；
+    有且说话人唯一（人工转写带 SPK）时返回该编号，否则返回"说话人自述（身份未识别）"。"""
+    hits = [s for s in lines if SELF_COMMIT.search(s["text"])]
+    if not hits:
+        return None
+    spk = {s.get("speaker") for s in hits}
+    if len(spk) == 1 and None not in spk:
+        return f"{spk.pop()}（本人自述）"
+    return "说话人自述（身份未识别）"
+
+
+def guard_unknown(item: dict, evidence_text: str, lines: list[dict] | None = None) -> list[str]:
+    """负责人/截止日期在证据原话里找不到、或负责人只是泛指角色时改回"未知"，返回触发的提示。
+    lines 是证据句（带 speaker 时可把"说话人自述"落到具体 SPK 编号）。"""
     flags = []
+    lines = lines if lines is not None else [{"text": evidence_text}]
     ev = evidence.norm(evidence_text)
     resp = (item.get("responsible") or "未知").strip()
     if resp != "未知" and _is_generic(resp):
@@ -118,12 +163,14 @@ def guard_unknown(item: dict, evidence_text: str) -> list[str]:
         resp = "未知"
     if resp != "未知":
         if "自述" in resp:
-            ok = "我" in evidence_text
-            resp = "说话人自述（身份未识别）"
+            owner = _self_owner(lines)
+            ok = owner is not None
+            resp = owner or resp
         else:
             ok = bool(_core(resp)) and _core(resp) in ev
         if not ok:
-            flags.append(f"负责人“{item.get('responsible')}”在原话中找不到，已改为未知")
+            why = "原话里没有本人承诺去做的说法" if "自述" in resp else "在原话中找不到"
+            flags.append(f"负责人“{item.get('responsible')}”{why}，已改为未知")
             resp = "未知"
     dl = (item.get("deadline") or "未知").strip()
     if dl != "未知":
@@ -160,8 +207,10 @@ def _normalize_type(t: str) -> str:
 # ---------- 方案一：分段 + 证据编号 ----------
 
 
-def extract_segmented(sentences: list[dict], model: str = llm.DEFAULT_MODEL, seconds: float = 90.0) -> dict:
-    sents = number_sentences(sentences)
+def extract_segmented(sentences: list[dict], model: str = llm.DEFAULT_MODEL, seconds: float = 90.0,
+                      merge: bool = True) -> dict:
+    n_raw = len(sentences)
+    sents = number_sentences(merge_fragments(sentences) if merge else sentences)
     by_id = {s["id"]: s for s in sents}
     items, dropped, usage, calls = [], [], [], 0
     t0 = time.time()
@@ -198,12 +247,13 @@ def extract_segmented(sentences: list[dict], model: str = llm.DEFAULT_MODEL, sec
                 "evidence_text": text,
                 "speaker": _speakers(lines),
             }
-            item["flags"] = guard_unknown(item, text)
+            item["flags"] = guard_unknown(item, text, lines)
             items.append(item)
     items = _dedupe(items)
     usage += unify_topics(items, model=model)
     calls += 1 if items else 0
-    return _finish(items, dropped, usage, calls, time.time() - t0, "segmented", model, seconds=seconds)
+    return _finish(items, dropped, usage, calls, time.time() - t0, "segmented", model, seconds=seconds,
+                   merge=merge, sentences_raw=n_raw, sentences_used=len(sents))
 
 
 def _dedupe(items: list[dict]) -> list[dict]:

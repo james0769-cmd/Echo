@@ -48,6 +48,7 @@ output/
 .playwright-cli/
 
 # Editor / OS
+.claude/
 .vscode/
 .idea/
 .DS_Store
