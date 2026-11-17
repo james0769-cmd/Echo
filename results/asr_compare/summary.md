@@ -1,6 +1,6 @@
 # ASR 对照：Paraformer-large vs faster-whisper-small
 
-CER 归一化同 eval_cer.py（去标点空白、NFKC、小写，数字写法不转换）。耗时为首次转写的 CPU 墙钟时间。
+CER 归一化同 echotrace cer（去标点空白、NFKC、小写，数字写法不转换）。耗时为首次转写的 CPU 墙钟时间。
 
 「CER(数字转汉字)」先把阿拉伯数字近似改写成汉字读法再算，用来扣除纯数字写法差异。
 

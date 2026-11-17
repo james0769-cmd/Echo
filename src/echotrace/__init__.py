@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello from echotrace!")
+"""EchoTrace: meeting minutes with timestamped evidence."""

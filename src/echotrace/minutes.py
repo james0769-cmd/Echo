@@ -338,13 +338,16 @@ def _finish(items, dropped, usage, calls, elapsed, method, model, **params) -> d
     }
 
 
-def _ts(sec, round_up: bool = False):
+def format_ts(sec, round_up: bool = False):
     """格式化为 mm:ss。结束时间向上取整，保证显示的整秒区间仍包含原话。"""
     if sec is None:
         return "无"
     total = max(0, math.ceil(sec) if round_up else math.floor(sec))
     m, s = divmod(total, 60)
     return f"{m:02d}:{s:02d}"
+
+
+_ts = format_ts  # 兼容旧调用名
 
 
 def to_markdown(result: dict, title: str = "") -> str:

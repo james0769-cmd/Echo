@@ -1,6 +1,6 @@
 # 纪要评测（test: clip06, clip07, clip08, clip09, clip10）
 
-标准事实表 facts_all.csv：计分条目 21 条（不含信息类），其中决定+共识+待办 12 条。类型口径见 scripts/facts.py；对齐模型 deepseek-flash，明细见同目录 json。
+标准事实表 facts_all.csv：计分条目 21 条（不含信息类），其中决定+共识+待办 12 条。类型口径见 src/echotrace/facts.py；对齐模型 deepseek-flash，明细见同目录 json。
 
 | 指标 | segmented_asr_kimi-k3.1-pro | segmented_ref_kimi-k3.1-pro | baseline_asr_kimi-k3.1-pro | baseline_ref_kimi-k3.1-pro |
 |---|---|---|---|---|

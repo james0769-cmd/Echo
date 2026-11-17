@@ -16,6 +16,8 @@ uv sync
 
 FunASR 模型（约 2.8 GB）在第一次转写时自动从 ModelScope 下载到 `.cache/modelscope/`，之后完全离线加载。
 
+所有步骤都通过一个命令入口调用；运行 `uv run echotrace --help` 查看全部子命令。
+
 ## 使用
 
 **1. 准备公开参考集**（可选）
@@ -23,17 +25,17 @@ FunASR 模型（约 2.8 GB）在第一次转写时自动从 ModelScope 下载到
 下载 [AliMeeting](https://www.openslr.org/119/) 的 `Eval_Ali.tar.gz`，解压出近场数据后：
 
 ```bash
-uv run python scripts/make_alimeeting_clips.py --src ~/Eval_Ali/Eval_Ali_near
+uv run echotrace prepare --src ~/Eval_Ali/Eval_Ali_near
 ```
 
 输出到 `data/public/alimeeting/`：`clips/` 音频、`ref/` 人工转写、`manifest.csv` 片段来源。
 
-`facts/` 是小组按 `ref/` 人工整理并复核的事实表 `facts_all.csv`（`facts_all.md` 为同内容的可读版），共 91 条，分决定、共识、待办、提议、未决、信息 6 类，附负责人、截止日期、原话和起止时间；仍需回听的地方写在「备注」列。它作为纪要评测的标准答案，和纪要类型（决定/待办/待确认）的对照口径见 `scripts/facts.py`。
+`facts/` 是小组按 `ref/` 人工整理并复核的事实表 `facts_all.csv`（`facts_all.md` 为同内容的可读版），共 91 条，分决定、共识、待办、提议、未决、信息 6 类，附负责人、截止日期、原话和起止时间；仍需回听的地方写在「备注」列。它作为纪要评测的标准答案，和纪要类型（决定/待办/待确认）的对照口径见 `src/echotrace/facts.py`。
 
 **2. 转写并计算 CER**
 
 ```bash
-uv run python scripts/eval_cer.py
+uv run echotrace cer
 ```
 
 结果写入 `results/alimeeting_cer.csv`。转写缓存在 `data/cache/asr/`。
@@ -41,7 +43,7 @@ uv run python scripts/eval_cer.py
 ASR 对照实验（Paraformer vs [faster-whisper-small](https://huggingface.co/Systran/faster-whisper-small)，比较 CER、CPU 耗时和证据覆盖）：
 
 ```bash
-uv run python scripts/compare_asr.py
+uv run echotrace compare-asr
 ```
 
 Whisper 权重（约 480 MB）首次运行时从 ModelScope 下载到 `.cache/modelscope/` 并校验哈希，转写缓存在 `data/cache/asr_whisper/`。结果和分析见 `results/asr_compare/README.md`。
@@ -49,7 +51,7 @@ Whisper 权重（约 480 MB）首次运行时从 ModelScope 下载到 `.cache/mo
 **3. 导出校对稿**
 
 ```bash
-uv run python scripts/export_transcript.py data/private/audio
+uv run echotrace export data/private/audio
 ```
 
 把 ASR 初稿导出为每行一句、带时间段的文本（默认写到 `data/private/corrected/`），人工边听边改文字，改完即为人工修正版。原始转写仍保留在缓存里不动；已存在的校对稿默认跳过，不会被覆盖。
@@ -59,7 +61,7 @@ uv run python scripts/export_transcript.py data/private/audio
 文本处理用 DeepSeek API，在项目根目录的 `.env` 里写 `DEEPSEEK_API_KEY=...`（`.env` 不入库）。
 
 ```bash
-uv run python scripts/run_minutes.py --method segmented --source asr --split dev
+uv run echotrace minutes --method segmented --source asr --split dev
 ```
 
 - `--method segmented`：转写切成约 90 秒的块，句子编号后交给模型，模型只返回句子编号，时间段由程序按编号取；负责人、截止日期在原话里找不到的，程序改回"未知"并在纪要里提示。
@@ -74,7 +76,7 @@ uv run python scripts/run_minutes.py --method segmented --source asr --split dev
 使用一段本地 WAV 录音跑完整链路：语音识别、带时间戳转写、证据分段、结构化纪要和原话回溯。
 
 ```bash
-uv run python scripts/run_demo.py
+uv run echotrace demo
 ```
 
 默认使用 `data/public/alimeeting/clips/clip01.wav`，推荐的分段方案会把结果写入 `results/demo-live/`（已加入 `.gitignore`）：
@@ -83,13 +85,13 @@ uv run python scripts/run_demo.py
 也可以指定其他本地 WAV：
 
 ```bash
-uv run python scripts/run_demo.py --audio path/to/meeting.wav
+uv run echotrace demo --audio path/to/meeting.wav
 ```
 
 **6. 评测纪要**
 
 ```bash
-uv run python scripts/eval_minutes.py segmented_asr segmented_ref baseline_asr baseline_ref --split dev
+uv run echotrace evaluate segmented_asr segmented_ref baseline_asr baseline_ref --split dev
 ```
 
 对照 `facts/facts_all.csv` 统计精确率、召回率、类型一致、遗漏、虚构负责人/截止日期、证据时间段是否覆盖原话。条目对齐由 DeepSeek 判断，对齐明细在 `results/eval/{run}_{split}.json`，需要人工抽查；汇总表 `results/eval/summary_{split}.md`。
@@ -97,7 +99,7 @@ uv run python scripts/eval_minutes.py segmented_asr segmented_ref baseline_asr b
 **7. 误差传播分析**
 
 ```bash
-uv run python scripts/error_attribution.py --split all
+uv run echotrace attribute --split all
 ```
 
 逐条比较同一方案在 ASR 转写和人工转写上的评测结果，把每条错误归为"ASR 导致"或"大模型导致"，不调用 API。结论和数字错误案例见 `results/error_attribution/README.md`。
@@ -105,21 +107,21 @@ uv run python scripts/error_attribution.py --split all
 ## 目录
 
 ```
+src/echotrace/cli.py              统一入口（echotrace <子命令>）
+src/echotrace/paths.py            仓库路径与 dev/test 划分
 src/echotrace/asr.py              本地转写 + 缓存
 src/echotrace/transcript.py       校对稿格式读写
-src/echotrace/llm.py              DeepSeek 调用 + 缓存
+src/echotrace/llm.py              文本 API 调用 + 缓存
 src/echotrace/minutes.py          纪要生成（分段证据方案 / 直接摘要基线）
 src/echotrace/evidence.py         在转写里定位原话的时间段
-scripts/make_alimeeting_clips.py  从 AliMeeting 切片段
-scripts/eval_cer.py               CER 评测
-scripts/export_transcript.py      导出校对稿
-scripts/run_minutes.py            生成纪要
-scripts/eval_minutes.py           纪要评测
+src/echotrace/facts.py            读取人工事实表
+src/echotrace/metrics.py          CER 归一化
+src/echotrace/commands/           prepare / cer / compare-asr / export / minutes / evaluate / attribute / demo
 data/public/                      公开数据集（音频不入库）
 data/public/alimeeting/facts/     人工事实表（评测标准答案）
 data/private/                     私有录音及其转写、标注（整个目录不入库）
 data/cache/                       ASR 与 LLM 缓存（不入库）
-results/                          评测结果
+results/                          评测结果（见 results/README.md）
 ```
 
 ## 数据与隐私
