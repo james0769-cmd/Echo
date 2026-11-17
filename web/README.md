@@ -10,7 +10,7 @@ node web/server.cjs
 
 ## 核心功能
 
-- **主页与多录音会话管理**：主页提供产品核心流程概览、快速拖拽导入入口与会议录音卡片库；自动加载本地已有 `clip01–clip05` 示例会议的最新 `v2` 分段纪要与 FunASR 转写结果（不加载独立测试集），同时支持在页面内导入本地 16 kHz WAV 录音调用 `scripts/run_demo.py` 生成实时会话。
+- **主页与多录音会话管理**：主页提供产品核心流程概览、快速拖拽导入入口与会议录音卡片库；自动加载本地已有 `clip01–clip05` 示例会议的最新分段纪要（`results/minutes/segmented_asr`）与 FunASR 转写结果（不加载独立测试集），同时支持在页面内导入本地 16 kHz WAV 录音调用 `echotrace demo` 生成实时会话。
 - **转写 ↔ 纪要 ↔ 音频三方联动**：
   - 点击任意纪要条目，左侧转写原文自动高亮对应时间段的原话并定位滚动；
   - 点击纪要上的证据时间段芯片或底部播放器，支持「证据精听模式」逐段跳播与「全场连播模式」实时字幕跟随（后端支持 HTTP `Range` `206` 精确跳播）；
@@ -26,7 +26,7 @@ node web/server.cjs
 - `GET /api/sessions`：列出可用录音会话摘要
 - `GET /api/session?id=<id>`：加载指定会话的转写、纪要（含本地人工校对覆盖）及音频地址
 - `GET /api/demo`：加载默认 `clip01` 会话及会话列表
-- `POST /api/analyze?name=<filename>&method=<segmented|baseline>`：本地运行 `scripts/run_demo.py`
+- `POST /api/analyze?name=<filename>&method=<segmented|baseline>`：本地运行 `python -m echotrace.cli demo`
 - `POST /api/session/save`：保存人工校对后的转写与纪要
 - `POST /api/session/reset?id=<id>`：清除指定会话的人工校对覆盖
 - `GET /media/clip/:file`、`GET /media/live.wav`、`GET /media/demo.wav`：支持 `Range` 请求的 WAV 流式传输

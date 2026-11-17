@@ -13,8 +13,7 @@ const LIVE_ROOT = path.join(PROJECT_ROOT, "results", "demo-live");
 const EDITS_ROOT = path.join(LIVE_ROOT, "edits");
 const ASR_CACHE_ROOT = path.join(PROJECT_ROOT, "data", "cache", "asr");
 const CLIPS_AUDIO_ROOT = path.join(PROJECT_ROOT, "data", "public", "alimeeting", "clips");
-const MINUTES_V2_ROOT = path.join(PROJECT_ROOT, "results", "minutes_v2", "segmented_asr");
-const MINUTES_V1_ROOT = path.join(PROJECT_ROOT, "results", "minutes", "segmented_asr");
+const MINUTES_ROOT = path.join(PROJECT_ROOT, "results", "minutes");
 const DEMO_AUDIO = path.join(CLIPS_AUDIO_ROOT, "clip01.wav");
 const LIVE_AUDIO = path.join(LIVE_ROOT, "audio.wav");
 
@@ -125,10 +124,9 @@ async function resolveSessionFiles(id) {
     };
   }
 
-  const minutesV2 = path.join(MINUTES_V2_ROOT, `${id}.json`);
-  const minutesV1 = path.join(MINUTES_V1_ROOT, `${id}.json`);
+  const minutesSample = path.join(MINUTES_ROOT, "segmented_asr", `${id}.json`);
   const minutesDemo = id === "clip01" ? path.join(DEMO_ROOT, "minutes.json") : null;
-  const minutesFile = [minutesV2, minutesV1, minutesDemo].find((file) => file && fs.existsSync(file));
+  const minutesFile = [minutesSample, minutesDemo].find((file) => file && fs.existsSync(file));
 
   const asrCache = await findAsrCacheFile(id);
   const asrDemo = id === "clip01" ? path.join(DEMO_ROOT, "transcript.json") : null;
@@ -329,9 +327,15 @@ async function runDemo(audioPath, originalName, method) {
   return new Promise((resolve, reject) => {
     const child = spawn(
       PYTHON,
-      [path.join(PROJECT_ROOT, "scripts", "run_demo.py"), "--audio", audioPath, "--method", safeMethod, "--out", LIVE_ROOT],
+      ["-m", "echotrace.cli", "demo", "--audio", audioPath, "--method", safeMethod, "--out", LIVE_ROOT],
       {
         cwd: PROJECT_ROOT,
+        env: {
+          ...process.env,
+          PYTHONPATH: [path.join(PROJECT_ROOT, "src"), process.env.PYTHONPATH]
+            .filter(Boolean)
+            .join(path.delimiter),
+        },
         windowsHide: true,
         stdio: ["ignore", "pipe", "pipe"],
       },

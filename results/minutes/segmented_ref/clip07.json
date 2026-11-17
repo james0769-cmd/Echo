@@ -2,7 +2,10 @@
  "method": "segmented",
  "model": "deepseek-flash",
  "params": {
-  "seconds": 90.0
+  "seconds": 90.0,
+  "merge": true,
+  "sentences_raw": 57,
+  "sentences_used": 57
  },
  "items": [
   {
@@ -308,7 +311,7 @@
   "prompt_tokens": 2764,
   "completion_tokens": 9324
  },
- "elapsed": 66.84,
+ "elapsed": 0.0,
  "clip": "clip07",
  "source": "ref"
 }

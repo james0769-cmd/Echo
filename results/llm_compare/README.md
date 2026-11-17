@@ -1,8 +1,10 @@
 # 整理模型对照：DeepSeek (deepseek-flash) vs Kimi (kimi-k3.1-pro)
 
-- 数据：test clip06–10，标准事实表 `facts/facts_all.csv`，计分条目 21 条（不含信息类），其中决定+共识+待办 12 条；类型口径见 `scripts/facts.py`。转写和提示词都不变，只换整理用的模型。
-- 生成：`.venv/bin/python scripts/run_minutes.py --method {segmented,baseline} --source {asr,ref} --split test --model kimi-k3.1-pro`，输出到 `results/minutes/*_kimi-k3.1-pro/`。
-- 评测：`.venv/bin/python scripts/eval_minutes.py <runs> --split test --out results/llm_compare`。对齐模型仍用 deepseek-flash，和 DeepSeek 那几组保持一致。明细见同目录 json；DeepSeek 的数字取自 `results/eval/*_test.json`。
+> **历史快照（合并 ASR 碎句之前）。** 本目录的四组 Kimi 结果和 DeepSeek 列都来自 11/09 的旧分段流程，没有按当前 `merge=True` 重跑；DeepSeek 列也不对应当前 `results/eval`。保留它是为了记录“换整理模型”的对照，数字不要和当前主评测混用。当前主评测见 `results/eval/summary_test.md`。
+
+- 数据：test clip06–10，标准事实表 `facts/facts_all.csv`，计分条目 21 条（不含信息类），其中决定+共识+待办 12 条；类型口径见 `src/echotrace/facts.py`。转写和提示词都不变，只换整理用的模型。
+- 生成：`uv run echotrace minutes --method {segmented,baseline} --source {asr,ref} --split test --model kimi-k3.1-pro`，输出到 `results/minutes/*_kimi-k3.1-pro/`。
+- 评测：`uv run echotrace evaluate <runs> --split test --out results/llm_compare`。对齐模型仍用 deepseek-flash，和 DeepSeek 那几组保持一致。明细见同目录 json；DeepSeek 的数字取自当时的 `results/eval/*_test.json`。
 - 注意：Kimi K3 系列接口只接受 temperature=1（DeepSeek 用 0），所以 Kimi 的结果每次可能不同，表中是**单次运行**；重跑会读 `data/cache/llm` 缓存，数字不变。
 
 ## 结果

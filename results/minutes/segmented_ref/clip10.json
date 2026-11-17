@@ -2,7 +2,10 @@
  "method": "segmented",
  "model": "deepseek-flash",
  "params": {
-  "seconds": 90.0
+  "seconds": 90.0,
+  "merge": true,
+  "sentences_raw": 108,
+  "sentences_used": 108
  },
  "items": [
   {
@@ -52,7 +55,7 @@
    "topic": "主持人安排",
    "type": "决定",
    "content": "已找到有经验且有搞笑气氛的主持人。",
-   "responsible": "说话人自述（身份未识别）",
+   "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "说话人自述",
    "raw_deadline": "未知",
@@ -88,14 +91,16 @@
    ],
    "evidence_text": "然后我也这边找了相关。；有经验的主持人。；搞笑气氛，然后能。；呃，也有经验的那种。",
    "speaker": "SPK8026",
-   "flags": [],
+   "flags": [
+    "负责人“说话人自述”原话里没有本人承诺去做的说法，已改为未知"
+   ],
    "id": "m02"
   },
   {
    "topic": "会员制方案",
    "type": "决定",
    "content": "已制定会员制，刚开始报名费为200元/人。",
-   "responsible": "说话人自述（身份未识别）",
+   "responsible": "未知",
    "deadline": "未知",
    "raw_responsible": "说话人自述",
    "raw_deadline": "未知",
@@ -125,7 +130,9 @@
    ],
    "evidence_text": "然后我这边还制定了一个会员制。；就刚开始报名的话，我们收取的费用是两百个人。；一个，呃，两百块钱一个人。",
    "speaker": "SPK8026",
-   "flags": [],
+   "flags": [
+    "负责人“说话人自述”原话里没有本人承诺去做的说法，已改为未知"
+   ],
    "id": "m03"
   },
   {
@@ -261,7 +268,7 @@
    "topic": "海报设计",
    "type": "待办",
    "content": "将已经拍好的照片发送到对方相关邮件供查收。",
-   "responsible": "说话人自述（身份未识别）",
+   "responsible": "SPK8026（本人自述）",
    "deadline": "稍后，具体日期未知",
    "raw_responsible": "说话人自述",
    "raw_deadline": "稍后，具体日期未知",
@@ -410,7 +417,7 @@
    "topic": "主持人安排",
    "type": "待办",
    "content": "带这位有相关经验、能带气氛的主持人来见对方。",
-   "responsible": "说话人自述（身份未识别）",
+   "responsible": "SPK8026（本人自述）",
    "deadline": "未知",
    "raw_responsible": "说话人自述",
    "raw_deadline": "未知",
@@ -487,7 +494,7 @@
   "prompt_tokens": 3190,
   "completion_tokens": 14920
  },
- "elapsed": 106.6,
+ "elapsed": 0.0,
  "clip": "clip10",
  "source": "ref"
 }

@@ -32,7 +32,7 @@
   "gold_piece_coverage": 0.74,
   "matched_items_with_evidence": 1.0,
   "median_span_s": 10.2,
-  "llm_elapsed_s": 322.3,
+  "llm_elapsed_s": 0.0,
   "llm_tokens": 58858
  },
  "detail": [
@@ -466,7 +466,7 @@
      "flags": [],
      "gold_responsible": "—",
      "gold_deadline": "—",
-     "pred_responsible": "说话人自述（身份未识别）",
+     "pred_responsible": "未知",
      "pred_deadline": "未知"
     },
     {
@@ -520,7 +520,7 @@
      "flags": [],
      "gold_responsible": "SPK8026",
      "gold_deadline": "稍后",
-     "pred_responsible": "说话人自述（身份未识别）",
+     "pred_responsible": "SPK8026（本人自述）",
      "pred_deadline": "稍后，具体日期未知"
     },
     {
@@ -592,7 +592,7 @@
      "flags": [],
      "gold_responsible": "SPK8026",
      "gold_deadline": "未定（“到时候”）",
-     "pred_responsible": "说话人自述（身份未识别）",
+     "pred_responsible": "SPK8026（本人自述）",
      "pred_deadline": "未知"
     }
    ],

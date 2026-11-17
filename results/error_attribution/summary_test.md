@@ -1,6 +1,6 @@
 # 错误归因（test: clip06, clip07, clip08, clip09, clip10）
 
-标准条目 21 条（facts_all.csv，不含信息类）。规则见 scripts/error_attribution.py 文件头。
+标准条目 21 条（facts_all.csv，不含信息类）。规则见 src/echotrace/commands/attribute.py 文件头。
 
 | 归因 | segmented | baseline | 平均局部 CER（segmented） |
 |---|---|---|---|
@@ -31,5 +31,5 @@
 
 ## 两边都对上时的类型判断
 
-- segmented：共 18 条；类型 asr对/ref对 15，asr错/ref对 1，asr对/ref错 0，都错 2
+- segmented：共 18 条；类型 asr对/ref对 14，asr错/ref对 2，asr对/ref错 1，都错 1
 - baseline：共 16 条；类型 asr对/ref对 11，asr错/ref对 1，asr对/ref错 2，都错 2

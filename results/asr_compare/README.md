@@ -5,7 +5,7 @@
   权重取自 ModelScope 同名仓库，`model.bin` SHA-256 `3e305921…d671` 与 Hugging Face 官方一致。
 - 数据：AliMeeting 10 段（dev clip01–05 / test clip06–10），每段约 4 分钟，共 2410 s。
 - 硬件：Apple M5 CPU。耗时为首次转写墙钟时间，之后读缓存。
-- 复现：`.venv/bin/python scripts/compare_asr.py`；明细见 `cer.csv`、`evidence.csv`、`numbers.md`，汇总表见 `summary.md`。
+- 复现：`uv run echotrace compare-asr`；明细见 `cer.csv`、`evidence.csv`、`numbers.md`，汇总表见 `summary.md`。
 
 ## 结果
 
@@ -41,7 +41,9 @@
 
 ## 纪要层对照（test clip06–10，segmented 方案）
 
-用 Whisper 转写跑同一条分段整理流程（`run_minutes.py --method segmented --source whisper --split test`），按同一事实表、同一对齐模型评测（`eval_minutes.py`），明细见 `minutes_eval_whisper_test.json`，纪要输出在 `results/minutes/segmented_whisper/`。
+> **历史快照（合并 ASR 碎句之前）。** 这一节使用的是 11/08–09 生成的旧分段结果，未按当前 `merge=True` 流程重跑；Whisper 列也来自旧切句。当前主评测请看 `results/eval/summary_test.md`（segmented_asr 的精确率/召回率为 0.718 / 0.857）。下面的对比只用于说明“ASR 漏识别会传成纪要遗漏”，不要和当前 `results/eval` 的数字直接混用。
+
+用 Whisper 转写跑同一条分段整理流程（`echotrace minutes --method segmented --source whisper --split test`），按同一事实表、同一对齐模型评测（`echotrace evaluate`），明细见 `minutes_eval_whisper_test.json`，纪要输出在 `results/minutes/segmented_whisper/`。
 
 | 指标 | Paraformer | Whisper-small | 人工转写 |
 |---|---|---|---|
