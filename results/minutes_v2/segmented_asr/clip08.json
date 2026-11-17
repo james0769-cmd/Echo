@@ -1,0 +1,338 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0,
+  "merge": true,
+  "sentences_raw": 117,
+  "sentences_used": 59
+ },
+ "items": [
+  {
+   "topic": "转正资料收集",
+   "type": "待办",
+   "content": "在员工即将转正前一周左右开始收集资料并提交。",
+   "responsible": "未知",
+   "deadline": "即将转正前一周左右，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "即将转正前一周左右，具体日期未知",
+   "evidence_ids": [
+    "S002",
+    "S003"
+   ],
+   "evidence_start": 6.21,
+   "evidence_end": 15.37,
+   "evidence_spans": [
+    {
+     "id": "S002",
+     "start": 6.21,
+     "end": 12.81
+    },
+    {
+     "id": "S003",
+     "start": 12.81,
+     "end": 15.37
+    }
+   ],
+   "evidence_text": "差不多的话，也就是在即将转正前一周左右，我们就要开始收集他们的资料，；就要往那边我们要去需要提交资料。",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "店铺管理层招聘",
+   "type": "待确认",
+   "content": "店铺管理层后期可能还需增加两到三人。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S008",
+    "S010"
+   ],
+   "evidence_start": 29.83,
+   "evidence_end": 38.99,
+   "evidence_spans": [
+    {
+     "id": "S008",
+     "start": 29.83,
+     "end": 33.11
+    },
+    {
+     "id": "S010",
+     "start": 34.43,
+     "end": 38.99
+    }
+   ],
+   "evidence_text": "那那个店铺的管理层呢还会招吗？；这个的话后期可能还需要再增加两个两到三个左右。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "生育险",
+   "type": "决定",
+   "content": "男员工也必须购买生育险。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S016",
+    "S017",
+    "S020"
+   ],
+   "evidence_start": 58.55,
+   "evidence_end": 78.255,
+   "evidence_spans": [
+    {
+     "id": "S016",
+     "start": 58.55,
+     "end": 63.55
+    },
+    {
+     "id": "S017",
+     "start": 63.55,
+     "end": 67.47
+    },
+    {
+     "id": "S020",
+     "start": 76.3,
+     "end": 78.255
+    }
+   ],
+   "evidence_text": "那那个比如如果有男员工的话，他的生育是必须买吗？；还是嗯这个是必须买的，就是男员工也是要买的。；嗯，对对对，这个是必须购买的。",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "公积金缴纳",
+   "type": "待确认",
+   "content": "有人建议员工转正后（如三个月转正后）再购买公积金，待员工稳定一段时间，尚未拍板。",
+   "responsible": "未知",
+   "deadline": "转正之后，比如三个月转正之后，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "转正之后，比如三个月转正之后，具体日期未知",
+   "evidence_ids": [
+    "S026",
+    "S030",
+    "S031"
+   ],
+   "evidence_start": 100.56,
+   "evidence_end": 117.755,
+   "evidence_spans": [
+    {
+     "id": "S026",
+     "start": 100.56,
+     "end": 105.92
+    },
+    {
+     "id": "S030",
+     "start": 113.5,
+     "end": 114.78
+    },
+    {
+     "id": "S031",
+     "start": 115.2,
+     "end": 117.755
+    }
+   ],
+   "evidence_text": "一般我觉得的话公积金他们比如说嗯转正之后，比如三个月转正之后再购买吧。；对对对，流动性比较大，；然后可能话需要他们稳定一段时间再买吧。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "公积金缴纳",
+   "type": "待确认",
+   "content": "会上提出公积金是政策必须购买还是可买可不买的问题，尚未明确。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S032",
+    "S033"
+   ],
+   "evidence_start": 118.07,
+   "evidence_end": 129.085,
+   "evidence_spans": [
+    {
+     "id": "S032",
+     "start": 118.07,
+     "end": 123.71
+    },
+    {
+     "id": "S033",
+     "start": 123.71,
+     "end": 129.085
+    }
+   ],
+   "evidence_text": "呃，公积金的话这块就是我们这边是必须购买，就是政策的话是必须购买，；还是这个是公积金，是可以购买，可不购买。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "公积金缴纳",
+   "type": "待确认",
+   "content": "公司计划公积金总缴纳比例为12%，企业和员工各承担6%，按平均薪资约3000测算。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S044",
+    "S045"
+   ],
+   "evidence_start": 169.41,
+   "evidence_end": 180.425,
+   "evidence_spans": [
+    {
+     "id": "S044",
+     "start": 169.41,
+     "end": 173.55
+    },
+    {
+     "id": "S045",
+     "start": 173.93,
+     "end": 180.425
+    }
+   ],
+   "evidence_text": "购买的话，他现在平均的那个薪资是三千左右。；我们是计划交总共是百分之十二，然后我们承担百分之六，他们承担百分之六，",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "社保费用测算",
+   "type": "待确认",
+   "content": "按平均薪资测算，每人每月约一百八十元，双方口头认为可以接受，但没有人明确敲定。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S046",
+    "S047",
+    "S048",
+    "S050"
+   ],
+   "evidence_start": 180.85,
+   "evidence_end": 193.635,
+   "evidence_spans": [
+    {
+     "id": "S046",
+     "start": 180.85,
+     "end": 181.97
+    },
+    {
+     "id": "S047",
+     "start": 181.97,
+     "end": 182.725
+    },
+    {
+     "id": "S048",
+     "start": 183.34,
+     "end": 189.27
+    },
+    {
+     "id": "S050",
+     "start": 190.43,
+     "end": 193.635
+    }
+   ],
+   "evidence_text": "那就比较高了，对吧？；其实可以，；差不多的话，就是每个人平均薪下来，就是我们给他们副本一百八十块左右，；嗯，项目三千块钱好还是可以。",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "员工医保报销流程",
+   "type": "待确认",
+   "content": "员工看病后的医保报销不由公司负责，而由员工自行向医院咨询、医院直接报销；若为单位代买，是否需要把资料交给公司，尚未明确。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S051",
+    "S052",
+    "S056",
+    "S057"
+   ],
+   "evidence_start": 194.25,
+   "evidence_end": 232.87,
+   "evidence_spans": [
+    {
+     "id": "S051",
+     "start": 194.25,
+     "end": 198.9
+    },
+    {
+     "id": "S052",
+     "start": 198.9,
+     "end": 204.41
+    },
+    {
+     "id": "S056",
+     "start": 224.91,
+     "end": 232.61
+    },
+    {
+     "id": "S057",
+     "start": 232.61,
+     "end": 232.87
+    }
+   ],
+   "evidence_text": "然后他们医保这一块，他们报账的话，需要找我们还是怎样？；比如说他有些员工，他去医院看了病之后需要一些报销，是要通过我们报吗？；然后如果是我有没有就是单位代买的话，好像好像的话也需要找我们，交给资料交给我们，；对吧？",
+   "speaker": "",
+   "flags": [],
+   "id": "m08"
+  },
+  {
+   "topic": "生育险",
+   "type": "待办",
+   "content": "提前了解女员工生小孩等情况的报销相关事项。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "说话人自述",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S058",
+    "S059"
+   ],
+   "evidence_start": 232.87,
+   "evidence_end": 239.195,
+   "evidence_spans": [
+    {
+     "id": "S058",
+     "start": 232.87,
+     "end": 236.825
+    },
+    {
+     "id": "S059",
+     "start": 237.16,
+     "end": 239.195
+    }
+   ],
+   "evidence_text": "因为以后的话可能会有一些女员工，她比如生小孩这些，；我就需要可以前期去了解一下。",
+   "speaker": "",
+   "flags": [
+    "负责人“说话人自述”原话里没有本人承诺去做的说法，已改为未知"
+   ],
+   "id": "m09"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 2930,
+  "completion_tokens": 12065
+ },
+ "elapsed": 65.32,
+ "clip": "clip08",
+ "source": "asr"
+}

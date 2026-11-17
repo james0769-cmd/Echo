@@ -1,0 +1,305 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0,
+  "merge": true,
+  "sentences_raw": 92,
+  "sentences_used": 57
+ },
+ "items": [
+  {
+   "topic": "活动主题",
+   "type": "决定",
+   "content": "活动主题确定为“懂我中国”，即让外国学生更好地了解中国。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S006",
+    "S008",
+    "S009",
+    "S010"
+   ],
+   "evidence_start": 21.97,
+   "evidence_end": 41.61,
+   "evidence_spans": [
+    {
+     "id": "S006",
+     "start": 21.97,
+     "end": 24.51
+    },
+    {
+     "id": "S008",
+     "start": 29.99,
+     "end": 35.13
+    },
+    {
+     "id": "S009",
+     "start": 35.13,
+     "end": 39.89
+    },
+    {
+     "id": "S010",
+     "start": 40.65,
+     "end": 41.61
+    }
+   ],
+   "evidence_text": "懂我中国就是让你更好的懂中国，；让他们更好的了解我们的中国，这个更贴近一点，定更贴切一些。；我觉得就是让他们了解中国，我和这个主题要好一些。；嗯，可以，",
+   "speaker": "",
+   "flags": [],
+   "id": "m01"
+  },
+  {
+   "topic": "活动具体规划和流程",
+   "type": "待确认",
+   "content": "活动的具体规划、流程和安排尚未明确，需要进一步说明。",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S011",
+    "S012",
+    "S013"
+   ],
+   "evidence_start": 42.15,
+   "evidence_end": 53.61,
+   "evidence_spans": [
+    {
+     "id": "S011",
+     "start": 42.15,
+     "end": 50.07
+    },
+    {
+     "id": "S012",
+     "start": 50.43,
+     "end": 51.09
+    },
+    {
+     "id": "S013",
+     "start": 51.51,
+     "end": 53.61
+    }
+   ],
+   "evidence_text": "但是这个具体你是有什么规划，它具体就是怎么样的一个流程，；怎么安排。；你说一说看看。",
+   "speaker": "",
+   "flags": [],
+   "id": "m02"
+  },
+  {
+   "topic": "活动时间",
+   "type": "决定",
+   "content": "活动时间不选周末，改选中秋节，因为大家放假都有时间。",
+   "responsible": "未知",
+   "deadline": "中秋节，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "中秋节，具体日期未知",
+   "evidence_ids": [
+    "S020",
+    "S021",
+    "S022"
+   ],
+   "evidence_start": 74.33,
+   "evidence_end": 84.315,
+   "evidence_spans": [
+    {
+     "id": "S020",
+     "start": 74.33,
+     "end": 79.895
+    },
+    {
+     "id": "S021",
+     "start": 80.35,
+     "end": 81.445
+    },
+    {
+     "id": "S022",
+     "start": 82.36,
+     "end": 84.315
+    }
+   ],
+   "evidence_text": "对对对，中秋节那就是那那我就不选，周末就选中秋节，反正中秋节大家都有时间，对吧？；这样的话要好一些，；中秋节大家都放假嘛，都有时间。",
+   "speaker": "",
+   "flags": [],
+   "id": "m03"
+  },
+  {
+   "topic": "活动时间",
+   "type": "待确认",
+   "content": "建议活动安排在中秋节当天晚上，尚未最终确定",
+   "responsible": "未知",
+   "deadline": "中秋节那天，具体日期未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "中秋节那天，具体日期未知",
+   "evidence_ids": [
+    "S024",
+    "S027"
+   ],
+   "evidence_start": 90.28,
+   "evidence_end": 105.16,
+   "evidence_spans": [
+    {
+     "id": "S024",
+     "start": 90.28,
+     "end": 94.405
+    },
+    {
+     "id": "S027",
+     "start": 100.94,
+     "end": 105.16
+    }
+   ],
+   "evidence_text": "我就是说啊啊你安排在中秋节那天的话哈，；中秋节不是我们可以安排到晚上晚上。",
+   "speaker": "",
+   "flags": [],
+   "id": "m04"
+  },
+  {
+   "topic": "活动形式",
+   "type": "待确认",
+   "content": "建议举办留学生交流会或留学生晚会，具体形式尚未确定",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S028",
+    "S029"
+   ],
+   "evidence_start": 105.16,
+   "evidence_end": 115.0,
+   "evidence_spans": [
+    {
+     "id": "S028",
+     "start": 105.16,
+     "end": 113.445
+    },
+    {
+     "id": "S029",
+     "start": 113.78,
+     "end": 115.0
+    }
+   ],
+   "evidence_text": "就是说一个留学生交流会也可以是留学生晚会，是不是交流留学生交流晚会是什么呀？；对，留星交流晚会。",
+   "speaker": "",
+   "flags": [],
+   "id": "m05"
+  },
+  {
+   "topic": "活动内容",
+   "type": "决定",
+   "content": "晚会中向留学生介绍中秋节来历和吃月饼等习俗，突出中国传统节日特色",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S030",
+    "S041",
+    "S042",
+    "S044"
+   ],
+   "evidence_start": 115.0,
+   "evidence_end": 179.315,
+   "evidence_spans": [
+    {
+     "id": "S030",
+     "start": 115.0,
+     "end": 119.95
+    },
+    {
+     "id": "S041",
+     "start": 160.67,
+     "end": 166.275
+    },
+    {
+     "id": "S042",
+     "start": 167.01,
+     "end": 174.135
+    },
+    {
+     "id": "S044",
+     "start": 178.46,
+     "end": 179.315
+    }
+   ],
+   "evidence_text": "但最重要哈就是说要体现出一个特色是什么？；现在晚会的时候，给他们介绍一下这些我们中秋节的莱历。；中秋节的就是中秋节是怎么就是来历，说吃月饼这些习俗是怎么来的，；呃，可以，",
+   "speaker": "",
+   "flags": [],
+   "id": "m06"
+  },
+  {
+   "topic": "活动地点",
+   "type": "待确认",
+   "content": "活动地点尚未确定，需要讨论更合适的地点",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S045"
+   ],
+   "evidence_start": 179.88,
+   "evidence_end": 184.14,
+   "evidence_spans": [
+    {
+     "id": "S045",
+     "start": 179.88,
+     "end": 184.14
+    }
+   ],
+   "evidence_text": "还有一个，就是说这个地点在哪里比较更合适，",
+   "speaker": "",
+   "flags": [],
+   "id": "m07"
+  },
+  {
+   "topic": "活动地点",
+   "type": "待确认",
+   "content": "有人提议把活动地点定在学校，另一人表示自己也考虑过、学校更好，但现场无人收口敲定",
+   "responsible": "未知",
+   "deadline": "未知",
+   "raw_responsible": "未知",
+   "raw_deadline": "未知",
+   "evidence_ids": [
+    "S047",
+    "S048",
+    "S049"
+   ],
+   "evidence_start": 190.16,
+   "evidence_end": 206.01,
+   "evidence_spans": [
+    {
+     "id": "S047",
+     "start": 190.16,
+     "end": 199.13
+    },
+    {
+     "id": "S048",
+     "start": 199.37,
+     "end": 202.43
+    },
+    {
+     "id": "S049",
+     "start": 202.97,
+     "end": 206.01
+    }
+   ],
+   "evidence_text": "我觉得可以选在就选在学校怎么样或者社会的话，我觉得就选学校，我觉得比较好一点。；嗯，学校我因为之前也想过这个问题，；就是说学校毕竟就是说要更好。",
+   "speaker": "",
+   "flags": [],
+   "id": "m08"
+  }
+ ],
+ "dropped": [],
+ "llm_calls": 4,
+ "usage": {
+  "prompt_tokens": 2700,
+  "completion_tokens": 7936
+ },
+ "elapsed": 45.4,
+ "clip": "clip09",
+ "source": "asr"
+}

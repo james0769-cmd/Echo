@@ -1,0 +1,20 @@
+{
+ "method": "segmented",
+ "model": "deepseek-flash",
+ "params": {
+  "seconds": 90.0,
+  "merge": true,
+  "sentences_raw": 105,
+  "sentences_used": 60
+ },
+ "items": [],
+ "dropped": [],
+ "llm_calls": 3,
+ "usage": {
+  "prompt_tokens": 2562,
+  "completion_tokens": 269
+ },
+ "elapsed": 4.19,
+ "clip": "clip06",
+ "source": "asr"
+}
