@@ -113,7 +113,11 @@ def transcribe(audio_path, use_cache: bool = True) -> dict:
     cache_file = CACHE_DIR / f"{audio_path.stem}_{_cache_key(audio_path)}.json"
     if use_cache and cache_file.exists():
         result = json.loads(cache_file.read_text(encoding="utf-8"))
-        result["sentences"] = sentences_from_raw(result["raw"])
+        regenerated = sentences_from_raw(result["raw"])
+        if regenerated != result.get("sentences"):
+            # 切句逻辑升级后，缓存里的派生句子会和新代码不一致；以 raw 重新切出的为准写回
+            result["sentences"] = regenerated
+            cache_file.write_text(json.dumps(result, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
         return result
 
     model = _get_model()

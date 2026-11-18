@@ -4,6 +4,7 @@ const fsp = require("node:fs/promises");
 const os = require("node:os");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
+const { mergeFragments, shouldMergeFragments } = require("./asr_merge.cjs");
 
 const PROJECT_ROOT = path.resolve(__dirname, "..");
 const PORT = Number(process.env.ECHO_WEB_PORT || 8124);
@@ -80,20 +81,46 @@ function buildSessionTitle(items) {
   return topics.length ? topics.join(" / ") : "未检出纪要事项";
 }
 
+function applyTranscriptEdits(sentences, editedList) {
+  return sentences.map((sentence, idx) => {
+    const edited = editedList[idx];
+    if (!edited) return sentence;
+    return {
+      ...sentence,
+      text: typeof edited.text === "string" ? edited.text : sentence.text,
+      corrected: Boolean(edited.corrected),
+      original_text: edited.original_text || sentence.original_text,
+    };
+  });
+}
+
+// 纪要的证据编号/时间段基于合并后的整句；展示和校对也应该用同一套句子。
+// 旧版本保存的校对记录按未合并句的下标存放，先套到原句上再合并，避免下标错位。
+function mergeSessionSentences(asr, minutes, edits) {
+  const sentences = Array.isArray(asr.sentences) ? asr.sentences : [];
+  if (!shouldMergeFragments(sentences, minutes)) return { asr, edits };
+
+  const merged = mergeFragments(sentences);
+  let preparedEdits = edits;
+  let finalSentences = merged;
+
+  const editedTranscript = edits && Array.isArray(edits.transcript) ? edits.transcript : null;
+  if (editedTranscript && editedTranscript.length === sentences.length && merged.length !== sentences.length) {
+    finalSentences = mergeFragments(applyTranscriptEdits(sentences, editedTranscript));
+    preparedEdits = { ...edits, transcript: undefined };
+  }
+
+  return {
+    asr: { ...asr, sentences: finalSentences, merge_applied: true, sentences_raw: sentences.length },
+    edits: preparedEdits,
+  };
+}
+
 function mergeEdits(asr, minutes, edits) {
   if (!edits) return { asr, minutes, hasEdits: false };
   const mergedAsr = { ...asr };
   if (Array.isArray(edits.transcript) && edits.transcript.length === (asr.sentences || []).length) {
-    mergedAsr.sentences = asr.sentences.map((sentence, idx) => {
-      const edited = edits.transcript[idx];
-      if (!edited) return sentence;
-      return {
-        ...sentence,
-        text: typeof edited.text === "string" ? edited.text : sentence.text,
-        corrected: Boolean(edited.corrected),
-        original_text: edited.original_text || sentence.original_text,
-      };
-    });
+    mergedAsr.sentences = applyTranscriptEdits(asr.sentences || [], edits.transcript);
   } else if (Array.isArray(edits.transcript) && edits.transcript.length) {
     mergedAsr.sentences = edits.transcript;
   }
@@ -155,7 +182,8 @@ async function loadSession(id) {
     readJsonSafe(path.join(EDITS_ROOT, `${id}.json`)),
   ]);
 
-  const { asr, minutes, hasEdits } = mergeEdits(rawAsr, rawMinutes, edits);
+  const prepared = mergeSessionSentences(rawAsr, rawMinutes, edits);
+  const { asr, minutes, hasEdits } = mergeEdits(prepared.asr, rawMinutes, prepared.edits);
   const items = minutes.items || [];
   return {
     id: info.id,
