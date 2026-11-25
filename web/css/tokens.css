@@ -40,12 +40,12 @@
   --danger-bg: #FDF2F1;
   --danger-border: #F2C5C0;
 
-  /* Acoustic Dark Studio Console Dock */
-  --dock-bg: #13161A;
-  --dock-surface: #1C2128;
-  --dock-border: #2B323D;
-  --dock-ink: #F1F4F8;
-  --dock-muted: #98A3B3;
+  /* Light Editorial Waveform Console Dock */
+  --dock-bg: #FFFFFF;
+  --dock-surface: #F6F7F4;
+  --dock-border: #D9DFD6;
+  --dock-ink: #14171A;
+  --dock-muted: #616973;
 
   /* Zero-CDN system font stacks (English serif wordmark + sans-serif UI) */
   --font-serif: Georgia, "Times New Roman", "Iowan Old Style", serif;

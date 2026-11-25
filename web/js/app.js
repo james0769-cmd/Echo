@@ -248,7 +248,6 @@ async function setAppView(view, sessionId = null, { pushHash = true } = {}) {
   $("#workspaceBody").classList.toggle("hidden", !isWorkspace);
   $("#playerDock").classList.toggle("hidden", !isWorkspace);
 
-  $("#toggleSidebarBtn").classList.toggle("hidden", !isWorkspace);
   $("#topbarWorkspaceCenter").classList.toggle("hidden", !isWorkspace);
   $("#addMinuteBtn").classList.toggle("hidden", !isWorkspace);
   $("#exportDropdown").classList.toggle("hidden", !isWorkspace);
@@ -994,10 +993,16 @@ async function analyzeAndOpen(file, method) {
   await setAppView("workspace", data.id, { pushHash: true });
 }
 
+function setSidebarCollapsed(collapsed) {
+  const sidebar = $("#sessionSidebar");
+  const expandBtn = $("#expandSidebarBtn");
+  sidebar?.classList.toggle("collapsed", collapsed);
+  expandBtn?.classList.toggle("hidden", !collapsed);
+  expandBtn?.setAttribute("aria-expanded", String(!collapsed));
+}
+
 async function boot() {
-  if (window.innerWidth <= 960) {
-    $("#sessionSidebar").classList.add("collapsed");
-  }
+  setSidebarCollapsed(window.innerWidth <= 960);
 
   waveformPlayer = new WaveformPlayer({
     canvas: $("#waveformCanvas"),
@@ -1086,8 +1091,12 @@ $("#mobilePaneTabs").addEventListener("click", (event) => {
 });
 
 // Sidebar toggle & session switching
-$("#toggleSidebarBtn").addEventListener("click", () => {
-  $("#sessionSidebar").classList.toggle("collapsed");
+$("#collapseSidebarBtn").addEventListener("click", () => {
+  setSidebarCollapsed(true);
+});
+
+$("#expandSidebarBtn").addEventListener("click", () => {
+  setSidebarCollapsed(false);
 });
 
 $("#sessionList").addEventListener("click", async (event) => {
@@ -1095,7 +1104,7 @@ $("#sessionList").addEventListener("click", async (event) => {
   if (!btn) return;
   const id = btn.dataset.sessionId;
   if (window.innerWidth <= 960) {
-    $("#sessionSidebar").classList.add("collapsed");
+    setSidebarCollapsed(true);
   }
   if (id === state.sessionId) return;
   try {

@@ -3,15 +3,15 @@ const MIN_AMPLITUDE = 0.08;
 const MAX_AMPLITUDE = 1.0;
 
 const COLORS = {
-  bandAll: "rgba(242, 169, 59, 0.14)",
-  bandActive: "rgba(242, 169, 59, 0.28)",
-  capActive: "#F5B74F",
-  barActivePlayed: "#F5B74F",
-  barActiveUnplayed: "#C9841F",
-  barPlayed: "#E4EAF2",
-  barUnplayed: "#3E4756",
-  playhead: "#FFFFFF",
-  hoverGuide: "rgba(255, 255, 255, 0.35)",
+  bandAll: "rgba(184, 110, 11, 0.11)",
+  bandActive: "rgba(242, 169, 59, 0.24)",
+  capActive: "#C47A14",
+  barActivePlayed: "#B86E0B",
+  barActiveUnplayed: "#E09A34",
+  barPlayed: "#1B4D5C",
+  barUnplayed: "#C5CCC3",
+  playhead: "#14171A",
+  hoverGuide: "rgba(20, 23, 26, 0.32)",
 };
 
 function clamp(value, min, max) {
