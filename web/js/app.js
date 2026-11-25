@@ -170,11 +170,6 @@ function renderTopbar() {
 }
 
 function renderHome() {
-  const totalSessions = state.sessions.length;
-  const totalItems = state.sessions.reduce((sum, s) => sum + Number(s.itemCount || 0), 0);
-  const totalVerified = state.sessions.reduce((sum, s) => sum + Number(s.verifiedCount || 0), 0);
-  $("#archiveSummaryLine").textContent = `${totalSessions} 段会议录音 · ${totalItems} 条可回溯纪要 · ${totalVerified} 条已核对`;
-
   const query = state.homeQuery.trim().toLowerCase();
   const filtered = state.sessions.filter((s) => {
     if (state.homeFilter === "pending" && !(s.itemCount > 0 && s.verifiedCount < s.itemCount)) return false;

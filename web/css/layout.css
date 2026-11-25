@@ -407,7 +407,7 @@
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
-  padding: 32px 24px 56px;
+  padding: 20px 24px 48px;
   background: var(--bg);
 }
 
@@ -416,32 +416,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 22px;
-}
-
-.archive-header {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--border);
-}
-
-.archive-header h1 {
-  margin: 0;
-  font-size: var(--text-display);
-  line-height: 1.3;
-  font-weight: 600;
-  color: var(--ink);
-  letter-spacing: -0.025em;
-}
-
-.archive-summary {
-  margin: 0;
-  font-size: var(--text-sm);
-  font-weight: 400;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
+  gap: 14px;
 }
 
 .quick-import-bar {
@@ -995,7 +970,7 @@
 
 @media (max-width: 960px) {
   .home-view {
-    padding: 20px 16px 40px;
+    padding: 16px 16px 36px;
   }
 
   .topbar-center {
