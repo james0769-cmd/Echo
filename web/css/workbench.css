@@ -196,6 +196,7 @@
   justify-content: space-between;
   gap: 12px;
   font-size: var(--text-sm);
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
   color: var(--ink-2);
 }
@@ -322,14 +323,15 @@
 
 .pane-header h2 {
   margin: 0;
-  font-family: var(--font-serif);
   font-size: var(--text-heading);
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
 
 .pane-count {
   font-size: var(--text-sm);
+  font-weight: 400;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
@@ -448,6 +450,7 @@
 
 .sent-id {
   font-size: var(--text-sm);
+  font-weight: 400;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
@@ -458,6 +461,7 @@
 
 .transcript-text {
   font-size: var(--text-body);
+  font-weight: 400;
   color: var(--ink);
   line-height: 1.65;
   word-break: break-word;
@@ -669,7 +673,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 2px 10px;
+  padding: 6px 2px 10px;
   cursor: pointer;
   user-select: none;
 }
@@ -678,9 +682,9 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  font-family: var(--font-serif);
   font-size: var(--text-body);
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.005em;
   color: var(--ink);
 }
 
@@ -698,9 +702,8 @@
 }
 
 .topic-count {
-  font-family: var(--font-sans);
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
@@ -862,9 +865,9 @@
 .minute-content {
   margin-top: 8px;
   font-size: var(--text-body);
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--ink);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .minute-fields {
@@ -956,6 +959,7 @@
   border-left: 3px solid var(--evidence);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-size: var(--text-sm);
+  font-weight: 400;
   line-height: 1.6;
   color: var(--ink-2);
 }
@@ -975,6 +979,7 @@
   border: 1px solid var(--pending-border);
   color: var(--pending);
   font-size: var(--text-sm);
+  font-weight: 400;
   line-height: 1.5;
 }
 

@@ -160,9 +160,9 @@
 
 .session-heading {
   margin: 0;
-  font-family: var(--font-serif);
   font-size: var(--text-heading);
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   color: var(--ink);
   white-space: nowrap;
   overflow: hidden;
@@ -422,25 +422,25 @@
 .archive-header {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding-bottom: 16px;
+  gap: 8px;
+  padding-bottom: 18px;
   border-bottom: 1px solid var(--border);
 }
 
 .archive-header h1 {
   margin: 0;
-  font-family: var(--font-serif);
-  font-size: 1.625rem;
-  line-height: 1.25;
-  font-weight: 700;
+  font-size: var(--text-display);
+  line-height: 1.3;
+  font-weight: 600;
   color: var(--ink);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.025em;
 }
 
 .archive-summary {
   margin: 0;
-  font-size: var(--text-body);
-  color: var(--ink-2);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
 
@@ -626,6 +626,7 @@
   justify-content: space-between;
   gap: 8px;
   font-size: var(--text-sm);
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
   color: var(--muted);
 }
@@ -637,16 +638,17 @@
 
 .archive-card-title {
   margin: 0;
-  font-family: var(--font-serif);
   font-size: var(--text-heading);
-  font-weight: 700;
-  line-height: 1.4;
+  font-weight: 600;
+  line-height: 1.42;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
 
 .archive-card-preview {
   margin: 0;
-  font-size: var(--text-sm);
+  font-size: var(--text-body);
+  font-weight: 400;
   color: var(--ink-2);
   line-height: 1.6;
   display: -webkit-box;
@@ -755,9 +757,9 @@
 
 .modal-header h3 {
   margin: 0;
-  font-family: var(--font-serif);
   font-size: var(--text-heading);
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
 

@@ -12,7 +12,7 @@ node web/server.cjs
 
 - **HTML 入口**：`web/index.html`（档案库与双栏核对工作台）、`web/tasks.html`（会后待办看板）。
 - **样式系统（`web/css/`）**：
-  - `tokens.css`：设计变量与无 CDN 系统字体栈（Noto/Source Han 衬线标题 + 系统无衬线正文/等宽数字）。
+  - `tokens.css`：设计变量与离线字体策略（现代无衬线系统字体栈为主 + EchoTrace 英文衬线品牌字标与等宽数字）。
   - `layout.css`：统一 56px 顶部导航、档案库网格、工作台双栏布局、弹性分隔条与响应式抽屉。
   - `workbench.css`：转写原文行、字符级 ASR 校对 Diff、结构化纪要卡片、行内快捷编辑与底部深色声学波形播放器。
   - `tasks.css`：三列式待办看板样式。
