@@ -1,118 +1,141 @@
-const state = {
-  appView: "home", // "home" | "workspace"
-  sessions: [],
-  sessionId: "clip01",
-  audioName: "clip01.wav",
-  audioUrl: null,
-  hasEdits: false,
-  asr: { duration: 0, rtf: 0, sentences: [] },
-  minutesMeta: {},
-  transcript: [],
-  minutes: [],
-  selectedMinuteId: null,
-  minuteFilter: "全部",
-  groupMode: "topic", // "topic" | "time"
-  collapsedTopics: new Set(),
-  transcriptFilter: "all", // "all" | "evidence" | "corrected"
-  transcriptQuery: "",
-  editingSentenceIdx: null,
-  editingMinuteId: null, // null when creating, string id when editing
-  playMode: "evidence", // "evidence" | "full"
-  activeSpanIndex: 0,
-  playingSentenceIdx: -1,
-  autoFollow: true,
-  pendingAudioSeek: null,
-  selectedUploadFile: null,
-  homeFilter: "all", // "all" | "dev" | "test" | "edited"
-  homeQuery: "",
-  homeUploadFile: null,
-  taskSources: new Set(),
-};
+import {
+  acceptedAudio,
+  buildEvidenceFromIndices,
+  buildMarkdownReport,
+  escapeHtml,
+  formatSentenceId,
+  formatTime,
+  getAllEvidenceSpans,
+  getMinuteSpans,
+  getSelectedMinute,
+  isUnknownValue,
+  normalizeUnknownField,
+  parseEvidenceIdsInput,
+  parseHashRoute,
+  recomputeMappings,
+  state,
+  taskSourceKey,
+} from "./state.js";
+import {
+  addTask,
+  analyzeAudio,
+  downloadSessionWord,
+  fetchDemo,
+  fetchSession,
+  fetchSessions,
+  fetchTasks,
+  resetSessionEdits,
+  saveSessionEdits,
+} from "./api.js";
+import { buildCharDiffHtml } from "./diff.js";
+import { initPaneSplitter } from "./splitter.js";
+import { WaveformPlayer } from "./waveform.js";
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 
-function escapeHtml(value) {
-  return String(value ?? "").replace(/[&<>'"]/g, (char) => (
-    { "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]
-  ));
-}
-
-function formatTime(seconds, roundUp = false) {
-  if (seconds === null || seconds === undefined || !Number.isFinite(Number(seconds))) return "--:--";
-  const val = Math.max(0, Number(seconds));
-  const total = roundUp ? Math.ceil(val) : Math.floor(val);
-  const mins = Math.floor(total / 60);
-  const secs = total % 60;
-  return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-}
+let waveformPlayer = null;
+let paneSplitter = null;
+let inlineFieldClosing = false;
 
 function showToast(message) {
   const toast = $("#toast");
+  if (!toast) return;
   toast.textContent = message;
   toast.classList.add("show");
   window.clearTimeout(showToast.timer);
   showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 2600);
 }
 
-function formatSentenceId(idx) {
-  return `S${String(idx + 1).padStart(3, "0")}`;
+function getEffectiveDuration() {
+  const player = $("#audioPlayer");
+  if (player && Number.isFinite(player.duration) && player.duration > 0) {
+    return player.duration;
+  }
+  return Number(state.asr.duration || 0);
 }
 
-function getMinuteSpans(item) {
-  if (!item) return [];
-  const raw = Array.isArray(item.evidence_spans) && item.evidence_spans.length
-    ? item.evidence_spans
-    : (item.evidence_start != null && item.evidence_end != null
-      ? [{ start: item.evidence_start, end: item.evidence_end }]
-      : []);
-  return raw
-    .map((span) => ({
-      id: span.id || null,
-      start: Number(span.start),
-      end: Number(span.end),
-    }))
-    .filter((span) => Number.isFinite(span.start) && Number.isFinite(span.end) && span.end >= span.start)
-    .sort((a, b) => a.start - b.start);
-}
-
-function recomputeMappings() {
-  state.transcript.forEach((sentence, idx) => {
-    sentence.index = idx;
-    sentence.rawId = formatSentenceId(idx);
-    sentence.citedBy = [];
+function getVisibleMinutes() {
+  const visible = state.minutes.filter((item) => {
+    if (state.minuteFilter === "全部") return true;
+    if (state.minuteFilter === "待核对") return !item.verified;
+    return item.type === state.minuteFilter;
   });
 
-  state.minutes.forEach((item, idx) => {
-    if (!item.id) item.id = `m${String(idx + 1).padStart(2, "0")}`;
-    const spans = getMinuteSpans(item);
-    item._spans = spans;
-    const matched = [];
-    if (spans.length) {
-      state.transcript.forEach((sentence) => {
-        const overlaps = spans.some(
-          (span) => Number(sentence.end) > span.start + 0.05 && Number(sentence.start) < span.end - 0.05,
-        );
-        if (overlaps) {
-          matched.push(sentence.index);
-          sentence.citedBy.push(item.id);
-        }
-      });
+  if (state.groupMode === "time") {
+    return [...visible].sort((a, b) => (a.evidence_start ?? Infinity) - (b.evidence_start ?? Infinity));
+  }
+
+  const groups = new Map();
+  visible.forEach((item) => {
+    const topic = String(item.topic || "未分类议题").trim();
+    if (!groups.has(topic)) groups.set(topic, []);
+    groups.get(topic).push(item);
+  });
+  const ordered = [];
+  for (const [topic, items] of groups.entries()) {
+    if (!state.collapsedTopics.has(topic)) {
+      ordered.push(...items);
     }
-    item.matchedSentenceIndices = matched;
+  }
+  return ordered;
+}
+
+function closeExportMenu() {
+  const menu = $("#exportMenu");
+  const btn = $("#exportMenuBtn");
+  if (menu) menu.classList.add("hidden");
+  if (btn) btn.setAttribute("aria-expanded", "false");
+}
+
+function toggleExportMenu(forceState = null) {
+  const menu = $("#exportMenu");
+  const btn = $("#exportMenuBtn");
+  if (!menu || !btn) return;
+  const willOpen = forceState !== null ? Boolean(forceState) : menu.classList.contains("hidden");
+  menu.classList.toggle("hidden", !willOpen);
+  btn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+}
+
+function openModal(id) {
+  closeExportMenu();
+  const modal = $(`#${id}`);
+  if (modal) modal.classList.remove("hidden");
+}
+
+function closeModal(id) {
+  const modal = $(`#${id}`);
+  if (modal) modal.classList.add("hidden");
+}
+
+function isAnyModalOpen() {
+  return $$(".modal-backdrop").some((el) => !el.classList.contains("hidden"));
+}
+
+function applyMobilePane() {
+  const split = $("#workspaceSplit");
+  if (!split) return;
+  const isMobile = window.innerWidth <= 960;
+  split.dataset.mobilePane = state.mobilePane;
+  $("#transcriptPane")?.classList.toggle("is-mobile-hidden", isMobile && state.mobilePane !== "transcript");
+  $("#minutesPane")?.classList.toggle("is-mobile-hidden", isMobile && state.mobilePane !== "minutes");
+  $$("#mobilePaneTabs .mobile-pane-btn").forEach((btn) => {
+    const active = btn.dataset.mobilePane === state.mobilePane;
+    btn.classList.toggle("active", active);
+    btn.setAttribute("aria-selected", active ? "true" : "false");
   });
-}
-
-function getSelectedMinute() {
-  return state.minutes.find((item) => item.id === state.selectedMinuteId) || null;
-}
-
-function isUnknownValue(value) {
-  const v = String(value ?? "").trim();
-  return !v || v === "未知" || v === "未定";
 }
 
 function renderTopbar() {
+  const isWorkspace = state.appView === "workspace";
+  $("#navArchive")?.classList.toggle("active", !isWorkspace);
+  $("#navWorkspace")?.classList.toggle("active", isWorkspace);
+
+  const navTaskCount = $("#navTaskCount");
+  if (navTaskCount) {
+    navTaskCount.textContent = String(state.taskCount || 0);
+  }
+
   const sessionInfo = state.sessions.find((s) => s.id === state.sessionId);
   $("#currentSessionBadge").textContent = sessionInfo?.kind === "live" ? "本地上传" : state.sessionId.toUpperCase();
   $("#currentSessionTitle").textContent = sessionInfo?.title || state.audioName;
@@ -123,31 +146,34 @@ function renderTopbar() {
   const flaggedCount = state.minutes.filter((item) => Array.isArray(item.flags) && item.flags.length > 0).length;
   const evidenceBound = state.minutes.filter((item) => getMinuteSpans(item).length > 0).length;
 
-  const pills = [
-    `<span class="stat-pill">${formatTime(duration)}</span>`,
-    `<span class="stat-pill">${state.transcript.length} 句转写</span>`,
-    `<span class="stat-pill">${evidenceBound}/${totalMinutes} 有证据</span>`,
-    `<span class="stat-pill ${verifiedCount === totalMinutes && totalMinutes > 0 ? "is-safe" : "is-accent"}">已核对 ${verifiedCount}/${totalMinutes}</span>`,
+  const summaryParts = [
+    formatTime(duration),
+    `${state.transcript.length} 句转写`,
+    `${evidenceBound}/${totalMinutes} 有证据`,
+    `已核对 ${verifiedCount}/${totalMinutes}`,
   ];
   if (flaggedCount > 0) {
-    pills.push(`<span class="stat-pill">${flaggedCount} 条防幻觉拦截</span>`);
+    summaryParts.push(`${flaggedCount} 条防幻觉拦截`);
   }
-  $("#sessionStatsPills").innerHTML = pills.join("");
-  $("#resetEditsBtn").classList.toggle("hidden", state.appView !== "workspace" || !state.hasEdits);
+  const metaLine = $("#workspaceMetaLine");
+  if (metaLine) {
+    metaLine.textContent = summaryParts.join(" · ");
+  }
+
+  const resetBtn = $("#resetEditsBtn");
+  if (resetBtn) {
+    resetBtn.disabled = !state.hasEdits;
+    resetBtn.style.opacity = state.hasEdits ? "" : "0.45";
+    resetBtn.style.cursor = state.hasEdits ? "" : "not-allowed";
+    resetBtn.title = state.hasEdits ? "清除人工校对与核对修改" : "当前未作人工修改";
+  }
 }
 
 function renderHome() {
   const totalSessions = state.sessions.length;
   const totalItems = state.sessions.reduce((sum, s) => sum + Number(s.itemCount || 0), 0);
   const totalVerified = state.sessions.reduce((sum, s) => sum + Number(s.verifiedCount || 0), 0);
-  $("#heroLibraryStats").textContent = `${totalSessions} 段会议录音 · ${totalItems} 条可回溯纪要 · ${totalVerified} 条已核对`;
-
-  const demoSession = state.sessions.find((s) => s.id === state.sessionId) || state.sessions[0];
-  if (demoSession) {
-    const label = demoSession.kind === "live" ? demoSession.audioName : demoSession.id.toUpperCase();
-    $("#heroStartDemoBtn").textContent = `▶ 立即进入示例会议核对 (${label})`;
-    $("#enterLastSessionBtn").textContent = `进入工作台 (${label})`;
-  }
+  $("#archiveSummaryLine").textContent = `${totalSessions} 段会议录音 · ${totalItems} 条可回溯纪要 · ${totalVerified} 条已核对`;
 
   const query = state.homeQuery.trim().toLowerCase();
   const filtered = state.sessions.filter((s) => {
@@ -175,19 +201,15 @@ function renderHome() {
   grid.innerHTML = filtered.map((s) => {
     const idLabel = s.kind === "live" ? "本地导入" : s.id.toUpperCase();
     const kindLabel = s.kind === "live" ? s.audioName : "示例会议";
-    const kindClass = s.kind === "live" ? "is-live" : "";
-    const topics = s.topics || [];
-    const visibleTopics = topics.slice(0, 3).map((t) => `<span class="card-topic-chip">${escapeHtml(t)}</span>`).join("");
-    const extraTopics = topics.length > 3 ? `<span class="card-topic-chip">+${topics.length - 3}</span>` : "";
-
     const tc = s.typeCounts || {};
-    const typeChips = [
-      tc["决定"] ? `<span class="card-type-chip is-decision">决定 ${tc["决定"]}</span>` : "",
-      tc["待办"] ? `<span class="card-type-chip is-todo">待办 ${tc["待办"]}</span>` : "",
-      tc["待确认"] ? `<span class="card-type-chip is-pending">待确认 ${tc["待确认"]}</span>` : "",
-      `<span class="card-type-chip is-neutral">${s.sentenceCount} 句转写</span>`,
-      s.flaggedCount ? `<span class="card-type-chip is-pending">🛡 ${s.flaggedCount} 条拦截</span>` : "",
-    ].filter(Boolean).join("");
+    const metaParts = [
+      kindLabel,
+      tc["决定"] ? `决定 ${tc["决定"]}` : "",
+      tc["待办"] ? `待办 ${tc["待办"]}` : "",
+      tc["待确认"] ? `待确认 ${tc["待确认"]}` : "",
+      `${s.sentenceCount} 句`,
+      s.flaggedCount ? `${s.flaggedCount} 条拦截` : "",
+    ].filter(Boolean);
 
     const pct = s.itemCount ? Math.round((s.verifiedCount / s.itemCount) * 100) : 0;
     const verifyText = s.itemCount
@@ -195,27 +217,20 @@ function renderHome() {
       : (s.hasEdits ? "含人工校对" : "0 条纪要");
 
     return `
-      <article class="home-session-card" data-open-session="${escapeHtml(s.id)}" tabindex="0" role="button">
-        <div class="card-top-row">
-          <div class="card-badges">
-            <span class="card-id-pill">${escapeHtml(idLabel)}</span>
-            <span class="card-split-pill ${kindClass}">${escapeHtml(kindLabel)}</span>
-          </div>
-          <span class="card-duration">⏱ ${formatTime(s.duration)}${s.audioUrl ? "" : " · 无音频"}</span>
+      <article class="archive-card" data-open-session="${escapeHtml(s.id)}" tabindex="0" role="button">
+        <div class="archive-card-head">
+          <span class="archive-card-code">${escapeHtml(idLabel)}</span>
+          <span class="archive-card-duration">${formatTime(s.duration)}${s.audioUrl ? "" : " · 无音频"}</span>
         </div>
-
-        <h3 class="card-title">${escapeHtml(s.title)}</h3>
-        ${(visibleTopics || extraTopics) ? `<div class="card-topics">${visibleTopics}${extraTopics}</div>` : ""}
-        <p class="card-preview">${escapeHtml(s.previewText || "暂无内容预览")}</p>
-
-        <div class="card-metrics-row">${typeChips}</div>
-
-        <div class="card-footer-row">
-          <div class="card-verify-wrap">
-            <div class="card-verify-bar"><div class="card-verify-fill" style="width:${pct}%"></div></div>
-            <span class="card-verify-text">${verifyText}</span>
+        <h3 class="archive-card-title">${escapeHtml(s.title)}</h3>
+        <p class="archive-card-preview">${escapeHtml(s.previewText || "暂无内容预览")}</p>
+        <div class="archive-card-meta">${metaParts.map(escapeHtml).join(" · ")}</div>
+        <div class="archive-card-footer">
+          <div class="archive-card-progress">
+            <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+            <span>${escapeHtml(verifyText)}</span>
           </div>
-          <span class="card-enter-link">进入核对 →</span>
+          <span class="archive-card-enter">进入核对 →</span>
         </div>
       </article>
     `;
@@ -231,20 +246,18 @@ async function setAppView(view, sessionId = null, { pushHash = true } = {}) {
   state.appView = isWorkspace ? "workspace" : "home";
   if (!isWorkspace) {
     $("#audioPlayer")?.pause();
+    closeExportMenu();
   }
 
   $("#homeView").classList.toggle("hidden", isWorkspace);
   $("#workspaceBody").classList.toggle("hidden", !isWorkspace);
   $("#playerDock").classList.toggle("hidden", !isWorkspace);
 
-  $("#backToHomeBtn").classList.toggle("hidden", !isWorkspace);
   $("#toggleSidebarBtn").classList.toggle("hidden", !isWorkspace);
   $("#topbarWorkspaceCenter").classList.toggle("hidden", !isWorkspace);
-  $("#enterLastSessionBtn").classList.toggle("hidden", isWorkspace);
   $("#addMinuteBtn").classList.toggle("hidden", !isWorkspace);
-  $("#copyMarkdownBtn").classList.toggle("hidden", !isWorkspace);
-  $("#downloadMarkdownBtn").classList.toggle("hidden", !isWorkspace);
-  $("#downloadWordBtn").classList.toggle("hidden", !isWorkspace);
+  $("#exportDropdown").classList.toggle("hidden", !isWorkspace);
+  $("#shortcutsBtn").classList.toggle("hidden", !isWorkspace);
 
   renderTopbar();
   if (!isWorkspace) {
@@ -253,10 +266,12 @@ async function setAppView(view, sessionId = null, { pushHash = true } = {}) {
       window.location.hash = "#home";
     }
   } else {
+    applyMobilePane();
     const targetHash = `#session/${state.sessionId}`;
     if (pushHash && window.location.hash !== targetHash) {
       window.location.hash = targetHash;
     }
+    updatePlayerMeta();
   }
 }
 
@@ -344,19 +359,36 @@ function renderTranscript() {
     const isEvidence = evidenceSet.has(sentence.index);
     const isPlaying = state.playingSentenceIdx === sentence.index;
     const isEditing = state.editingSentenceIdx === sentence.index;
+    const hasDiff = Boolean(sentence.corrected && sentence.original_text && sentence.original_text !== sentence.text);
+    const isDiffExpanded = hasDiff && state.expandedDiffs.has(sentence.index);
+
     const rowClasses = [
       "transcript-row",
       isEvidence ? "is-evidence" : "",
       isPlaying ? "is-playing" : "",
       isEditing ? "is-editing" : "",
+      sentence.corrected ? "is-corrected" : "",
     ].filter(Boolean).join(" ");
 
-    const citeBadges = sentence.citedBy.map((mid) => {
+    const citeLinks = sentence.citedBy.map((mid) => {
       const active = mid === state.selectedMinuteId ? "is-active" : "";
-      return `<button class="cite-chip ${active}" data-cite-minute="${escapeHtml(mid)}" type="button">#${escapeHtml(mid)}</button>`;
+      return `<button class="cite-link ${active}" data-cite-minute="${escapeHtml(mid)}" type="button">#${escapeHtml(mid)}</button>`;
     }).join("");
 
-    const correctedBadge = sentence.corrected ? `<span class="corrected-tag">已人工校对</span>` : "";
+    const correctedLabel = sentence.corrected ? `<span class="corrected-label">已人工校对</span>` : "";
+
+    let diffHtml = "";
+    if (hasDiff && !isEditing) {
+      const diffResult = isDiffExpanded ? buildCharDiffHtml(sentence.original_text, sentence.text) : null;
+      diffHtml = `
+        <div class="transcript-diff-box">
+          <button class="diff-toggle-btn" data-toggle-diff="${sentence.index}" type="button" aria-expanded="${isDiffExpanded ? "true" : "false"}">
+            ${isDiffExpanded ? "收起对比" : "查看校对对比"}
+          </button>
+          ${isDiffExpanded && diffResult ? `<div class="diff-panel">${diffResult.inlineHtml}</div>` : ""}
+        </div>
+      `;
+    }
 
     const bodyHtml = isEditing
       ? `
@@ -370,20 +402,21 @@ function renderTranscript() {
       `
       : `
         <div class="transcript-text" data-dblclick-edit="${sentence.index}" title="双击也可进入校对">${highlightQueryText(sentence.text, state.transcriptQuery)}</div>
-        ${(citeBadges || correctedBadge) ? `<div class="transcript-badges">${correctedBadge}${citeBadges}</div>` : ""}
+        ${diffHtml}
+        ${(citeLinks || correctedLabel) ? `<div class="transcript-meta-row">${correctedLabel}${citeLinks}</div>` : ""}
       `;
 
     return `
       <div class="${rowClasses}" data-sentence-index="${sentence.index}">
-        <div class="transcript-row-time">
+        <div class="transcript-time-col">
           <button class="time-jump-btn" data-jump-time="${sentence.start}" type="button" title="点击从此句播放">
             <span>▶</span>
             <span>${formatTime(sentence.start)}</span>
           </button>
-          <span class="sent-id-label">${sentence.rawId}</span>
+          <span class="sent-id">${sentence.rawId}</span>
         </div>
-        <div class="transcript-row-body">${bodyHtml}</div>
-        <div class="transcript-row-actions">
+        <div class="transcript-body">${bodyHtml}</div>
+        <div class="transcript-actions">
           ${isEditing ? "" : `<button class="row-edit-btn" data-edit-sentence="${sentence.index}" type="button">校对</button>`}
         </div>
       </div>
@@ -406,49 +439,92 @@ function renderFilterCounts() {
   });
 }
 
+function renderInlineField(item, field, label) {
+  const rawValue = item[field];
+  const isUnknown = isUnknownValue(rawValue);
+  const isEditing = Boolean(
+    state.inlineEditField &&
+      state.inlineEditField.minuteId === item.id &&
+      state.inlineEditField.field === field,
+  );
+
+  if (isEditing) {
+    const initialVal = isUnknown ? "" : String(rawValue ?? "").trim();
+    return `
+      <span style="display:inline-flex;align-items:center;gap:5px;font-size:var(--text-sm);color:var(--muted)">
+        <strong>${label}</strong>
+        <input
+          class="inline-field-input"
+          id="inlineFieldInput"
+          type="text"
+          value="${escapeHtml(initialVal)}"
+          placeholder="留空则为未知"
+          data-minute-id="${escapeHtml(item.id)}"
+          data-field-name="${field}"
+          aria-label="编辑${label}"
+        />
+      </span>
+    `;
+  }
+
+  return `
+    <button
+      class="inline-field ${isUnknown ? "is-unknown" : ""}"
+      data-inline-field="${field}"
+      data-minute-id="${escapeHtml(item.id)}"
+      type="button"
+      title="点击行内编辑${label}"
+    >
+      <strong>${label}</strong>
+      <span>${isUnknown ? "未知（原话未指明）" : escapeHtml(rawValue)}</span>
+    </button>
+  `;
+}
+
 function renderMinuteCard(item, showInlineTopic) {
   const isSelected = item.id === state.selectedMinuteId;
   const isVerified = Boolean(item.verified);
   const spans = item._spans || getMinuteSpans(item);
 
-  const respUnknown = isUnknownValue(item.responsible);
-  const dlUnknown = isUnknownValue(item.deadline);
-
-  const spanChipsHtml = spans.length
+  const spanBtnsHtml = spans.length
     ? spans.map((span, sIdx) => `
       <button
-        class="span-play-chip"
+        class="span-play-btn"
         data-play-minute="${escapeHtml(item.id)}"
         data-span-index="${sIdx}"
         type="button"
         title="点击立即回听此段原话"
       >
         <span>▶</span>
-        <span>${formatTime(span.start)}–${formatTime(span.end, true)}</span>
+        <span>${formatTime(span.start)}-${formatTime(span.end, true)}</span>
       </button>
     `).join("")
-    : `<span class="field-pill is-unknown">无关联时间段</span>`;
+    : `<span class="inline-field is-unknown">无关联时间段</span>`;
 
   const flagsHtml = Array.isArray(item.flags) && item.flags.length
-    ? `<div class="guard-banner">🛡 防幻觉拦截：${item.flags.map(escapeHtml).join("；")}</div>`
+    ? `<div class="guard-note">防幻觉拦截：${item.flags.map(escapeHtml).join("；")}</div>`
     : "";
 
-  const evidenceBoxHtml = item.evidence_text
-    ? `<div class="minute-evidence-box">${escapeHtml(item.evidence_text)}</div>`
+  const quoteHtml = item.evidence_text
+    ? `<div class="minute-quote">${escapeHtml(item.evidence_text)}</div>`
+    : "";
+
+  const taskActionHtml = item.type === "待办"
+    ? (state.taskSources.has(taskSourceKey(state.sessionId, item.id))
+      ? `<a class="card-action-btn task-linked" href="/tasks.html">已加入看板</a>`
+      : `<button class="card-action-btn" data-add-task="${escapeHtml(item.id)}" type="button">加入待办</button>`)
     : "";
 
   return `
-    <article class="minute-card ${isSelected ? "is-selected" : ""} ${isVerified ? "is-verified" : ""}" data-minute-id="${escapeHtml(item.id)}">
-      <div class="minute-card-top">
-        <div class="minute-card-tags">
-          <span class="type-badge type-${escapeHtml(item.type)}">${escapeHtml(item.type)}</span>
+    <article class="minute-card type-${escapeHtml(item.type)} ${isSelected ? "is-selected" : ""} ${isVerified ? "is-verified" : ""}" data-minute-id="${escapeHtml(item.id)}">
+      <div class="minute-head">
+        <div class="minute-head-meta">
+          <span class="minute-type-label">${escapeHtml(item.type)}</span>
           <span class="minute-id">#${escapeHtml(item.id)}</span>
           ${showInlineTopic ? `<span class="minute-topic-inline">${escapeHtml(item.topic || "未分类议题")}</span>` : ""}
         </div>
-        <div class="minute-card-actions">
-          ${item.type === "待办" ? (state.taskSources.has(taskSourceKey(state.sessionId, item.id))
-            ? '<a class="card-action-btn task-card-action" href="/tasks.html">已加入看板</a>'
-            : '<button class="card-action-btn task-card-action" data-add-task="' + escapeHtml(item.id) + '" type="button">加入看板</button>') : ""}
+        <div class="minute-actions">
+          ${taskActionHtml}
           <button class="card-action-btn" data-edit-minute="${escapeHtml(item.id)}" type="button">编辑</button>
           <button class="card-action-btn verify-btn ${isVerified ? "is-verified" : ""}" data-verify-minute="${escapeHtml(item.id)}" type="button">
             ${isVerified ? "✓ 已核对" : "标记核对"}
@@ -459,16 +535,12 @@ function renderMinuteCard(item, showInlineTopic) {
       <div class="minute-content">${escapeHtml(item.content)}</div>
 
       <div class="minute-fields">
-        <span class="field-pill ${respUnknown ? "is-unknown" : ""}">
-          <strong>负责人</strong> ${respUnknown ? "未知（原话未指明）" : escapeHtml(item.responsible)}
-        </span>
-        <span class="field-pill ${dlUnknown ? "is-unknown" : ""}">
-          <strong>截止</strong> ${dlUnknown ? "未知（原话未指明）" : escapeHtml(item.deadline)}
-        </span>
+        ${renderInlineField(item, "responsible", "负责人")}
+        ${renderInlineField(item, "deadline", "截止")}
       </div>
 
-      <div class="evidence-chips">${spanChipsHtml}</div>
-      ${evidenceBoxHtml}
+      <div class="minute-evidence-row">${spanBtnsHtml}</div>
+      ${quoteHtml}
       ${flagsHtml}
     </article>
   `;
@@ -499,7 +571,6 @@ function renderMinutes() {
     return;
   }
 
-  // Group by topic preserving first appearance order
   const groups = [];
   const topicMap = new Map();
   visible.forEach((item) => {
@@ -533,48 +604,20 @@ function renderMinutes() {
   }).join("");
 }
 
-function getEffectiveDuration() {
-  const player = $("#audioPlayer");
-  if (Number.isFinite(player.duration) && player.duration > 0) return player.duration;
-  return Number(state.asr.duration || 0);
-}
-
-function renderEvidenceMarkersOnTimeline() {
-  const layer = $("#timelineEvidenceLayer");
-  const total = getEffectiveDuration();
-  const item = getSelectedMinute();
-  if (!item || !total) {
-    layer.innerHTML = "";
-    return;
-  }
-  const spans = item._spans || getMinuteSpans(item);
-  layer.innerHTML = spans.map((span) => {
-    const leftPct = Math.max(0, Math.min(100, (span.start / total) * 100));
-    const widthPct = Math.max(0.6, Math.min(100 - leftPct, ((span.end - span.start) / total) * 100));
-    return `<div class="timeline-evidence-marker" style="left:${leftPct.toFixed(2)}%;width:${widthPct.toFixed(2)}%;"></div>`;
-  }).join("");
-}
-
 function updatePlayerMeta() {
   const player = $("#audioPlayer");
   const hasAudio = Boolean(state.audioUrl);
   $("#playPauseBtn").disabled = !hasAudio;
   $("#stepBackBtn").disabled = !hasAudio;
   $("#stepForwardBtn").disabled = !hasAudio;
-  $("#timelineSlider").disabled = !hasAudio;
 
   const isPlaying = hasAudio && !player.paused && !player.ended;
   $("#playIcon").classList.toggle("hidden", isPlaying);
   $("#pauseIcon").classList.toggle("hidden", !isPlaying);
 
-  const modeBtn = $("#playModeBtn");
-  if (state.playMode === "evidence") {
-    modeBtn.textContent = "证据精听";
-    modeBtn.classList.remove("is-full");
-  } else {
-    modeBtn.textContent = "全场连播";
-    modeBtn.classList.add("is-full");
-  }
+  $$("#playModeToggle .mode-seg-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.playMode === state.playMode);
+  });
 
   const item = getSelectedMinute();
   const badge = $("#activeEvidenceBadge");
@@ -586,7 +629,7 @@ function updatePlayerMeta() {
   } else if (item) {
     const spans = item._spans || [];
     const spanText = spans.length
-      ? `${formatTime(spans[0].start)}–${formatTime(spans[spans.length - 1].end, true)}`
+      ? `${formatTime(spans[0].start)}-${formatTime(spans[spans.length - 1].end, true)}`
       : "无时间段";
     badge.textContent = `#${item.id} · ${spanText}`;
     if (state.playingSentenceIdx >= 0 && state.transcript[state.playingSentenceIdx]) {
@@ -599,20 +642,27 @@ function updatePlayerMeta() {
     subtitle.textContent = "点击任意纪要卡片或时间芯片回听原话";
   }
 
-  renderEvidenceMarkersOnTimeline();
+  waveformPlayer?.setState({
+    currentTime: Number.isFinite(player.currentTime) ? player.currentTime : 0,
+    duration: getEffectiveDuration(),
+    allSpans: getAllEvidenceSpans(),
+    activeSpans: item?._spans || [],
+    isPlaying,
+  });
 }
 
 function updateTimelineUI() {
   const player = $("#audioPlayer");
   const total = getEffectiveDuration();
   const current = Number.isFinite(player.currentTime) ? player.currentTime : 0;
-  const slider = $("#timelineSlider");
-  slider.max = total > 0 ? total.toFixed(2) : "100";
-  slider.value = Math.min(total || 0, current).toFixed(2);
-  const pct = total > 0 ? Math.max(0, Math.min(100, (current / total) * 100)) : 0;
-  $("#timelineProgressFill").style.width = `${pct.toFixed(2)}%`;
+  const isPlaying = Boolean(state.audioUrl) && !player.paused && !player.ended;
   $("#currentTimeLabel").textContent = formatTime(current);
   $("#totalTimeLabel").textContent = formatTime(total);
+  waveformPlayer?.setState({
+    currentTime: current,
+    duration: total,
+    isPlaying,
+  });
 }
 
 function setupAudioSource(audioUrl) {
@@ -634,6 +684,8 @@ function setupAudioSource(audioUrl) {
     player.removeAttribute("src");
     player.load();
   }
+
+  waveformPlayer?.loadAudio(audioUrl, Number(state.asr.duration || 0));
   updateTimelineUI();
   updatePlayerMeta();
 }
@@ -641,12 +693,14 @@ function setupAudioSource(audioUrl) {
 function seekAudioTo(seconds) {
   const player = $("#audioPlayer");
   if (!state.audioUrl) return;
-  const target = Math.max(0, Math.min(getEffectiveDuration() || seconds, Number(seconds)));
+  const duration = getEffectiveDuration();
+  const target = Math.max(0, duration > 0 ? Math.min(duration, Number(seconds)) : Number(seconds));
   if (player.readyState >= 1) {
     player.currentTime = target;
     updateTimelineUI();
   } else {
     state.pendingAudioSeek = target;
+    waveformPlayer?.setState({ currentTime: target, duration });
   }
 }
 
@@ -665,6 +719,22 @@ async function startPlaybackAt(seconds, mode = state.playMode) {
   } catch {
     showToast("浏览器阻止了音频播放，请手动点击播放按钮");
   }
+}
+
+function handleWaveformSeek(seconds) {
+  if (!state.audioUrl) return;
+  const item = getSelectedMinute();
+  const spans = item?._spans || [];
+  if (state.playMode === "evidence") {
+    const hitIdx = spans.findIndex((sp) => seconds >= sp.start && seconds <= sp.end);
+    if (hitIdx >= 0) {
+      state.activeSpanIndex = hitIdx;
+    } else {
+      state.playMode = "full";
+      updatePlayerMeta();
+    }
+  }
+  seekAudioTo(seconds);
 }
 
 function selectMinute(id, { autoPlay = false, scrollTranscript = true, spanIndex = 0 } = {}) {
@@ -706,6 +776,8 @@ function applySessionPayload(payload) {
   state.transcript = (state.asr.sentences || []).map((s) => ({ ...s }));
   state.minutes = (state.minutesMeta.items || []).map((m) => ({ ...m }));
   state.editingSentenceIdx = null;
+  state.inlineEditField = null;
+  state.expandedDiffs.clear();
   state.collapsedTopics.clear();
 
   recomputeMappings();
@@ -725,19 +797,19 @@ function applySessionPayload(payload) {
 }
 
 async function refreshSessionList() {
-  const res = await fetch("/api/sessions");
-  if (!res.ok) return;
-  const data = await res.json();
-  state.sessions = data.sessions || [];
-  renderSidebar();
-  renderTopbar();
-  if (state.appView === "home") renderHome();
+  try {
+    const data = await fetchSessions();
+    state.sessions = data.sessions || [];
+    renderSidebar();
+    renderTopbar();
+    if (state.appView === "home") renderHome();
+  } catch {
+    // Ignore transient list refresh failures
+  }
 }
 
 async function switchSession(id) {
-  const res = await fetch(`/api/session?id=${encodeURIComponent(id)}`);
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || "加载会话失败");
+  const data = await fetchSession(id);
   await refreshSessionList();
   applySessionPayload(data);
 }
@@ -746,99 +818,14 @@ async function persistEdits() {
   const cleanMinutes = state.minutes.map(({ _spans, matchedSentenceIndices, ...rest }) => rest);
   const cleanTranscript = state.transcript.map(({ index, rawId, citedBy, ...rest }) => rest);
 
-  const res = await fetch("/api/session/save", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      id: state.sessionId,
-      minutes: cleanMinutes,
-      transcript: cleanTranscript,
-    }),
+  await saveSessionEdits({
+    id: state.sessionId,
+    minutes: cleanMinutes,
+    transcript: cleanTranscript,
   });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || "保存失败");
   state.hasEdits = true;
   await refreshSessionList();
   renderTopbar();
-}
-
-function buildMarkdownReport() {
-  const lines = [`# 会议纪要 · ${state.sessionId} (${state.audioName})`, ""];
-  if (!state.minutes.length) {
-    lines.push("本段没有抽取到可记录的决定、待办或待确认事项。", "");
-    return lines.join("\n");
-  }
-  const groups = new Map();
-  state.minutes.forEach((item) => {
-    const topic = String(item.topic || "未分类议题").trim();
-    if (!groups.has(topic)) groups.set(topic, []);
-    groups.get(topic).push(item);
-  });
-
-  for (const [topic, items] of groups.entries()) {
-    lines.push(`## ${topic}`, "");
-    items.forEach((item) => {
-      const status = item.verified ? "[已核对] " : "";
-      const spans = item._spans || getMinuteSpans(item);
-      const timeStr = spans.length
-        ? `${formatTime(spans[0].start)}–${formatTime(spans[spans.length - 1].end, true)}`
-        : "未知";
-      lines.push(`- **${status}[${item.type}]** ${item.content}`);
-      lines.push(`  - 负责人：${item.responsible || "未知"}｜截止：${item.deadline || "未知"}｜时间：\`${timeStr}\``);
-      if (item.evidence_text) {
-        lines.push(`  - 原话证据：${item.evidence_text}`);
-      }
-      if (Array.isArray(item.flags) && item.flags.length) {
-        lines.push(`  - 校对提示：${item.flags.join("；")}`);
-      }
-    });
-    lines.push("");
-  }
-  return lines.join("\n");
-}
-
-function parseEvidenceIdsInput(text) {
-  const tokens = String(text || "")
-    .toUpperCase()
-    .split(/[\s,，;；]+/)
-    .map((t) => t.trim())
-    .filter(Boolean);
-  const indices = [];
-  tokens.forEach((tok) => {
-    const m = /^S?(\d+)$/.exec(tok);
-    if (!m) return;
-    const idx = Number(m[1]) - 1;
-    if (idx >= 0 && idx < state.transcript.length && !indices.includes(idx)) {
-      indices.push(idx);
-    }
-  });
-  indices.sort((a, b) => a - b);
-  return indices;
-}
-
-function buildEvidenceFromIndices(indices) {
-  if (!indices.length) {
-    return {
-      evidence_ids: [],
-      evidence_spans: [],
-      evidence_start: null,
-      evidence_end: null,
-      evidence_text: "",
-    };
-  }
-  const sents = indices.map((i) => state.transcript[i]);
-  const spans = sents.map((s) => ({
-    id: s.rawId,
-    start: Number(s.start),
-    end: Number(s.end),
-  }));
-  return {
-    evidence_ids: sents.map((s) => s.rawId),
-    evidence_spans: spans,
-    evidence_start: spans[0].start,
-    evidence_end: spans[spans.length - 1].end,
-    evidence_text: sents.map((s) => s.text).join("；"),
-  };
 }
 
 function updateEditEvidencePreview() {
@@ -854,7 +841,7 @@ function updateEditEvidencePreview() {
     return;
   }
   const built = buildEvidenceFromIndices(indices);
-  previewEl.textContent = `已匹配 ${indices.length} 句（${formatTime(built.evidence_start)}–${formatTime(built.evidence_end, true)}）：${built.evidence_text.slice(0, 90)}${built.evidence_text.length > 90 ? "…" : ""}`;
+  previewEl.textContent = `已匹配 ${indices.length} 句（${formatTime(built.evidence_start)}-${formatTime(built.evidence_end, true)}）：${built.evidence_text.slice(0, 90)}${built.evidence_text.length > 90 ? "…" : ""}`;
 }
 
 function openEditMinuteModal(minuteId = null) {
@@ -875,21 +862,52 @@ function openEditMinuteModal(minuteId = null) {
   $("#editEvidenceIdsInput").value = matchedIds;
   updateEditEvidencePreview();
 
-  $("#editMinuteModal").classList.remove("hidden");
+  openModal("editMinuteModal");
   $("#editTopicInput").focus();
 }
 
-function openModal(id) {
-  $(`#${id}`).classList.remove("hidden");
+async function commitInlineFieldEdit() {
+  if (inlineFieldClosing || !state.inlineEditField) return;
+  const input = $("#inlineFieldInput");
+  if (!input) return;
+
+  inlineFieldClosing = true;
+  const { minuteId, field } = state.inlineEditField;
+  const nextValue = normalizeUnknownField(input.value);
+  const item = state.minutes.find((m) => m.id === minuteId);
+  state.inlineEditField = null;
+
+  if (!item) {
+    inlineFieldClosing = false;
+    renderMinutes();
+    return;
+  }
+
+  const prevNormalized = normalizeUnknownField(item[field]);
+  if (nextValue === prevNormalized) {
+    inlineFieldClosing = false;
+    renderMinutes();
+    return;
+  }
+
+  item[field] = nextValue;
+  renderMinutes();
+  try {
+    await persistEdits();
+    showToast(field === "responsible" ? "负责人已更新" : "截止日期已更新");
+  } catch (err) {
+    showToast(err.message);
+  } finally {
+    inlineFieldClosing = false;
+  }
 }
 
-function closeModal(id) {
-  $(`#${id}`).classList.add("hidden");
-}
-
-function parseHashRoute() {
-  const match = /^#session\/(live|clip0[1-5]|record-[a-f0-9-]{36})(?:\/minute\/(m(?:\d+|-[a-f0-9-]{36})))?$/.exec(window.location.hash);
-  return match ? { sessionId: match[1], minuteId: match[2] } : {};
+function cancelInlineFieldEdit() {
+  if (!state.inlineEditField) return;
+  inlineFieldClosing = true;
+  state.inlineEditField = null;
+  renderMinutes();
+  inlineFieldClosing = false;
 }
 
 async function followHashRoute() {
@@ -903,33 +921,112 @@ async function followHashRoute() {
   state.minuteFilter = "全部";
   state.collapsedTopics.clear();
   selectMinute(minuteId);
-  const card = document.querySelector('.minute-card[data-minute-id="' + minuteId + '"]');
+  const card = document.querySelector(`.minute-card[data-minute-id="${minuteId}"]`);
   card?.scrollIntoView({ block: "nearest" });
 }
 
-function taskSourceKey(sessionId, minuteId) {
-  return sessionId + "/" + minuteId;
+async function refreshTaskSources() {
+  const { tasks } = await fetchTasks();
+  const list = Array.isArray(tasks) ? tasks : [];
+  state.taskSources = new Set(list.map((task) => taskSourceKey(task.sessionId, task.minuteId)));
+  state.taskCount = list.filter((task) => task.status !== "done").length;
+  renderTopbar();
+  if (state.appView === "workspace") renderMinutes();
 }
 
-async function refreshTaskSources() {
-  const res = await fetch("/api/tasks");
-  if (!res.ok) return;
-  const { tasks } = await res.json();
-  state.taskSources = new Set(tasks.map((task) => taskSourceKey(task.sessionId, task.minuteId)));
-  if (state.appView === "workspace") renderMinutes();
+async function toggleMinuteVerified(minuteId) {
+  const item = state.minutes.find((m) => m.id === minuteId);
+  if (!item) return;
+  item.verified = !item.verified;
+  renderMinutes();
+  renderTopbar();
+  try {
+    await persistEdits();
+    showToast(item.verified ? "已标记为核对完成" : "已取消核对标记");
+  } catch (err) {
+    showToast(err.message);
+  }
+}
+
+function stepSelectedMinute(delta) {
+  const visible = getVisibleMinutes();
+  if (!visible.length) return;
+  const curIdx = visible.findIndex((item) => item.id === state.selectedMinuteId);
+  const nextIdx = curIdx < 0
+    ? (delta > 0 ? 0 : visible.length - 1)
+    : Math.max(0, Math.min(visible.length - 1, curIdx + delta));
+  const target = visible[nextIdx];
+  if (!target) return;
+  selectMinute(target.id, { autoPlay: false, scrollTranscript: true });
+  const card = document.querySelector(`.minute-card[data-minute-id="${target.id}"]`);
+  card?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function setUploadFile(file) {
+  const result = acceptedAudio(file);
+  if (result.error) showToast(result.error);
+  state.selectedUploadFile = result.file;
+  if (result.file) {
+    $("#dropzoneFileName").textContent = result.file.name;
+    $("#dropzoneFileMeta").textContent = `${(result.file.size / 1024 / 1024).toFixed(2)} MB · 准备就绪`;
+    $("#startAnalyzeBtn").disabled = false;
+  } else {
+    $("#dropzoneFileName").textContent = "点击选择或拖拽录音至此";
+    $("#dropzoneFileMeta").textContent = "支持 WAV、M4A、MP3，最大支持 80 MB";
+    $("#startAnalyzeBtn").disabled = true;
+  }
+}
+
+function setHomeUploadFile(file) {
+  const result = acceptedAudio(file);
+  if (result.error) showToast(result.error);
+  state.homeUploadFile = result.file;
+  if (result.file) {
+    $("#homeDropzoneTitle").textContent = result.file.name;
+    $("#homeDropzoneMeta").textContent = `${(result.file.size / 1024 / 1024).toFixed(2)} MB · 准备就绪`;
+    $("#homeAnalyzeBtn").disabled = false;
+  } else {
+    $("#homeDropzoneTitle").textContent = "选择或拖拽录音至此（WAV / M4A / MP3）";
+    $("#homeDropzoneMeta").textContent = "最大支持 80 MB，音频仅在本机识别";
+    $("#homeAnalyzeBtn").disabled = true;
+  }
+}
+
+async function analyzeAndOpen(file, method) {
+  const data = await analyzeAudio(file, method);
+  await refreshSessionList();
+  applySessionPayload(data);
+  await setAppView("workspace", data.id, { pushHash: true });
 }
 
 async function boot() {
   if (window.innerWidth <= 960) {
     $("#sessionSidebar").classList.add("collapsed");
   }
-  const res = await fetch("/api/demo");
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || "初始化加载失败");
+
+  waveformPlayer = new WaveformPlayer({
+    canvas: $("#waveformCanvas"),
+    container: $("#waveformWrap"),
+    tooltipEl: $("#waveformTooltip"),
+    onSeek: handleWaveformSeek,
+  });
+
+  paneSplitter = initPaneSplitter({
+    container: $("#workspaceSplit"),
+    handle: $("#paneResizer"),
+  });
+
+  const data = await fetchDemo();
   state.sessions = data.sessions || [];
   applySessionPayload(data);
   await followHashRoute();
   refreshTaskSources().catch(() => {});
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("upload") === "1") {
+    openModal("uploadModal");
+    window.history.replaceState({}, "", window.location.pathname + window.location.hash);
+  }
 }
 
 /* ==================== Event Listeners ==================== */
@@ -938,15 +1035,14 @@ window.addEventListener("hashchange", () => {
   followHashRoute().catch((err) => showToast(err.message));
 });
 
-// Topbar & Home navigation
-$("#backToHomeBtn").addEventListener("click", () => {
-  setAppView("home");
+window.addEventListener("resize", () => {
+  if (state.appView === "workspace") {
+    applyMobilePane();
+  }
 });
 
-$("#brandHomeLink").addEventListener("click", () => {
-  setAppView("home");
-});
-
+// Topbar & Archive Navigation
+$("#brandHomeLink").addEventListener("click", () => setAppView("home"));
 $("#brandHomeLink").addEventListener("keydown", (event) => {
   if (event.key === "Enter" || event.key === " ") {
     event.preventDefault();
@@ -954,13 +1050,9 @@ $("#brandHomeLink").addEventListener("keydown", (event) => {
   }
 });
 
-$("#enterLastSessionBtn").addEventListener("click", () => {
+$("#navArchive").addEventListener("click", () => setAppView("home"));
+$("#navWorkspace").addEventListener("click", () => {
   openSessionWorkspace(state.sessionId).catch((err) => showToast(err.message));
-});
-
-$("#heroStartDemoBtn").addEventListener("click", () => {
-  const targetId = state.sessions.find((s) => s.id === state.sessionId)?.id || state.sessions[0]?.id || "clip01";
-  openSessionWorkspace(targetId).catch((err) => showToast(err.message));
 });
 
 $("#homeSearchInput").addEventListener("input", (event) => {
@@ -990,6 +1082,14 @@ $("#homeSessionGrid").addEventListener("keydown", (event) => {
   openSessionWorkspace(card.dataset.openSession).catch((err) => showToast(err.message));
 });
 
+// Mobile pane tabs
+$("#mobilePaneTabs").addEventListener("click", (event) => {
+  const btn = event.target.closest("[data-mobile-pane]");
+  if (!btn) return;
+  state.mobilePane = btn.dataset.mobilePane;
+  applyMobilePane();
+});
+
 // Sidebar toggle & session switching
 $("#toggleSidebarBtn").addEventListener("click", () => {
   $("#sessionSidebar").classList.toggle("collapsed");
@@ -1010,6 +1110,24 @@ $("#sessionList").addEventListener("click", async (event) => {
   }
 });
 
+// Export dropdown
+$("#exportMenuBtn").addEventListener("click", (event) => {
+  event.stopPropagation();
+  toggleExportMenu();
+});
+
+document.addEventListener("click", (event) => {
+  if (!event.target.closest("#exportDropdown")) {
+    closeExportMenu();
+  }
+});
+
+$("#shortcutsBtn").addEventListener("click", () => {
+  const modal = $("#shortcutsModal");
+  if (modal.classList.contains("hidden")) openModal("shortcutsModal");
+  else closeModal("shortcutsModal");
+});
+
 // Transcript search & filters
 $("#transcriptSearch").addEventListener("input", (event) => {
   state.transcriptQuery = event.target.value;
@@ -1028,7 +1146,7 @@ $("#autoFollowToggle").addEventListener("change", (event) => {
   state.autoFollow = event.target.checked;
 });
 
-// Transcript row interactions (jump time, click citation, inline edit)
+// Transcript row interactions
 $("#transcriptList").addEventListener("click", async (event) => {
   const jumpBtn = event.target.closest("[data-jump-time]");
   if (jumpBtn) {
@@ -1043,6 +1161,15 @@ $("#transcriptList").addEventListener("click", async (event) => {
     selectMinute(mid, { autoPlay: false, scrollTranscript: false });
     const card = document.querySelector(`.minute-card[data-minute-id="${mid}"]`);
     card?.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  const diffBtn = event.target.closest("[data-toggle-diff]");
+  if (diffBtn) {
+    const idx = Number(diffBtn.dataset.toggleDiff);
+    if (state.expandedDiffs.has(idx)) state.expandedDiffs.delete(idx);
+    else state.expandedDiffs.add(idx);
+    renderTranscript();
     return;
   }
 
@@ -1076,8 +1203,10 @@ $("#transcriptList").addEventListener("click", async (event) => {
     targetSentence.text = newText;
     targetSentence.corrected = true;
     state.editingSentenceIdx = null;
+    if (targetSentence.original_text !== newText) {
+      state.expandedDiffs.add(idx);
+    }
 
-    // Refresh evidence_text on minutes referencing this sentence
     state.minutes.forEach((item) => {
       if (item.matchedSentenceIndices?.includes(idx)) {
         item.evidence_text = item.matchedSentenceIndices.map((i) => state.transcript[i].text).join("；");
@@ -1120,31 +1249,48 @@ $("#groupModeToggle").addEventListener("click", (event) => {
   renderMinutes();
 });
 
-// Minute card actions
+// Minute card actions + inline quick edit
 $("#minutesList").addEventListener("click", async (event) => {
-  const addTask = event.target.closest("[data-add-task]");
-  if (addTask) {
+  if (event.target.closest("#inlineFieldInput")) {
+    event.stopPropagation();
+    return;
+  }
+
+  const inlineBtn = event.target.closest("[data-inline-field]");
+  if (inlineBtn) {
+    event.stopPropagation();
+    const minuteId = inlineBtn.dataset.minuteId;
+    const field = inlineBtn.dataset.inlineField;
+    state.inlineEditField = { minuteId, field };
+    renderMinutes();
+    const input = $("#inlineFieldInput");
+    if (input) {
+      input.focus();
+      input.select();
+    }
+    return;
+  }
+
+  const addTaskBtn = event.target.closest("[data-add-task]");
+  if (addTaskBtn) {
+    event.stopPropagation();
     const sessionId = state.sessionId;
-    const minuteId = addTask.dataset.addTask;
-    addTask.disabled = true;
+    const minuteId = addTaskBtn.dataset.addTask;
+    addTaskBtn.disabled = true;
     try {
-      const res = await fetch("/api/tasks", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sessionId, minuteId }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "加入待办看板失败");
+      await addTask({ sessionId, minuteId });
       state.taskSources.add(taskSourceKey(sessionId, minuteId));
+      state.taskCount += 1;
+      renderTopbar();
       renderMinutes();
       showToast("已加入会后待办");
     } catch (error) {
-      addTask.disabled = false;
+      addTaskBtn.disabled = false;
       showToast(error.message);
     }
     return;
   }
-  if (event.target.closest(".task-card-action")) return;
+  if (event.target.closest(".task-linked")) return;
 
   const topicToggle = event.target.closest("[data-toggle-topic]");
   if (topicToggle) {
@@ -1158,17 +1304,7 @@ $("#minutesList").addEventListener("click", async (event) => {
   const verifyBtn = event.target.closest("[data-verify-minute]");
   if (verifyBtn) {
     event.stopPropagation();
-    const id = verifyBtn.dataset.verifyMinute;
-    const item = state.minutes.find((m) => m.id === id);
-    if (!item) return;
-    item.verified = !item.verified;
-    try {
-      await persistEdits();
-      renderMinutes();
-      showToast(item.verified ? "已标记为核对完成" : "已取消核对标记");
-    } catch (err) {
-      showToast(err.message);
-    }
+    await toggleMinuteVerified(verifyBtn.dataset.verifyMinute);
     return;
   }
 
@@ -1179,11 +1315,11 @@ $("#minutesList").addEventListener("click", async (event) => {
     return;
   }
 
-  const spanChip = event.target.closest("[data-play-minute]");
-  if (spanChip) {
+  const spanBtn = event.target.closest("[data-play-minute]");
+  if (spanBtn) {
     event.stopPropagation();
-    const id = spanChip.dataset.playMinute;
-    const sIdx = Number(spanChip.dataset.spanIndex || 0);
+    const id = spanBtn.dataset.playMinute;
+    const sIdx = Number(spanBtn.dataset.spanIndex || 0);
     selectMinute(id, { autoPlay: true, scrollTranscript: true, spanIndex: sIdx });
     return;
   }
@@ -1191,6 +1327,25 @@ $("#minutesList").addEventListener("click", async (event) => {
   const card = event.target.closest("[data-minute-id]");
   if (card) {
     selectMinute(card.dataset.minuteId, { autoPlay: false, scrollTranscript: true });
+  }
+});
+
+$("#minutesList").addEventListener("keydown", (event) => {
+  const input = event.target.closest("#inlineFieldInput");
+  if (!input) return;
+  if (event.key === "Enter") {
+    event.preventDefault();
+    commitInlineFieldEdit();
+  } else if (event.key === "Escape") {
+    event.preventDefault();
+    event.stopPropagation();
+    cancelInlineFieldEdit();
+  }
+});
+
+$("#minutesList").addEventListener("focusout", (event) => {
+  if (event.target.id === "inlineFieldInput") {
+    commitInlineFieldEdit();
   }
 });
 
@@ -1203,8 +1358,8 @@ $("#editMinuteForm").addEventListener("submit", async (event) => {
   const topic = $("#editTopicInput").value.trim();
   const type = $("#editTypeSelect").value;
   const content = $("#editContentInput").value.trim();
-  const responsible = $("#editResponsibleInput").value.trim() || "未知";
-  const deadline = $("#editDeadlineInput").value.trim() || "未知";
+  const responsible = normalizeUnknownField($("#editResponsibleInput").value);
+  const deadline = normalizeUnknownField($("#editDeadlineInput").value);
   const rawIdsText = $("#editEvidenceIdsInput").value.trim();
   const indices = parseEvidenceIdsInput(rawIdsText);
 
@@ -1221,7 +1376,7 @@ $("#editMinuteForm").addEventListener("submit", async (event) => {
       Object.assign(item, buildEvidenceFromIndices(indices));
     }
   } else {
-    targetId = "m-" + crypto.randomUUID();
+    targetId = `m-${crypto.randomUUID()}`;
     const newItem = {
       id: targetId,
       topic,
@@ -1269,12 +1424,12 @@ $("#deleteMinuteBtn").addEventListener("click", async () => {
   }
 });
 
-// Reset edits
+// Export & Reset actions
 $("#resetEditsBtn").addEventListener("click", async () => {
+  closeExportMenu();
+  if (!state.hasEdits) return;
   try {
-    const res = await fetch(`/api/session/reset?id=${encodeURIComponent(state.sessionId)}`, { method: "POST" });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || "还原失败");
+    const data = await resetSessionEdits(state.sessionId);
     await refreshSessionList();
     applySessionPayload(data);
     showToast("已还原为初始自动生成结果");
@@ -1283,18 +1438,19 @@ $("#resetEditsBtn").addEventListener("click", async () => {
   }
 });
 
-// Export & Copy Markdown
 $("#copyMarkdownBtn").addEventListener("click", async () => {
+  closeExportMenu();
   const md = buildMarkdownReport();
   try {
     await navigator.clipboard.writeText(md);
     showToast("Markdown 纪要已复制到剪贴板");
   } catch {
-    showToast("剪贴板写入受限，请尝试点击「导出 .md」");
+    showToast("剪贴板写入受限，请尝试点击「导出 .md 文件」");
   }
 });
 
 $("#downloadMarkdownBtn").addEventListener("click", () => {
+  closeExportMenu();
   const md = buildMarkdownReport();
   const blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
   const url = URL.createObjectURL(blob);
@@ -1308,6 +1464,27 @@ $("#downloadMarkdownBtn").addEventListener("click", () => {
   showToast(`已导出 ${state.sessionId}_minutes.md`);
 });
 
+$("#downloadWordBtn").addEventListener("click", async (event) => {
+  closeExportMenu();
+  const button = event.currentTarget;
+  const sessionId = state.sessionId;
+  const filename = state.audioName.replace(/\.[^.]+$/, "");
+  button.disabled = true;
+  try {
+    const blob = await downloadSessionWord(sessionId);
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${filename}-会议纪要.docx`;
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } catch (error) {
+    showToast(error.message);
+  } finally {
+    button.disabled = false;
+  }
+});
+
 // Audio Player Events
 const audioPlayer = $("#audioPlayer");
 
@@ -1317,17 +1494,16 @@ audioPlayer.addEventListener("loadedmetadata", () => {
     state.pendingAudioSeek = null;
   }
   updateTimelineUI();
-  renderEvidenceMarkersOnTimeline();
+  updatePlayerMeta();
 });
 
 audioPlayer.addEventListener("timeupdate", () => {
   updateTimelineUI();
   const t = audioPlayer.currentTime;
 
-  // Highlight currently playing transcript sentence
   const curIdx = state.transcript.findIndex((s) => t >= Number(s.start) - 0.05 && t <= Number(s.end) + 0.05);
   if (curIdx !== state.playingSentenceIdx) {
-    const prevRow = document.querySelector(`.transcript-row.is-playing`);
+    const prevRow = document.querySelector(".transcript-row.is-playing");
     prevRow?.classList.remove("is-playing");
     state.playingSentenceIdx = curIdx;
     if (curIdx >= 0) {
@@ -1340,7 +1516,6 @@ audioPlayer.addEventListener("timeupdate", () => {
     }
   }
 
-  // Handle evidence-segment boundary playback
   if (state.playMode === "evidence" && !audioPlayer.paused) {
     const item = getSelectedMinute();
     const spans = item?._spans || [];
@@ -1375,7 +1550,11 @@ $("#playPauseBtn").addEventListener("click", async () => {
     const insideIdx = spans.findIndex((sp) => t >= sp.start - 0.2 && t < sp.end - 0.1);
     if (insideIdx >= 0) {
       state.activeSpanIndex = insideIdx;
-      await audioPlayer.play();
+      try {
+        await audioPlayer.play();
+      } catch {
+        showToast("无法播放当前音频");
+      }
     } else {
       state.activeSpanIndex = 0;
       await startPlaybackAt(spans[0].start, "evidence");
@@ -1403,82 +1582,21 @@ $("#stepForwardBtn").addEventListener("click", () => {
   updatePlayerMeta();
 });
 
-$("#playModeBtn").addEventListener("click", () => {
-  state.playMode = state.playMode === "evidence" ? "full" : "evidence";
+$("#playModeToggle").addEventListener("click", (event) => {
+  const btn = event.target.closest("[data-play-mode]");
+  if (!btn) return;
+  const nextMode = btn.dataset.playMode;
+  if (nextMode === state.playMode) return;
+  state.playMode = nextMode;
   updatePlayerMeta();
   showToast(state.playMode === "evidence" ? "已切换为：仅播证据片段" : "已切换为：全场连续播放");
-});
-
-$("#timelineSlider").addEventListener("input", (event) => {
-  if (!state.audioUrl) return;
-  const target = Number(event.target.value);
-  const item = getSelectedMinute();
-  const spans = item?._spans || [];
-  if (state.playMode === "evidence") {
-    const hitIdx = spans.findIndex((sp) => target >= sp.start && target <= sp.end);
-    if (hitIdx >= 0) {
-      state.activeSpanIndex = hitIdx;
-    } else {
-      state.playMode = "full";
-      updatePlayerMeta();
-    }
-  }
-  seekAudioTo(target);
 });
 
 $("#speedSelect").addEventListener("change", (event) => {
   audioPlayer.playbackRate = Number(event.target.value || 1);
 });
 
-$("#downloadWordBtn").addEventListener("click", async (event) => {
-  const button = event.currentTarget;
-  const sessionId = state.sessionId;
-  const filename = state.audioName.replace(/\.[^.]+$/, "");
-  button.disabled = true;
-  try {
-    const response = await fetch("/api/session/word?id=" + encodeURIComponent(sessionId));
-    if (!response.ok) throw new Error((await response.json()).error || "Word 导出失败");
-    const url = URL.createObjectURL(await response.blob());
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = filename + "-会议纪要.docx";
-    link.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  } catch (error) {
-    showToast(error.message);
-  } finally {
-    button.disabled = false;
-  }
-});
-
-// Upload Modal
-function acceptedAudio(file) {
-  if (!file) return null;
-  if (!/\.(wav|m4a|mp3)$/i.test(file.name)) {
-    showToast("请选择 WAV、M4A 或 MP3 录音");
-    return null;
-  }
-  if (file.size === 0 || file.size > 80 * 1024 * 1024) {
-    showToast("请选择不超过 80 MB 的有效录音");
-    return null;
-  }
-  return file;
-}
-
-function setUploadFile(file) {
-  file = acceptedAudio(file);
-  state.selectedUploadFile = file;
-  if (file) {
-    $("#dropzoneFileName").textContent = file.name;
-    $("#dropzoneFileMeta").textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB · 准备就绪`;
-    $("#startAnalyzeBtn").disabled = false;
-  } else {
-    $("#dropzoneFileName").textContent = "点击选择或拖拽录音至此";
-    $("#dropzoneFileMeta").textContent = "支持 WAV、M4A、MP3，最大 80 MB";
-    $("#startAnalyzeBtn").disabled = true;
-  }
-}
-
+// Upload Modal & Quick Import
 $("#uploadModalBtn").addEventListener("click", () => openModal("uploadModal"));
 $("#sidebarUploadBtn").addEventListener("click", () => openModal("uploadModal"));
 
@@ -1509,33 +1627,6 @@ dropzone.addEventListener("drop", (event) => {
   if (file) setUploadFile(file);
 });
 
-async function analyzeAudioFile(file, method) {
-  const res = await fetch(`/api/analyze?name=${encodeURIComponent(file.name)}&method=${encodeURIComponent(method)}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/octet-stream" },
-    body: file,
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || "分析失败");
-  await refreshSessionList();
-  applySessionPayload(data);
-  await setAppView("workspace", data.id, { pushHash: true });
-}
-
-function setHomeUploadFile(file) {
-  file = acceptedAudio(file);
-  state.homeUploadFile = file;
-  if (file) {
-    $("#homeDropzoneTitle").textContent = file.name;
-    $("#homeDropzoneMeta").textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB · 准备就绪`;
-    $("#homeAnalyzeBtn").disabled = false;
-  } else {
-    $("#homeDropzoneTitle").textContent = "点击选择或拖拽录音至此";
-    $("#homeDropzoneMeta").textContent = "支持 WAV、M4A、MP3，最大 80 MB";
-    $("#homeAnalyzeBtn").disabled = true;
-  }
-}
-
 $("#homeAudioInput").addEventListener("change", (event) => {
   setHomeUploadFile(event.target.files?.[0]);
 });
@@ -1560,7 +1651,7 @@ $("#homeAnalyzeBtn").addEventListener("click", async () => {
   $("#homeAnalyzeBtn").disabled = true;
   $("#homeUploadProgress").classList.remove("hidden");
   try {
-    await analyzeAudioFile(file, method);
+    await analyzeAndOpen(file, method);
     setHomeUploadFile(null);
     $("#homeAudioInput").value = "";
     showToast("本地录音转写与纪要生成完成");
@@ -1578,9 +1669,8 @@ $("#startAnalyzeBtn").addEventListener("click", async () => {
   const method = $("#analyzeMethodSelect").value;
   $("#startAnalyzeBtn").disabled = true;
   $("#uploadProgressBox").classList.remove("hidden");
-
   try {
-    await analyzeAudioFile(file, method);
+    await analyzeAndOpen(file, method);
     closeModal("uploadModal");
     setUploadFile(null);
     $("#audioFileInput").value = "";
@@ -1593,21 +1683,89 @@ $("#startAnalyzeBtn").addEventListener("click", async () => {
   }
 });
 
-// Keyboard shortcuts (Space for play/pause when not typing)
+// Keyboard shortcuts
 document.addEventListener("keydown", (event) => {
-  if (event.code === "Escape") {
+  if (event.key === "Escape") {
+    closeExportMenu();
     $$(".modal-backdrop").forEach((m) => m.classList.add("hidden"));
     if (state.editingSentenceIdx !== null) {
       state.editingSentenceIdx = null;
       renderTranscript();
     }
+    if (state.inlineEditField !== null) {
+      cancelInlineFieldEdit();
+    }
     return;
   }
-  const tag = document.activeElement?.tagName;
-  if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
-  if (event.code === "Space" && state.appView === "workspace" && state.audioUrl) {
+
+  const active = document.activeElement;
+  const tag = active?.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || active?.isContentEditable) {
+    return;
+  }
+
+  if (event.key === "?") {
     event.preventDefault();
-    $("#playPauseBtn").click();
+    const modal = $("#shortcutsModal");
+    if (modal.classList.contains("hidden")) openModal("shortcutsModal");
+    else closeModal("shortcutsModal");
+    return;
+  }
+
+  if (state.appView !== "workspace" || isAnyModalOpen()) return;
+
+  if (event.code === "Space") {
+    if (active === $("#waveformCanvas")) return;
+    if (state.audioUrl) {
+      event.preventDefault();
+      $("#playPauseBtn").click();
+    }
+    return;
+  }
+
+  if (event.key === "ArrowDown" || event.key === "j") {
+    event.preventDefault();
+    stepSelectedMinute(1);
+    return;
+  }
+
+  if (event.key === "ArrowUp" || event.key === "k") {
+    event.preventDefault();
+    stepSelectedMinute(-1);
+    return;
+  }
+
+  if (event.key === "v") {
+    if (state.selectedMinuteId) {
+      event.preventDefault();
+      toggleMinuteVerified(state.selectedMinuteId);
+    }
+    return;
+  }
+
+  if (event.key === "r") {
+    const item = getSelectedMinute();
+    const spans = item?._spans || [];
+    if (item && spans.length && state.audioUrl) {
+      event.preventDefault();
+      selectMinute(item.id, { autoPlay: true, scrollTranscript: true, spanIndex: 0 });
+    }
+    return;
+  }
+
+  if (event.key === "[") {
+    if (state.audioUrl) {
+      event.preventDefault();
+      $("#stepBackBtn").click();
+    }
+    return;
+  }
+
+  if (event.key === "]") {
+    if (state.audioUrl) {
+      event.preventDefault();
+      $("#stepForwardBtn").click();
+    }
   }
 });
 

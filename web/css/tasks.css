@@ -1,0 +1,219 @@
+/* Task Board Page */
+.task-page {
+  height: auto;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.task-shell {
+  width: min(calc(100% - 40px), 1160px);
+  margin-inline: auto;
+  padding-block: 32px 56px;
+}
+
+.task-header {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.task-header h1 {
+  margin: 0 0 6px;
+  font-family: var(--font-serif);
+  font-size: 1.625rem;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.task-header p {
+  margin: 0;
+  font-size: var(--text-body);
+  color: var(--ink-2);
+}
+
+.task-feedback {
+  margin: 0 0 14px;
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+}
+
+.task-feedback:empty {
+  display: none;
+}
+
+.task-board:not([hidden]) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px;
+}
+
+.task-column {
+  min-height: 180px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.task-column-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 14px 16px;
+  font-family: var(--font-serif);
+  font-size: var(--text-heading);
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.task-column[data-status="pending"] .task-column-heading {
+  color: var(--pending);
+  border-top: 3px solid var(--pending);
+}
+
+.task-column[data-status="doing"] .task-column-heading {
+  color: var(--todo);
+  border-top: 3px solid var(--todo);
+}
+
+.task-column[data-status="done"] .task-column-heading {
+  color: var(--decision);
+  border-top: 3px solid var(--decision);
+}
+
+.task-count {
+  font-family: var(--font-sans);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.task-empty {
+  margin: 16px;
+  font-size: var(--text-sm);
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.task-card,
+.task-item {
+  padding: 16px;
+  overflow-wrap: anywhere;
+  border-top: 1px solid var(--border);
+}
+
+.task-column-heading + .task-card,
+.task-column-heading + .task-item {
+  border-top: 0;
+}
+
+.task-title {
+  margin: 0 0 6px;
+  font-size: var(--text-body);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.task-topic {
+  margin: 0 0 10px;
+  font-size: var(--text-sm);
+  color: var(--muted);
+}
+
+.task-fields {
+  display: grid;
+  gap: 4px;
+  margin: 10px 0 12px;
+  font-size: var(--text-sm);
+}
+
+.task-fields div {
+  display: grid;
+  grid-template-columns: 4em minmax(0, 1fr);
+  gap: 8px;
+}
+
+.task-fields dt {
+  color: var(--muted);
+}
+
+.task-fields dd {
+  margin: 0;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.task-source {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--accent);
+  text-underline-offset: 2px;
+}
+
+.task-source:hover {
+  color: var(--accent-hover);
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-status-select,
+.task-remove {
+  min-height: 34px;
+  padding: 4px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--text-sm);
+  transition: background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.task-remove {
+  border-color: transparent;
+  color: var(--muted);
+}
+
+.task-status-select:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+}
+
+.task-remove:hover {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+@media (max-width: 960px) {
+  .task-board:not([hidden]) {
+    grid-template-columns: 1fr;
+  }
+
+  .task-column {
+    min-height: 110px;
+  }
+}
+
+@media (max-width: 640px) {
+  .task-shell {
+    width: calc(100% - 24px);
+    padding-block: 20px 40px;
+  }
+}

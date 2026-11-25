@@ -3,26 +3,45 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>会后待办 · EchoTrace</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <link rel="stylesheet" href="/tasks.css" />
-    <script src="/tasks.js" defer></script>
+    <meta name="theme-color" content="#F6F7F4" />
+    <title>待办看板 · EchoTrace</title>
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/tasks.css" />
+    <script type="module" src="/js/tasks.js"></script>
   </head>
   <body class="task-page">
-    <header class="task-topbar">
-      <div class="task-shell task-topbar-inner">
-        <a class="task-brand" href="/">EchoTrace</a>
-        <a class="btn btn-secondary" href="/">回到录音库</a>
-      </div>
-    </header>
-    <main class="task-shell task-main">
-      <header class="task-heading">
-        <h1>会后待办</h1>
-        <p>从会议纪要加入待办。点开来源，可以回到原话核对。</p>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <a class="brand" id="brandHomeLink" href="/" title="回到 EchoTrace 档案库">
+            <span class="brand-mark" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2.5 8.5V7.5M5.2 11V5M8 13V3M10.8 10.5V5.5M13.5 8.5V7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="brand-name">EchoTrace</span>
+          </a>
+          <nav class="primary-nav" aria-label="主导航">
+            <a class="nav-tab" id="navArchive" href="/">档案库</a>
+            <a class="nav-tab" id="navWorkspace" href="/#session/clip01">核对工作台</a>
+            <a class="nav-tab active" id="navTasks" href="/tasks.html">待办看板 <span class="nav-count" id="navTaskCount">0</span></a>
+          </nav>
+        </div>
+        <div class="topbar-right">
+          <a class="btn btn-primary" id="uploadModalBtn" href="/?upload=1">导入录音</a>
+        </div>
       </header>
-      <p class="task-feedback" id="taskFeedback" role="status">正在读取待办…</p>
-      <div class="task-board" id="taskBoard" aria-label="待办进度" aria-busy="true" hidden></div>
-      <noscript>开启 JavaScript 后可查看待办。</noscript>
-    </main>
+
+      <main class="task-shell">
+        <header class="task-header">
+          <h1>会后待办</h1>
+          <p>从会议纪要加入待办。点开来源，可以回到原话核对。</p>
+        </header>
+        <p class="task-feedback" id="taskFeedback" role="status">正在读取待办…</p>
+        <div class="task-board" id="taskBoard" aria-label="待办进度" aria-busy="true" hidden></div>
+        <noscript>开启 JavaScript 后可查看待办。</noscript>
+      </main>
+    </div>
   </body>
 </html>
