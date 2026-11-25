@@ -18,6 +18,9 @@ wheels/
 # Model cache (FunASR / ModelScope, ~2.8 GB, re-downloaded on first run)
 .cache/
 
+# Local optional FFmpeg tools
+.tools/
+
 # Audio: never commit recordings (consent covers local use only)
 *.wav
 *.mp3

@@ -2052,3 +2052,29 @@ button {
     display: none;
   }
 }
+
+
+.recording-use-note {
+  margin: 1px 0 10px;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+
+.recording-use-note a,
+#uploadModal .modal-desc a {
+  display: inline-block;
+  margin-inline-start: 0.35rem;
+  color: var(--accent-hover);
+  text-underline-offset: 2px;
+}
+
+a.btn,
+.task-card-action {
+  text-decoration: none;
+}
+
+.task-card-action:focus-visible,
+#downloadWordBtn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

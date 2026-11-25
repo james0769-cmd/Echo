@@ -26,6 +26,7 @@ const state = {
   homeFilter: "all", // "all" | "dev" | "test" | "edited"
   homeQuery: "",
   homeUploadFile: null,
+  taskSources: new Set(),
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -113,7 +114,7 @@ function isUnknownValue(value) {
 
 function renderTopbar() {
   const sessionInfo = state.sessions.find((s) => s.id === state.sessionId);
-  $("#currentSessionBadge").textContent = state.sessionId === "live" ? "本地上传" : state.sessionId.toUpperCase();
+  $("#currentSessionBadge").textContent = sessionInfo?.kind === "live" ? "本地上传" : state.sessionId.toUpperCase();
   $("#currentSessionTitle").textContent = sessionInfo?.title || state.audioName;
 
   const duration = Number(state.asr.duration || 0);
@@ -143,7 +144,7 @@ function renderHome() {
 
   const demoSession = state.sessions.find((s) => s.id === state.sessionId) || state.sessions[0];
   if (demoSession) {
-    const label = demoSession.id === "live" ? demoSession.audioName : demoSession.id.toUpperCase();
+    const label = demoSession.kind === "live" ? demoSession.audioName : demoSession.id.toUpperCase();
     $("#heroStartDemoBtn").textContent = `▶ 立即进入示例会议核对 (${label})`;
     $("#enterLastSessionBtn").textContent = `进入工作台 (${label})`;
   }
@@ -172,7 +173,7 @@ function renderHome() {
   }
 
   grid.innerHTML = filtered.map((s) => {
-    const idLabel = s.id === "live" ? "本地导入" : s.id.toUpperCase();
+    const idLabel = s.kind === "live" ? "本地导入" : s.id.toUpperCase();
     const kindLabel = s.kind === "live" ? s.audioName : "示例会议";
     const kindClass = s.kind === "live" ? "is-live" : "";
     const topics = s.topics || [];
@@ -243,6 +244,7 @@ async function setAppView(view, sessionId = null, { pushHash = true } = {}) {
   $("#addMinuteBtn").classList.toggle("hidden", !isWorkspace);
   $("#copyMarkdownBtn").classList.toggle("hidden", !isWorkspace);
   $("#downloadMarkdownBtn").classList.toggle("hidden", !isWorkspace);
+  $("#downloadWordBtn").classList.toggle("hidden", !isWorkspace);
 
   renderTopbar();
   if (!isWorkspace) {
@@ -278,7 +280,7 @@ function renderSidebar() {
       <div class="session-group-label"><span>${label}</span><span>${items.length}</span></div>
       ${items.map((s) => {
         const active = s.id === state.sessionId ? "active" : "";
-        const idLabel = s.id === "live" ? s.audioName : s.id.toUpperCase();
+        const idLabel = s.kind === "live" ? s.audioName : s.id.toUpperCase();
         const verifiedText = s.itemCount ? `${s.verifiedCount}/${s.itemCount} 已核` : "0 条";
         return `
           <button class="session-item ${active}" data-session-id="${escapeHtml(s.id)}" type="button">
@@ -444,6 +446,9 @@ function renderMinuteCard(item, showInlineTopic) {
           ${showInlineTopic ? `<span class="minute-topic-inline">${escapeHtml(item.topic || "未分类议题")}</span>` : ""}
         </div>
         <div class="minute-card-actions">
+          ${item.type === "待办" ? (state.taskSources.has(taskSourceKey(state.sessionId, item.id))
+            ? '<a class="card-action-btn task-card-action" href="/tasks.html">已加入看板</a>'
+            : '<button class="card-action-btn task-card-action" data-add-task="' + escapeHtml(item.id) + '" type="button">加入看板</button>') : ""}
           <button class="card-action-btn" data-edit-minute="${escapeHtml(item.id)}" type="button">编辑</button>
           <button class="card-action-btn verify-btn ${isVerified ? "is-verified" : ""}" data-verify-minute="${escapeHtml(item.id)}" type="button">
             ${isVerified ? "✓ 已核对" : "标记核对"}
@@ -577,7 +582,7 @@ function updatePlayerMeta() {
 
   if (!hasAudio) {
     badge.textContent = "无本地音频";
-    subtitle.textContent = "未找到对应 WAV 音频文件，仍可核对转写与时间段；可通过右上角导入本地 WAV";
+    subtitle.textContent = "未找到本地音频，仍可核对转写与时间段。可通过右上角导入录音";
   } else if (item) {
     const spans = item._spans || [];
     const spanText = spans.length
@@ -735,12 +740,6 @@ async function switchSession(id) {
   if (!res.ok) throw new Error(data.error || "加载会话失败");
   await refreshSessionList();
   applySessionPayload(data);
-  if (state.appView === "workspace") {
-    const targetHash = `#session/${state.sessionId}`;
-    if (window.location.hash !== targetHash) {
-      window.location.hash = targetHash;
-    }
-  }
 }
 
 async function persistEdits() {
@@ -889,39 +888,54 @@ function closeModal(id) {
 }
 
 function parseHashRoute() {
-  const hash = window.location.hash || "";
-  const match = /^#session\/(live|clip0[1-5])$/.exec(hash);
-  if (match) return { view: "workspace", sessionId: match[1] };
-  return { view: "home", sessionId: null };
+  const match = /^#session\/(live|clip0[1-5]|record-[a-f0-9-]{36})(?:\/minute\/(m(?:\d+|-[a-f0-9-]{36})))?$/.exec(window.location.hash);
+  return match ? { sessionId: match[1], minuteId: match[2] } : {};
+}
+
+async function followHashRoute() {
+  const { sessionId, minuteId } = parseHashRoute();
+  await setAppView(sessionId ? "workspace" : "home", sessionId, { pushHash: false });
+  if (!minuteId) return;
+  if (!state.minutes.some((item) => item.id === minuteId)) {
+    showToast("来源纪要已删除，可在这次会议中查看其余内容");
+    return;
+  }
+  state.minuteFilter = "全部";
+  state.collapsedTopics.clear();
+  selectMinute(minuteId);
+  const card = document.querySelector('.minute-card[data-minute-id="' + minuteId + '"]');
+  card?.scrollIntoView({ block: "nearest" });
+}
+
+function taskSourceKey(sessionId, minuteId) {
+  return sessionId + "/" + minuteId;
+}
+
+async function refreshTaskSources() {
+  const res = await fetch("/api/tasks");
+  if (!res.ok) return;
+  const { tasks } = await res.json();
+  state.taskSources = new Set(tasks.map((task) => taskSourceKey(task.sessionId, task.minuteId)));
+  if (state.appView === "workspace") renderMinutes();
 }
 
 async function boot() {
   if (window.innerWidth <= 960) {
     $("#sessionSidebar").classList.add("collapsed");
   }
-  const route = parseHashRoute();
   const res = await fetch("/api/demo");
   const data = await res.json();
   if (!res.ok) throw new Error(data.error || "初始化加载失败");
   state.sessions = data.sessions || [];
   applySessionPayload(data);
-
-  if (route.view === "workspace" && route.sessionId) {
-    await setAppView("workspace", route.sessionId, { pushHash: false });
-  } else {
-    await setAppView("home", null, { pushHash: false });
-  }
+  await followHashRoute();
+  refreshTaskSources().catch(() => {});
 }
 
 /* ==================== Event Listeners ==================== */
 
 window.addEventListener("hashchange", () => {
-  const route = parseHashRoute();
-  if (route.view === "workspace" && route.sessionId) {
-    setAppView("workspace", route.sessionId, { pushHash: false }).catch((err) => showToast(err.message));
-  } else {
-    setAppView("home", null, { pushHash: false }).catch((err) => showToast(err.message));
-  }
+  followHashRoute().catch((err) => showToast(err.message));
 });
 
 // Topbar & Home navigation
@@ -990,7 +1004,7 @@ $("#sessionList").addEventListener("click", async (event) => {
   }
   if (id === state.sessionId) return;
   try {
-    await switchSession(id);
+    await openSessionWorkspace(id);
   } catch (err) {
     showToast(err.message);
   }
@@ -1108,6 +1122,30 @@ $("#groupModeToggle").addEventListener("click", (event) => {
 
 // Minute card actions
 $("#minutesList").addEventListener("click", async (event) => {
+  const addTask = event.target.closest("[data-add-task]");
+  if (addTask) {
+    const sessionId = state.sessionId;
+    const minuteId = addTask.dataset.addTask;
+    addTask.disabled = true;
+    try {
+      const res = await fetch("/api/tasks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sessionId, minuteId }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "加入待办看板失败");
+      state.taskSources.add(taskSourceKey(sessionId, minuteId));
+      renderMinutes();
+      showToast("已加入会后待办");
+    } catch (error) {
+      addTask.disabled = false;
+      showToast(error.message);
+    }
+    return;
+  }
+  if (event.target.closest(".task-card-action")) return;
+
   const topicToggle = event.target.closest("[data-toggle-topic]");
   if (topicToggle) {
     const topic = topicToggle.dataset.toggleTopic;
@@ -1183,11 +1221,7 @@ $("#editMinuteForm").addEventListener("submit", async (event) => {
       Object.assign(item, buildEvidenceFromIndices(indices));
     }
   } else {
-    const maxNum = state.minutes.reduce((max, m) => {
-      const match = /^m(\d+)$/.exec(String(m.id || ""));
-      return match ? Math.max(max, Number(match[1])) : max;
-    }, state.minutes.length);
-    targetId = `m${String(maxNum + 1).padStart(2, "0")}`;
+    targetId = "m-" + crypto.randomUUID();
     const newItem = {
       id: targetId,
       topic,
@@ -1396,16 +1430,51 @@ $("#speedSelect").addEventListener("change", (event) => {
   audioPlayer.playbackRate = Number(event.target.value || 1);
 });
 
+$("#downloadWordBtn").addEventListener("click", async (event) => {
+  const button = event.currentTarget;
+  const sessionId = state.sessionId;
+  const filename = state.audioName.replace(/\.[^.]+$/, "");
+  button.disabled = true;
+  try {
+    const response = await fetch("/api/session/word?id=" + encodeURIComponent(sessionId));
+    if (!response.ok) throw new Error((await response.json()).error || "Word 导出失败");
+    const url = URL.createObjectURL(await response.blob());
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename + "-会议纪要.docx";
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } catch (error) {
+    showToast(error.message);
+  } finally {
+    button.disabled = false;
+  }
+});
+
 // Upload Modal
+function acceptedAudio(file) {
+  if (!file) return null;
+  if (!/\.(wav|m4a|mp3)$/i.test(file.name)) {
+    showToast("请选择 WAV、M4A 或 MP3 录音");
+    return null;
+  }
+  if (file.size === 0 || file.size > 80 * 1024 * 1024) {
+    showToast("请选择不超过 80 MB 的有效录音");
+    return null;
+  }
+  return file;
+}
+
 function setUploadFile(file) {
-  state.selectedUploadFile = file || null;
+  file = acceptedAudio(file);
+  state.selectedUploadFile = file;
   if (file) {
     $("#dropzoneFileName").textContent = file.name;
     $("#dropzoneFileMeta").textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB · 准备就绪`;
     $("#startAnalyzeBtn").disabled = false;
   } else {
-    $("#dropzoneFileName").textContent = "点击选择 16 kHz WAV 录音文件（或拖拽至此）";
-    $("#dropzoneFileMeta").textContent = "最大支持 80 MB";
+    $("#dropzoneFileName").textContent = "点击选择或拖拽录音至此";
+    $("#dropzoneFileMeta").textContent = "支持 WAV、M4A、MP3，最大 80 MB";
     $("#startAnalyzeBtn").disabled = true;
   }
 }
@@ -1440,10 +1509,10 @@ dropzone.addEventListener("drop", (event) => {
   if (file) setUploadFile(file);
 });
 
-async function analyzeWavFile(file, method) {
+async function analyzeAudioFile(file, method) {
   const res = await fetch(`/api/analyze?name=${encodeURIComponent(file.name)}&method=${encodeURIComponent(method)}`, {
     method: "POST",
-    headers: { "Content-Type": "audio/wav" },
+    headers: { "Content-Type": "application/octet-stream" },
     body: file,
   });
   const data = await res.json();
@@ -1454,14 +1523,15 @@ async function analyzeWavFile(file, method) {
 }
 
 function setHomeUploadFile(file) {
-  state.homeUploadFile = file || null;
+  file = acceptedAudio(file);
+  state.homeUploadFile = file;
   if (file) {
     $("#homeDropzoneTitle").textContent = file.name;
     $("#homeDropzoneMeta").textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB · 准备就绪`;
     $("#homeAnalyzeBtn").disabled = false;
   } else {
-    $("#homeDropzoneTitle").textContent = "点击选择或拖拽本地 WAV 录音至此";
-    $("#homeDropzoneMeta").textContent = "本地离线识别，不上传音频原文件 · 最大 80 MB";
+    $("#homeDropzoneTitle").textContent = "点击选择或拖拽录音至此";
+    $("#homeDropzoneMeta").textContent = "支持 WAV、M4A、MP3，最大 80 MB";
     $("#homeAnalyzeBtn").disabled = true;
   }
 }
@@ -1490,7 +1560,7 @@ $("#homeAnalyzeBtn").addEventListener("click", async () => {
   $("#homeAnalyzeBtn").disabled = true;
   $("#homeUploadProgress").classList.remove("hidden");
   try {
-    await analyzeWavFile(file, method);
+    await analyzeAudioFile(file, method);
     setHomeUploadFile(null);
     $("#homeAudioInput").value = "";
     showToast("本地录音转写与纪要生成完成");
@@ -1510,7 +1580,7 @@ $("#startAnalyzeBtn").addEventListener("click", async () => {
   $("#uploadProgressBox").classList.remove("hidden");
 
   try {
-    await analyzeWavFile(file, method);
+    await analyzeAudioFile(file, method);
     closeModal("uploadModal");
     setUploadFile(null);
     $("#audioFileInput").value = "";

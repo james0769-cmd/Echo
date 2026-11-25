@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>会后待办 · EchoTrace</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/tasks.css" />
+    <script src="/tasks.js" defer></script>
+  </head>
+  <body class="task-page">
+    <header class="task-topbar">
+      <div class="task-shell task-topbar-inner">
+        <a class="task-brand" href="/">EchoTrace</a>
+        <a class="btn btn-secondary" href="/">回到录音库</a>
+      </div>
+    </header>
+    <main class="task-shell task-main">
+      <header class="task-heading">
+        <h1>会后待办</h1>
+        <p>从会议纪要加入待办。点开来源，可以回到原话核对。</p>
+      </header>
+      <p class="task-feedback" id="taskFeedback" role="status">正在读取待办…</p>
+      <div class="task-board" id="taskBoard" aria-label="待办进度" aria-busy="true" hidden></div>
+      <noscript>开启 JavaScript 后可查看待办。</noscript>
+    </main>
+  </body>
+</html>

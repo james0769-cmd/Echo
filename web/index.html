@@ -57,6 +57,8 @@
           <button class="btn btn-secondary hidden" id="addMinuteBtn" type="button">+ 新增纪要</button>
           <button class="btn btn-secondary hidden" id="copyMarkdownBtn" type="button">复制 Markdown</button>
           <button class="btn btn-secondary hidden" id="downloadMarkdownBtn" type="button">导出 .md</button>
+          <button class="btn btn-secondary hidden" id="downloadWordBtn" type="button">导出 Word</button>
+          <a class="btn btn-secondary" href="/tasks.html">待办看板</a>
           <button class="btn btn-primary" id="uploadModalBtn" type="button">导入录音分析</button>
         </div>
       </header>
@@ -101,24 +103,25 @@
             <div class="hero-upload-card">
               <div class="upload-card-head">
                 <h2>新建会议录音分析</h2>
-                <span class="upload-format-tag">16 kHz WAV</span>
+                <span class="upload-format-tag">WAV / M4A / MP3</span>
               </div>
               <label class="home-dropzone" id="homeDropzone" for="homeAudioInput">
-                <input id="homeAudioInput" type="file" accept=".wav,audio/wav,audio/x-wav" />
+                <input id="homeAudioInput" type="file" accept=".wav,.m4a,.mp3,audio/wav,audio/x-wav,audio/mp4,audio/mpeg" />
                 <div class="home-dropzone-icon" aria-hidden="true">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M12 15V4M12 4L8 8M12 4L16 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M4 15V17.5C4 18.88 5.12 20 6.5 20H17.5C18.88 20 20 18.88 20 17.5V15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
                   </svg>
                 </div>
-                <div class="home-dropzone-title" id="homeDropzoneTitle">点击选择或拖拽本地 WAV 录音至此</div>
-                <div class="home-dropzone-meta" id="homeDropzoneMeta">本地离线识别，不上传音频原文件 · 最大 80 MB</div>
+                <div class="home-dropzone-title" id="homeDropzoneTitle">点击选择或拖拽录音至此</div>
+                <div class="home-dropzone-meta" id="homeDropzoneMeta">支持 WAV、M4A、MP3，最大 80 MB</div>
               </label>
 
+              <p class="recording-use-note">音频在本机识别，转写文本发给纪要服务。导入前请确认参与者同意这些用途。<a href="/recording-consent.docx" download>下载录音同意书</a></p>
               <div class="form-field">
                 <label class="form-label" for="homeMethodSelect">纪要生成方案</label>
                 <select class="form-input" id="homeMethodSelect">
-                  <option value="segmented" selected>分段证据绑定（推荐 · 零幻觉校验）</option>
+                  <option value="segmented" selected>分段证据绑定（推荐）</option>
                   <option value="baseline">整段直接摘要（对照组 · 事后检索）</option>
                 </select>
               </div>
@@ -296,11 +299,11 @@
         </div>
         <div class="modal-body">
           <p class="modal-desc">
-            录音仅在本地通过 FunASR 离线转写一次，随后按分段证据方案提取决定、待办与待确认事项，不上传音频原文件。
+            音频在本机识别，转写文本发给纪要服务。导入前请确认参与者同意这些用途。<a href="/recording-consent.docx" download>下载录音同意书</a>
           </p>
           <label class="dropzone" id="dropzone" for="audioFileInput">
-            <input id="audioFileInput" type="file" accept=".wav,audio/wav,audio/x-wav" />
-            <div class="dropzone-title" id="dropzoneFileName">点击选择 16 kHz WAV 录音文件（或拖拽至此）</div>
+            <input id="audioFileInput" type="file" accept=".wav,.m4a,.mp3,audio/wav,audio/x-wav,audio/mp4,audio/mpeg" />
+            <div class="dropzone-title" id="dropzoneFileName">点击选择或拖拽录音至此</div>
             <div class="dropzone-hint" id="dropzoneFileMeta">最大支持 80 MB</div>
           </label>
           <div class="form-field">
