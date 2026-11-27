@@ -1,17 +1,20 @@
 const http = require("node:http");
 const fs = require("node:fs");
 const fsp = require("node:fs/promises");
-const os = require("node:os");
 const path = require("node:path");
-const { spawn } = require("node:child_process");
+const { randomUUID } = require("node:crypto");
 const { mergeFragments, shouldMergeFragments } = require("./asr_merge.cjs");
+const { prepareAudio, runProcess } = require("./audio.cjs");
+const { createTaskStore, fault } = require("./tasks.cjs");
 
 const PROJECT_ROOT = path.resolve(__dirname, "..");
 const PORT = Number(process.env.ECHO_WEB_PORT || 8124);
 const STATIC_ROOT = __dirname;
 const DEMO_ROOT = path.join(PROJECT_ROOT, "results", "demo");
-const LIVE_ROOT = path.join(PROJECT_ROOT, "results", "demo-live");
+const LIVE_ROOT = path.resolve(process.env.ECHO_DATA_DIR || path.join(PROJECT_ROOT, "results", "demo-live"));
+const SESSION_ROOT = path.join(LIVE_ROOT, "sessions");
 const EDITS_ROOT = path.join(LIVE_ROOT, "edits");
+const tasks = createTaskStore(path.join(LIVE_ROOT, "tasks.json"));
 const ASR_CACHE_ROOT = path.join(PROJECT_ROOT, "data", "cache", "asr");
 const CLIPS_AUDIO_ROOT = path.join(PROJECT_ROOT, "data", "public", "alimeeting", "clips");
 const MINUTES_ROOT = path.join(PROJECT_ROOT, "results", "minutes");
@@ -31,6 +34,9 @@ function resolvePython() {
 }
 
 const PYTHON = resolvePython();
+const LOCAL_FFMPEG = path.join(PROJECT_ROOT, ".tools", process.platform === "win32" ? "ffmpeg.exe" : "ffmpeg");
+const FFMPEG = process.env.ECHO_FFMPEG || (fs.existsSync(LOCAL_FFMPEG) ? LOCAL_FFMPEG : "ffmpeg");
+const DOCX_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -39,12 +45,17 @@ const MIME = {
   ".json": "application/json; charset=utf-8",
   ".wav": "audio/wav",
   ".svg": "image/svg+xml",
+  ".docx": DOCX_TYPE,
 };
 
 const SAMPLE_IDS = ["clip01", "clip02", "clip03", "clip04", "clip05"];
 
 function isValidSessionId(id) {
-  return id === "live" || /^clip0[1-5]$/.test(String(id || ""));
+  return id === "live" || /^clip0[1-5]$/.test(String(id || "")) || isRecordingId(id);
+}
+
+function isRecordingId(id) {
+  return /^record-[a-f0-9-]{36}$/.test(String(id || ""));
 }
 
 async function readJson(file) {
@@ -135,17 +146,19 @@ function mergeEdits(asr, minutes, edits) {
 async function resolveSessionFiles(id) {
   if (!isValidSessionId(id)) return null;
 
-  if (id === "live") {
-    const transcriptFile = path.join(LIVE_ROOT, "transcript.json");
-    const minutesFile = path.join(LIVE_ROOT, "minutes.json");
+  if (id === "live" || isRecordingId(id)) {
+    const directory = id === "live" ? LIVE_ROOT : path.join(SESSION_ROOT, id);
+    const transcriptFile = path.join(directory, "transcript.json");
+    const minutesFile = path.join(directory, "minutes.json");
     if (!fs.existsSync(transcriptFile) || !fs.existsSync(minutesFile)) return null;
-    const meta = (await readJsonSafe(path.join(LIVE_ROOT, "meta.json"))) || {};
-    const audioExists = fs.existsSync(LIVE_AUDIO);
+    const meta = (await readJsonSafe(path.join(directory, "meta.json"))) || {};
+    const audioExists = fs.existsSync(path.join(directory, "audio.wav"));
     return {
-      id: "live",
+      id,
       kind: "live",
       audioName: meta.audioName || "uploaded.wav",
-      audioUrl: audioExists ? "/media/live.wav" : null,
+      audioUrl: audioExists ? (id === "live" ? "/media/live.wav" : `/media/session/${id}.wav`) : null,
+      analyzedAt: meta.analyzedAt || "",
       transcriptFile,
       minutesFile,
     };
@@ -191,6 +204,7 @@ async function loadSession(id) {
     title: buildSessionTitle(items),
     audioName: info.audioName,
     audioUrl: info.audioUrl,
+    analyzedAt: info.analyzedAt,
     hasEdits,
     asr,
     minutes,
@@ -198,7 +212,8 @@ async function loadSession(id) {
 }
 
 async function listSessions() {
-  const candidates = ["live", ...SAMPLE_IDS];
+  const recordings = fs.existsSync(SESSION_ROOT) ? (await fsp.readdir(SESSION_ROOT)).filter(isRecordingId) : [];
+  const candidates = [...recordings, "live", ...SAMPLE_IDS];
   const sessions = [];
   for (const id of candidates) {
     const session = await loadSession(id);
@@ -230,6 +245,7 @@ async function listSessions() {
       title: session.title,
       audioName: session.audioName,
       audioUrl: session.audioUrl,
+      analyzedAt: session.analyzedAt,
       duration: Number(session.asr.duration || 0),
       sentenceCount: sentences.length,
       itemCount: items.length,
@@ -241,7 +257,7 @@ async function listSessions() {
       previewText,
     });
   }
-  return sessions;
+  return sessions.sort((a, b) => (b.analyzedAt || "").localeCompare(a.analyzedAt || ""));
 }
 
 function sendJson(res, status, value) {
@@ -249,7 +265,7 @@ function sendJson(res, status, value) {
   res.end(JSON.stringify(value));
 }
 
-function sendFile(req, res, filePath) {
+function sendFile(req, res, filePath, headers = {}) {
   let stat;
   try {
     stat = fs.statSync(filePath);
@@ -306,6 +322,7 @@ function sendFile(req, res, filePath) {
   }
 
   res.writeHead(200, {
+    ...headers,
     "Accept-Ranges": "bytes",
     "Content-Length": total,
     "Content-Type": contentType,
@@ -341,50 +358,48 @@ function readBody(req, maxBytes = 80 * 1024 * 1024) {
   });
 }
 
-async function runDemo(audioPath, originalName, method) {
-  const safeMethod = method === "baseline" ? "baseline" : "segmented";
-  await fsp.mkdir(LIVE_ROOT, { recursive: true });
-  await fsp.copyFile(audioPath, LIVE_AUDIO);
-  await fsp.rm(path.join(EDITS_ROOT, "live.json"), { force: true });
-  await fsp.writeFile(
-    path.join(LIVE_ROOT, "meta.json"),
-    JSON.stringify({ audioName: originalName || "uploaded.wav", method: safeMethod, analyzedAt: new Date().toISOString() }, null, 2),
-    "utf8",
-  );
+function runPython(module, args, input) {
+  return runProcess(PYTHON, ["-m", module, ...args], {
+    cwd: PROJECT_ROOT,
+    env: {
+      ...process.env,
+      PYTHONPATH: [path.join(PROJECT_ROOT, "src"), process.env.PYTHONPATH]
+        .filter(Boolean)
+        .join(path.delimiter),
+    },
+  }, input);
+}
 
-  return new Promise((resolve, reject) => {
-    const child = spawn(
-      PYTHON,
-      ["-m", "echotrace.cli", "demo", "--audio", audioPath, "--method", safeMethod, "--out", LIVE_ROOT],
-      {
-        cwd: PROJECT_ROOT,
-        env: {
-          ...process.env,
-          PYTHONPATH: [path.join(PROJECT_ROOT, "src"), process.env.PYTHONPATH]
-            .filter(Boolean)
-            .join(path.delimiter),
-        },
-        windowsHide: true,
-        stdio: ["ignore", "pipe", "pipe"],
-      },
-    );
-    let stderr = "";
-    child.stderr.on("data", (chunk) => { stderr += chunk.toString(); });
-    child.on("error", reject);
-    child.on("close", async (code) => {
-      if (code !== 0) {
-        reject(new Error(stderr.trim() || `分析进程退出：${code}`));
-        return;
-      }
-      try {
-        const session = await loadSession("live");
-        if (!session) throw new Error("未生成分析结果");
-        resolve(session);
-      } catch (error) {
-        reject(error);
-      }
-    });
-  });
+async function runDemo(bytes, originalName, method) {
+  const safeMethod = method === "baseline" ? "baseline" : "segmented";
+  const extension = path.extname(originalName).toLowerCase();
+  if (![".wav", ".m4a", ".mp3"].includes(extension)) {
+    throw fault(415, "请选择 WAV、M4A 或 MP3 录音。");
+  }
+  await fsp.mkdir(SESSION_ROOT, { recursive: true });
+  const stage = await fsp.mkdtemp(path.join(LIVE_ROOT, "import-"));
+  const id = "record-" + randomUUID();
+  try {
+    const audio = await prepareAudio(bytes, extension, stage, FFMPEG);
+    await runPython("echotrace.cli", ["demo", "--audio", audio, "--method", safeMethod, "--out", stage]);
+    await fsp.writeFile(path.join(stage, "meta.json"), JSON.stringify({
+      audioName: originalName,
+      method: safeMethod,
+      analyzedAt: new Date().toISOString(),
+    }), "utf8");
+    await fsp.rename(stage, path.join(SESSION_ROOT, id));
+  } finally {
+    if (fs.existsSync(stage)) await fsp.rm(stage, { recursive: true, force: true });
+  }
+  return loadSession(id);
+}
+
+async function readJsonBody(req) {
+  try {
+    return JSON.parse((await readBody(req, 64 * 1024)).toString("utf8"));
+  } catch (error) {
+    throw fault(error.status || 400, "请求内容格式不正确。");
+  }
 }
 
 const server = http.createServer(async (req, res) => {
@@ -428,21 +443,50 @@ const server = http.createServer(async (req, res) => {
         return;
       }
       const rawName = url.searchParams.get("name") || "meeting.wav";
-      let safeName = path.basename(rawName).replace(/[^\w.\-\u4e00-\u9fa5]/g, "_") || "meeting.wav";
-      if (!safeName.toLowerCase().endsWith(".wav")) {
-        safeName = `${safeName}.wav`;
-      }
-      const method = url.searchParams.get("method") || "segmented";
-      const tempDir = await fsp.mkdtemp(path.join(os.tmpdir(), "echotrace-demo-"));
-      const audioPath = path.join(tempDir, safeName);
-      await fsp.writeFile(audioPath, body);
-      try {
-        const session = await runDemo(audioPath, safeName, method);
-        sendJson(res, 200, session);
-      } finally {
-        await fsp.rm(tempDir, { recursive: true, force: true });
-      }
+      const safeName = path.win32.basename(rawName).replace(/[\x00-\x1f\x7f]/g, "").trim();
+      const session = await runDemo(body, safeName, url.searchParams.get("method"));
+      sendJson(res, 200, session);
       return;
+    }
+
+    if (req.method === "GET" && url.pathname === "/api/session/word") {
+      const id = url.searchParams.get("id") || "clip01";
+      const session = await loadSession(id);
+      if (!session) throw fault(404, "找不到要导出的会议录音。");
+      const buffer = await runPython("echotrace.word", [], Buffer.from(JSON.stringify(session), "utf8"));
+      res.writeHead(200, {
+        "Content-Type": DOCX_TYPE,
+        "Content-Disposition": "attachment; filename=meeting-minutes.docx",
+        "Content-Length": buffer.length,
+        "Cache-Control": "no-store",
+      });
+      res.end(buffer);
+      return;
+    }
+
+    if (url.pathname === "/api/tasks") {
+      if (req.method === "GET") {
+        sendJson(res, 200, { tasks: tasks.read() });
+        return;
+      }
+      if (req.method === "POST") {
+        const data = await readJsonBody(req);
+        const session = await loadSession(data.sessionId);
+        if (!session) throw fault(404, "找不到待办对应的会议录音。");
+        const result = tasks.add(session, data.minuteId);
+        sendJson(res, result.created ? 201 : 200, result);
+        return;
+      }
+      if (req.method === "PATCH") {
+        const data = await readJsonBody(req);
+        sendJson(res, 200, { task: tasks.update(data.id, data.status) });
+        return;
+      }
+      if (req.method === "DELETE") {
+        tasks.remove(url.searchParams.get("id"));
+        sendJson(res, 200, { ok: true });
+        return;
+      }
     }
 
     if (req.method === "POST" && url.pathname === "/api/session/save") {
@@ -501,6 +545,19 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
+    const recordingMedia = /^\/media\/session\/(record-[a-f0-9-]{36})\.wav$/.exec(url.pathname);
+    if (isRead && recordingMedia) {
+      sendFile(req, res, path.join(SESSION_ROOT, recordingMedia[1], "audio.wav"));
+      return;
+    }
+
+    if (isRead && url.pathname === "/recording-consent.docx") {
+      sendFile(req, res, path.join(PROJECT_ROOT, "docs", "录音同意书模板.docx"), {
+        "Content-Disposition": "attachment; filename=recording-consent.docx",
+      });
+      return;
+    }
+
     if (isRead && url.pathname.startsWith("/media/clip/")) {
       const filename = url.pathname.slice("/media/clip/".length);
       if (!/^clip0[1-5]\.wav$/.test(filename)) {
@@ -533,7 +590,7 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(405);
     res.end("Method not allowed");
   } catch (error) {
-    sendJson(res, 500, { error: error.message || "服务器错误" });
+    sendJson(res, error.status || 500, { error: error.message || "服务器错误" });
   }
 });
 
